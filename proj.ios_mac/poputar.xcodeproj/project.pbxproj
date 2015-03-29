@@ -92,8 +92,8 @@
 		04778F021AC2567000260CFC /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE51AC2567000260CFC /* Common.cpp */; };
 		04778F031AC2567000260CFC /* GuitarRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GuitarRunScene.cpp */; };
 		04778F041AC2567000260CFC /* GuitarRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GuitarRunScene.cpp */; };
-		04778F051AC2567000260CFC /* MainLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEA1AC2567000260CFC /* MainLayer.cpp */; };
-		04778F061AC2567000260CFC /* MainLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEA1AC2567000260CFC /* MainLayer.cpp */; };
+		04778F051AC2567000260CFC /* ChordRunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEA1AC2567000260CFC /* ChordRunLayer.cpp */; };
+		04778F061AC2567000260CFC /* ChordRunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEA1AC2567000260CFC /* ChordRunLayer.cpp */; };
 		04778F071AC2567000260CFC /* GameLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EED1AC2567000260CFC /* GameLevel.cpp */; };
 		04778F081AC2567000260CFC /* GameLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EED1AC2567000260CFC /* GameLevel.cpp */; };
 		04778F091AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEF1AC2567000260CFC /* GameLevelMenuItem.cpp */; };
@@ -261,8 +261,8 @@
 		04778EE61AC2567000260CFC /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		04778EE81AC2567000260CFC /* GuitarRunScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GuitarRunScene.cpp; sourceTree = "<group>"; };
 		04778EE91AC2567000260CFC /* GuitarRunScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuitarRunScene.h; sourceTree = "<group>"; };
-		04778EEA1AC2567000260CFC /* MainLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainLayer.cpp; sourceTree = "<group>"; };
-		04778EEB1AC2567000260CFC /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
+		04778EEA1AC2567000260CFC /* ChordRunLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChordRunLayer.cpp; sourceTree = "<group>"; };
+		04778EEB1AC2567000260CFC /* ChordRunLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChordRunLayer.h; sourceTree = "<group>"; };
 		04778EED1AC2567000260CFC /* GameLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevel.cpp; sourceTree = "<group>"; };
 		04778EEE1AC2567000260CFC /* GameLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevel.h; sourceTree = "<group>"; };
 		04778EEF1AC2567000260CFC /* GameLevelMenuItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevelMenuItem.cpp; sourceTree = "<group>"; };
@@ -558,8 +558,8 @@
 			children = (
 				04778EE81AC2567000260CFC /* GuitarRunScene.cpp */,
 				04778EE91AC2567000260CFC /* GuitarRunScene.h */,
-				04778EEA1AC2567000260CFC /* MainLayer.cpp */,
-				04778EEB1AC2567000260CFC /* MainLayer.h */,
+				04778EEA1AC2567000260CFC /* ChordRunLayer.cpp */,
+				04778EEB1AC2567000260CFC /* ChordRunLayer.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1037,7 +1037,7 @@
 				04CD4F371AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */,
 				04778F111AC2567000260CFC /* Lyric.cpp in Sources */,
 				04CD4F301AC4F7AE00E59AE5 /* BLEScene.cpp in Sources */,
-				04778F051AC2567000260CFC /* MainLayer.cpp in Sources */,
+				04778F051AC2567000260CFC /* ChordRunLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				04778F0D1AC2567000260CFC /* SelectMusic.cpp in Sources */,
 				04778F151AC2567000260CFC /* Rhythm.cpp in Sources */,
@@ -1067,7 +1067,7 @@
 				04778F121AC2567000260CFC /* Lyric.cpp in Sources */,
 				04778F281AC2574900260CFC /* PluginHelper.mm in Sources */,
 				04778F0A1AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */,
-				04778F061AC2567000260CFC /* MainLayer.cpp in Sources */,
+				04778F061AC2567000260CFC /* ChordRunLayer.cpp in Sources */,
 				04778F101AC2567000260CFC /* Chord.cpp in Sources */,
 				04778F081AC2567000260CFC /* GameLevel.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,

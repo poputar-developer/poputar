@@ -1,7 +1,7 @@
 //
 //  Chord.h
 //  Guitar
-//
+//  和弦模型类
 //  Created by allen on 14-11-30.
 //
 //
@@ -26,6 +26,7 @@ private:
     string type;
 public:
     
+    //是否需要碰撞检测
     bool isCollision=false;
     
     ~Chord();

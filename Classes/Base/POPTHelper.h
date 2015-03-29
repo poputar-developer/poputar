@@ -13,6 +13,7 @@
 
 class POPTHelper{
 public:
+    //获得当前系统时间
     static long getCurrentTime();
 };
 

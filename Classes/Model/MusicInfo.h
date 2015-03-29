@@ -1,7 +1,7 @@
 //
 //  MusicInfo.h
 //  Guitar
-//
+//  音乐模型类
 //  Created by allen on 14-11-30.
 //
 //

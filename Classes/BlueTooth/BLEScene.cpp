@@ -78,13 +78,9 @@ void BLEScene::connectBle(float dt){
     log("connectCount:%i",connectCount);
     
     if(PluginHelper::isConnected()){
-        //取消遮罩
-        //弹出蓝牙连接成功提示
         label->setString("蓝牙连接成功");
         unschedule(schedule_selector(BLEScene::connectBle));
     }else if(connectCount >=5){
-        //取消遮罩
-        //弹出蓝牙连接失败提示
         label->setString("蓝牙连接失败");
          unschedule(schedule_selector(BLEScene::connectBle));
     }

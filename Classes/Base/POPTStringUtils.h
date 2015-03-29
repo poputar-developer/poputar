@@ -1,7 +1,6 @@
 //
 //  POPTStringUtils.h
-//  poputar
-//
+//  poputar 字符串帮助类
 //  Created by allen on 15-3-27.
 //
 //
@@ -14,6 +13,7 @@ using namespace std;
 
 class POPTStringUtils{
 public:
+    //字符串根据pattern截取
     static vector<string> split(string str,string pattern);
 };
 

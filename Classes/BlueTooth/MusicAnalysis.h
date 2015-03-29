@@ -1,7 +1,7 @@
 //
 //  ChordAnalysis.h
 //  poputar
-//
+//  音乐信息翻译为蓝牙所需信息
 //  Created by allen on 15-3-27.
 //
 //
@@ -23,10 +23,10 @@ public:
     static MusicAnalysis* getInstance();
     
     //和弦解析为音符字符串
-    unsigned char* sendChordStr(string chord);
+    void sendChordStr(string chord);
     
     //将字符串解析为二维数组并组装成为02命令的指令
-    unsigned char* sendMusicChar(string musical);
+    void sendMusicChar(string musical);
     
 };
 

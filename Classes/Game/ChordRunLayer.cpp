@@ -1,27 +1,29 @@
 //
-//  MainLayer.cpp
+//  ChordRunLayer.cpp
 //  Guitars
 //
 //  Created by allen on 14-12-23.
 //
 //
 
-#include "MainLayer.h"
+#include "ChordRunLayer.h"
 #include "MusicAnalysis.h"
 #include "POPTHelper.h"
+//小节计数 当前播放的小节
 int currentBeat;
-
-Vector<Chord*> currBeatChords;
-Vector<Chord*> waitBeatChords;
-
+//蓝牙计数器 用于提前获得下一个和弦
 int nextBlueIndex = 0;
-
-//当前弹奏和弦(碰撞时刻的下一个和弦）
+//当前小节和弦容器
+Vector<Chord*> currBeatChords;
+//下一小节的和弦容器
+Vector<Chord*> waitBeatChords;
+//当前弹奏和弦
 Sprite* currCollision;
+//是否第一个真实的节奏线 （第一个真实节奏线生成时需要传递蓝牙信息）
+bool isFirst = true;
 
-
-MainLayer* MainLayer::createMainLayer(MusicInfo *musicInfo){
-    MainLayer *layer = new MainLayer();
+ChordRunLayer* ChordRunLayer::createChordRunLayer(MusicInfo *musicInfo){
+    ChordRunLayer *layer = new ChordRunLayer();
     if(layer && layer->init(Color4B(0,0,0,0),musicInfo))
     {
         layer->autorelease();
@@ -31,7 +33,7 @@ MainLayer* MainLayer::createMainLayer(MusicInfo *musicInfo){
     return nullptr;
 }
 
-bool MainLayer::init(const cocos2d::Color4B &&color,MusicInfo *musicInfo){
+bool ChordRunLayer::init(const cocos2d::Color4B &&color,MusicInfo *musicInfo){
     bool result =  initWithColor(color);
     
     common = Common::getInstance(visibleSize.width, visibleSize.height*0.7, musicInfo);
@@ -51,14 +53,14 @@ bool MainLayer::init(const cocos2d::Color4B &&color,MusicInfo *musicInfo){
 //
     this->getNewRhythm(true);
     this->startAnimation();
-    schedule(schedule_selector(MainLayer::rhythmMove), common->rhythm_time, kRepeatForever, common->startTime);
+    schedule(schedule_selector(ChordRunLayer::rhythmMove), common->rhythm_time, kRepeatForever, common->startTime);
 //
     scheduleUpdate();
     return result;
 }
 
 //开始动画方法
-void MainLayer::startAnimation(){
+void ChordRunLayer::startAnimation(){
     int visibleWidth = visibleSize.width;
     //倒计时动画
     SpriteFrame *startSpriteFrame = SpriteFrame::create("1.png", Rect(0,0,100,100));
@@ -86,7 +88,7 @@ void MainLayer::startAnimation(){
 }
 
 
-void MainLayer::update(float dt){
+void ChordRunLayer::update(float dt){
     //当前小节的节奏线
     Rhythm *rhythm = (Rhythm *)this->getChildByTag(currentBeat);
     //循环当前和弦，查看是否发生碰撞
@@ -102,8 +104,8 @@ void MainLayer::update(float dt){
     }
 }
 
-bool isFirst = true;
-void MainLayer::rhythmMove(float dt){
+
+void ChordRunLayer::rhythmMove(float dt){
     if(currentBeat){
         this->moveChords();
         this->getNewChords();
@@ -118,7 +120,7 @@ void MainLayer::rhythmMove(float dt){
     
 }
 
-void MainLayer::moveChords(){
+void ChordRunLayer::moveChords(){
     //当前弹奏的和弦移动到屏幕外
     for (auto &e:currBeatChords) {
         ActionInterval *ai =  e->moveOut(common);
@@ -137,7 +139,7 @@ void MainLayer::moveChords(){
     waitBeatChords.clear();
 }
 
-void MainLayer::sendDataToBluetooth(){
+void ChordRunLayer::sendDataToBluetooth(){
     
     long c = POPTHelper::getCurrentTime();
     log("发送时间：%d",c);
@@ -149,15 +151,13 @@ void MainLayer::sendDataToBluetooth(){
     }
     long c1 = POPTHelper::getCurrentTime();
     log("结束时间：%d",c1);
-
-    
     nextBlueIndex++;
 }
 
 
 
 
-void MainLayer::getNewChords(){
+void ChordRunLayer::getNewChords(){
     //初始化和弦，并从Y轴的0移动的array4Y的第一个位置
     ValueVector beatChords = common->musicInfo->getChords();
     int beatCount = common->musicInfo->getBeat();
@@ -189,7 +189,7 @@ void MainLayer::getNewChords(){
 
 
 
-void MainLayer::getNewRhythm(bool first){
+void ChordRunLayer::getNewRhythm(bool first){
     //创建信息节奏线
     Rhythm *rhythmLine = Rhythm::createRhythm(common, currentBeat);
     this->addChild(rhythmLine,1);
@@ -211,8 +211,8 @@ void MainLayer::getNewRhythm(bool first){
     rhythmLine->runAction(sequence);
 }
 
-void MainLayer::stopMusic(){
-    unschedule(schedule_selector(MainLayer::rhythmMove));
+void ChordRunLayer::stopMusic(){
+    unschedule(schedule_selector(ChordRunLayer::rhythmMove));
     unscheduleUpdate();
     this->removeAllChildren();
     
@@ -220,10 +220,8 @@ void MainLayer::stopMusic(){
     waitBeatChords.clear();
 
     nextBlueIndex = 0;
-}
-
-void MainLayer::sendChordInfo(ValueVector vv){
     
+    isFirst = true;
 }
 
 

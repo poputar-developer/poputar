@@ -1,7 +1,7 @@
 //
 //  Lyric.h
 //  Guitars
-//
+//  歌词模型类
 //  Created by allen on 14-12-4.
 //
 //

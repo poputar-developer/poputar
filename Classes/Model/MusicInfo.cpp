@@ -1,7 +1,7 @@
 //
 //  MusicInfo.cpp
 //  Guitar
-//
+//  
 //  Created by allen on 14-11-30.
 //
 //
