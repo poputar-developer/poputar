@@ -1,7 +1,6 @@
 //
-//  GTRect.h
-//  Test1
 //
+// 节奏线模型
 //  Created by allen on 14-11-27.
 //
 //
@@ -24,6 +23,7 @@ private:
     
 public:
     
+    //是否真实节奏线（非歌曲开始前的节奏线，需要进行碰撞检测）
     bool isReal = true;
     
     virtual bool initWithFile(const string &filename,Common *common,int currentBeat);

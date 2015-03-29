@@ -17,7 +17,9 @@ class BaseLayer : public Layer{
     
 public:
     virtual bool init();
+    //回到上一场景
     virtual void goBack(Ref* sender);
+    //设置背景
     virtual void setBackground();
     
 };

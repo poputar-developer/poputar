@@ -53,19 +53,18 @@ MusicAnalysis* MusicAnalysis::getInstance(){
 
 
 
-unsigned char* MusicAnalysis::sendChordStr(string chord){
+void MusicAnalysis::sendChordStr(string chord){
     map<string,string>::iterator it;
     it = chordInfo.find(chord);
     
-    if(it == chordInfo.end()){
-        return nullptr;
+    if(it != chordInfo.end()){
+
     }else{
-        unsigned char * result =this->sendMusicChar(chordInfo[chord]);
-        return result;
+        this->sendMusicChar(chordInfo[chord]);
     }
 }
 
-unsigned char* MusicAnalysis::sendMusicChar(string musical){
+void MusicAnalysis::sendMusicChar(string musical){
     vector<string> infos = POPTStringUtils::split(musical, "@|@");
     map<int,int> charInfo;
     
@@ -111,12 +110,11 @@ unsigned char* MusicAnalysis::sendMusicChar(string musical){
         temp += command[i];
     }
     //command[2] = temp^0x7f;
+    //计算存在问题 ？？
     command[2] = 0x62;
-    unsigned char *result = command;
     
     PluginHelper::sendDate(command);
     
-    return result;
 }
 
 

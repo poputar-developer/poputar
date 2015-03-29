@@ -20,14 +20,15 @@ using namespace std;
 using namespace cocostudio::timeline;
 
 class BLEScene : public Layer{
+private:
+    //连接蓝牙
+    void connectBle(float dt);
+    //跳转到下一个场景
+    void nextSence(float dt);
 public:
     static cocos2d::Scene* createScene();
     
     virtual bool init();
-    
-    void connectBle(float dt);
-    
-    void nextSence(float dt);
     
     CREATE_FUNC(BLEScene);
 };

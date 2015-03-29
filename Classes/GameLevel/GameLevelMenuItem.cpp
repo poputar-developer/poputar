@@ -10,6 +10,7 @@
 #include "MusicInfo.h"
 #include "GuitarRunScene.h"
 
+//按钮大小
 float itemSide = 57.0f;
 
 GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked,int level, int node,const ccMenuCallback& callback){
@@ -27,6 +28,7 @@ GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked,int 
         startMeunSelect = ui::Scale9Sprite::create("Game_MenuItem_Selected.png");
     }
     
+    //按钮大小设置
     startMeunNormal->setPreferredSize(Size(itemSide,itemSide));
     startMeunSelect->setPreferredSize(Size(itemSide,itemSide));
     
@@ -47,11 +49,3 @@ GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked,int 
     return nullptr;
     CC_SAFE_DELETE(item);
 }
-//void LevelMenu::toPlaySence(Ref* sender){
-//        MusicInfo *musicInfo = MusicInfo::initWithJson(0);
-//
-//        Scene *guitarRunScene = GuitarRun::createScene(musicInfo);
-//        auto transition = TransitionFadeDown::create(0.5f, guitarRunScene);
-//        Director::getInstance()->replaceScene(transition);
-//    
-//}

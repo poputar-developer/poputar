@@ -19,17 +19,17 @@ USING_NS_CC_EXT;
 using namespace cocos2d::ui;
 
 class GameLevel : public BaseLayer{
+private:
+    //组装界面
+    void loadFrame();
+    //进入游戏界面
+    void toPlaySence(Ref* sender);
 public:
     
     static cocos2d::Scene* createScene();
     
     CREATE_FUNC(GameLevel);
-    
-    void loadFrame();
-    
-    void toPlaySence(Ref* sender);
-    
-    
+
     virtual void setBackground();
     
 };

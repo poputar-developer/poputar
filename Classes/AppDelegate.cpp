@@ -69,9 +69,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     glview->setDesignResolutionSize(designSize.width, designSize.height, ResolutionPolicy::NO_BORDER);
 
+    //蓝牙初始化
     PluginHelper::init();
-
-    
+    //蓝牙连接场景
     auto scene = BLEScene::createScene();
     director->runWithScene(scene);
 

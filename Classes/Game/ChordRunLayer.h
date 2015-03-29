@@ -20,7 +20,7 @@
 #include "Chord.h"
 USING_NS_CC;
 
-class MainLayer:public LayerColor{
+class ChordRunLayer:public LayerColor{
 private:
     //公告属性
     Common *common;
@@ -41,15 +41,13 @@ private:
     void rhythmMove(float dt);
     //碰撞检测方法
     void update(float dt);
-    
-    void sendChordInfo(ValueVector vv);
-    
+    //发送蓝牙数据
     void sendDataToBluetooth();
     
 public:
     virtual bool init(const Color4B &&color,MusicInfo *musicInfo);
-    static MainLayer *createMainLayer(MusicInfo *musicInfo);
-    
+    static ChordRunLayer *createChordRunLayer(MusicInfo *musicInfo);
+    //返回时清空当前播放的参数
     void stopMusic();
 
 };
