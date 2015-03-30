@@ -21,7 +21,7 @@ bool BaseLayer::init(){
     Rect rect = btn->getBoundingBox();
     btn->setPosition(Vec2(visibleSize.width-rect.size.width, visibleSize.height-rect.size.height));
     
-    btn->addTouchEventListener(CC_CALLBACK_1(BaseLayer::goBack, this));
+    btn->addClickEventListener(CC_CALLBACK_1(BaseLayer::goBack, this));
     
     this->addChild(btn,999);
     

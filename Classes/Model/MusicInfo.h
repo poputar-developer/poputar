@@ -24,7 +24,8 @@ private:
     ValueVector vec_chords;
     //歌词
     ValueVector vec_lyric;
-    
+    //弹唱的位置信息
+    ValueVector vec_musical;
 
     
 public:
@@ -33,6 +34,7 @@ public:
     int getBpm();
     ValueVector getChords();
     ValueVector getLyircs();
+    ValueVector getMusical();
     vector<string> getBluetoothChord();
 };
 

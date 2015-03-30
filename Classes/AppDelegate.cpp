@@ -1,8 +1,9 @@
 #include "AppDelegate.h"
 #include "BLEScene.h"
 #include "PluginHelper.h"
-
 #include "SelectMusic.h"
+
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -72,7 +73,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //蓝牙初始化
     PluginHelper::init();
     //蓝牙连接场景
-    auto scene = BLEScene::createScene();
+//    auto scene = BLEScene::createScene();
+    auto scene = SelectMusic::createScene();
     director->runWithScene(scene);
 
     return true;

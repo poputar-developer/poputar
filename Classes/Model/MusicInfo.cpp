@@ -47,6 +47,7 @@ MusicInfo* MusicInfo::initWithJson(string uuid){
         ValueVector beatVector;
         ValueVector lyricVector;
         for(rapidjson::SizeType i=0;i<cArray.Size();i++){
+            //按小节拍数进行组装(如每小节4拍则4个和弦装入一个vector中)
             if(count == mBeat.GetInt()){
                 count = 0;
                 ValueVector tempBeatVector = beatVector;
@@ -68,13 +69,10 @@ MusicInfo* MusicInfo::initWithJson(string uuid){
             bluetoothChord.push_back(chordType);
             count++;
         }
-        
+        //如果最后有剩余和弦或歌词，则单独组装一个vector
         if(beatVector.size()>0){
             music->vec_chords.push_back(Value(beatVector));
-
-
         }
-        
         if(lyricVector.size()>0){
             music->vec_lyric.push_back(Value(lyricVector));
 
@@ -84,6 +82,13 @@ MusicInfo* MusicInfo::initWithJson(string uuid){
         const rapidjson::Value &cArray = doc["strings"];
         if(!cArray.IsArray()){
             log("music file chords array is error!");
+        }
+        
+        for(rapidjson::SizeType i=0;i<cArray.Size();i++){
+            const rapidjson::Value &strs = cArray[i];
+            const rapidjson::Value &cString = strs["str"];
+            string str = cString.GetString();
+            music->vec_musical.push_back(Value(str));
         }
     }
 
@@ -96,6 +101,10 @@ int MusicInfo::getBeat(){
 
 int MusicInfo::getBpm(){
     return this->bpm;
+}
+
+ValueVector MusicInfo::getMusical(){
+    return this->vec_musical;
 }
 
 ValueVector MusicInfo::getChords(){

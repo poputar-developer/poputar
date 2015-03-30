@@ -48,10 +48,6 @@
 		04778EAE1AC2564900260CFC /* G.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E781AC2564900260CFC /* G.png */; };
 		04778EAF1AC2564900260CFC /* rhythm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E791AC2564900260CFC /* rhythm.png */; };
 		04778EB01AC2564900260CFC /* rhythm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E791AC2564900260CFC /* rhythm.png */; };
-		04778EB11AC2564900260CFC /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E7B1AC2564900260CFC /* hand.png */; };
-		04778EB21AC2564900260CFC /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E7B1AC2564900260CFC /* hand.png */; };
-		04778EB31AC2564900260CFC /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E7C1AC2564900260CFC /* start.png */; };
-		04778EB41AC2564900260CFC /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E7C1AC2564900260CFC /* start.png */; };
 		04778EB51AC2564900260CFC /* Game_MenuItem_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E7E1AC2564900260CFC /* Game_MenuItem_Normal.png */; };
 		04778EB61AC2564900260CFC /* Game_MenuItem_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E7E1AC2564900260CFC /* Game_MenuItem_Normal.png */; };
 		04778EB71AC2564900260CFC /* Game_MenuItem_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 04778E7F1AC2564900260CFC /* Game_MenuItem_Selected.png */; };
@@ -100,14 +96,8 @@
 		04778F0A1AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEF1AC2567000260CFC /* GameLevelMenuItem.cpp */; };
 		04778F0D1AC2567000260CFC /* SelectMusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EF41AC2567000260CFC /* SelectMusic.cpp */; };
 		04778F0E1AC2567000260CFC /* SelectMusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EF41AC2567000260CFC /* SelectMusic.cpp */; };
-		04778F0F1AC2567000260CFC /* Chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EF71AC2567000260CFC /* Chord.cpp */; };
-		04778F101AC2567000260CFC /* Chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EF71AC2567000260CFC /* Chord.cpp */; };
-		04778F111AC2567000260CFC /* Lyric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EF91AC2567000260CFC /* Lyric.cpp */; };
-		04778F121AC2567000260CFC /* Lyric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EF91AC2567000260CFC /* Lyric.cpp */; };
 		04778F131AC2567000260CFC /* MusicInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EFB1AC2567000260CFC /* MusicInfo.cpp */; };
 		04778F141AC2567000260CFC /* MusicInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EFB1AC2567000260CFC /* MusicInfo.cpp */; };
-		04778F151AC2567000260CFC /* Rhythm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EFD1AC2567000260CFC /* Rhythm.cpp */; };
-		04778F161AC2567000260CFC /* Rhythm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EFD1AC2567000260CFC /* Rhythm.cpp */; };
 		04778F1D1AC2569F00260CFC /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778F1B1AC2569F00260CFC /* AppDelegate.cpp */; };
 		04778F1E1AC2569F00260CFC /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778F1B1AC2569F00260CFC /* AppDelegate.cpp */; };
 		04778F271AC2574900260CFC /* PluginHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04778F241AC2574900260CFC /* PluginHelper.mm */; };
@@ -123,8 +113,6 @@
 		04CD4F381AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F351AC504D600E59AE5 /* POPTStringUtils.cpp */; };
 		04CD4F3E1AC5354B00E59AE5 /* chordInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CD4F3A1AC5354B00E59AE5 /* chordInfo.json */; };
 		04CD4F3F1AC5354B00E59AE5 /* chordInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CD4F3A1AC5354B00E59AE5 /* chordInfo.json */; };
-		04CD4F421AC5354B00E59AE5 /* gamelevel_config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 04CD4F3C1AC5354B00E59AE5 /* gamelevel_config.xml */; };
-		04CD4F431AC5354B00E59AE5 /* gamelevel_config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 04CD4F3C1AC5354B00E59AE5 /* gamelevel_config.xml */; };
 		04CD4F4D1AC6A23D00E59AE5 /* cunzai.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CD4F4B1AC6A23D00E59AE5 /* cunzai.json */; };
 		04CD4F4E1AC6A23D00E59AE5 /* xiaoxingxing.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CD4F4C1AC6A23D00E59AE5 /* xiaoxingxing.json */; };
 		04CD4F521AC6B1C600E59AE5 /* POPTHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F501AC6B1C600E59AE5 /* POPTHelper.cpp */; };
@@ -132,6 +120,29 @@
 		04EB8FFC1AC3B103004B102A /* right_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EB8FFA1AC3B103004B102A /* right_empty.png */; };
 		04EB90041AC3B202004B102A /* BlePlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04EB90021AC3B202004B102A /* BlePlist.plist */; };
 		04EB90051AC3B202004B102A /* BlePlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EB90031AC3B202004B102A /* BlePlist.png */; };
+		04EBF1E11AC8E9FE0039EA92 /* gamelevel_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1E01AC8E9FE0039EA92 /* gamelevel_config.json */; };
+		04EBF1E21AC8E9FE0039EA92 /* gamelevel_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1E01AC8E9FE0039EA92 /* gamelevel_config.json */; };
+		04EBF1E41AC8F03D0039EA92 /* Game_MenuItem_Lock .png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1E31AC8F03D0039EA92 /* Game_MenuItem_Lock .png */; };
+		04EBF1E51AC8F03D0039EA92 /* Game_MenuItem_Lock .png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1E31AC8F03D0039EA92 /* Game_MenuItem_Lock .png */; };
+		04EBF1E81AC8F8C10039EA92 /* GameInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF1E61AC8F8C10039EA92 /* GameInfo.cpp */; };
+		04EBF1E91AC8F8C10039EA92 /* GameInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF1E61AC8F8C10039EA92 /* GameInfo.cpp */; };
+		04EBF1EC1AC9226D0039EA92 /* FingerRunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF1EA1AC9226D0039EA92 /* FingerRunLayer.cpp */; };
+		04EBF1ED1AC9226D0039EA92 /* FingerRunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF1EA1AC9226D0039EA92 /* FingerRunLayer.cpp */; };
+		04EBF1F71AC93D240039EA92 /* finger_popo.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1F41AC93D240039EA92 /* finger_popo.png */; };
+		04EBF1F81AC93D240039EA92 /* finger_popo.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1F41AC93D240039EA92 /* finger_popo.png */; };
+		04EBF1F91AC93D240039EA92 /* finger_rhythm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1F51AC93D240039EA92 /* finger_rhythm.png */; };
+		04EBF1FA1AC93D240039EA92 /* finger_rhythm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1F51AC93D240039EA92 /* finger_rhythm.png */; };
+		04EBF1FB1AC93D240039EA92 /* finger_string.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1F61AC93D240039EA92 /* finger_string.png */; };
+		04EBF1FC1AC93D240039EA92 /* finger_string.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF1F61AC93D240039EA92 /* finger_string.png */; };
+		04EBF2191AC940A40039EA92 /* Chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2111AC940A40039EA92 /* Chord.cpp */; };
+		04EBF21A1AC940A40039EA92 /* Chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2111AC940A40039EA92 /* Chord.cpp */; };
+		04EBF21B1AC940A40039EA92 /* Lyric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2131AC940A40039EA92 /* Lyric.cpp */; };
+		04EBF21C1AC940A40039EA92 /* Lyric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2131AC940A40039EA92 /* Lyric.cpp */; };
+		04EBF21D1AC940A40039EA92 /* Musical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2151AC940A40039EA92 /* Musical.cpp */; };
+		04EBF21E1AC940A40039EA92 /* Musical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2151AC940A40039EA92 /* Musical.cpp */; };
+		04EBF21F1AC940A40039EA92 /* Rhythm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2171AC940A40039EA92 /* Rhythm.cpp */; };
+		04EBF2201AC940A40039EA92 /* Rhythm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2171AC940A40039EA92 /* Rhythm.cpp */; };
+		04EBF2241AC969680039EA92 /* RunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2221AC969680039EA92 /* RunLayer.cpp */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -236,8 +247,6 @@
 		04778E771AC2564900260CFC /* F.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = F.png; sourceTree = "<group>"; };
 		04778E781AC2564900260CFC /* G.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = G.png; sourceTree = "<group>"; };
 		04778E791AC2564900260CFC /* rhythm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rhythm.png; sourceTree = "<group>"; };
-		04778E7B1AC2564900260CFC /* hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand.png; sourceTree = "<group>"; };
-		04778E7C1AC2564900260CFC /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		04778E7E1AC2564900260CFC /* Game_MenuItem_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Game_MenuItem_Normal.png; sourceTree = "<group>"; };
 		04778E7F1AC2564900260CFC /* Game_MenuItem_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Game_MenuItem_Selected.png; sourceTree = "<group>"; };
 		04778E811AC2564900260CFC /* bj_suspend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bj_suspend.png; sourceTree = "<group>"; };
@@ -269,14 +278,8 @@
 		04778EF01AC2567000260CFC /* GameLevelMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelMenuItem.h; sourceTree = "<group>"; };
 		04778EF41AC2567000260CFC /* SelectMusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectMusic.cpp; sourceTree = "<group>"; };
 		04778EF51AC2567000260CFC /* SelectMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMusic.h; sourceTree = "<group>"; };
-		04778EF71AC2567000260CFC /* Chord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chord.cpp; sourceTree = "<group>"; };
-		04778EF81AC2567000260CFC /* Chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chord.h; sourceTree = "<group>"; };
-		04778EF91AC2567000260CFC /* Lyric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lyric.cpp; sourceTree = "<group>"; };
-		04778EFA1AC2567000260CFC /* Lyric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lyric.h; sourceTree = "<group>"; };
 		04778EFB1AC2567000260CFC /* MusicInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicInfo.cpp; sourceTree = "<group>"; };
 		04778EFC1AC2567000260CFC /* MusicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicInfo.h; sourceTree = "<group>"; };
-		04778EFD1AC2567000260CFC /* Rhythm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rhythm.cpp; sourceTree = "<group>"; };
-		04778EFE1AC2567000260CFC /* Rhythm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rhythm.h; sourceTree = "<group>"; };
 		04778F1B1AC2569F00260CFC /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		04778F1C1AC2569F00260CFC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04778F231AC2574900260CFC /* PluginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginHelper.h; sourceTree = "<group>"; };
@@ -292,7 +295,6 @@
 		04CD4F351AC504D600E59AE5 /* POPTStringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = POPTStringUtils.cpp; sourceTree = "<group>"; };
 		04CD4F361AC504D600E59AE5 /* POPTStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTStringUtils.h; sourceTree = "<group>"; };
 		04CD4F3A1AC5354B00E59AE5 /* chordInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chordInfo.json; sourceTree = "<group>"; };
-		04CD4F3C1AC5354B00E59AE5 /* gamelevel_config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gamelevel_config.xml; sourceTree = "<group>"; };
 		04CD4F4B1AC6A23D00E59AE5 /* cunzai.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cunzai.json; sourceTree = "<group>"; };
 		04CD4F4C1AC6A23D00E59AE5 /* xiaoxingxing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xiaoxingxing.json; sourceTree = "<group>"; };
 		04CD4F501AC6B1C600E59AE5 /* POPTHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = POPTHelper.cpp; sourceTree = "<group>"; };
@@ -301,6 +303,25 @@
 		04EB8FFA1AC3B103004B102A /* right_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_empty.png; sourceTree = "<group>"; };
 		04EB90021AC3B202004B102A /* BlePlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BlePlist.plist; sourceTree = "<group>"; };
 		04EB90031AC3B202004B102A /* BlePlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlePlist.png; sourceTree = "<group>"; };
+		04EBF1E01AC8E9FE0039EA92 /* gamelevel_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gamelevel_config.json; sourceTree = "<group>"; };
+		04EBF1E31AC8F03D0039EA92 /* Game_MenuItem_Lock .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Game_MenuItem_Lock .png"; sourceTree = "<group>"; };
+		04EBF1E61AC8F8C10039EA92 /* GameInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameInfo.cpp; sourceTree = "<group>"; };
+		04EBF1E71AC8F8C10039EA92 /* GameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfo.h; sourceTree = "<group>"; };
+		04EBF1EA1AC9226D0039EA92 /* FingerRunLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FingerRunLayer.cpp; sourceTree = "<group>"; };
+		04EBF1EB1AC9226D0039EA92 /* FingerRunLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerRunLayer.h; sourceTree = "<group>"; };
+		04EBF1F41AC93D240039EA92 /* finger_popo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_popo.png; sourceTree = "<group>"; };
+		04EBF1F51AC93D240039EA92 /* finger_rhythm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_rhythm.png; sourceTree = "<group>"; };
+		04EBF1F61AC93D240039EA92 /* finger_string.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_string.png; sourceTree = "<group>"; };
+		04EBF2111AC940A40039EA92 /* Chord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chord.cpp; sourceTree = "<group>"; };
+		04EBF2121AC940A40039EA92 /* Chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chord.h; sourceTree = "<group>"; };
+		04EBF2131AC940A40039EA92 /* Lyric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lyric.cpp; sourceTree = "<group>"; };
+		04EBF2141AC940A40039EA92 /* Lyric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lyric.h; sourceTree = "<group>"; };
+		04EBF2151AC940A40039EA92 /* Musical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Musical.cpp; sourceTree = "<group>"; };
+		04EBF2161AC940A40039EA92 /* Musical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Musical.h; sourceTree = "<group>"; };
+		04EBF2171AC940A40039EA92 /* Rhythm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rhythm.cpp; sourceTree = "<group>"; };
+		04EBF2181AC940A40039EA92 /* Rhythm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rhythm.h; sourceTree = "<group>"; };
+		04EBF2221AC969680039EA92 /* RunLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunLayer.cpp; sourceTree = "<group>"; };
+		04EBF2231AC969680039EA92 /* RunLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLayer.h; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -467,8 +488,9 @@
 		04778E7A1AC2564900260CFC /* finger */ = {
 			isa = PBXGroup;
 			children = (
-				04778E7B1AC2564900260CFC /* hand.png */,
-				04778E7C1AC2564900260CFC /* start.png */,
+				04EBF1F41AC93D240039EA92 /* finger_popo.png */,
+				04EBF1F51AC93D240039EA92 /* finger_rhythm.png */,
+				04EBF1F61AC93D240039EA92 /* finger_string.png */,
 			);
 			path = finger;
 			sourceTree = "<group>";
@@ -476,6 +498,7 @@
 		04778E7D1AC2564900260CFC /* level */ = {
 			isa = PBXGroup;
 			children = (
+				04EBF1E31AC8F03D0039EA92 /* Game_MenuItem_Lock .png */,
 				042D12041AC4509100B34C5E /* bj_t_gamelevel.png */,
 				04778F2A1AC2595F00260CFC /* bj_gamelevel.png */,
 				04778E7E1AC2564900260CFC /* Game_MenuItem_Normal.png */,
@@ -558,8 +581,20 @@
 			children = (
 				04778EE81AC2567000260CFC /* GuitarRunScene.cpp */,
 				04778EE91AC2567000260CFC /* GuitarRunScene.h */,
+				04EBF2221AC969680039EA92 /* RunLayer.cpp */,
+				04EBF2231AC969680039EA92 /* RunLayer.h */,
 				04778EEA1AC2567000260CFC /* ChordRunLayer.cpp */,
 				04778EEB1AC2567000260CFC /* ChordRunLayer.h */,
+				04EBF1EA1AC9226D0039EA92 /* FingerRunLayer.cpp */,
+				04EBF1EB1AC9226D0039EA92 /* FingerRunLayer.h */,
+				04EBF2111AC940A40039EA92 /* Chord.cpp */,
+				04EBF2121AC940A40039EA92 /* Chord.h */,
+				04EBF2131AC940A40039EA92 /* Lyric.cpp */,
+				04EBF2141AC940A40039EA92 /* Lyric.h */,
+				04EBF2151AC940A40039EA92 /* Musical.cpp */,
+				04EBF2161AC940A40039EA92 /* Musical.h */,
+				04EBF2171AC940A40039EA92 /* Rhythm.cpp */,
+				04EBF2181AC940A40039EA92 /* Rhythm.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -587,14 +622,10 @@
 		04778EF61AC2567000260CFC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04778EF71AC2567000260CFC /* Chord.cpp */,
-				04778EF81AC2567000260CFC /* Chord.h */,
-				04778EF91AC2567000260CFC /* Lyric.cpp */,
-				04778EFA1AC2567000260CFC /* Lyric.h */,
 				04778EFB1AC2567000260CFC /* MusicInfo.cpp */,
 				04778EFC1AC2567000260CFC /* MusicInfo.h */,
-				04778EFD1AC2567000260CFC /* Rhythm.cpp */,
-				04778EFE1AC2567000260CFC /* Rhythm.h */,
+				04EBF1E61AC8F8C10039EA92 /* GameInfo.cpp */,
+				04EBF1E71AC8F8C10039EA92 /* GameInfo.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -626,7 +657,7 @@
 			isa = PBXGroup;
 			children = (
 				04CD4F3A1AC5354B00E59AE5 /* chordInfo.json */,
-				04CD4F3C1AC5354B00E59AE5 /* gamelevel_config.xml */,
+				04EBF1E01AC8E9FE0039EA92 /* gamelevel_config.json */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -911,6 +942,7 @@
 				04778EB91AC2564900260CFC /* bj_suspend.png in Resources */,
 				04778E931AC2564900260CFC /* 1.png in Resources */,
 				04778EC11AC2564900260CFC /* CloseNormal.png in Resources */,
+				04EBF1E41AC8F03D0039EA92 /* Game_MenuItem_Lock .png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				04778EAF1AC2564900260CFC /* rhythm.png in Resources */,
 				04778ED21AC2566800260CFC /* Bm_clean.caf in Resources */,
@@ -925,6 +957,7 @@
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				04CD4F3E1AC5354B00E59AE5 /* chordInfo.json in Resources */,
 				04778E8B1AC2564900260CFC /* background.png in Resources */,
+				04EBF1FB1AC93D240039EA92 /* finger_string.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -932,6 +965,7 @@
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				04778E951AC2564900260CFC /* 2.png in Resources */,
 				04778E911AC2564900260CFC /* sound.png in Resources */,
+				04EBF1E11AC8E9FE0039EA92 /* gamelevel_config.json in Resources */,
 				04EB90051AC3B202004B102A /* BlePlist.png in Resources */,
 				04778EA31AC2564900260CFC /* D.png in Resources */,
 				04778EA71AC2564900260CFC /* E.png in Resources */,
@@ -939,6 +973,7 @@
 				04778EAB1AC2564900260CFC /* F.png in Resources */,
 				04778EDA1AC2566800260CFC /* E_clean.caf in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
+				04EBF1F91AC93D240039EA92 /* finger_rhythm.png in Resources */,
 				04778ED61AC2566800260CFC /* D_clean.caf in Resources */,
 				04778E971AC2564900260CFC /* 3.png in Resources */,
 				04EB90041AC3B202004B102A /* BlePlist.plist in Resources */,
@@ -947,19 +982,17 @@
 				04EB8FFB1AC3B103004B102A /* right_btn.png in Resources */,
 				04778ED41AC2566800260CFC /* C_clean.caf in Resources */,
 				042D12051AC4509100B34C5E /* bj_t_gamelevel.png in Resources */,
-				04778EB11AC2564900260CFC /* hand.png in Resources */,
 				04CD4F4E1AC6A23D00E59AE5 /* xiaoxingxing.json in Resources */,
+				04EBF1F71AC93D240039EA92 /* finger_popo.png in Resources */,
 				04778E991AC2564900260CFC /* A.png in Resources */,
 				04778EDC1AC2566800260CFC /* Em_clean.caf in Resources */,
 				04778EC31AC2564900260CFC /* CloseSelected.png in Resources */,
 				04778ED81AC2566800260CFC /* Dm_clean.caf in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
-				04778EB31AC2564900260CFC /* start.png in Resources */,
 				04778F2B1AC2595F00260CFC /* bj_gamelevel.png in Resources */,
 				04778EE01AC2566800260CFC /* G_clean.caf in Resources */,
 				04778EBB1AC2564900260CFC /* left_btn.png in Resources */,
-				04CD4F421AC5354B00E59AE5 /* gamelevel_config.xml in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				04778E8F1AC2564900260CFC /* setting.png in Resources */,
 				04778EA51AC2564900260CFC /* Dm.png in Resources */,
@@ -998,29 +1031,31 @@
 				04778EDD1AC2566800260CFC /* Em_clean.caf in Resources */,
 				04778E8E1AC2564900260CFC /* back.png in Resources */,
 				04778EAE1AC2564900260CFC /* G.png in Resources */,
+				04EBF1E21AC8E9FE0039EA92 /* gamelevel_config.json in Resources */,
 				04CD4F3F1AC5354B00E59AE5 /* chordInfo.json in Resources */,
 				04778EC61AC2564900260CFC /* HelloWorld.png in Resources */,
 				04778EBA1AC2564900260CFC /* bj_suspend.png in Resources */,
 				04778E901AC2564900260CFC /* setting.png in Resources */,
 				04778E9E1AC2564900260CFC /* B.png in Resources */,
-				04778EB21AC2564900260CFC /* hand.png in Resources */,
+				04EBF1F81AC93D240039EA92 /* finger_popo.png in Resources */,
 				04778EDB1AC2566800260CFC /* E_clean.caf in Resources */,
 				04778E8A1AC2564900260CFC /* HelloWorld.png in Resources */,
 				04778EA21AC2564900260CFC /* C.png in Resources */,
 				04778ED91AC2566800260CFC /* Dm_clean.caf in Resources */,
-				04778EB41AC2564900260CFC /* start.png in Resources */,
 				04778E921AC2564900260CFC /* sound.png in Resources */,
 				04778EC41AC2564900260CFC /* CloseSelected.png in Resources */,
 				04778EAA1AC2564900260CFC /* Em.png in Resources */,
 				04778E9A1AC2564900260CFC /* A.png in Resources */,
+				04EBF1FC1AC93D240039EA92 /* finger_string.png in Resources */,
 				04778EA81AC2564900260CFC /* E.png in Resources */,
 				04778EBE1AC2564900260CFC /* main_logo.png in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
+				04EBF1FA1AC93D240039EA92 /* finger_rhythm.png in Resources */,
 				04778EB01AC2564900260CFC /* rhythm.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				04778EC01AC2564900260CFC /* right_btn.png in Resources */,
-				04CD4F431AC5354B00E59AE5 /* gamelevel_config.xml in Resources */,
 				04778EBC1AC2564900260CFC /* left_btn.png in Resources */,
+				04EBF1E51AC8F03D0039EA92 /* Game_MenuItem_Lock .png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,13 +1070,13 @@
 				04778F271AC2574900260CFC /* PluginHelper.mm in Sources */,
 				04778F071AC2567000260CFC /* GameLevel.cpp in Sources */,
 				04CD4F371AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */,
-				04778F111AC2567000260CFC /* Lyric.cpp in Sources */,
+				04EBF2191AC940A40039EA92 /* Chord.cpp in Sources */,
+				04EBF21D1AC940A40039EA92 /* Musical.cpp in Sources */,
 				04CD4F301AC4F7AE00E59AE5 /* BLEScene.cpp in Sources */,
+				04EBF21F1AC940A40039EA92 /* Rhythm.cpp in Sources */,
 				04778F051AC2567000260CFC /* ChordRunLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				04778F0D1AC2567000260CFC /* SelectMusic.cpp in Sources */,
-				04778F151AC2567000260CFC /* Rhythm.cpp in Sources */,
-				04778F0F1AC2567000260CFC /* Chord.cpp in Sources */,
 				04778F131AC2567000260CFC /* MusicInfo.cpp in Sources */,
 				04778F011AC2567000260CFC /* Common.cpp in Sources */,
 				04CD4F341AC4FA4B00E59AE5 /* MusicAnalysis.cpp in Sources */,
@@ -1050,8 +1085,12 @@
 				04778F1D1AC2569F00260CFC /* AppDelegate.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				04CD4F521AC6B1C600E59AE5 /* POPTHelper.cpp in Sources */,
+				04EBF2241AC969680039EA92 /* RunLayer.cpp in Sources */,
 				04778F091AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				04EBF1EC1AC9226D0039EA92 /* FingerRunLayer.cpp in Sources */,
+				04EBF1E81AC8F8C10039EA92 /* GameInfo.cpp in Sources */,
+				04EBF21B1AC940A40039EA92 /* Lyric.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,19 +1098,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EBF1ED1AC9226D0039EA92 /* FingerRunLayer.cpp in Sources */,
 				04778F3C1AC25D6400260CFC /* BlueToothHelper.mm in Sources */,
+				04EBF21E1AC940A40039EA92 /* Musical.cpp in Sources */,
 				04778F021AC2567000260CFC /* Common.cpp in Sources */,
 				04778F041AC2567000260CFC /* GuitarRunScene.cpp in Sources */,
 				04778F001AC2567000260CFC /* BaseLayer.cpp in Sources */,
 				04778F1E1AC2569F00260CFC /* AppDelegate.cpp in Sources */,
-				04778F121AC2567000260CFC /* Lyric.cpp in Sources */,
 				04778F281AC2574900260CFC /* PluginHelper.mm in Sources */,
+				04EBF21C1AC940A40039EA92 /* Lyric.cpp in Sources */,
+				04EBF2201AC940A40039EA92 /* Rhythm.cpp in Sources */,
 				04778F0A1AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */,
+				04EBF1E91AC8F8C10039EA92 /* GameInfo.cpp in Sources */,
 				04778F061AC2567000260CFC /* ChordRunLayer.cpp in Sources */,
-				04778F101AC2567000260CFC /* Chord.cpp in Sources */,
+				04EBF21A1AC940A40039EA92 /* Chord.cpp in Sources */,
 				04778F081AC2567000260CFC /* GameLevel.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				04778F161AC2567000260CFC /* Rhythm.cpp in Sources */,
 				04778F0E1AC2567000260CFC /* SelectMusic.cpp in Sources */,
 				04778F141AC2567000260CFC /* MusicInfo.cpp in Sources */,
 				04CD4F381AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */,

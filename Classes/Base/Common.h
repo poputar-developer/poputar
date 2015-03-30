@@ -19,7 +19,8 @@ class Common{
 private:
     Common(){};
     static Common *common;
-    
+
+    static Common *getInstance(float contentWidth,float contentHeight,MusicInfo *music);
 public:
     ~Common();
     //界面宽度
@@ -49,7 +50,10 @@ public:
     //Y轴坐标数组 定位和弦Y轴位置
     ValueVector array4Y;
     
-    static Common *getInstance(float contentWidth,float contentHeight,MusicInfo *music);
+    static Common *getInstance4Chord(float contentWidth,float contentHeight,MusicInfo *music);
+    
+    static Common *getInstance4Finger(float contentWidth,float contentHeight,MusicInfo *music);
+    
     static void Release();
 };
 

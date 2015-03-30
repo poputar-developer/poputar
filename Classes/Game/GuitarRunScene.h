@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include <MusicInfo.h>
 #include "BaseLayer.h"
-
+#include "GameInfo.h"
 USING_NS_CC;
 
 class GuitarRun: public BaseLayer{
@@ -21,9 +21,10 @@ class GuitarRun: public BaseLayer{
 
 private:
     public:
-    static Scene *createScene(MusicInfo *musicInfo);
+    static Scene *createScene(MusicInfo *musicInfo,GameInfo *gameInfo);
     
-    void startMusic(MusicInfo *musicInfo);
+    void startChordMusic(MusicInfo *musicInfo);
+    void startFingerMusic(MusicInfo *musicInfo);
     
     CREATE_FUNC(GuitarRun);
 
