@@ -15,8 +15,7 @@ Common::~Common(){
 }
 
 
-
-Common * Common::getInstance(float contentWidth,float contentHeight,MusicInfo *musicInfo){
+Common * Common::getInstance(float contentWidth, float contentHeight, MusicInfo *musicInfo){
     if(!common){
         common = new Common();
         common->contentHeight = contentHeight;
@@ -26,7 +25,6 @@ Common * Common::getInstance(float contentWidth,float contentHeight,MusicInfo *m
         common->unitWidth = contentWidth/(beat+common->leftUnit);
         common->unitHeight = contentHeight/common->unit4Y;
         common->unitSpeed = 60.0/musicInfo->getBpm();
-        
         common->rhythm_time = common->unitSpeed * beat;
         common->rhythm_distance = common->unitWidth *beat;
         
@@ -43,6 +41,19 @@ Common * Common::getInstance(float contentWidth,float contentHeight,MusicInfo *m
         }
         
     }
+    return common;
+}
+
+Common * Common::getInstance4Chord(float contentWidth,float contentHeight,MusicInfo *musicInfo){
+    Common* common =  getInstance(contentWidth, contentHeight, musicInfo);
+    int beat = musicInfo->getBeat();
+    common->rhythm_time = common->unitSpeed * beat;
+    return common;
+}
+
+Common* Common::getInstance4Finger(float contentWidth, float contentHeight, MusicInfo *musicInfo){
+    Common* common =  getInstance(contentWidth, contentHeight, musicInfo);
+    common->rhythm_time = common->unitSpeed;
     return common;
 }
 

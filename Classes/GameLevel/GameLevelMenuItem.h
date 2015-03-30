@@ -19,10 +19,6 @@ using namespace std;
 
 class GameLevelMenuItem : public MenuItemSprite{
 private:
-    //段位
-    int level;
-    //关卡
-    int node;
     //是否锁定
     bool isLocked;
     
@@ -34,7 +30,7 @@ public:
      node 当前关卡
      callback回调方法
      */
-    static GameLevelMenuItem* createGameLevelMenuItem(bool isLocked,int level,int node,const ccMenuCallback& callback);
+    static GameLevelMenuItem* createGameLevelMenuItem(bool isLocked,int node,const ccMenuCallback& callback);
 };
 
 

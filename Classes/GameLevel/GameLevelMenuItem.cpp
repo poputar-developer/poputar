@@ -13,16 +13,15 @@
 //按钮大小
 float itemSide = 57.0f;
 
-GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked,int level, int node,const ccMenuCallback& callback){
+GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked, int node,const ccMenuCallback& callback){
     GameLevelMenuItem *item = new GameLevelMenuItem();
-    item->level = level;
-    item->node = node;
-    
+ 
     ui::Scale9Sprite *startMeunNormal;
     ui::Scale9Sprite *startMeunSelect;
     if(isLocked){
-        startMeunNormal = ui::Scale9Sprite::create("Game_MenuItem_Normal.png");
-        startMeunSelect = ui::Scale9Sprite::create("Game_MenuItem_Selected.png");
+        startMeunNormal = ui::Scale9Sprite::create("Game_MenuItem_Lock .png");
+        startMeunSelect = ui::Scale9Sprite::create("Game_MenuItem_Lock .png");
+       
     }else{
         startMeunNormal = ui::Scale9Sprite::create("Game_MenuItem_Normal.png");
         startMeunSelect = ui::Scale9Sprite::create("Game_MenuItem_Selected.png");
@@ -34,18 +33,27 @@ GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked,int 
     
     if(item && item->initWithNormalSprite(startMeunNormal, startMeunSelect, nullptr, callback)){
         
-        std::stringstream ss;
-        std::string text;
-        ss<<node;
-        ss>>text;
-        auto label = Label::create(text, "Microsoft Yahei", 27);
-        label->setColor(Color3B(148, 148, 148));
-        label->setPosition(Vec2(itemSide/2,itemSide/2));
-        item->addChild(label);
+        
+        if(isLocked){
+             item->setEnabled(false);
+        }else{
+            item->setEnabled(true);
+
+            std::stringstream ss;
+            std::string text;
+            ss<<node;
+            ss>>text;
+            auto label = Label::create(text, "Microsoft Yahei", 27);
+            label->setColor(Color3B(148, 148, 148));
+            label->setPosition(Vec2(itemSide/2,itemSide/2));
+            item->addChild(label);
+
+        }
+        item->autorelease();
         return item;
     }
     
-    item->autorelease();
-    return nullptr;
     CC_SAFE_DELETE(item);
+    return nullptr;
+    
 }

@@ -1,0 +1,56 @@
+{
+    "levels": [
+               {
+               "level": 1,
+               
+               "nodes": [
+                         {
+                         "node": 1,
+                         "type":"F",
+                         "music": "l1_n1"
+                         },
+                         {
+                         "node": 2,
+                         "type":"F",
+                         "music": "l1_n2"
+                         },
+                         {
+                         "node": 3,
+                         "type":"F",
+                         "music": "l1_n3"
+                         }
+                         ]
+               },
+               {
+               "level": 2,
+               "nodes": [
+                         {
+                         "node": 1,
+                         "type":"C",
+                         "chord":"C",
+                         "music": "l2_n1"
+                         },
+                         {
+                         "node": 2,
+                         "type":"C",
+                         "chord":"Am",
+                         "music": "l2_n2"
+                         },
+                         {
+                         "node": 3,
+                         "type":"C",
+                         "chord":"G",
+                         "music": "l3_n3"
+                         }
+                         ,
+                         {
+                         "node": 4,
+                         "type":"C",
+                         "chord":"F",
+                         "music": "l3_n3"
+                         }
+                         ]
+               }
+        
+               ]
+}

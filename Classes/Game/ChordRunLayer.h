@@ -10,27 +10,17 @@
 #define __Guitars__MainLayer__
 
 #include <stdio.h>
-#include <stdio.h>
-#include "cocos2d.h"
 #include "Rhythm.h"
 #include "Chord.h"
-#include <MusicInfo.h>
 #include "Lyric.h"
 #include "Common.h"
-#include "Chord.h"
+#include "RunLayer.h"
 USING_NS_CC;
 
-class ChordRunLayer:public LayerColor{
+class ChordRunLayer:public RunLayer{
 private:
-    //公告属性
-    Common *common;
     //歌词
     Lyric *lyric;
-    //画面大小
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    
-    //开始动画
-    void startAnimation();
     //创建和弦
     void getNewChords();
     //创建节奏线
@@ -41,14 +31,17 @@ private:
     void rhythmMove(float dt);
     //碰撞检测方法
     void update(float dt);
-    //发送蓝牙数据
-    void sendDataToBluetooth();
+ 
     
 public:
-    virtual bool init(const Color4B &&color,MusicInfo *musicInfo);
+    bool init4Chord(const Color4B &color,MusicInfo *musicInfo);
     static ChordRunLayer *createChordRunLayer(MusicInfo *musicInfo);
+    //发送蓝牙数据
+    virtual void sendDataToBluetooth();
     //返回时清空当前播放的参数
-    void stopMusic();
+    virtual void stopMusic();
+    
+    virtual void endAnimationSetting();
 
 };
 
