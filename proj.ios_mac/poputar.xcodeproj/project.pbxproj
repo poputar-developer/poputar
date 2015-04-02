@@ -84,8 +84,6 @@
 		04778EE11AC2566800260CFC /* G_clean.caf in Resources */ = {isa = PBXBuildFile; fileRef = 04778ED11AC2566800260CFC /* G_clean.caf */; };
 		04778EFF1AC2567000260CFC /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE31AC2567000260CFC /* BaseLayer.cpp */; };
 		04778F001AC2567000260CFC /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE31AC2567000260CFC /* BaseLayer.cpp */; };
-		04778F011AC2567000260CFC /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE51AC2567000260CFC /* Common.cpp */; };
-		04778F021AC2567000260CFC /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE51AC2567000260CFC /* Common.cpp */; };
 		04778F031AC2567000260CFC /* GuitarRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GuitarRunScene.cpp */; };
 		04778F041AC2567000260CFC /* GuitarRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GuitarRunScene.cpp */; };
 		04778F051AC2567000260CFC /* ChordRunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEA1AC2567000260CFC /* ChordRunLayer.cpp */; };
@@ -143,6 +141,40 @@
 		04EBF21F1AC940A40039EA92 /* Rhythm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2171AC940A40039EA92 /* Rhythm.cpp */; };
 		04EBF2201AC940A40039EA92 /* Rhythm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2171AC940A40039EA92 /* Rhythm.cpp */; };
 		04EBF2241AC969680039EA92 /* RunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2221AC969680039EA92 /* RunLayer.cpp */; };
+		04EBF2271ACA34C70039EA92 /* ChordConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2251ACA34C70039EA92 /* ChordConfig.cpp */; };
+		04EBF22A1ACA355C0039EA92 /* GameConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2281ACA355C0039EA92 /* GameConfig.cpp */; };
+		04EBF22D1ACA3B360039EA92 /* FingerConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF22B1ACA3B360039EA92 /* FingerConfig.cpp */; };
+		04EBF2311ACA8C650039EA92 /* MusicalBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF22F1ACA8C650039EA92 /* MusicalBackground.cpp */; };
+		04EBF2C61ACD1C790039EA92 /* 1_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2B71ACD1C790039EA92 /* 1_0.mp3 */; };
+		04EBF2C71ACD1C790039EA92 /* 1_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2B71ACD1C790039EA92 /* 1_0.mp3 */; };
+		04EBF2C81ACD1C790039EA92 /* 1_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2B81ACD1C790039EA92 /* 1_1.mp3 */; };
+		04EBF2C91ACD1C790039EA92 /* 1_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2B81ACD1C790039EA92 /* 1_1.mp3 */; };
+		04EBF2CA1ACD1C790039EA92 /* 1_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2B91ACD1C790039EA92 /* 1_3.mp3 */; };
+		04EBF2CB1ACD1C790039EA92 /* 1_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2B91ACD1C790039EA92 /* 1_3.mp3 */; };
+		04EBF2CC1ACD1C790039EA92 /* 1_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BA1ACD1C790039EA92 /* 1_5.mp3 */; };
+		04EBF2CD1ACD1C790039EA92 /* 1_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BA1ACD1C790039EA92 /* 1_5.mp3 */; };
+		04EBF2CE1ACD1C790039EA92 /* 1_7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BB1ACD1C790039EA92 /* 1_7.mp3 */; };
+		04EBF2CF1ACD1C790039EA92 /* 1_7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BB1ACD1C790039EA92 /* 1_7.mp3 */; };
+		04EBF2D01ACD1C790039EA92 /* 1_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BC1ACD1C790039EA92 /* 1_8.mp3 */; };
+		04EBF2D11ACD1C790039EA92 /* 1_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BC1ACD1C790039EA92 /* 1_8.mp3 */; };
+		04EBF2D21ACD1C790039EA92 /* 2_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BD1ACD1C790039EA92 /* 2_0.mp3 */; };
+		04EBF2D31ACD1C790039EA92 /* 2_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BD1ACD1C790039EA92 /* 2_0.mp3 */; };
+		04EBF2D41ACD1C790039EA92 /* 2_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BE1ACD1C790039EA92 /* 2_1.mp3 */; };
+		04EBF2D51ACD1C790039EA92 /* 2_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BE1ACD1C790039EA92 /* 2_1.mp3 */; };
+		04EBF2D61ACD1C790039EA92 /* 2_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BF1ACD1C790039EA92 /* 2_3.mp3 */; };
+		04EBF2D71ACD1C790039EA92 /* 2_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2BF1ACD1C790039EA92 /* 2_3.mp3 */; };
+		04EBF2D81ACD1C790039EA92 /* 3_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C01ACD1C790039EA92 /* 3_0.mp3 */; };
+		04EBF2D91ACD1C790039EA92 /* 3_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C01ACD1C790039EA92 /* 3_0.mp3 */; };
+		04EBF2DA1ACD1C790039EA92 /* 3_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C11ACD1C790039EA92 /* 3_2.mp3 */; };
+		04EBF2DB1ACD1C790039EA92 /* 3_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C11ACD1C790039EA92 /* 3_2.mp3 */; };
+		04EBF2DC1ACD1C790039EA92 /* 4_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C21ACD1C790039EA92 /* 4_0.mp3 */; };
+		04EBF2DD1ACD1C790039EA92 /* 4_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C21ACD1C790039EA92 /* 4_0.mp3 */; };
+		04EBF2DE1ACD1C790039EA92 /* 4_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C31ACD1C790039EA92 /* 4_2.mp3 */; };
+		04EBF2DF1ACD1C790039EA92 /* 4_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C31ACD1C790039EA92 /* 4_2.mp3 */; };
+		04EBF2E01ACD1C790039EA92 /* 4_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C41ACD1C790039EA92 /* 4_3.mp3 */; };
+		04EBF2E11ACD1C790039EA92 /* 4_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C41ACD1C790039EA92 /* 4_3.mp3 */; };
+		04EBF2E21ACD1C790039EA92 /* 5_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C51ACD1C790039EA92 /* 5_3.mp3 */; };
+		04EBF2E31ACD1C790039EA92 /* 5_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04EBF2C51ACD1C790039EA92 /* 5_3.mp3 */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -266,8 +298,6 @@
 		04778ED11AC2566800260CFC /* G_clean.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = G_clean.caf; sourceTree = "<group>"; };
 		04778EE31AC2567000260CFC /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLayer.cpp; sourceTree = "<group>"; };
 		04778EE41AC2567000260CFC /* BaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLayer.h; sourceTree = "<group>"; };
-		04778EE51AC2567000260CFC /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
-		04778EE61AC2567000260CFC /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		04778EE81AC2567000260CFC /* GuitarRunScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GuitarRunScene.cpp; sourceTree = "<group>"; };
 		04778EE91AC2567000260CFC /* GuitarRunScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuitarRunScene.h; sourceTree = "<group>"; };
 		04778EEA1AC2567000260CFC /* ChordRunLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChordRunLayer.cpp; sourceTree = "<group>"; };
@@ -322,6 +352,29 @@
 		04EBF2181AC940A40039EA92 /* Rhythm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rhythm.h; sourceTree = "<group>"; };
 		04EBF2221AC969680039EA92 /* RunLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunLayer.cpp; sourceTree = "<group>"; };
 		04EBF2231AC969680039EA92 /* RunLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLayer.h; sourceTree = "<group>"; };
+		04EBF2251ACA34C70039EA92 /* ChordConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChordConfig.cpp; sourceTree = "<group>"; };
+		04EBF2261ACA34C70039EA92 /* ChordConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChordConfig.h; sourceTree = "<group>"; };
+		04EBF2281ACA355C0039EA92 /* GameConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig.cpp; sourceTree = "<group>"; };
+		04EBF2291ACA355C0039EA92 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		04EBF22B1ACA3B360039EA92 /* FingerConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FingerConfig.cpp; sourceTree = "<group>"; };
+		04EBF22C1ACA3B360039EA92 /* FingerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerConfig.h; sourceTree = "<group>"; };
+		04EBF22F1ACA8C650039EA92 /* MusicalBackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicalBackground.cpp; sourceTree = "<group>"; };
+		04EBF2301ACA8C650039EA92 /* MusicalBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicalBackground.h; sourceTree = "<group>"; };
+		04EBF2B71ACD1C790039EA92 /* 1_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_0.mp3; sourceTree = "<group>"; };
+		04EBF2B81ACD1C790039EA92 /* 1_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_1.mp3; sourceTree = "<group>"; };
+		04EBF2B91ACD1C790039EA92 /* 1_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_3.mp3; sourceTree = "<group>"; };
+		04EBF2BA1ACD1C790039EA92 /* 1_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_5.mp3; sourceTree = "<group>"; };
+		04EBF2BB1ACD1C790039EA92 /* 1_7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_7.mp3; sourceTree = "<group>"; };
+		04EBF2BC1ACD1C790039EA92 /* 1_8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1_8.mp3; sourceTree = "<group>"; };
+		04EBF2BD1ACD1C790039EA92 /* 2_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2_0.mp3; sourceTree = "<group>"; };
+		04EBF2BE1ACD1C790039EA92 /* 2_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2_1.mp3; sourceTree = "<group>"; };
+		04EBF2BF1ACD1C790039EA92 /* 2_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2_3.mp3; sourceTree = "<group>"; };
+		04EBF2C01ACD1C790039EA92 /* 3_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3_0.mp3; sourceTree = "<group>"; };
+		04EBF2C11ACD1C790039EA92 /* 3_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3_2.mp3; sourceTree = "<group>"; };
+		04EBF2C21ACD1C790039EA92 /* 4_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4_0.mp3; sourceTree = "<group>"; };
+		04EBF2C31ACD1C790039EA92 /* 4_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4_2.mp3; sourceTree = "<group>"; };
+		04EBF2C41ACD1C790039EA92 /* 4_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4_3.mp3; sourceTree = "<group>"; };
+		04EBF2C51ACD1C790039EA92 /* 5_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5_3.mp3; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -541,6 +594,7 @@
 		04778EC81AC2566800260CFC /* game */ = {
 			isa = PBXGroup;
 			children = (
+				04EBF2321ACD02090039EA92 /* Finger */,
 				04778EC91AC2566800260CFC /* chord */,
 			);
 			path = game;
@@ -566,8 +620,6 @@
 			children = (
 				04778EE31AC2567000260CFC /* BaseLayer.cpp */,
 				04778EE41AC2567000260CFC /* BaseLayer.h */,
-				04778EE51AC2567000260CFC /* Common.cpp */,
-				04778EE61AC2567000260CFC /* Common.h */,
 				04CD4F351AC504D600E59AE5 /* POPTStringUtils.cpp */,
 				04CD4F361AC504D600E59AE5 /* POPTStringUtils.h */,
 				04CD4F501AC6B1C600E59AE5 /* POPTHelper.cpp */,
@@ -579,6 +631,12 @@
 		04778EE71AC2567000260CFC /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				04EBF2281ACA355C0039EA92 /* GameConfig.cpp */,
+				04EBF2291ACA355C0039EA92 /* GameConfig.h */,
+				04EBF2251ACA34C70039EA92 /* ChordConfig.cpp */,
+				04EBF2261ACA34C70039EA92 /* ChordConfig.h */,
+				04EBF22B1ACA3B360039EA92 /* FingerConfig.cpp */,
+				04EBF22C1ACA3B360039EA92 /* FingerConfig.h */,
 				04778EE81AC2567000260CFC /* GuitarRunScene.cpp */,
 				04778EE91AC2567000260CFC /* GuitarRunScene.h */,
 				04EBF2221AC969680039EA92 /* RunLayer.cpp */,
@@ -593,6 +651,8 @@
 				04EBF2141AC940A40039EA92 /* Lyric.h */,
 				04EBF2151AC940A40039EA92 /* Musical.cpp */,
 				04EBF2161AC940A40039EA92 /* Musical.h */,
+				04EBF22F1ACA8C650039EA92 /* MusicalBackground.cpp */,
+				04EBF2301ACA8C650039EA92 /* MusicalBackground.h */,
 				04EBF2171AC940A40039EA92 /* Rhythm.cpp */,
 				04EBF2181AC940A40039EA92 /* Rhythm.h */,
 			);
@@ -678,6 +738,28 @@
 				04EB90031AC3B202004B102A /* BlePlist.png */,
 			);
 			path = ble;
+			sourceTree = "<group>";
+		};
+		04EBF2321ACD02090039EA92 /* Finger */ = {
+			isa = PBXGroup;
+			children = (
+				04EBF2B71ACD1C790039EA92 /* 1_0.mp3 */,
+				04EBF2B81ACD1C790039EA92 /* 1_1.mp3 */,
+				04EBF2B91ACD1C790039EA92 /* 1_3.mp3 */,
+				04EBF2BA1ACD1C790039EA92 /* 1_5.mp3 */,
+				04EBF2BB1ACD1C790039EA92 /* 1_7.mp3 */,
+				04EBF2BC1ACD1C790039EA92 /* 1_8.mp3 */,
+				04EBF2BD1ACD1C790039EA92 /* 2_0.mp3 */,
+				04EBF2BE1ACD1C790039EA92 /* 2_1.mp3 */,
+				04EBF2BF1ACD1C790039EA92 /* 2_3.mp3 */,
+				04EBF2C01ACD1C790039EA92 /* 3_0.mp3 */,
+				04EBF2C11ACD1C790039EA92 /* 3_2.mp3 */,
+				04EBF2C21ACD1C790039EA92 /* 4_0.mp3 */,
+				04EBF2C31ACD1C790039EA92 /* 4_2.mp3 */,
+				04EBF2C41ACD1C790039EA92 /* 4_3.mp3 */,
+				04EBF2C51ACD1C790039EA92 /* 5_3.mp3 */,
+			);
+			path = Finger;
 			sourceTree = "<group>";
 		};
 		080E96DDFE201D6D7F000001 /* ios */ = {
@@ -931,6 +1013,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EBF2E21ACD1C790039EA92 /* 5_3.mp3 in Resources */,
 				04778EA11AC2564900260CFC /* C.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
@@ -943,21 +1026,26 @@
 				04778E931AC2564900260CFC /* 1.png in Resources */,
 				04778EC11AC2564900260CFC /* CloseNormal.png in Resources */,
 				04EBF1E41AC8F03D0039EA92 /* Game_MenuItem_Lock .png in Resources */,
+				04EBF2E01ACD1C790039EA92 /* 4_3.mp3 in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				04778EAF1AC2564900260CFC /* rhythm.png in Resources */,
 				04778ED21AC2566800260CFC /* Bm_clean.caf in Resources */,
 				04778E9F1AC2564900260CFC /* Bm.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				04778EC51AC2564900260CFC /* HelloWorld.png in Resources */,
+				04EBF2D81ACD1C790039EA92 /* 3_0.mp3 in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				04778EAD1AC2564900260CFC /* G.png in Resources */,
 				04CD4F4D1AC6A23D00E59AE5 /* cunzai.json in Resources */,
+				04EBF2C61ACD1C790039EA92 /* 1_0.mp3 in Resources */,
 				04778EA91AC2564900260CFC /* Em.png in Resources */,
 				04778EBF1AC2564900260CFC /* right_btn.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
+				04EBF2D61ACD1C790039EA92 /* 2_3.mp3 in Resources */,
 				04CD4F3E1AC5354B00E59AE5 /* chordInfo.json in Resources */,
 				04778E8B1AC2564900260CFC /* background.png in Resources */,
 				04EBF1FB1AC93D240039EA92 /* finger_string.png in Resources */,
+				04EBF2DE1ACD1C790039EA92 /* 4_2.mp3 in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -966,6 +1054,7 @@
 				04778E951AC2564900260CFC /* 2.png in Resources */,
 				04778E911AC2564900260CFC /* sound.png in Resources */,
 				04EBF1E11AC8E9FE0039EA92 /* gamelevel_config.json in Resources */,
+				04EBF2CA1ACD1C790039EA92 /* 1_3.mp3 in Resources */,
 				04EB90051AC3B202004B102A /* BlePlist.png in Resources */,
 				04778EA31AC2564900260CFC /* D.png in Resources */,
 				04778EA71AC2564900260CFC /* E.png in Resources */,
@@ -973,6 +1062,8 @@
 				04778EAB1AC2564900260CFC /* F.png in Resources */,
 				04778EDA1AC2566800260CFC /* E_clean.caf in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
+				04EBF2C81ACD1C790039EA92 /* 1_1.mp3 in Resources */,
+				04EBF2CC1ACD1C790039EA92 /* 1_5.mp3 in Resources */,
 				04EBF1F91AC93D240039EA92 /* finger_rhythm.png in Resources */,
 				04778ED61AC2566800260CFC /* D_clean.caf in Resources */,
 				04778E971AC2564900260CFC /* 3.png in Resources */,
@@ -981,22 +1072,28 @@
 				04778E8D1AC2564900260CFC /* back.png in Resources */,
 				04EB8FFB1AC3B103004B102A /* right_btn.png in Resources */,
 				04778ED41AC2566800260CFC /* C_clean.caf in Resources */,
+				04EBF2D41ACD1C790039EA92 /* 2_1.mp3 in Resources */,
 				042D12051AC4509100B34C5E /* bj_t_gamelevel.png in Resources */,
 				04CD4F4E1AC6A23D00E59AE5 /* xiaoxingxing.json in Resources */,
 				04EBF1F71AC93D240039EA92 /* finger_popo.png in Resources */,
 				04778E991AC2564900260CFC /* A.png in Resources */,
+				04EBF2CE1ACD1C790039EA92 /* 1_7.mp3 in Resources */,
 				04778EDC1AC2566800260CFC /* Em_clean.caf in Resources */,
+				04EBF2D21ACD1C790039EA92 /* 2_0.mp3 in Resources */,
 				04778EC31AC2564900260CFC /* CloseSelected.png in Resources */,
 				04778ED81AC2566800260CFC /* Dm_clean.caf in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
+				04EBF2D01ACD1C790039EA92 /* 1_8.mp3 in Resources */,
 				04778F2B1AC2595F00260CFC /* bj_gamelevel.png in Resources */,
 				04778EE01AC2566800260CFC /* G_clean.caf in Resources */,
+				04EBF2DA1ACD1C790039EA92 /* 3_2.mp3 in Resources */,
 				04778EBB1AC2564900260CFC /* left_btn.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				04778E8F1AC2564900260CFC /* setting.png in Resources */,
 				04778EA51AC2564900260CFC /* Dm.png in Resources */,
 				04778EB51AC2564900260CFC /* Game_MenuItem_Normal.png in Resources */,
+				04EBF2DC1ACD1C790039EA92 /* 4_0.mp3 in Resources */,
 				04778E891AC2564900260CFC /* HelloWorld.png in Resources */,
 				04778E9D1AC2564900260CFC /* B.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
@@ -1014,15 +1111,21 @@
 				04778ED71AC2566800260CFC /* D_clean.caf in Resources */,
 				04778EC21AC2564900260CFC /* CloseNormal.png in Resources */,
 				04778EA01AC2564900260CFC /* Bm.png in Resources */,
+				04EBF2DB1ACD1C790039EA92 /* 3_2.mp3 in Resources */,
 				04778ED51AC2566800260CFC /* C_clean.caf in Resources */,
 				04778E9C1AC2564900260CFC /* Am.png in Resources */,
 				04778EDF1AC2566800260CFC /* F_clean.caf in Resources */,
 				04778EA61AC2564900260CFC /* Dm.png in Resources */,
+				04EBF2D71ACD1C790039EA92 /* 2_3.mp3 in Resources */,
+				04EBF2E11ACD1C790039EA92 /* 4_3.mp3 in Resources */,
 				04778F2C1AC2595F00260CFC /* bj_gamelevel.png in Resources */,
 				04778E981AC2564900260CFC /* 3.png in Resources */,
 				04778EA41AC2564900260CFC /* D.png in Resources */,
+				04EBF2CB1ACD1C790039EA92 /* 1_3.mp3 in Resources */,
 				04778E941AC2564900260CFC /* 1.png in Resources */,
+				04EBF2D91ACD1C790039EA92 /* 3_0.mp3 in Resources */,
 				04778EE11AC2566800260CFC /* G_clean.caf in Resources */,
+				04EBF2DF1ACD1C790039EA92 /* 4_2.mp3 in Resources */,
 				04778EB81AC2564900260CFC /* Game_MenuItem_Selected.png in Resources */,
 				04778EAC1AC2564900260CFC /* F.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
@@ -1030,7 +1133,12 @@
 				04778E8C1AC2564900260CFC /* background.png in Resources */,
 				04778EDD1AC2566800260CFC /* Em_clean.caf in Resources */,
 				04778E8E1AC2564900260CFC /* back.png in Resources */,
+				04EBF2D51ACD1C790039EA92 /* 2_1.mp3 in Resources */,
+				04EBF2C71ACD1C790039EA92 /* 1_0.mp3 in Resources */,
 				04778EAE1AC2564900260CFC /* G.png in Resources */,
+				04EBF2D31ACD1C790039EA92 /* 2_0.mp3 in Resources */,
+				04EBF2CD1ACD1C790039EA92 /* 1_5.mp3 in Resources */,
+				04EBF2D11ACD1C790039EA92 /* 1_8.mp3 in Resources */,
 				04EBF1E21AC8E9FE0039EA92 /* gamelevel_config.json in Resources */,
 				04CD4F3F1AC5354B00E59AE5 /* chordInfo.json in Resources */,
 				04778EC61AC2564900260CFC /* HelloWorld.png in Resources */,
@@ -1040,10 +1148,13 @@
 				04EBF1F81AC93D240039EA92 /* finger_popo.png in Resources */,
 				04778EDB1AC2566800260CFC /* E_clean.caf in Resources */,
 				04778E8A1AC2564900260CFC /* HelloWorld.png in Resources */,
+				04EBF2DD1ACD1C790039EA92 /* 4_0.mp3 in Resources */,
+				04EBF2CF1ACD1C790039EA92 /* 1_7.mp3 in Resources */,
 				04778EA21AC2564900260CFC /* C.png in Resources */,
 				04778ED91AC2566800260CFC /* Dm_clean.caf in Resources */,
 				04778E921AC2564900260CFC /* sound.png in Resources */,
 				04778EC41AC2564900260CFC /* CloseSelected.png in Resources */,
+				04EBF2E31ACD1C790039EA92 /* 5_3.mp3 in Resources */,
 				04778EAA1AC2564900260CFC /* Em.png in Resources */,
 				04778E9A1AC2564900260CFC /* A.png in Resources */,
 				04EBF1FC1AC93D240039EA92 /* finger_string.png in Resources */,
@@ -1051,6 +1162,7 @@
 				04778EBE1AC2564900260CFC /* main_logo.png in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 				04EBF1FA1AC93D240039EA92 /* finger_rhythm.png in Resources */,
+				04EBF2C91ACD1C790039EA92 /* 1_1.mp3 in Resources */,
 				04778EB01AC2564900260CFC /* rhythm.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				04778EC01AC2564900260CFC /* right_btn.png in Resources */,
@@ -1070,20 +1182,23 @@
 				04778F271AC2574900260CFC /* PluginHelper.mm in Sources */,
 				04778F071AC2567000260CFC /* GameLevel.cpp in Sources */,
 				04CD4F371AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */,
+				04EBF2311ACA8C650039EA92 /* MusicalBackground.cpp in Sources */,
 				04EBF2191AC940A40039EA92 /* Chord.cpp in Sources */,
 				04EBF21D1AC940A40039EA92 /* Musical.cpp in Sources */,
 				04CD4F301AC4F7AE00E59AE5 /* BLEScene.cpp in Sources */,
 				04EBF21F1AC940A40039EA92 /* Rhythm.cpp in Sources */,
 				04778F051AC2567000260CFC /* ChordRunLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				04EBF22D1ACA3B360039EA92 /* FingerConfig.cpp in Sources */,
 				04778F0D1AC2567000260CFC /* SelectMusic.cpp in Sources */,
 				04778F131AC2567000260CFC /* MusicInfo.cpp in Sources */,
-				04778F011AC2567000260CFC /* Common.cpp in Sources */,
 				04CD4F341AC4FA4B00E59AE5 /* MusicAnalysis.cpp in Sources */,
 				04778F031AC2567000260CFC /* GuitarRunScene.cpp in Sources */,
+				04EBF22A1ACA355C0039EA92 /* GameConfig.cpp in Sources */,
 				04778EFF1AC2567000260CFC /* BaseLayer.cpp in Sources */,
 				04778F1D1AC2569F00260CFC /* AppDelegate.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				04EBF2271ACA34C70039EA92 /* ChordConfig.cpp in Sources */,
 				04CD4F521AC6B1C600E59AE5 /* POPTHelper.cpp in Sources */,
 				04EBF2241AC969680039EA92 /* RunLayer.cpp in Sources */,
 				04778F091AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */,
@@ -1101,7 +1216,6 @@
 				04EBF1ED1AC9226D0039EA92 /* FingerRunLayer.cpp in Sources */,
 				04778F3C1AC25D6400260CFC /* BlueToothHelper.mm in Sources */,
 				04EBF21E1AC940A40039EA92 /* Musical.cpp in Sources */,
-				04778F021AC2567000260CFC /* Common.cpp in Sources */,
 				04778F041AC2567000260CFC /* GuitarRunScene.cpp in Sources */,
 				04778F001AC2567000260CFC /* BaseLayer.cpp in Sources */,
 				04778F1E1AC2569F00260CFC /* AppDelegate.cpp in Sources */,

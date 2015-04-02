@@ -11,9 +11,10 @@
 
 #include <stdio.h>
 #include "cocos2d.h"
-#include "Common.h"
+#include "ChordConfig.h"
 #include "SimpleAudioEngine.h"
 #include "Lyric.h"
+#include "ChordConfig.h"
 
 USING_NS_CC;
 
@@ -30,17 +31,17 @@ public:
     bool isCollision=false;
     
     ~Chord();
-    virtual bool initWithFile(string type,Common *common,int index);
+    virtual bool initWithFile(string type,ChordConfig *chordConfig,int index);
     
-    static Chord* createChord(Common *common,int index,string type,string lyric_str);
+    static Chord* createChord(ChordConfig *chordConfig,int index,string type,string lyric_str);
     
     void getFileNameWidthType(string type);
     
-    ActionInterval * moveOut(Common *common);
+    ActionInterval * moveOut(ChordConfig *chordConfig);
     
-    ActionInterval *moveToCurrent(Common *common);
+    ActionInterval *moveToCurrent(ChordConfig *chordConfig);
     
-    void collisionAction(Common *common);
+    void collisionAction(ChordConfig *chordConfig);
     
     string getType();
 

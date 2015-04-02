@@ -20,10 +20,6 @@ Scene *GuitarRun::createScene(MusicInfo *musicInfo,GameInfo *gameInfo){
     }else if(type=="F"){
         layer->startFingerMusic(musicInfo);
     }
-    
-
-    
-    
     scene->addChild(layer);
     
     return scene;
@@ -48,5 +44,7 @@ void GuitarRun::goBack(cocos2d::Ref *sender){
     if(fingerRunLayer){
         fingerRunLayer->stopMusic();
     }
+    chordRunLayer = nullptr;
+    fingerRunLayer = nullptr;
     Director::getInstance()->popScene();
 }

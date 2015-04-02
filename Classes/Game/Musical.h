@@ -10,7 +10,9 @@
 #define __poputar__Musical__
 
 #include <stdio.h>
-#include "Common.h"
+//#include "Common.h"
+#include "FingerConfig.h"
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
 
 class Musical : public Sprite{
@@ -21,12 +23,25 @@ private:
     int value;
     //弦的具体位置
     float y;
+    //文字信息
+    Label *label;
+    
+    std::string fileName;
+    
 public:
-    static Musical *createMusical(std::string filename,int key,int value,float y);
+    //是否已经发生碰撞
+    bool isCollision=false;
+    //所属小节
+    int beat;
     
-    ActionInterval* musicalMove(Common *common,int speed);
+    static Musical *createMusical(int key,int value,float y);
+    void loadFrame();
     
-    ActionInterval* musicalFadeOut(Common *common);
+    ActionInterval* musicalMove(FingerConfig *common);
+    
+    ActionInterval* musicalFadeOut(FingerConfig *common,bool isLabel);
+    
+    void runLeftAction(FingerConfig *config);
     
     void musicalVoice();
 };

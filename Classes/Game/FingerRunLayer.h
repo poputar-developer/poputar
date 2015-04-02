@@ -13,17 +13,18 @@
 
 #include <cocos-ext.h>
 #include "RunLayer.h"
+#include "FingerConfig.h"
 USING_NS_CC;
 
 using namespace std;
 class FingerRunLayer : public RunLayer{
 private:
-    
-    int speed;
+    FingerConfig *fingerConfig;
     //组装画面
     void loadFrame();
     //音符开始移动
     void musicalMove(float at);
+    void update(float at);
 public:
     bool init4Finger(const Color4B &&color,MusicInfo *musicInfo);
     static FingerRunLayer *createFingerRunLayer(MusicInfo *musicInfo);

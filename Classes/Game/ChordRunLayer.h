@@ -13,12 +13,14 @@
 #include "Rhythm.h"
 #include "Chord.h"
 #include "Lyric.h"
-#include "Common.h"
+//#include "Common.h"
 #include "RunLayer.h"
+#include "ChordConfig.h"
 USING_NS_CC;
 
 class ChordRunLayer:public RunLayer{
 private:
+    ChordConfig *chordConfig;
     //歌词
     Lyric *lyric;
     //创建和弦

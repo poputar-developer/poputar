@@ -12,7 +12,7 @@ Chord::~Chord(){
     this->cocos2d::Node::removeChild(lyric);
 }
 
-bool Chord::initWithFile(string type,Common *common,int index){
+bool Chord::initWithFile(string type,ChordConfig *chordConfig,int index){
     bool result;
     if (type == "") {
         result =  Sprite::init();
@@ -24,17 +24,17 @@ bool Chord::initWithFile(string type,Common *common,int index){
         this->setScale(0.7);
         CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(this->voideFileName);
     }
-    float x = common->array4X.at(index).asFloat();
-    float y = common->array4Y.at(0).asFloat();
+    float x = chordConfig->array4X.at(index).asFloat();
+    float y = chordConfig->array4Y.at(0).asFloat();
     this->setPosition(Vec2(x,0));
-    MoveTo *chordStartMove = MoveTo::create(common->unitSpeed/2, Vec2(x,y));
+    MoveTo *chordStartMove = MoveTo::create(chordConfig->unitSpeed/2, Vec2(x,y));
     this->runAction(chordStartMove);
     return result;
 }
 
-Chord* Chord::createChord(Common *common, int index, string type,string lyric_str){
+Chord* Chord::createChord(ChordConfig *ChordConfig, int index, string type,string lyric_str){
     Chord *chord = new Chord();
-    if(chord && chord->initWithFile(type,common,index)){
+    if(chord && chord->initWithFile(type,ChordConfig,index)){
         Lyric *l = Lyric::create();
         l->setLyircStr(lyric_str);
         chord->addChild(l);
@@ -87,21 +87,21 @@ void Chord::getFileNameWidthType(string type){
     }
 }
 
-ActionInterval *Chord::moveToCurrent(Common *common){
-    MoveTo *chordSecondMove = MoveTo::create(common->unitSpeed/2, Vec2(this->getPosition().x,common->array4Y.at(1).asFloat()));
-    FadeIn *chordSecondFade = FadeIn::create(common->unitSpeed/2);
+ActionInterval *Chord::moveToCurrent(ChordConfig *chordConfig){
+    MoveTo *chordSecondMove = MoveTo::create(chordConfig->unitSpeed/2, Vec2(this->getPosition().x,chordConfig->array4Y.at(1).asFloat()));
+    FadeIn *chordSecondFade = FadeIn::create(chordConfig->unitSpeed/2);
     Spawn *spawn = Spawn::create(chordSecondMove,chordSecondFade, NULL);
     return spawn;
 }
 
-ActionInterval *Chord::moveOut(Common *common){
-    MoveTo *chordEndMove = MoveTo::create(common->unitSpeed/2, Vec2(this->getPosition().x,common->contentHeight));
-    FadeOut *out = FadeOut::create(common->unitSpeed/2);
+ActionInterval *Chord::moveOut(ChordConfig *chordConfig){
+    MoveTo *chordEndMove = MoveTo::create(chordConfig->unitSpeed/2, Vec2(this->getPosition().x,chordConfig->contentHeight));
+    FadeOut *out = FadeOut::create(chordConfig->unitSpeed/2);
     Spawn *spawn = Spawn::create(chordEndMove,out, NULL);
     return spawn;
 }
 
-void Chord::collisionAction(Common *common){
+void Chord::collisionAction(ChordConfig *chordConfig){
     
     if (this->voideFileName ==NULL) {
         return;

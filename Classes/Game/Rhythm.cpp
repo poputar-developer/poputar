@@ -8,7 +8,7 @@
 
 #include "Rhythm.h"
 
-Rhythm *Rhythm::createRhythm(Common *common,int currentBeat){
+Rhythm *Rhythm::createRhythm(ChordConfig *common,int currentBeat){
     Rhythm *rhythm = new Rhythm();
     if(rhythm && rhythm->initWithFile("rhythm.png",common,currentBeat)){
         rhythm->autorelease();
@@ -18,7 +18,7 @@ Rhythm *Rhythm::createRhythm(Common *common,int currentBeat){
     CC_SAFE_DELETE(rhythm);
 }
 
-bool Rhythm::initWithFile(const string &filename,Common *common,int currentBeat){
+bool Rhythm::initWithFile(const string &filename,ChordConfig *common,int currentBeat){
     bool result = Sprite::initWithFile(filename,Rect(0,0,5,common->contentHeight));
     this->setPosition(0,0);
     this->setTag(currentBeat);
@@ -27,7 +27,8 @@ bool Rhythm::initWithFile(const string &filename,Common *common,int currentBeat)
 
 }
 
-ActionInterval *Rhythm::firstMoveRhythm(Common *common){
+ActionInterval *Rhythm::firstMoveRhythm(ChordConfig *common){
+//    log("uw:%f / us:%f  = %f",common->unitWidth,common->unitSpeed,common->unitWidth/common->unitSpeed);
     //每秒钟走的距离
     float min4width = common->unitWidth/common->unitSpeed;
     //开始时间行走的距离
@@ -45,19 +46,19 @@ ActionInterval *Rhythm::firstMoveRhythm(Common *common){
     return this->move(common, time);
 }
 
-ActionInterval *Rhythm::moveRhythm(Common *common){
+ActionInterval *Rhythm::moveRhythm(ChordConfig *common){
     this->setPosition(Vec2(0,0));
     float time = common->rhythm_time;
     return this->move(common, time);
 }
 
 
-ActionInterval *Rhythm::move(Common *common,float time){
+ActionInterval *Rhythm::move(ChordConfig *common,float time){
     MoveTo *beginMove = MoveTo::create(time,Vec2(common->rhythm_distance,0));
     return beginMove;
 }
 
-ActionInterval *Rhythm::leftMoveRhythm(Common *common){
+ActionInterval *Rhythm::leftMoveRhythm(ChordConfig *common){
     Size visibleSize = Director::getInstance()->getVisibleSize();
     int visibleWidth = visibleSize.width;
     float endSpeed= common->unitSpeed * common->leftUnit;
