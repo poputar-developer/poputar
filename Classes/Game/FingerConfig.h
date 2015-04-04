@@ -23,12 +23,11 @@ public:
     //单元时间 音符间隔时间
     float unitSpeed;
     //音符移动时间的基数
-    float speedBase = 4;
+    float speedBase = 7;
     //循环周期
     float rhythm_time;
     //和弦区域宽度
     float rhythm_distance;
-    
     
     FingerConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo);
     

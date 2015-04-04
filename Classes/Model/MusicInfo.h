@@ -26,8 +26,8 @@ private:
     ValueVector vec_lyric;
     //弹唱的位置信息
     ValueVector vec_musical;
-
-    
+    string title;
+    string musicFile;
 public:
     static MusicInfo* initWithJson(string uuid);
     int getBeat();
@@ -36,6 +36,10 @@ public:
     ValueVector getLyircs();
     ValueVector getMusical();
     vector<string> getBluetoothChord();
+    
+    string getTitle();
+    string getMusicFile();
+    
 };
 
 #endif /* defined(__Guitar__MusicInfo__) */

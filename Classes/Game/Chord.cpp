@@ -114,7 +114,7 @@ void Chord::collisionAction(ChordConfig *chordConfig){
     }), NULL);
     this->runAction(sq);
     
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(this->voideFileName);
+    //CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(this->voideFileName);
 }
 
 string Chord::getType(){

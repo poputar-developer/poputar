@@ -44,6 +44,9 @@ bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInf
     this->getNewChords();
     //创建第一个节奏线
     this->getNewRhythm(true);
+    
+    //节拍音效
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("snare.caf");
 
     schedule(schedule_selector(ChordRunLayer::rhythmMove), chordConfig->rhythm_time, kRepeatForever, chordConfig->startTime);
     
@@ -54,7 +57,7 @@ void ChordRunLayer::endAnimationSetting(){
     currentBeat = 1;
 }
 
-
+bool isFirstCollision =true;
 void ChordRunLayer::update(float dt){
     //当前小节的节奏线
     Rhythm *rhythm = (Rhythm *)this->getChildByTag(currentBeat);
@@ -62,6 +65,11 @@ void ChordRunLayer::update(float dt){
     for (auto &e:currBeatChords) {
         if(!e->isCollision && rhythm->isReal && rhythm->boundingBox().intersectsRect(e->boundingBox())){
             if(currCollision == NULL || e!=currCollision){
+                if(isFirstCollision){
+                    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+                    schedule(schedule_selector(ChordRunLayer::metronome), chordConfig->unitSpeed);
+                    isFirstCollision = false;
+                }
                 currCollision = e;
                 e->collisionAction(chordConfig);
                 e->isCollision = true;
@@ -69,6 +77,11 @@ void ChordRunLayer::update(float dt){
             }
         }
     }
+}
+
+void ChordRunLayer::metronome(float dt){
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+
 }
 
 
@@ -81,7 +94,6 @@ void ChordRunLayer::rhythmMove(float dt){
     this->getNewRhythm(false);
     
     if(isFirst){
-//        currentBeat = 1;
         sendDataToBluetooth();
         isFirst = false;
     }
@@ -109,16 +121,16 @@ void ChordRunLayer::moveChords(){
 
 void ChordRunLayer::sendDataToBluetooth(){
     
-    long c = POPTHelper::getCurrentTime();
-    log("发送时间：%d",c);
+//    long c = POPTHelper::getCurrentTime();
+//    log("发送时间：%d",c);
     vector<string> bluetoothChord = chordConfig->musicInfo->getBluetoothChord();
     if(!(nextBlueIndex >= bluetoothChord.size())){
         string nextBlueType = bluetoothChord.at(nextBlueIndex);
         log("send BlueTooth : %s",nextBlueType.c_str());
         MusicAnalysis::getInstance()->sendChordStr(nextBlueType);
     }
-    long c1 = POPTHelper::getCurrentTime();
-    log("结束时间：%d",c1);
+//    long c1 = POPTHelper::getCurrentTime();
+//    log("结束时间：%d",c1);
     nextBlueIndex++;
 }
 
@@ -182,6 +194,7 @@ void ChordRunLayer::getNewRhythm(bool first){
 void ChordRunLayer::stopMusic(){
     unschedule(schedule_selector(ChordRunLayer::rhythmMove));
     unscheduleUpdate();
+    unschedule(schedule_selector(ChordRunLayer::metronome));
     this->removeAllChildren();
     
     currBeatChords.clear();
@@ -190,6 +203,7 @@ void ChordRunLayer::stopMusic(){
     nextBlueIndex = 0;
     
     isFirst = true;
+    isFirstCollision =true;
     
     delete chordConfig;
 }

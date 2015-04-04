@@ -31,7 +31,8 @@ MusicInfo* MusicInfo::initWithJson(string uuid){
     const rapidjson::Value &mBeat = doc["beat"];
     const rapidjson::Value &mMusic = doc["music"];
     
-    
+    music->title = mTitle.GetString();
+    music->musicFile= mMusic.GetString();
     music->beat=mBeat.GetInt();
     music->bpm=mBpm.GetInt();
     
@@ -115,6 +116,13 @@ ValueVector MusicInfo::getLyircs(){
     return this->vec_lyric;
 }
 
+string MusicInfo::getTitle(){
+    return this->title;
+}
+
+string MusicInfo::getMusicFile(){
+    return this->musicFile;
+}
 
 vector<string> MusicInfo::getBluetoothChord(){
     return bluetoothChord;

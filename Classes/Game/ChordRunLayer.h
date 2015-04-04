@@ -33,6 +33,8 @@ private:
     void rhythmMove(float dt);
     //碰撞检测方法
     void update(float dt);
+    
+    void metronome(float dt);
  
     
 public:

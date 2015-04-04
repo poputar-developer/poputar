@@ -187,6 +187,7 @@ void GameLevel::loadFrame(){
         
         string text = StringUtils::format("第%d阶段",n+1);
         auto label = Label::createWithBMFont("fonts/gamelevel.fnt", text);
+//        auto label =Label::createWithTTF(text, "fonts/manhuati.ttf",20);
         label->setAnchorPoint(Vec2::ZERO);
         label->setPosition(startX, menuY+columnHeight+bjMoreHeightSize*2-bjGameLevelFlag);
         scrollView->addChild(label,2);

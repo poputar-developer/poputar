@@ -10,40 +10,43 @@
 #define __poputar__Musical__
 
 #include <stdio.h>
-//#include "Common.h"
+#include <cocos-ext.h>
 #include "FingerConfig.h"
 #include "SimpleAudioEngine.h"
 USING_NS_CC;
 
-class Musical : public Sprite{
+class Musical : public ui::Scale9Sprite{
 private:
     //所在弦
     int key;
     //所在品
     int value;
-    //弦的具体位置
+    //用来进行移动的时候保持平行 始终等于unitHeight
     float y;
-    //文字信息
-    Label *label;
+    //弦的位置
+    ValueMapIntKey stringMap;
+    //声音文件
+    ValueVector voiceFileName;
     
-    std::string fileName;
+    string content;
+    
+    ValueVector stringsInfo;
     
 public:
     //是否已经发生碰撞
     bool isCollision=false;
-    //所属小节
-    int beat;
+
     
-    static Musical *createMusical(int key,int value,float y);
-    void loadFrame();
+    static Musical *createMusical(FingerConfig* config ,string content,float unitHeight);
+    void loadMusical(string content,float unitHeight);
     
     ActionInterval* musicalMove(FingerConfig *common);
     
-    ActionInterval* musicalFadeOut(FingerConfig *common,bool isLabel);
-    
-    void runLeftAction(FingerConfig *config);
-    
     void musicalVoice();
+    
+    string getContent();
+    
+    ValueVector getStringsInfo();
 };
 
 #endif /* defined(__poputar__Musical__) */
