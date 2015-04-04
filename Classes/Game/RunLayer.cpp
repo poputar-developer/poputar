@@ -13,10 +13,10 @@ bool RunLayer::init(const cocos2d::Color4B &color,MusicInfo *musicInfo){
     bool result =  initWithColor(color);
     //==============设置内容页大小==============
     //    //设置大小
-    this->setContentSize(CCSizeMake(visibleSize.width, common->contentHeight));
+    this->setContentSize(Size(visibleSize.width, gameConfig->contentHeight));
     //    //设置锚点
     this->setAnchorPoint(CCPoint::ZERO);
-    float sideHeight = (visibleSize.height-common->contentHeight)/2;
+    float sideHeight = (visibleSize.height-gameConfig->contentHeight)/2;
     //    //设置位置
     this->setPosition(Point(0,sideHeight));
 
@@ -34,7 +34,7 @@ void RunLayer::startAnimation(){
     
     Sprite *startSprite = Sprite::createWithSpriteFrame(startSpriteFrame);
     
-    startSprite->setPosition(visibleWidth/2,common->contentHeight/2);
+    startSprite->setPosition(visibleWidth/2,gameConfig->contentHeight/2);
     this->addChild(startSprite,2);
     Animation *animation = Animation::create();
     for (int i=3; i>=1; i--) {

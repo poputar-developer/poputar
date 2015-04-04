@@ -66,7 +66,7 @@ bool BLEScene::init(){
 
     
     string text = "正在连接吉他";
-    label = Label::create(text, "Marker Felt",20);
+    label = Label::createWithTTF(text, "fonts/manhuati.ttf",20);
     label->setPosition(Vec2(visibleSize.width/2 ,70));
     this->addChild(label, 1);
     

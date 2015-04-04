@@ -43,9 +43,10 @@ GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked, int
             std::string text;
             ss<<node;
             ss>>text;
-            auto label = Label::create(text, "Microsoft Yahei", 27);
+            auto label = Label::createWithTTF(text, "fonts/manhuati.ttf", 20);
             label->setColor(Color3B(148, 148, 148));
-            label->setPosition(Vec2(itemSide/2,itemSide/2));
+            Size itemSize = item->getContentSize();
+            label->setPosition(Vec2(itemSize.width/2,itemSize.height/2-10));
             item->addChild(label);
 
         }

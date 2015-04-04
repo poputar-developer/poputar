@@ -58,8 +58,6 @@ void MusicAnalysis::sendChordStr(string chord){
     it = chordInfo.find(chord);
     
     if(it != chordInfo.end()){
-
-    }else{
         this->sendMusicChar(chordInfo[chord]);
     }
 }

@@ -33,8 +33,9 @@ ChordRunLayer* ChordRunLayer::createChordRunLayer(MusicInfo *musicInfo){
 }
 
 bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInfo){
-    common = Common::getInstance4Chord(visibleSize.width, visibleSize.height*0.7, musicInfo);
-    
+//    common = Common::getInstance4Chord(visibleSize.width, visibleSize.height*0.7, musicInfo);
+    chordConfig = new ChordConfig(visibleSize.width, visibleSize.height*0.7, musicInfo);
+    gameConfig = chordConfig;
     bool result =  init(color,musicInfo);
 
     //初始化当前小节
@@ -43,45 +44,20 @@ bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInf
     this->getNewChords();
     //创建第一个节奏线
     this->getNewRhythm(true);
+    
+    //节拍音效
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("snare.caf");
 
-    schedule(schedule_selector(ChordRunLayer::rhythmMove), common->rhythm_time, kRepeatForever, common->startTime);
+    schedule(schedule_selector(ChordRunLayer::rhythmMove), chordConfig->rhythm_time, kRepeatForever, chordConfig->startTime);
     
     return result;
 }
-
-////开始动画方法
-//void ChordRunLayer::startAnimation(){
-//    int visibleWidth = visibleSize.width;
-//    //倒计时动画
-//    SpriteFrame *startSpriteFrame = SpriteFrame::create("1.png", Rect(0,0,100,100));
-//
-//    Sprite *startSprite = Sprite::createWithSpriteFrame(startSpriteFrame);
-//    
-//    startSprite->setPosition(visibleWidth/2,common->contentHeight/2);
-//    this->addChild(startSprite,2);
-//    Animation *animation = Animation::create();
-//    for (int i=3; i>=1; i--) {
-//        __String *frameName = __String::createWithFormat("%d.png",i);
-//        log("frameName:%s",frameName->getCString());
-//        SpriteFrame *spriteFrame = SpriteFrame::create(frameName->getCString(), Rect(0,0,100,100));
-//        animation->addSpriteFrame(spriteFrame);
-//    }
-//    animation->setDelayPerUnit(0.9);
-//    Animate *action = Animate::create(animation);
-//    Sequence *startSq = Sequence::create(action,CallFunc::create([this,startSprite](){
-//        currentBeat = 1;
-//        this->removeChild(startSprite);
-//    }), NULL);
-//    startSprite->runAction(startSq);
-////    startSprite->runAction(action);
-//    
-//}
 
 void ChordRunLayer::endAnimationSetting(){
     currentBeat = 1;
 }
 
-
+bool isFirstCollision =true;
 void ChordRunLayer::update(float dt){
     //当前小节的节奏线
     Rhythm *rhythm = (Rhythm *)this->getChildByTag(currentBeat);
@@ -89,13 +65,23 @@ void ChordRunLayer::update(float dt){
     for (auto &e:currBeatChords) {
         if(!e->isCollision && rhythm->isReal && rhythm->boundingBox().intersectsRect(e->boundingBox())){
             if(currCollision == NULL || e!=currCollision){
+                if(isFirstCollision){
+                    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+                    schedule(schedule_selector(ChordRunLayer::metronome), chordConfig->unitSpeed);
+                    isFirstCollision = false;
+                }
                 currCollision = e;
-                e->collisionAction(common);
+                e->collisionAction(chordConfig);
                 e->isCollision = true;
                 this->sendDataToBluetooth();
             }
         }
     }
+}
+
+void ChordRunLayer::metronome(float dt){
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+
 }
 
 
@@ -108,7 +94,6 @@ void ChordRunLayer::rhythmMove(float dt){
     this->getNewRhythm(false);
     
     if(isFirst){
-//        currentBeat = 1;
         sendDataToBluetooth();
         isFirst = false;
     }
@@ -118,7 +103,7 @@ void ChordRunLayer::rhythmMove(float dt){
 void ChordRunLayer::moveChords(){
     //当前弹奏的和弦移动到屏幕外
     for (auto &e:currBeatChords) {
-        ActionInterval *ai =  e->moveOut(common);
+        ActionInterval *ai =  e->moveOut(chordConfig);
         Sequence *removeSq=Sequence::create(ai,CallFunc::create([this,e](){
                 this->removeChild(e);
         }),NULL);
@@ -127,7 +112,7 @@ void ChordRunLayer::moveChords(){
     currBeatChords.clear();
     //等待弹奏的和弦移动到弹奏行
     for(auto &e : waitBeatChords){
-        ActionInterval *ai = e->moveToCurrent(common);
+        ActionInterval *ai = e->moveToCurrent(chordConfig);
         e->runAction(ai);
         currBeatChords.pushBack(e);
     }
@@ -136,16 +121,16 @@ void ChordRunLayer::moveChords(){
 
 void ChordRunLayer::sendDataToBluetooth(){
     
-    long c = POPTHelper::getCurrentTime();
-    log("发送时间：%d",c);
-    vector<string> bluetoothChord = common->musicInfo->getBluetoothChord();
+//    long c = POPTHelper::getCurrentTime();
+//    log("发送时间：%d",c);
+    vector<string> bluetoothChord = chordConfig->musicInfo->getBluetoothChord();
     if(!(nextBlueIndex >= bluetoothChord.size())){
         string nextBlueType = bluetoothChord.at(nextBlueIndex);
         log("send BlueTooth : %s",nextBlueType.c_str());
         MusicAnalysis::getInstance()->sendChordStr(nextBlueType);
     }
-    long c1 = POPTHelper::getCurrentTime();
-    log("结束时间：%d",c1);
+//    long c1 = POPTHelper::getCurrentTime();
+//    log("结束时间：%d",c1);
     nextBlueIndex++;
 }
 
@@ -154,9 +139,9 @@ void ChordRunLayer::sendDataToBluetooth(){
 
 void ChordRunLayer::getNewChords(){
     //初始化和弦，并从Y轴的0移动的array4Y的第一个位置
-    ValueVector beatChords = common->musicInfo->getChords();
-    int beatCount = common->musicInfo->getBeat();
-     ValueVector lyrics = common->musicInfo->getLyircs();
+    ValueVector beatChords = chordConfig->musicInfo->getChords();
+    int beatCount = chordConfig->musicInfo->getBeat();
+     ValueVector lyrics = chordConfig->musicInfo->getLyircs();
     if(currentBeat<beatChords.size()){
         ValueVector lyricVector;
         if(currentBeat<lyrics.size()){
@@ -172,7 +157,7 @@ void ChordRunLayer::getNewChords(){
             if(lyricVector.size()>0){
                 lyric_str = lyricVector.at(j).asString();
             }
-            Chord *chord = Chord::createChord(common, j, type,lyric_str);
+            Chord *chord = Chord::createChord(chordConfig, j, type,lyric_str);
             this->addChild(chord,2);
             waitBeatChords.pushBack(chord);
         }
@@ -186,18 +171,18 @@ void ChordRunLayer::getNewChords(){
 
 void ChordRunLayer::getNewRhythm(bool first){
     //创建信息节奏线
-    Rhythm *rhythmLine = Rhythm::createRhythm(common, currentBeat);
+    Rhythm *rhythmLine = Rhythm::createRhythm(chordConfig, currentBeat);
     this->addChild(rhythmLine,1);
     ActionInterval *ai;
     if(first){
-        ai = rhythmLine->firstMoveRhythm(common);
+        ai = rhythmLine->firstMoveRhythm(chordConfig);
     }else{
-        ai = rhythmLine->moveRhythm(common);
+        ai = rhythmLine->moveRhythm(chordConfig);
     }
     rhythmLine->isReal = !first;
     
     Sequence *sequence = Sequence::create(ai,CallFunc::create([this,rhythmLine](){
-        ActionInterval *leftAi =rhythmLine->leftMoveRhythm(common);
+        ActionInterval *leftAi =rhythmLine->leftMoveRhythm(chordConfig);
         Sequence *removeSq=Sequence::create(leftAi,CallFunc::create([this](){
             this->removeChildByTag(currentBeat>2 ? currentBeat-2 : 0);
         }), NULL);
@@ -209,6 +194,7 @@ void ChordRunLayer::getNewRhythm(bool first){
 void ChordRunLayer::stopMusic(){
     unschedule(schedule_selector(ChordRunLayer::rhythmMove));
     unscheduleUpdate();
+    unschedule(schedule_selector(ChordRunLayer::metronome));
     this->removeAllChildren();
     
     currBeatChords.clear();
@@ -217,6 +203,9 @@ void ChordRunLayer::stopMusic(){
     nextBlueIndex = 0;
     
     isFirst = true;
+    isFirstCollision =true;
+    
+    delete chordConfig;
 }
 
 

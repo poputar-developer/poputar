@@ -14,18 +14,25 @@
 #include <MusicInfo.h>
 #include "BaseLayer.h"
 #include "GameInfo.h"
+
+#include "RunLayer.h"
 USING_NS_CC;
 
 class GuitarRun: public BaseLayer{
   
 
 private:
-    public:
-    static Scene *createScene(MusicInfo *musicInfo,GameInfo *gameInfo);
+    RunLayer *runLayer;
     
+    void loadFrame(MusicInfo* musicInfo);
     void startChordMusic(MusicInfo *musicInfo);
     void startFingerMusic(MusicInfo *musicInfo);
     
+public:
+    static Scene *createScene(MusicInfo *musicInfo,GameInfo *gameInfo);
+
+
+
     CREATE_FUNC(GuitarRun);
 
     void goBack(Ref* sender);

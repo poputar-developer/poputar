@@ -13,10 +13,15 @@
 using namespace std;
 class GameInfo{
 private:
+    //所在阶段
     int level;
+    //所在关卡
     int node;
+    //类型
     string type;
+    //音乐
     string music;
+    //和弦
     string chord;
 public:
     void setLevel(int level);

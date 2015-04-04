@@ -27,3 +27,11 @@ vector<string> POPTStringUtils::split(string str, string pattern){
     }
     return result;
 }
+
+string POPTStringUtils::intToString(int value){
+    std::stringstream ss;
+    std::string text;
+    ss<<value;
+    ss>>text;
+    return text;
+}

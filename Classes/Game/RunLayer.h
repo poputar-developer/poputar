@@ -10,15 +10,16 @@
 #define __poputar__RunLayer__
 
 #include <stdio.h>
-#include "Common.h"
+//#include "Common.h"
 #include "POPTHelper.h"
 #include "MusicInfo.h"
+#include "GameConfig.h"
 
 USING_NS_CC;
 class RunLayer : public LayerColor{
 public:
     //公告属性
-    Common *common;
+    GameConfig *gameConfig;
     //画面大小
     Size visibleSize = Director::getInstance()->getVisibleSize();
 

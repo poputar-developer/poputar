@@ -7,9 +7,10 @@
 //
 
 #include "FingerRunLayer.h"
-#include "Common.h"
 #include "POPTStringUtils.h"
 #include "Musical.h"
+#include "MusicAnalysis.h"
+
 FingerRunLayer* FingerRunLayer::createFingerRunLayer(MusicInfo *musicInfo){
     FingerRunLayer *layer = new FingerRunLayer();
     if(layer && layer->init4Finger(Color4B(0,0,0,0),musicInfo))
@@ -20,93 +21,144 @@ FingerRunLayer* FingerRunLayer::createFingerRunLayer(MusicInfo *musicInfo){
     CC_SAFE_DELETE(layer);
     return nullptr;
 }
-
+//新建音符时用于设置音符当前的tag
 int currentMusical;
 ValueMapIntKey stringMap;
-bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musicInfo){
+//获取准备播放的音符
+int flag;
+//音乐信息中获取的音符信息
+ValueVector musicals;
+//节奏线集合
+Vector<Sprite *> rhythms;
 
-    common = Common::getInstance4Finger(visibleSize.width, visibleSize.height*0.7, musicInfo);
+
+bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musicInfo){
+    fingerConfig = new FingerConfig(visibleSize.width, visibleSize.height*0.7, musicInfo);
+    gameConfig = fingerConfig;
     
     bool result =  init(color,musicInfo);
-    //==============设置内容页大小==============
 
+    musicals = fingerConfig->musicInfo->getMusical();
+    
     //当前音符
     currentMusical=0;
     //组装界面
     this->loadFrame();
-    //移动速度
-    this->speed=3;
     
-    schedule(schedule_selector(FingerRunLayer::musicalMove), common->rhythm_time, kRepeatForever, common->startTime);
+    flag = 1;
     
+    //节奏线碰撞时的动画效果
+    auto animation = Animation::create();
+    animation->addSpriteFrameWithFile("finger_rhythm_2.png");
+    animation->setDelayPerUnit(0.3f);
+    animation->setRestoreOriginalFrame(true);
+    AnimationCache::getInstance()->addAnimation(animation, "rhythm_blink");
+
+    //节拍音效 
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("snare.caf");
+    
+    schedule(schedule_selector(FingerRunLayer::musicalMove), fingerConfig->rhythm_time, kRepeatForever, fingerConfig->startTime);
+    
+//    scheduleUpdate();
+
     return result;
 }
 
+void FingerRunLayer::update(float at){
+    
+    ui::Scale9Sprite *flagRhythm = (ui::Scale9Sprite *)this->getChildByTag(8001);
+    //用目标的中间X点和音符的X点来进行判断
+
+    if(this->getChildByTag(flag)){
+        Musical* e = (Musical*)this->getChildByTag(flag);
+        float rCenterX = flagRhythm->getPositionX() + flagRhythm->getContentSize().width/2;
+        float eX = e->getPositionX() + e->getContentSize().width/2;
+        
+        if(!e->isCollision && rCenterX>=eX){
+            ValueVector stringsInfo = e->getStringsInfo();
+            for (int i=0; i<stringsInfo.size(); i++) {
+                Sprite *r = (Sprite *)this->getChildByTag(8000+stringsInfo.at(i).asInt());
+                auto loading = AnimationCache::getInstance()->getAnimation("rhythm_blink");
+                auto animate = Animate::create(loading);
+                r->runAction(animate);
+            }
+            e->musicalVoice();
+            e->isCollision = true;
+            sendDataToBluetooth();
+            flag++;
+        }
+    }
+}
+//弦之间的距离
+float unitHeight;
 void FingerRunLayer::loadFrame(){
-    float column = common->contentHeight/7;
+
+    
+    float unitHeight = fingerConfig->contentHeight/7;
     int stringCount = 6;
     for (int i=0; i<6; i++) {
+        float stringHeight = unitHeight*stringCount;
+        stringMap[i+1]=Value(stringHeight);
         
-        float columnHeight = column*stringCount;
-        stringMap[i+1]=Value(columnHeight);
         ui::Scale9Sprite *mString = ui::Scale9Sprite::create("finger_string.png");
-        mString->setPreferredSize(Size(Vec2(common->contentWidth, mString->getContentSize().height)));
-        mString->setPosition(Vec2(common->contentWidth/2,columnHeight));
+        mString->setPreferredSize(Size(Vec2(fingerConfig->contentWidth, mString->getContentSize().height)));
+        mString->setPosition(Vec2(fingerConfig->contentWidth/2,stringHeight));
         this->addChild(mString,1);
+        
+        
+        auto mRhythm = Sprite::create("finger_rhythm_1.png");
+        mRhythm->setPosition(Vec2(fingerConfig->contentWidth-fingerConfig->rhythm_distance, stringHeight));
+        mRhythm->setAnchorPoint(Vec2(1,0.5));
+        mRhythm->setTag(8000+i+1);
+        this->addChild(mRhythm,3);
+        rhythms.pushBack(mRhythm);
+        
         stringCount-=1;
     }
-    
-    ui::Scale9Sprite *mRhythm = ui::Scale9Sprite::create("finger_rhythm.png");
-    mRhythm->setPreferredSize(Size(mRhythm->getContentSize().width, common->contentHeight));
-    mRhythm->setPosition(Vec2(common->rhythm_distance, common->contentHeight/2));
-    this->addChild(mRhythm,1);
-    
 }
 
 void FingerRunLayer::endAnimationSetting(){
+    sendDataToBluetooth();
     currentMusical = 1;
 }
 
+
+
 void FingerRunLayer::musicalMove(float at){
-   
-    ValueVector musicals = common->musicInfo->getMusical();
-    if(currentMusical<musicals.size()){
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+    Musical* musicalSprite;
+
+    if(currentMusical-1<musicals.size()){
         Value musical = musicals.at(currentMusical-1);
+        musicalSprite = Musical::createMusical(fingerConfig, musical.asString(),unitHeight);
         
-        vector<string> infos = POPTStringUtils::split(musical.asString(), "@|@");
-        map<int,int> charInfo;
-        
-        for(size_t i=0;i<infos.size();i++){
-            string info = infos[i];
-            if(info.length()>0){
-                vector<string> s = POPTStringUtils::split(info, ":");
-                int key = atoi(s[0].data()); //弦位置
-                int value = atoi(s[1].data()); //品位置
-                
-                float y = stringMap[key].asFloat();
-                auto musicalSprite = Musical::createMusical("finger_popo.png",key,value,y);
-                musicalSprite->setScale(0.5);
-                musicalSprite->setPosition(Vec2(0,y));
-                musicalSprite->setTag(currentMusical+1);
-                musicalSprite->setAnchorPoint(Vec2(1,0.5));
-                ActionInterval *ai=musicalSprite->musicalMove(common, speed);
-                Sequence *sequence = Sequence::create(ai,CallFunc::create([this,musicalSprite](){
-                    ActionInterval *leftAi =musicalSprite->musicalFadeOut(common);
-                    Sequence *removeSq=Sequence::create(leftAi,CallFunc::create([this](){
-                        //                    this->removeChildByTag(currentMusical-1);
-                    }), NULL);
-                    musicalSprite->runAction(removeSq);
-                }),NULL);
-                musicalSprite->runAction(sequence);
-                
-                this->addChild(musicalSprite,2);
-            }
-        }
- 
+    }else{
+        musicalSprite = Musical::createMusical(fingerConfig, "",unitHeight);
     }
+    ActionInterval *ai=musicalSprite->musicalMove(fingerConfig);
+    Sequence *sequence = Sequence::create(ai,CallFunc::create([this,musicalSprite](){
+        //musicalSprite->runLeftAction(fingerConfig);
+        this->removeChild(musicalSprite);
+    }),NULL);
+    musicalSprite->runAction(sequence);
+    musicalSprite->setTag(currentMusical);
+    this->addChild(musicalSprite,2);
+
+    currMusicals.pushBack(musicalSprite);
     currentMusical +=1;
 }
 
 void FingerRunLayer::stopMusic(){
     currentMusical = 0;
+    delete fingerConfig;
+}
+
+void FingerRunLayer::sendDataToBluetooth(){
+    
+    if(flag-1<musicals.size()){
+        Value musical = musicals.at(flag-1);
+        log("%s",musical.asString().c_str());
+        MusicAnalysis::getInstance()->sendMusicChar(musical.asString());
+    }
 }
