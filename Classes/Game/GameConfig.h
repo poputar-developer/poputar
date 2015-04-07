@@ -23,8 +23,14 @@ public:
     float contentHeight;
     //音乐信息
     MusicInfo *musicInfo;
+    //单元时间 音符间隔时间
+    float unitTime;
     //开始时间
     float startTime=3;
+    //歌曲总时长
+    float musicTime;
+    //结尾增加的时间
+    float endTime=3;
     
     GameConfig(float contentWidth,float contentHeight,MusicInfo *music);
         

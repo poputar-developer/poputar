@@ -24,7 +24,7 @@ private:
     //歌词
     Lyric *lyric;
     //创建和弦
-    void getNewChords();
+    void getNewChords(int currentBeat,bool isWait);
     //创建节奏线
     void getNewRhythm(bool first);
     //移动和弦
@@ -33,7 +33,7 @@ private:
     void rhythmMove(float dt);
     //碰撞检测方法
     void update(float dt);
-    
+    //节拍器
     void metronome(float dt);
  
     
@@ -46,6 +46,8 @@ public:
     virtual void stopMusic();
     
     virtual void endAnimationSetting();
+    
+    virtual void restart(int musicalIndex);
 
 };
 

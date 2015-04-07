@@ -13,6 +13,8 @@ GameConfig::GameConfig(float contentWidth, float contentHeight, MusicInfo *music
     this->contentHeight = contentHeight;
     this->contentWidth = contentWidth;
     this->musicInfo = musicInfo;
+    int bpm = musicInfo->getBpm();
+    unitTime = 60.0/bpm;
 }
 
 GameConfig::~GameConfig(){

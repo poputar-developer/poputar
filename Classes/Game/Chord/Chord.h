@@ -41,6 +41,8 @@ public:
     
     ActionInterval *moveToCurrent(ChordConfig *chordConfig);
     
+    ActionInterval *moveToWait(ChordConfig *chordConfig);
+    
     void collisionAction(ChordConfig *chordConfig);
     
     string getType();

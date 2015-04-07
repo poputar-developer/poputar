@@ -30,7 +30,7 @@ bool Rhythm::initWithFile(const string &filename,ChordConfig *common,int current
 ActionInterval *Rhythm::firstMoveRhythm(ChordConfig *common){
 //    log("uw:%f / us:%f  = %f",common->unitWidth,common->unitSpeed,common->unitWidth/common->unitSpeed);
     //每秒钟走的距离
-    float min4width = common->unitWidth/common->unitSpeed;
+    float min4width = common->unitWidth/common->unitTime;
     //开始时间行走的距离
     float startWidth = common->startTime*min4width;
     //获得开始时间需要的距离
@@ -61,7 +61,7 @@ ActionInterval *Rhythm::move(ChordConfig *common,float time){
 ActionInterval *Rhythm::leftMoveRhythm(ChordConfig *common){
     Size visibleSize = Director::getInstance()->getVisibleSize();
     int visibleWidth = visibleSize.width;
-    float endSpeed= common->unitSpeed * common->leftUnit;
+    float endSpeed= common->unitTime * common->leftUnit;
     
     MoveTo *endMove = MoveTo::create(endSpeed, Vec2(visibleWidth,0));
     FadeOut *out = FadeOut::create(endSpeed);

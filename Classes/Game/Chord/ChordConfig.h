@@ -22,8 +22,6 @@ public:
     float unitWidth;
     //单元高度
     float unitHeight;
-    //单元时间
-    float unitSpeed;
     //循环周期
     float rhythm_time;
     //和弦区域宽度
@@ -32,11 +30,13 @@ public:
     ValueVector array4X;
     //Y轴坐标数组 定位和弦Y轴位置
     ValueVector array4Y;
+
+    int beat;
     
     ChordConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo);
     ~ChordConfig();
     
-    virtual void initialise();
+    virtual void initialise(MusicInfo *musicInfo);
 
 };
 

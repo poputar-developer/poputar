@@ -20,8 +20,6 @@ public:
     float beat =7;
     //单元宽度
     float unitWidth;
-    //单元时间 音符间隔时间
-    float unitSpeed;
     //音符移动时间的基数
     float speedBase = 7;
     //循环周期
@@ -31,7 +29,7 @@ public:
     
     FingerConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo);
     
-    virtual void initialise();
+    virtual void initialise(MusicInfo *musicInfo);
 
 };
 

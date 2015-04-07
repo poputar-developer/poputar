@@ -8,6 +8,7 @@
 
 #include "ChordRunLayer.h"
 #include "MusicAnalysis.h"
+#include "math.h"
 //小节计数 当前播放的小节
 int currentBeat;
 //蓝牙计数器 用于提前获得下一个和弦
@@ -34,14 +35,14 @@ ChordRunLayer* ChordRunLayer::createChordRunLayer(MusicInfo *musicInfo){
 
 bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInfo){
 //    common = Common::getInstance4Chord(visibleSize.width, visibleSize.height*0.7, musicInfo);
-    chordConfig = new ChordConfig(visibleSize.width, visibleSize.height*0.7, musicInfo);
+    chordConfig = new ChordConfig(visibleSize.width, visibleSize.height*0.8, musicInfo);
     gameConfig = chordConfig;
     bool result =  init(color,musicInfo);
 
     //初始化当前小节
-    currentBeat=0;
+//    currentBeat=0;
     //初始化第一小节的和弦
-    this->getNewChords();
+    this->getNewChords(currentBeat,true);
     //创建第一个节奏线
     this->getNewRhythm(true);
     
@@ -57,6 +58,9 @@ void ChordRunLayer::endAnimationSetting(){
     currentBeat = 1;
 }
 
+
+
+//第一次碰撞时开始节拍器
 bool isFirstCollision =true;
 void ChordRunLayer::update(float dt){
     //当前小节的节奏线
@@ -67,7 +71,7 @@ void ChordRunLayer::update(float dt){
             if(currCollision == NULL || e!=currCollision){
                 if(isFirstCollision){
                     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
-                    schedule(schedule_selector(ChordRunLayer::metronome), chordConfig->unitSpeed);
+                    schedule(schedule_selector(ChordRunLayer::metronome), chordConfig->unitTime);
                     isFirstCollision = false;
                 }
                 currCollision = e;
@@ -88,7 +92,7 @@ void ChordRunLayer::metronome(float dt){
 void ChordRunLayer::rhythmMove(float dt){
     if(currentBeat){
         this->moveChords();
-        this->getNewChords();
+        this->getNewChords(currentBeat,true);
         currentBeat+=1;
     }
     this->getNewRhythm(false);
@@ -108,6 +112,7 @@ void ChordRunLayer::moveChords(){
                 this->removeChild(e);
         }),NULL);
         e->runAction(removeSq);
+
     }
     currBeatChords.clear();
     //等待弹奏的和弦移动到弹奏行
@@ -136,9 +141,9 @@ void ChordRunLayer::sendDataToBluetooth(){
 
 
 
-
-void ChordRunLayer::getNewChords(){
+void ChordRunLayer::getNewChords(int currentBeat,bool isWait){
     //初始化和弦，并从Y轴的0移动的array4Y的第一个位置
+    log("getNewChords:%i",currentBeat);
     ValueVector beatChords = chordConfig->musicInfo->getChords();
     int beatCount = chordConfig->musicInfo->getBeat();
      ValueVector lyrics = chordConfig->musicInfo->getLyircs();
@@ -146,7 +151,6 @@ void ChordRunLayer::getNewChords(){
         ValueVector lyricVector;
         if(currentBeat<lyrics.size()){
              lyricVector = lyrics.at(currentBeat).asValueVector();
-            
         }
         
         ValueVector beatVector=beatChords.at(currentBeat).asValueVector();
@@ -159,7 +163,13 @@ void ChordRunLayer::getNewChords(){
             }
             Chord *chord = Chord::createChord(chordConfig, j, type,lyric_str);
             this->addChild(chord,2);
-            waitBeatChords.pushBack(chord);
+            if(isWait){
+                chord->runAction(chord->moveToWait(chordConfig));
+                waitBeatChords.pushBack(chord);
+            }else{
+                chord->runAction(chord->moveToCurrent(chordConfig));
+                currBeatChords.pushBack(chord);
+            }
         }
         
     }else{
@@ -168,6 +178,39 @@ void ChordRunLayer::getNewChords(){
 }
 
 
+
+void ChordRunLayer::restart(int musicalIndex){
+    //停止任务
+    unschedule(schedule_selector(ChordRunLayer::metronome));
+    unschedule(schedule_selector(ChordRunLayer::rhythmMove));
+    unscheduleUpdate();
+    isFirstCollision =true;
+    
+    this->removeAllChildren();
+    //计算音符所在小节
+
+    currBeatChords.clear();
+    waitBeatChords.clear();
+    
+    float temp = (float)musicalIndex/(float)chordConfig->beat;
+    int beatFlag = ceil(temp);
+    currentBeat = beatFlag+2;
+    //设置蓝牙标记
+    nextBlueIndex = musicalIndex;
+    
+    log("restart %i",currentBeat);
+
+    this->getNewChords(beatFlag,false);
+    this->getNewRhythm(false);
+//    currentBeat+=1;
+    this->getNewChords(beatFlag+1, true);
+    sendDataToBluetooth();
+    
+    
+    schedule(schedule_selector(ChordRunLayer::rhythmMove), chordConfig->rhythm_time, kRepeatForever, chordConfig->rhythm_time);
+    scheduleUpdate();
+    
+}
 
 void ChordRunLayer::getNewRhythm(bool first){
     //创建信息节奏线
