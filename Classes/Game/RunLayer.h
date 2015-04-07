@@ -37,6 +37,8 @@ public:
     //动画结束后设置属性
     virtual void endAnimationSetting(){};
     
+    virtual void restart(int musicalIndex){};
+    
 };
 
 #endif /* defined(__poputar__RunLayer__) */

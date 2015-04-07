@@ -9,7 +9,7 @@
 #include "ChordConfig.h"
 
 ChordConfig::ChordConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo):GameConfig(contentWidth,contentHeight,musicInfo){
-    initialise();
+    initialise(musicInfo);
 };
 
 ChordConfig::~ChordConfig(){
@@ -17,13 +17,13 @@ ChordConfig::~ChordConfig(){
     array4Y.clear();
 }
 
-void ChordConfig::initialise(){
-    int beat = musicInfo->getBeat();
-    unitSpeed = 60.0/musicInfo->getBpm();
-    rhythm_time = unitSpeed * beat;
+void ChordConfig::initialise(MusicInfo *musicInfo){
+    beat = musicInfo->getBeat();
+
+    rhythm_time = unitTime * beat;
     unitWidth = contentWidth/(beat+leftUnit);
     unitHeight = contentHeight/unit4Y;
-    rhythm_time = unitSpeed * beat;
+    rhythm_time = unitTime * beat;
     rhythm_distance = unitWidth *beat;
     
     array4X.clear();
@@ -38,4 +38,11 @@ void ChordConfig::initialise(){
         float h =unitHeight*i;
         array4Y.push_back(Value(h));
     }
+    
+    int chordSize = musicInfo->getChords().size()*beat;
+    int beatCount = chordSize/musicInfo->getBeat();
+    if(chordSize%musicInfo->getBeat()!=0){
+        beatCount+=1;
+    }
+    musicTime = unitTime*beatCount*beat;
 }

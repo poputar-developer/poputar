@@ -22,15 +22,14 @@ bool Chord::initWithFile(string type,ChordConfig *chordConfig,int index){
         result = Sprite::initWithFile(this->imageFilename);
         this->setOpacity(150);
         this->setScale(0.7);
+        float x = chordConfig->array4X.at(index).asFloat();
+        this->setPosition(Vec2(x,0));
         CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(this->voideFileName);
     }
-    float x = chordConfig->array4X.at(index).asFloat();
-    float y = chordConfig->array4Y.at(0).asFloat();
-    this->setPosition(Vec2(x,0));
-    MoveTo *chordStartMove = MoveTo::create(chordConfig->unitSpeed/2, Vec2(x,y));
-    this->runAction(chordStartMove);
     return result;
 }
+
+
 
 Chord* Chord::createChord(ChordConfig *ChordConfig, int index, string type,string lyric_str){
     Chord *chord = new Chord();
@@ -40,7 +39,6 @@ Chord* Chord::createChord(ChordConfig *ChordConfig, int index, string type,strin
         chord->addChild(l);
         Size p = chord->getContentSize();
         l->setPosition(Vec2(p.width/2,-11));
-//        l->setAnchorPoint(Vec2(0,0));
         lyric=l;
         chord->autorelease();
         return chord;
@@ -86,17 +84,24 @@ void Chord::getFileNameWidthType(string type){
         this->voideFileName = "Em_clean.caf";
     }
 }
+ActionInterval *Chord::moveToWait(ChordConfig *chordConfig){
+    float y = chordConfig->array4Y.at(0).asFloat();
+    MoveTo *chordStartMove = MoveTo::create(chordConfig->unitTime/2, Vec2(this->getPosition().x,y));
+    return chordStartMove;
+}
+
 
 ActionInterval *Chord::moveToCurrent(ChordConfig *chordConfig){
-    MoveTo *chordSecondMove = MoveTo::create(chordConfig->unitSpeed/2, Vec2(this->getPosition().x,chordConfig->array4Y.at(1).asFloat()));
-    FadeIn *chordSecondFade = FadeIn::create(chordConfig->unitSpeed/2);
+    float y = chordConfig->array4Y.at(1).asFloat();
+    MoveTo *chordSecondMove = MoveTo::create(chordConfig->unitTime/2, Vec2(this->getPosition().x,y));
+    FadeIn *chordSecondFade = FadeIn::create(chordConfig->unitTime/2);
     Spawn *spawn = Spawn::create(chordSecondMove,chordSecondFade, NULL);
     return spawn;
 }
 
 ActionInterval *Chord::moveOut(ChordConfig *chordConfig){
-    MoveTo *chordEndMove = MoveTo::create(chordConfig->unitSpeed/2, Vec2(this->getPosition().x,chordConfig->contentHeight));
-    FadeOut *out = FadeOut::create(chordConfig->unitSpeed/2);
+    MoveTo *chordEndMove = MoveTo::create(chordConfig->unitTime/2, Vec2(this->getPosition().x,chordConfig->contentHeight));
+    FadeOut *out = FadeOut::create(chordConfig->unitTime/2);
     Spawn *spawn = Spawn::create(chordEndMove,out, NULL);
     return spawn;
 }
@@ -114,7 +119,7 @@ void Chord::collisionAction(ChordConfig *chordConfig){
     }), NULL);
     this->runAction(sq);
     
-    //CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(this->voideFileName);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(this->voideFileName);
 }
 
 string Chord::getType(){

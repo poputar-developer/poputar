@@ -28,6 +28,26 @@ Musical* Musical::createMusical(FingerConfig* fingerConfig, string content,float
     return nullptr;
 }
 
+Musical* Musical::createMusical(FingerConfig* fingerConfig, string content,float unitHeight,float x){
+    Musical *item = new Musical();
+    if(item && item->initWithFile("finger_rhythm.png")){
+        
+        float unitHeight = fingerConfig->contentHeight/7;
+        float musicalHeight = unitHeight*5;
+        item->y = unitHeight;
+        item->setAnchorPoint(Vec2(0.5,0));
+        item->setPosition(Vec2(x,unitHeight));
+        item->setPreferredSize(Size(item->getContentSize().width,musicalHeight));
+        item->loadMusical(content,unitHeight);
+        
+        item->autorelease();
+        
+        return item;
+    }
+    CC_SAFE_DELETE(item);
+    return nullptr;
+}
+
 
 
 void Musical::loadMusical(string content,float unitHeight){
@@ -100,7 +120,7 @@ void Musical::loadMusical(string content,float unitHeight){
 
 }
 
-ActionInterval* Musical::musicalMove(FingerConfig *common){
+ActionInterval* Musical::musicalMove(FingerConfig *common,float unitWidth){
     float time = common->rhythm_time;
     //从开始位置移动到节奏线位置所需时间
     float moveTime = time * common->speedBase;
@@ -108,7 +128,7 @@ ActionInterval* Musical::musicalMove(FingerConfig *common){
     
     float allTime = common->contentWidth/(distance/moveTime);
     
-    MoveTo *beginMove = MoveTo::create(allTime*2,Vec2(-common->contentWidth,y));
+    MoveTo *beginMove = MoveTo::create(allTime*2,Vec2(-common->contentWidth-unitWidth,y));
     return beginMove;
     
 }

@@ -11,16 +11,6 @@
 #include "Musical.h"
 #include "MusicAnalysis.h"
 
-FingerRunLayer* FingerRunLayer::createFingerRunLayer(MusicInfo *musicInfo){
-    FingerRunLayer *layer = new FingerRunLayer();
-    if(layer && layer->init4Finger(Color4B(0,0,0,0),musicInfo))
-    {
-        layer->autorelease();
-        return layer;
-    }
-    CC_SAFE_DELETE(layer);
-    return nullptr;
-}
 //新建音符时用于设置音符当前的tag
 int currentMusical;
 ValueMapIntKey stringMap;
@@ -31,9 +21,19 @@ ValueVector musicals;
 //节奏线集合
 Vector<Sprite *> rhythms;
 
+FingerRunLayer* FingerRunLayer::createFingerRunLayer(MusicInfo *musicInfo){
+    FingerRunLayer *layer = new FingerRunLayer();
+    if(layer && layer->init4Finger(Color4B(0,0,0,0),musicInfo))
+    {
+        layer->autorelease();
+        return layer;
+    }
+    CC_SAFE_DELETE(layer);
+    return nullptr;
+}
 
 bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musicInfo){
-    fingerConfig = new FingerConfig(visibleSize.width, visibleSize.height*0.7, musicInfo);
+    fingerConfig = new FingerConfig(visibleSize.width, visibleSize.height*0.8, musicInfo);
     gameConfig = fingerConfig;
     
     bool result =  init(color,musicInfo);
@@ -57,11 +57,52 @@ bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musi
     //节拍音效 
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("snare.caf");
     
-    schedule(schedule_selector(FingerRunLayer::musicalMove), fingerConfig->rhythm_time, kRepeatForever, fingerConfig->startTime);
-    
-//    scheduleUpdate();
+    startMusical(0);
+
+    schedule(schedule_selector(FingerRunLayer::musicalMove), fingerConfig->rhythm_time, kRepeatForever, fingerConfig->rhythm_time);
 
     return result;
+}
+
+void FingerRunLayer::restart(int musicalIndex){
+    unschedule(schedule_selector(FingerRunLayer::musicalMove));
+    unscheduleUpdate();
+    this->removeAllChildren();
+    
+    
+    currentMusical = musicalIndex;
+    flag = musicalIndex-(fingerConfig->beat+1);
+    
+    this->loadFrame();
+    this->startMusical(musicalIndex);
+    schedule(schedule_selector(FingerRunLayer::musicalMove), fingerConfig->rhythm_time, kRepeatForever, fingerConfig->rhythm_time);
+    scheduleUpdate();
+    
+    
+    
+}
+void FingerRunLayer::startMusical(int musicalIndex){
+    int count  = fingerConfig->beat+fingerConfig->leftUnit+1;
+    for (int i=1; i<count; i++) {
+        float x = i*fingerConfig->unitWidth;
+        Musical *musicalSprite;
+        int index = flag+ (i-1);
+        if(musicalIndex != 0 && index<musicals.size()){
+            
+            Value musical = musicals.at(index-1);
+            musicalSprite = Musical::createMusical(fingerConfig, musical.asString(),unitHeight,x);
+            musicalSprite->setTag(index);
+        }else{
+            musicalSprite = Musical::createMusical(fingerConfig, "", unitHeight, x);
+        }
+    
+        this->addChild(musicalSprite);
+        ActionInterval *ai=musicalSprite->musicalMove(fingerConfig,fingerConfig->contentWidth-x);
+        Sequence *sequence = Sequence::create(ai,CallFunc::create([this,musicalSprite](){
+            this->removeChild(musicalSprite);
+        }),NULL);
+        musicalSprite->runAction(sequence);
+    }
 }
 
 void FingerRunLayer::update(float at){
@@ -69,12 +110,14 @@ void FingerRunLayer::update(float at){
     ui::Scale9Sprite *flagRhythm = (ui::Scale9Sprite *)this->getChildByTag(8001);
     //用目标的中间X点和音符的X点来进行判断
 
+    log("current:%i  flag:%i",currentMusical,flag);
     if(this->getChildByTag(flag)){
         Musical* e = (Musical*)this->getChildByTag(flag);
-        float rCenterX = flagRhythm->getPositionX() + flagRhythm->getContentSize().width/2;
-        float eX = e->getPositionX() + e->getContentSize().width/2;
+        float rCenterX = flagRhythm->getPositionX();
+        float eX = e->getPositionX();
         
         if(!e->isCollision && rCenterX>=eX){
+            
             ValueVector stringsInfo = e->getStringsInfo();
             for (int i=0; i<stringsInfo.size(); i++) {
                 Sprite *r = (Sprite *)this->getChildByTag(8000+stringsInfo.at(i).asInt());
@@ -89,8 +132,7 @@ void FingerRunLayer::update(float at){
         }
     }
 }
-//弦之间的距离
-float unitHeight;
+
 void FingerRunLayer::loadFrame(){
 
     
@@ -126,31 +168,37 @@ void FingerRunLayer::endAnimationSetting(){
 
 void FingerRunLayer::musicalMove(float at){
     
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+    
     Musical* musicalSprite;
 
-    if(currentMusical-1<musicals.size()){
-        Value musical = musicals.at(currentMusical-1);
-        musicalSprite = Musical::createMusical(fingerConfig, musical.asString(),unitHeight);
-        
-    }else{
+    if(currentMusical==0){
         musicalSprite = Musical::createMusical(fingerConfig, "",unitHeight);
+    }else{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+        if(currentMusical-1<musicals.size()){
+            Value musical = musicals.at(currentMusical-1);
+            musicalSprite = Musical::createMusical(fingerConfig, musical.asString(),unitHeight);
+            
+        }else{
+            musicalSprite = Musical::createMusical(fingerConfig, "",unitHeight);
+        }
+        musicalSprite->setTag(currentMusical);
+        currentMusical +=1;
     }
-    ActionInterval *ai=musicalSprite->musicalMove(fingerConfig);
+    
+    ActionInterval *ai=musicalSprite->musicalMove(fingerConfig,0);
     Sequence *sequence = Sequence::create(ai,CallFunc::create([this,musicalSprite](){
         //musicalSprite->runLeftAction(fingerConfig);
         this->removeChild(musicalSprite);
     }),NULL);
     musicalSprite->runAction(sequence);
-    musicalSprite->setTag(currentMusical);
     this->addChild(musicalSprite,2);
-
-    currMusicals.pushBack(musicalSprite);
-    currentMusical +=1;
+    
 }
 
 void FingerRunLayer::stopMusic(){
     currentMusical = 0;
+    flag = 0;
     delete fingerConfig;
 }
 

@@ -22,13 +22,17 @@ using namespace std;
 class FingerRunLayer : public RunLayer{
 private:
     
-    Vector<Musical *> currMusicals;
-    
+    //弦之间的距离
+    float unitHeight;
+    //配置信息
     FingerConfig *fingerConfig;
     //组装画面
     void loadFrame();
+    //初始化开始的音符
+    void startMusical(int musicalIndex);
     //音符开始移动
     void musicalMove(float at);
+    //碰撞检测
     void update(float at);
     
 public:
@@ -37,5 +41,6 @@ public:
     virtual void stopMusic();
     virtual void endAnimationSetting();
     virtual void sendDataToBluetooth();
+    virtual void restart(int musicalIndex);
 };
 #endif /* defined(__poputar__FingerRunLayer__) */
