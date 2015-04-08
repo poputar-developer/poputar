@@ -313,38 +313,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Game/GuitarRunScene.cpp"
-            timestampString = "450014384.950291"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "GuitarRun::sliderChanged(Ref *ref,Control::EventType controllEvent)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/Game/GuitarRunScene.cpp"
-            timestampString = "450071078.152454"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "GuitarRun::sliderChanged(Ref *ref,Control::EventType controllEvent)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "../Classes/Game/POPTSlider.cpp"
             timestampString = "450014384.950291"
             startingColumnNumber = "9223372036854775807"
@@ -362,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Game/Finger/FingerRunLayer.cpp"
-            timestampString = "450066507.339309"
+            timestampString = "450163564.300527"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "FingerRunLayer::update(float at)"
             landmarkType = "5">
          </BreakpointContent>
@@ -377,13 +345,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Game/Finger/FingerRunLayer.cpp"
-            timestampString = "450066507.339309"
+            filePath = "../Classes/Game/GameMenu.cpp"
+            timestampString = "450158023.335522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "FingerRunLayer::musicalMove(float at)"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "GameMenu::loadFrame()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -394,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Game/Finger/FingerRunLayer.cpp"
-            timestampString = "450066386.787268"
+            timestampString = "450163564.300527"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "FingerRunLayer::startMusical(int musicalIndex)"
             landmarkType = "5">
          </BreakpointContent>

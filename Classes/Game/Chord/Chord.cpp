@@ -111,14 +111,15 @@ void Chord::collisionAction(ChordConfig *chordConfig){
     if (this->voideFileName ==NULL) {
         return;
     }
-    
     ActionInterval *scale = ScaleBy::create(0.25, 2);
     Sequence *sq = Sequence::create(scale,CallFunc::create([this](){
         ActionInterval *scale = ScaleBy::create(0.25, 0.5);
         this->runAction(scale);
     }), NULL);
     this->runAction(sq);
-    
+}
+
+void Chord::chordVoice(){
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(this->voideFileName);
 }
 

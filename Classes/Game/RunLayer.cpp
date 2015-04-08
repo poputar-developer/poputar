@@ -20,8 +20,10 @@ bool RunLayer::init(const cocos2d::Color4B &color,MusicInfo *musicInfo){
     //    //设置位置
     this->setPosition(Point(0,sideHeight));
 
-    //this->startAnimation();
-
+    metronomePlay=true;
+    
+    musicalPlay = true;
+    
     scheduleUpdate();
 
     return result;

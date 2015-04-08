@@ -46,6 +46,7 @@ public:
     void collisionAction(ChordConfig *chordConfig);
     
     string getType();
+    void chordVoice();
 
 };
 

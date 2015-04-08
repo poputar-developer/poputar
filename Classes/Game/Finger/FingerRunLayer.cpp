@@ -53,9 +53,6 @@ bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musi
     animation->setDelayPerUnit(0.3f);
     animation->setRestoreOriginalFrame(true);
     AnimationCache::getInstance()->addAnimation(animation, "rhythm_blink");
-
-    //节拍音效 
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("snare.caf");
     
     startMusical(0);
 
@@ -69,7 +66,9 @@ void FingerRunLayer::restart(int musicalIndex){
     unscheduleUpdate();
     this->removeAllChildren();
     
-    
+    if(musicalIndex == 0){
+        musicalIndex = 1;
+    }
     currentMusical = musicalIndex;
     flag = musicalIndex-(fingerConfig->beat+1);
     
@@ -77,9 +76,6 @@ void FingerRunLayer::restart(int musicalIndex){
     this->startMusical(musicalIndex);
     schedule(schedule_selector(FingerRunLayer::musicalMove), fingerConfig->rhythm_time, kRepeatForever, fingerConfig->rhythm_time);
     scheduleUpdate();
-    
-    
-    
 }
 void FingerRunLayer::startMusical(int musicalIndex){
     int count  = fingerConfig->beat+fingerConfig->leftUnit+1;
@@ -89,7 +85,7 @@ void FingerRunLayer::startMusical(int musicalIndex){
         int index = flag+ (i-1);
         if(musicalIndex != 0 && index<musicals.size()){
             
-            Value musical = musicals.at(index-1);
+            Value musical = musicals.at(index);
             musicalSprite = Musical::createMusical(fingerConfig, musical.asString(),unitHeight,x);
             musicalSprite->setTag(index);
         }else{
@@ -108,9 +104,7 @@ void FingerRunLayer::startMusical(int musicalIndex){
 void FingerRunLayer::update(float at){
     
     ui::Scale9Sprite *flagRhythm = (ui::Scale9Sprite *)this->getChildByTag(8001);
-    //用目标的中间X点和音符的X点来进行判断
-
-    log("current:%i  flag:%i",currentMusical,flag);
+    //用X轴和音符的X轴来进行判断
     if(this->getChildByTag(flag)){
         Musical* e = (Musical*)this->getChildByTag(flag);
         float rCenterX = flagRhythm->getPositionX();
@@ -125,7 +119,9 @@ void FingerRunLayer::update(float at){
                 auto animate = Animate::create(loading);
                 r->runAction(animate);
             }
-            e->musicalVoice();
+            if(musicalPlay){
+               e->musicalVoice();
+            }
             e->isCollision = true;
             sendDataToBluetooth();
             flag++;
@@ -174,7 +170,9 @@ void FingerRunLayer::musicalMove(float at){
     if(currentMusical==0){
         musicalSprite = Musical::createMusical(fingerConfig, "",unitHeight);
     }else{
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+        if(metronomePlay){
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+        }
         if(currentMusical-1<musicals.size()){
             Value musical = musicals.at(currentMusical-1);
             musicalSprite = Musical::createMusical(fingerConfig, musical.asString(),unitHeight);
@@ -188,7 +186,6 @@ void FingerRunLayer::musicalMove(float at){
     
     ActionInterval *ai=musicalSprite->musicalMove(fingerConfig,0);
     Sequence *sequence = Sequence::create(ai,CallFunc::create([this,musicalSprite](){
-        //musicalSprite->runLeftAction(fingerConfig);
         this->removeChild(musicalSprite);
     }),NULL);
     musicalSprite->runAction(sequence);
@@ -204,8 +201,8 @@ void FingerRunLayer::stopMusic(){
 
 void FingerRunLayer::sendDataToBluetooth(){
     
-    if(flag-1<musicals.size()){
-        Value musical = musicals.at(flag-1);
+    if(flag<musicals.size()){
+        Value musical = musicals.at(flag);
         log("%s",musical.asString().c_str());
         MusicAnalysis::getInstance()->sendMusicChar(musical.asString());
     }
