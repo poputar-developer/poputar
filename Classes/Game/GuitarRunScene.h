@@ -19,10 +19,12 @@
 #include <cocos-ext.h>
 #include "extensions/GUI/CCControlExtension/CCControl.h"
 #include "POPTSlider.h"
+#include "MusicMenu.h"
+#include "GameMenu.h"
 USING_NS_CC;
 using namespace cocos2d::extension;
 
-class GuitarRun: public BaseLayer{
+class GuitarRun: public Layer,public GameMenuDelegate{
   
 
 private:
@@ -45,14 +47,25 @@ private:
     void speedControll(Ref* ref,bool flag);
     //暂停控制
     void pauseControll(Ref* ref,bool flag);
+    //音乐控制
+    void musicControll(Ref* ref,MusicMenu* mm);
+    //主菜单控制
+    void menuControll(Ref* ref);
+    //移动节奏界面
+    void moveMusicMenu(bool moveIn,MusicMenu* mm);
+    
     
     //开始动画
     void startAnimation();
-    
+    //时间轴移动
     void moveSlider(float at);
-    
+    //时间轴值发生改变
     void sliderChanged(Ref *ref,Control::EventType controllEvent);
     
+    //继续按钮
+    virtual void goOnCallback(Ref* ref);
+    virtual void restartCallback(Ref* ref);
+    virtual void goBackCallback(Ref* ref);
 public:
     static Scene *createScene(MusicInfo *musicInfo,GameInfo *gameInfo);
 

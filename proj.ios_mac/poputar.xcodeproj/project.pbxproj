@@ -143,6 +143,40 @@
 		0499B29A1AD25D42003AF4BC /* sliderTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2941AD25D42003AF4BC /* sliderTrack.png */; };
 		0499B29D1AD2A547003AF4BC /* POPTSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B29B1AD2A547003AF4BC /* POPTSlider.cpp */; };
 		0499B29E1AD2A547003AF4BC /* POPTSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B29B1AD2A547003AF4BC /* POPTSlider.cpp */; };
+		0499B2A11AD41129003AF4BC /* MusicMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B29F1AD41129003AF4BC /* MusicMenu.cpp */; };
+		0499B2A21AD41129003AF4BC /* MusicMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B29F1AD41129003AF4BC /* MusicMenu.cpp */; };
+		0499B2A41AD4257F003AF4BC /* menuLayerBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A31AD4257F003AF4BC /* menuLayerBg.png */; };
+		0499B2A51AD4257F003AF4BC /* menuLayerBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A31AD4257F003AF4BC /* menuLayerBg.png */; };
+		0499B2AA1AD42A66003AF4BC /* menuBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A61AD42A66003AF4BC /* menuBtnNormal.png */; };
+		0499B2AB1AD42A66003AF4BC /* menuBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A61AD42A66003AF4BC /* menuBtnNormal.png */; };
+		0499B2AC1AD42A66003AF4BC /* menuBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A71AD42A66003AF4BC /* menuBtnSelect.png */; };
+		0499B2AD1AD42A66003AF4BC /* menuBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A71AD42A66003AF4BC /* menuBtnSelect.png */; };
+		0499B2AE1AD42A66003AF4BC /* musicBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A81AD42A66003AF4BC /* musicBtnNormal.png */; };
+		0499B2AF1AD42A66003AF4BC /* musicBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A81AD42A66003AF4BC /* musicBtnNormal.png */; };
+		0499B2B01AD42A66003AF4BC /* musicBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A91AD42A66003AF4BC /* musicBtnSelect.png */; };
+		0499B2B11AD42A66003AF4BC /* musicBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2A91AD42A66003AF4BC /* musicBtnSelect.png */; };
+		0499B2B41AD42C86003AF4BC /* GameMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B2B21AD42C86003AF4BC /* GameMenu.cpp */; };
+		0499B2B51AD42C86003AF4BC /* GameMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B2B21AD42C86003AF4BC /* GameMenu.cpp */; };
+		0499B2BC1AD43589003AF4BC /* gobackBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2B61AD43589003AF4BC /* gobackBtnNormal.png */; };
+		0499B2BD1AD43589003AF4BC /* gobackBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2B61AD43589003AF4BC /* gobackBtnNormal.png */; };
+		0499B2BE1AD43589003AF4BC /* gobackBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2B71AD43589003AF4BC /* gobackBtnSelect.png */; };
+		0499B2BF1AD43589003AF4BC /* gobackBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2B71AD43589003AF4BC /* gobackBtnSelect.png */; };
+		0499B2C01AD43589003AF4BC /* goonBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2B81AD43589003AF4BC /* goonBtnNormal.png */; };
+		0499B2C11AD43589003AF4BC /* goonBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2B81AD43589003AF4BC /* goonBtnNormal.png */; };
+		0499B2C21AD43589003AF4BC /* goonBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2B91AD43589003AF4BC /* goonBtnSelect.png */; };
+		0499B2C31AD43589003AF4BC /* goonBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2B91AD43589003AF4BC /* goonBtnSelect.png */; };
+		0499B2C41AD43589003AF4BC /* restartBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2BA1AD43589003AF4BC /* restartBtnNormal.png */; };
+		0499B2C51AD43589003AF4BC /* restartBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2BA1AD43589003AF4BC /* restartBtnNormal.png */; };
+		0499B2C61AD43589003AF4BC /* restartBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2BB1AD43589003AF4BC /* restartBtnSelect.png */; };
+		0499B2C71AD43589003AF4BC /* restartBtnSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2BB1AD43589003AF4BC /* restartBtnSelect.png */; };
+		0499B2CB1AD43AFF003AF4BC /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2C81AD43AFF003AF4BC /* pause.png */; };
+		0499B2CC1AD43AFF003AF4BC /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2C81AD43AFF003AF4BC /* pause.png */; };
+		0499B2CD1AD43AFF003AF4BC /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2C91AD43AFF003AF4BC /* play.png */; };
+		0499B2CE1AD43AFF003AF4BC /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2C91AD43AFF003AF4BC /* play.png */; };
+		0499B2CF1AD43AFF003AF4BC /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2CA1AD43AFF003AF4BC /* record.png */; };
+		0499B2D01AD43AFF003AF4BC /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499B2CA1AD43AFF003AF4BC /* record.png */; };
+		0499B2D51AD4D7AF003AF4BC /* PopBaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B2D31AD4D7AF003AF4BC /* PopBaseLayer.cpp */; };
+		0499B2D61AD4D7AF003AF4BC /* PopBaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B2D31AD4D7AF003AF4BC /* PopBaseLayer.cpp */; };
 		04CD4F301AC4F7AE00E59AE5 /* BLEScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F2E1AC4F7AE00E59AE5 /* BLEScene.cpp */; };
 		04CD4F341AC4FA4B00E59AE5 /* MusicAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F321AC4FA4B00E59AE5 /* MusicAnalysis.cpp */; };
 		04CD4F371AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F351AC504D600E59AE5 /* POPTStringUtils.cpp */; };
@@ -368,6 +402,26 @@
 		0499B2941AD25D42003AF4BC /* sliderTrack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderTrack.png; sourceTree = "<group>"; };
 		0499B29B1AD2A547003AF4BC /* POPTSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = POPTSlider.cpp; sourceTree = "<group>"; };
 		0499B29C1AD2A547003AF4BC /* POPTSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTSlider.h; sourceTree = "<group>"; };
+		0499B29F1AD41129003AF4BC /* MusicMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicMenu.cpp; sourceTree = "<group>"; };
+		0499B2A01AD41129003AF4BC /* MusicMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicMenu.h; sourceTree = "<group>"; };
+		0499B2A31AD4257F003AF4BC /* menuLayerBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuLayerBg.png; sourceTree = "<group>"; };
+		0499B2A61AD42A66003AF4BC /* menuBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtnNormal.png; sourceTree = "<group>"; };
+		0499B2A71AD42A66003AF4BC /* menuBtnSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtnSelect.png; sourceTree = "<group>"; };
+		0499B2A81AD42A66003AF4BC /* musicBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicBtnNormal.png; sourceTree = "<group>"; };
+		0499B2A91AD42A66003AF4BC /* musicBtnSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicBtnSelect.png; sourceTree = "<group>"; };
+		0499B2B21AD42C86003AF4BC /* GameMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMenu.cpp; sourceTree = "<group>"; };
+		0499B2B31AD42C86003AF4BC /* GameMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMenu.h; sourceTree = "<group>"; };
+		0499B2B61AD43589003AF4BC /* gobackBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gobackBtnNormal.png; sourceTree = "<group>"; };
+		0499B2B71AD43589003AF4BC /* gobackBtnSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gobackBtnSelect.png; sourceTree = "<group>"; };
+		0499B2B81AD43589003AF4BC /* goonBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goonBtnNormal.png; sourceTree = "<group>"; };
+		0499B2B91AD43589003AF4BC /* goonBtnSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goonBtnSelect.png; sourceTree = "<group>"; };
+		0499B2BA1AD43589003AF4BC /* restartBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartBtnNormal.png; sourceTree = "<group>"; };
+		0499B2BB1AD43589003AF4BC /* restartBtnSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartBtnSelect.png; sourceTree = "<group>"; };
+		0499B2C81AD43AFF003AF4BC /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		0499B2C91AD43AFF003AF4BC /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		0499B2CA1AD43AFF003AF4BC /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		0499B2D31AD4D7AF003AF4BC /* PopBaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PopBaseLayer.cpp; sourceTree = "<group>"; };
+		0499B2D41AD4D7AF003AF4BC /* PopBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopBaseLayer.h; sourceTree = "<group>"; };
 		04CD4F2E1AC4F7AE00E59AE5 /* BLEScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BLEScene.cpp; sourceTree = "<group>"; };
 		04CD4F2F1AC4F7AE00E59AE5 /* BLEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEScene.h; sourceTree = "<group>"; };
 		04CD4F321AC4FA4B00E59AE5 /* MusicAnalysis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicAnalysis.cpp; sourceTree = "<group>"; };
@@ -542,6 +596,20 @@
 		04778E691AC2564900260CFC /* game */ = {
 			isa = PBXGroup;
 			children = (
+				0499B2C81AD43AFF003AF4BC /* pause.png */,
+				0499B2C91AD43AFF003AF4BC /* play.png */,
+				0499B2CA1AD43AFF003AF4BC /* record.png */,
+				0499B2A61AD42A66003AF4BC /* menuBtnNormal.png */,
+				0499B2B61AD43589003AF4BC /* gobackBtnNormal.png */,
+				0499B2B71AD43589003AF4BC /* gobackBtnSelect.png */,
+				0499B2B81AD43589003AF4BC /* goonBtnNormal.png */,
+				0499B2B91AD43589003AF4BC /* goonBtnSelect.png */,
+				0499B2BA1AD43589003AF4BC /* restartBtnNormal.png */,
+				0499B2BB1AD43589003AF4BC /* restartBtnSelect.png */,
+				0499B2A71AD42A66003AF4BC /* menuBtnSelect.png */,
+				0499B2A81AD42A66003AF4BC /* musicBtnNormal.png */,
+				0499B2A91AD42A66003AF4BC /* musicBtnSelect.png */,
+				0499B2A31AD4257F003AF4BC /* menuLayerBg.png */,
 				0499B2921AD25D42003AF4BC /* sliderProgress.png */,
 				0499B2931AD25D42003AF4BC /* sliderThumb.png */,
 				0499B2941AD25D42003AF4BC /* sliderTrack.png */,
@@ -663,6 +731,8 @@
 				04CD4F361AC504D600E59AE5 /* POPTStringUtils.h */,
 				04CD4F501AC6B1C600E59AE5 /* POPTHelper.cpp */,
 				04CD4F511AC6B1C600E59AE5 /* POPTHelper.h */,
+				0499B2D31AD4D7AF003AF4BC /* PopBaseLayer.cpp */,
+				0499B2D41AD4D7AF003AF4BC /* PopBaseLayer.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -670,6 +740,10 @@
 		04778EE71AC2567000260CFC /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				0499B2B21AD42C86003AF4BC /* GameMenu.cpp */,
+				0499B2B31AD42C86003AF4BC /* GameMenu.h */,
+				0499B29F1AD41129003AF4BC /* MusicMenu.cpp */,
+				0499B2A01AD41129003AF4BC /* MusicMenu.h */,
 				0499B29B1AD2A547003AF4BC /* POPTSlider.cpp */,
 				0499B29C1AD2A547003AF4BC /* POPTSlider.h */,
 				04EBF2281ACA355C0039EA92 /* GameConfig.cpp */,
@@ -1088,33 +1162,45 @@
 			files = (
 				04EBF2E21ACD1C790039EA92 /* 5_3.mp3 in Resources */,
 				04778EA11AC2564900260CFC /* C.png in Resources */,
+				0499B2BC1AD43589003AF4BC /* gobackBtnNormal.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				0499B2C41AD43589003AF4BC /* restartBtnNormal.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				0488DBD81ACF90A10059A285 /* snare.caf in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				0499B2C61AD43589003AF4BC /* restartBtnSelect.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				04778EB71AC2564900260CFC /* Game_MenuItem_Selected.png in Resources */,
 				04778E9B1AC2564900260CFC /* Am.png in Resources */,
+				0499B2B01AD42A66003AF4BC /* musicBtnSelect.png in Resources */,
 				04778EB91AC2564900260CFC /* bj_suspend.png in Resources */,
+				0499B2CB1AD43AFF003AF4BC /* pause.png in Resources */,
 				04778E931AC2564900260CFC /* 1.png in Resources */,
 				04778EC11AC2564900260CFC /* CloseNormal.png in Resources */,
+				0499B2AE1AD42A66003AF4BC /* musicBtnNormal.png in Resources */,
 				04EBF1E41AC8F03D0039EA92 /* Game_MenuItem_Lock .png in Resources */,
 				04EBF2E01ACD1C790039EA92 /* 4_3.mp3 in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				04778EAF1AC2564900260CFC /* rhythm.png in Resources */,
 				04778ED21AC2566800260CFC /* Bm_clean.caf in Resources */,
+				0499B2BE1AD43589003AF4BC /* gobackBtnSelect.png in Resources */,
 				04778E9F1AC2564900260CFC /* Bm.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				0499B2951AD25D42003AF4BC /* sliderProgress.png in Resources */,
 				04778EC51AC2564900260CFC /* HelloWorld.png in Resources */,
+				0499B2CD1AD43AFF003AF4BC /* play.png in Resources */,
 				04EBF2D81ACD1C790039EA92 /* 3_0.mp3 in Resources */,
+				0499B2C21AD43589003AF4BC /* goonBtnSelect.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				0499B2C01AD43589003AF4BC /* goonBtnNormal.png in Resources */,
 				04778EAD1AC2564900260CFC /* G.png in Resources */,
 				04EBF2C61ACD1C790039EA92 /* 1_0.mp3 in Resources */,
 				04778EA91AC2564900260CFC /* Em.png in Resources */,
 				04778EBF1AC2564900260CFC /* right_btn.png in Resources */,
+				0499B2AA1AD42A66003AF4BC /* menuBtnNormal.png in Resources */,
 				0488DBE51ACFEB540059A285 /* finger_rhythm_1.png in Resources */,
+				0499B2CF1AD43AFF003AF4BC /* record.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				04EBF2D61ACD1C790039EA92 /* 2_3.mp3 in Resources */,
 				04CD4F3E1AC5354B00E59AE5 /* chordInfo.json in Resources */,
@@ -1147,6 +1233,7 @@
 				04EB90041AC3B202004B102A /* BlePlist.plist in Resources */,
 				04EB8FFC1AC3B103004B102A /* right_empty.png in Resources */,
 				04778E8D1AC2564900260CFC /* back.png in Resources */,
+				0499B2A41AD4257F003AF4BC /* menuLayerBg.png in Resources */,
 				0488DBE71ACFEB540059A285 /* finger_rhythm_2.png in Resources */,
 				04EB8FFB1AC3B103004B102A /* right_btn.png in Resources */,
 				0499B2671AD136AB003AF4BC /* cunzai.json in Resources */,
@@ -1159,6 +1246,7 @@
 				04EBF2CE1ACD1C790039EA92 /* 1_7.mp3 in Resources */,
 				04778EDC1AC2566800260CFC /* Em_clean.caf in Resources */,
 				04EBF2D21ACD1C790039EA92 /* 2_0.mp3 in Resources */,
+				0499B2AC1AD42A66003AF4BC /* menuBtnSelect.png in Resources */,
 				04778EC31AC2564900260CFC /* CloseSelected.png in Resources */,
 				04778ED81AC2566800260CFC /* Dm_clean.caf in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
@@ -1194,20 +1282,27 @@
 				0488DBD91ACF90A10059A285 /* snare.caf in Resources */,
 				04778EB61AC2564900260CFC /* Game_MenuItem_Normal.png in Resources */,
 				04778ED71AC2566800260CFC /* D_clean.caf in Resources */,
+				0499B2B11AD42A66003AF4BC /* musicBtnSelect.png in Resources */,
 				04778EC21AC2564900260CFC /* CloseNormal.png in Resources */,
 				04778EA01AC2564900260CFC /* Bm.png in Resources */,
 				04EBF2DB1ACD1C790039EA92 /* 3_2.mp3 in Resources */,
 				04778ED51AC2566800260CFC /* C_clean.caf in Resources */,
+				0499B2C31AD43589003AF4BC /* goonBtnSelect.png in Resources */,
 				04778E9C1AC2564900260CFC /* Am.png in Resources */,
 				0499B29A1AD25D42003AF4BC /* sliderTrack.png in Resources */,
 				04778EDF1AC2566800260CFC /* F_clean.caf in Resources */,
+				0499B2AF1AD42A66003AF4BC /* musicBtnNormal.png in Resources */,
 				0488DBE81ACFEB540059A285 /* finger_rhythm_2.png in Resources */,
 				04778EA61AC2564900260CFC /* Dm.png in Resources */,
+				0499B2A51AD4257F003AF4BC /* menuLayerBg.png in Resources */,
 				04EBF2D71ACD1C790039EA92 /* 2_3.mp3 in Resources */,
 				04EBF2E11ACD1C790039EA92 /* 4_3.mp3 in Resources */,
 				04778F2C1AC2595F00260CFC /* bj_gamelevel.png in Resources */,
+				0499B2D01AD43AFF003AF4BC /* record.png in Resources */,
+				0499B2C51AD43589003AF4BC /* restartBtnNormal.png in Resources */,
 				04778E981AC2564900260CFC /* 3.png in Resources */,
 				04778EA41AC2564900260CFC /* D.png in Resources */,
+				0499B2C11AD43589003AF4BC /* goonBtnNormal.png in Resources */,
 				04EBF2CB1ACD1C790039EA92 /* 1_3.mp3 in Resources */,
 				04778E941AC2564900260CFC /* 1.png in Resources */,
 				0499B26F1AD13A55003AF4BC /* cunzai.png in Resources */,
@@ -1228,6 +1323,7 @@
 				04EBF2D31ACD1C790039EA92 /* 2_0.mp3 in Resources */,
 				04EBF2CD1ACD1C790039EA92 /* 1_5.mp3 in Resources */,
 				04EBF2D11ACD1C790039EA92 /* 1_8.mp3 in Resources */,
+				0499B2BD1AD43589003AF4BC /* gobackBtnNormal.png in Resources */,
 				04EBF1E21AC8E9FE0039EA92 /* gamelevel_config.json in Resources */,
 				04CD4F3F1AC5354B00E59AE5 /* chordInfo.json in Resources */,
 				04778EC61AC2564900260CFC /* HelloWorld.png in Resources */,
@@ -1244,21 +1340,27 @@
 				04778ED91AC2566800260CFC /* Dm_clean.caf in Resources */,
 				04778E921AC2564900260CFC /* sound.png in Resources */,
 				04778EC41AC2564900260CFC /* CloseSelected.png in Resources */,
+				0499B2AD1AD42A66003AF4BC /* menuBtnSelect.png in Resources */,
+				0499B2C71AD43589003AF4BC /* restartBtnSelect.png in Resources */,
 				04EBF2E31ACD1C790039EA92 /* 5_3.mp3 in Resources */,
 				04778EAA1AC2564900260CFC /* Em.png in Resources */,
 				04778E9A1AC2564900260CFC /* A.png in Resources */,
 				0499B2961AD25D42003AF4BC /* sliderProgress.png in Resources */,
+				0499B2BF1AD43589003AF4BC /* gobackBtnSelect.png in Resources */,
 				04EBF1FC1AC93D240039EA92 /* finger_string.png in Resources */,
 				04778EA81AC2564900260CFC /* E.png in Resources */,
+				0499B2AB1AD42A66003AF4BC /* menuBtnNormal.png in Resources */,
 				0499B2981AD25D42003AF4BC /* sliderThumb.png in Resources */,
 				0488DBE61ACFEB540059A285 /* finger_rhythm_1.png in Resources */,
 				04778EBE1AC2564900260CFC /* main_logo.png in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 				04EBF1FA1AC93D240039EA92 /* finger_rhythm.png in Resources */,
 				04EBF2C91ACD1C790039EA92 /* 1_1.mp3 in Resources */,
+				0499B2CE1AD43AFF003AF4BC /* play.png in Resources */,
 				04778EB01AC2564900260CFC /* rhythm.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				04778EC01AC2564900260CFC /* right_btn.png in Resources */,
+				0499B2CC1AD43AFF003AF4BC /* pause.png in Resources */,
 				04778EBC1AC2564900260CFC /* left_btn.png in Resources */,
 				04EBF1E51AC8F03D0039EA92 /* Game_MenuItem_Lock .png in Resources */,
 			);
@@ -1278,6 +1380,7 @@
 				04CD4F301AC4F7AE00E59AE5 /* BLEScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				04778F0D1AC2567000260CFC /* SelectMusic.cpp in Sources */,
+				0499B2A11AD41129003AF4BC /* MusicMenu.cpp in Sources */,
 				0499B2831AD21A82003AF4BC /* Rhythm.cpp in Sources */,
 				04778F131AC2567000260CFC /* MusicInfo.cpp in Sources */,
 				04CD4F341AC4FA4B00E59AE5 /* MusicAnalysis.cpp in Sources */,
@@ -1286,11 +1389,13 @@
 				04EBF22A1ACA355C0039EA92 /* GameConfig.cpp in Sources */,
 				04778EFF1AC2567000260CFC /* BaseLayer.cpp in Sources */,
 				04778F1D1AC2569F00260CFC /* AppDelegate.cpp in Sources */,
+				0499B2B41AD42C86003AF4BC /* GameMenu.cpp in Sources */,
 				0499B27D1AD21A82003AF4BC /* ChordConfig.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				0499B2811AD21A82003AF4BC /* Lyric.cpp in Sources */,
 				0499B27F1AD21A82003AF4BC /* ChordRunLayer.cpp in Sources */,
 				04CD4F521AC6B1C600E59AE5 /* POPTHelper.cpp in Sources */,
+				0499B2D51AD4D7AF003AF4BC /* PopBaseLayer.cpp in Sources */,
 				0499B2901AD21A89003AF4BC /* Musical.cpp in Sources */,
 				04EBF2241AC969680039EA92 /* RunLayer.cpp in Sources */,
 				04778F091AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */,
@@ -1314,6 +1419,7 @@
 				04778F1E1AC2569F00260CFC /* AppDelegate.cpp in Sources */,
 				04778F281AC2574900260CFC /* PluginHelper.mm in Sources */,
 				04778F0A1AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */,
+				0499B2B51AD42C86003AF4BC /* GameMenu.cpp in Sources */,
 				0499B27C1AD21A82003AF4BC /* Chord.cpp in Sources */,
 				04EBF1E91AC8F8C10039EA92 /* GameInfo.cpp in Sources */,
 				04778F081AC2567000260CFC /* GameLevel.cpp in Sources */,
@@ -1321,8 +1427,10 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				04778F0E1AC2567000260CFC /* SelectMusic.cpp in Sources */,
 				0499B2911AD21A89003AF4BC /* Musical.cpp in Sources */,
+				0499B2D61AD4D7AF003AF4BC /* PopBaseLayer.cpp in Sources */,
 				0499B28F1AD21A89003AF4BC /* FingerRunLayer.cpp in Sources */,
 				0499B2841AD21A82003AF4BC /* Rhythm.cpp in Sources */,
+				0499B2A21AD41129003AF4BC /* MusicMenu.cpp in Sources */,
 				0499B2821AD21A82003AF4BC /* Lyric.cpp in Sources */,
 				04778F141AC2567000260CFC /* MusicInfo.cpp in Sources */,
 				0499B29E1AD2A547003AF4BC /* POPTSlider.cpp in Sources */,

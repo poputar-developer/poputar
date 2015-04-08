@@ -47,7 +47,7 @@ bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInf
     this->getNewRhythm(true);
     
     //节拍音效
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("snare.caf");
+    
 
     schedule(schedule_selector(ChordRunLayer::rhythmMove), chordConfig->rhythm_time, kRepeatForever, chordConfig->startTime);
     
@@ -70,12 +70,17 @@ void ChordRunLayer::update(float dt){
         if(!e->isCollision && rhythm->isReal && rhythm->boundingBox().intersectsRect(e->boundingBox())){
             if(currCollision == NULL || e!=currCollision){
                 if(isFirstCollision){
-                    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+                    if(metronomePlay){
+                        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+                    }
                     schedule(schedule_selector(ChordRunLayer::metronome), chordConfig->unitTime);
                     isFirstCollision = false;
                 }
                 currCollision = e;
                 e->collisionAction(chordConfig);
+                if(musicalPlay){
+                    e->chordVoice();
+                }
                 e->isCollision = true;
                 this->sendDataToBluetooth();
             }
@@ -84,8 +89,9 @@ void ChordRunLayer::update(float dt){
 }
 
 void ChordRunLayer::metronome(float dt){
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
-
+    if(metronomePlay){
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+    }
 }
 
 
@@ -202,10 +208,8 @@ void ChordRunLayer::restart(int musicalIndex){
 
     this->getNewChords(beatFlag,false);
     this->getNewRhythm(false);
-//    currentBeat+=1;
     this->getNewChords(beatFlag+1, true);
     sendDataToBluetooth();
-    
     
     schedule(schedule_selector(ChordRunLayer::rhythmMove), chordConfig->rhythm_time, kRepeatForever, chordConfig->rhythm_time);
     scheduleUpdate();
