@@ -38,8 +38,8 @@ private:
  
     
 public:
-    bool init4Chord(const Color4B &color,MusicInfo *musicInfo);
-    static ChordRunLayer *createChordRunLayer(MusicInfo *musicInfo);
+    bool init4Chord(const Color4B &color,MusicInfo *musicInfo,float proportion);
+    static ChordRunLayer *createChordRunLayer(MusicInfo *musicInfo,float proportion);
     //发送蓝牙数据
     virtual void sendDataToBluetooth();
     //返回时清空当前播放的参数

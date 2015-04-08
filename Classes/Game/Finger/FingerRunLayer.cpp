@@ -21,9 +21,9 @@ ValueVector musicals;
 //节奏线集合
 Vector<Sprite *> rhythms;
 
-FingerRunLayer* FingerRunLayer::createFingerRunLayer(MusicInfo *musicInfo){
+FingerRunLayer* FingerRunLayer::createFingerRunLayer(MusicInfo *musicInfo,float proportion){
     FingerRunLayer *layer = new FingerRunLayer();
-    if(layer && layer->init4Finger(Color4B(0,0,0,0),musicInfo))
+    if(layer && layer->init4Finger(Color4B(0,0,0,0),musicInfo,proportion))
     {
         layer->autorelease();
         return layer;
@@ -32,8 +32,8 @@ FingerRunLayer* FingerRunLayer::createFingerRunLayer(MusicInfo *musicInfo){
     return nullptr;
 }
 
-bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musicInfo){
-    fingerConfig = new FingerConfig(visibleSize.width, visibleSize.height*0.8, musicInfo);
+bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musicInfo,float proportion){
+    fingerConfig = new FingerConfig(visibleSize.width, visibleSize.height*proportion, musicInfo);
     gameConfig = fingerConfig;
     
     bool result =  init(color,musicInfo);
