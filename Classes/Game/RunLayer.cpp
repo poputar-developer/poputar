@@ -11,6 +11,7 @@
 
 bool RunLayer::init(const cocos2d::Color4B &color,MusicInfo *musicInfo){
     bool result =  initWithColor(color);
+
     //==============设置内容页大小==============
     //    //设置大小
     this->setContentSize(Size(visibleSize.width, gameConfig->contentHeight));

@@ -36,8 +36,8 @@ private:
     void update(float at);
     
 public:
-    bool init4Finger(const Color4B &&color,MusicInfo *musicInfo);
-    static FingerRunLayer *createFingerRunLayer(MusicInfo *musicInfo);
+    bool init4Finger(const Color4B &&color,MusicInfo *musicInfo,float proportion);
+    static FingerRunLayer *createFingerRunLayer(MusicInfo *musicInfo,float proportion);
     virtual void stopMusic();
     virtual void endAnimationSetting();
     virtual void sendDataToBluetooth();

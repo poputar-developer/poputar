@@ -21,30 +21,39 @@
 #include "POPTSlider.h"
 #include "MusicMenu.h"
 #include "GameMenu.h"
+#include "MusicMenu.h"
 USING_NS_CC;
 using namespace cocos2d::extension;
 
-class GuitarRun: public Layer,public GameMenuDelegate{
-  
 
+class GuitarRun: public Layer,public GameMenuDelegate,public MusicMenuDelegate{
+  
 private:
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    
     RunLayer *runLayer;
     //当前速度基数 用于加减速控制
     float speedBase;
     //是否已经暂停 用于暂停按钮控制
     bool isPause;
     
+    bool musicMenuDisplay;
+    
     float time_now;
     
     POPTSlider* slider;
     //组装界面
-    void loadFrame(MusicInfo* musicInfo);
+    void initialise();
+    
+    void loadTopFrame(MusicInfo* musicInfo,float height);
+    
+    void loadFootFrame(float height);
+    
     //开始和弦弹奏
-    void startChordMusic(MusicInfo *musicInfo);
+    void startChordMusic(MusicInfo *musicInfo,float proportion);
     //开始指弹
-    void startFingerMusic(MusicInfo *musicInfo);
-    //速度控制
-    void speedControll(Ref* ref,bool flag);
+    void startFingerMusic(MusicInfo *musicInfo,float proportion);
     //暂停控制
     void pauseControll(Ref* ref,bool flag);
     //音乐控制
@@ -62,10 +71,15 @@ private:
     //时间轴值发生改变
     void sliderChanged(Ref *ref,Control::EventType controllEvent);
     
-    //继续按钮
+    //菜单控制代理
     virtual void goOnCallback(Ref* ref);
     virtual void restartCallback(Ref* ref);
     virtual void goBackCallback(Ref* ref);
+    
+    //音乐控制
+    virtual void speedChangeCallback(float speedBase);
+    virtual void metronomePlayCallback(bool isOn);
+    virtual void musicalPlayCallback(bool isOn);
 public:
     static Scene *createScene(MusicInfo *musicInfo,GameInfo *gameInfo);
 

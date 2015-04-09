@@ -39,6 +39,7 @@ public:
     //从index重新开始
     virtual void restart(int musicalIndex){};
     
+    
 };
 
 #endif /* defined(__poputar__RunLayer__) */

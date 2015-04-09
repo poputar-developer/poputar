@@ -22,9 +22,9 @@ Sprite* currCollision;
 //是否第一个真实的节奏线 （第一个真实节奏线生成时需要传递蓝牙信息）
 bool isFirst = true;
 
-ChordRunLayer* ChordRunLayer::createChordRunLayer(MusicInfo *musicInfo){
+ChordRunLayer* ChordRunLayer::createChordRunLayer(MusicInfo *musicInfo,float proportion){
     ChordRunLayer *layer = new ChordRunLayer();
-    if(layer && layer->init4Chord(Color4B(0,0,0,0),musicInfo))
+    if(layer && layer->init4Chord(Color4B(0,0,0,0),musicInfo,proportion))
     {
         layer->autorelease();
         return layer;
@@ -33,9 +33,8 @@ ChordRunLayer* ChordRunLayer::createChordRunLayer(MusicInfo *musicInfo){
     return nullptr;
 }
 
-bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInfo){
-//    common = Common::getInstance4Chord(visibleSize.width, visibleSize.height*0.7, musicInfo);
-    chordConfig = new ChordConfig(visibleSize.width, visibleSize.height*0.8, musicInfo);
+bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInfo,float proportion){
+    chordConfig = new ChordConfig(visibleSize.width, visibleSize.height*proportion, musicInfo);
     gameConfig = chordConfig;
     bool result =  init(color,musicInfo);
 
