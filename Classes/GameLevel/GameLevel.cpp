@@ -18,7 +18,7 @@ Scene* GameLevel::createScene()
 {
     auto scene = Scene::create();	
     auto layer = GameLevel::create();
-    layer->loadFrame();
+//    layer->loadFrame();
     scene->addChild(layer);
     return scene;
 }
@@ -28,8 +28,6 @@ void GameLevel::loadFrame(){
  
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    
     
     auto scrollView = ui::ScrollView::create();
     scrollView->setAnchorPoint(Vec2(0,0));
@@ -49,8 +47,8 @@ void GameLevel::loadFrame(){
     int curr_level = UserDefault::getInstance()->getIntegerForKey(CURR_LEVEL_KEY);
     int curr_node = UserDefault::getInstance()->getIntegerForKey(CURR_NODE_KEY);
     if(curr_level == 0){
-        UserDefault::getInstance()->setIntegerForKey(CURR_LEVEL_KEY, 99);
-        curr_level =99;
+        UserDefault::getInstance()->setIntegerForKey(CURR_LEVEL_KEY, 1);
+        curr_level =1;
     }
     
     if(curr_node == 0){
@@ -77,22 +75,13 @@ void GameLevel::loadFrame(){
     float columnSpace = 100.0f;
     //行高
     float columnHeight = 0.0f;
-    
-    rapidjson::Document doc;
-    std::string jsonInfo =FileUtils::getInstance()->getStringFromFile("gamelevel_config.json");
-    doc.Parse<0>(jsonInfo.c_str());
-    
-    if(!doc.IsObject()){
-        log("gamelevel_config.json is error!");
-    }
-    const rapidjson::Value &cArray = doc["levels"];
+    vector<GameLevelInfo*> levels = GameLevelSingleton::getInstance()->getLeves();
     
     //计算页面高度
     float innerHeight = columnSpace;
-    for (int n=0; n<cArray.Size(); n++) {
-         const rapidjson::Value &str = cArray[n];
-        const rapidjson::Value &cNodes = str["nodes"];
-        int itemCount = cNodes.Size();
+    for (int l=0; l<levels.size(); l++) {
+        GameLevelInfo* gli = levels[l];
+        int itemCount = (int)gli->getNodes().size();
         
         int colCount = itemCount/itemCol;
         if(itemCount%itemCol>0){
@@ -109,13 +98,12 @@ void GameLevel::loadFrame(){
     
     log("scrollview高度：%f",innerHeight);
 
-    for (int n=0; n<cArray.Size(); n++) {
-        const rapidjson::Value &str = cArray[n];
-        const rapidjson::Value &cNodes = str["nodes"];
-        const rapidjson::Value &cLevel = str["level"];
+    for (int l=0; l<levels.size(); l++) {
+        GameLevelInfo *gli = levels[l];
+        vector<GameNodeInfo*> nodes = gli->getNodes();
+        int level = gli->getLevel();
+        int itemCount = (int)nodes.size();
         
-        int itemCount = cNodes.Size();
-    
         int colCount = itemCount/itemCol;
         if(itemCount%itemCol>0){
             colCount+=1;
@@ -123,30 +111,20 @@ void GameLevel::loadFrame(){
         
         //根据行数计算总行高
         columnHeight = itemSide*colCount +itemSpace*(colCount-1);
-            
+        
         int xCount=0;
         float y = columnHeight-itemSide;
         
         Vector<MenuItem *> menuItems;
-        for (int i=0; i<itemCount; i++) {
-            const rapidjson::Value &cNode = cNodes[i];
-            const rapidjson::Value &cNodeFlag = cNode["node"];
-            const rapidjson::Value &cType = cNode["type"];
-            const rapidjson::Value &cMusic = cNode["music"];
-            const rapidjson::Value &cChord = cNode["chord"];
+        for (int n=0; n<nodes.size(); n++) {
+            GameNodeInfo* gni = nodes[n];
             
-            string type =cType.GetString();
-            int node = cNodeFlag.GetInt();
-            int level = cLevel.GetInt();
-            GameInfo *gameInfo = new GameInfo();
-            gameInfo->setLevel(level);
-            gameInfo->setNode(node);
-            gameInfo->setType(type);
-            gameInfo->setMusic(cMusic.GetString());
-            if(type == "C"){
-                gameInfo->setChord(cChord.GetString());
-            }
+            string type =gni->getType();
+            string music = gni->getMusic();
+            int node = gni->getNode();
             
+            
+
             
             if(xCount>itemCol-1){
                 xCount = 0;
@@ -155,23 +133,24 @@ void GameLevel::loadFrame(){
             float x = xCount * (itemSide+itemSpace);
             
             bool isLock = true;
-            if(curr_level>=level){
+            if(curr_level>level){
+                isLock = false;
+            }else if(curr_level==level){
                 if(curr_node>=node){
                     isLock = false;
                 }
             }
-            auto ln = GameLevelMenuItem::createGameLevelMenuItem(isLock,node,CC_CALLBACK_1(GameLevel::toPlaySence, this,gameInfo));
+            auto ln = GameLevelMenuItem::createGameLevelMenuItem(isLock,node,CC_CALLBACK_1(GameLevel::toPlaySence, this,gni));
             
             ln->setAnchorPoint(Vec2::ZERO);
             ln->setPosition(Vec2(x , y));
-    
+            
             menuItems.pushBack(ln);
             xCount++;
             
         }
+    
         menuY = menuY - columnHeight - columnSpace;
-        
-      
         
         //背景上方关卡标志高度
         float bjGameLevelFlag = 25;
@@ -185,7 +164,7 @@ void GameLevel::loadFrame(){
         bj->setAnchorPoint(Vec2::ZERO);
         scrollView->addChild(bj,0);
         
-        string text = StringUtils::format("第%d阶段",n+1);
+        string text = StringUtils::format("第%d阶段",l+1);
         auto label = Label::createWithBMFont("fonts/gamelevel.fnt", text);
 //        auto label =Label::createWithTTF(text, "fonts/manhuati.ttf",20);
         label->setAnchorPoint(Vec2::ZERO);
@@ -200,16 +179,10 @@ void GameLevel::loadFrame(){
     }
 }
 
-void GameLevel::toPlaySence(Ref* sender,GameInfo* game){
+void GameLevel::toPlaySence(Ref* sender,GameNodeInfo* game){
     
-    log("to level:%d  node:%d",game->getLevle(),game->getNode());
-     MusicInfo *musicInfo ;
-    if(game->getType()=="C"){
-        musicInfo = MusicInfo::initWithJson("cunzai");
-    }else if(game->getType()=="F"){
-        musicInfo = MusicInfo::initWithJson("xiaoxingxing");
-    }
-    Scene *guitarRunScene = GuitarRun::createScene(musicInfo,game);
+    log("to level:%d  node:%d",game->getGameLevelInfo()->getLevel(),game->getNode());
+    Scene *guitarRunScene = GuitarRun::createScene(game);
     Director::getInstance()->pushScene(guitarRunScene);
 }
 
@@ -219,4 +192,11 @@ void GameLevel::setBackground(){
 }
 
 
+
+
+void GameLevel::onEnter(){
+    Layer::onEnter();
+    
+    loadFrame();
+}
 

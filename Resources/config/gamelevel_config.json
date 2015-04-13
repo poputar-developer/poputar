@@ -7,17 +7,17 @@
                          {
                          "node": 1,
                          "type":"F",
-                         "music": "l1_n1"
+                         "music": "xiaoxingxing"
                          },
                          {
                          "node": 2,
                          "type":"F",
-                         "music": "l1_n2"
+                         "music": "xiaoxingxing"
                          },
                          {
                          "node": 3,
                          "type":"F",
-                         "music": "l1_n3"
+                         "music": "xiaoxingxing"
                          }
                          ]
                },
@@ -27,27 +27,23 @@
                          {
                          "node": 1,
                          "type":"C",
-                         "chord":"C",
-                         "music": "l2_n1"
+                         "music": "cunzai"
                          },
                          {
                          "node": 2,
                          "type":"C",
-                         "chord":"Am",
-                         "music": "l2_n2"
+                         "music": "cunzai"
                          },
                          {
                          "node": 3,
                          "type":"C",
-                         "chord":"G",
-                         "music": "l3_n3"
+                         "music": "cunzai"
                          }
                          ,
                          {
                          "node": 4,
                          "type":"C",
-                         "chord":"F",
-                         "music": "l3_n3"
+                         "music": "cunzai"
                          }
                          ]
                }

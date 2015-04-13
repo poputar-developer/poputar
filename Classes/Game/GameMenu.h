@@ -11,7 +11,7 @@
 
 #include <cocos-ext.h>
 #include <stdio.h>
-#include "PopBaseLayer.h"
+#include "MenuBaseLayer.h"
 USING_NS_CC;
 
 class GameMenuDelegate{
@@ -21,7 +21,7 @@ public:
     virtual void goBackCallback(Ref* ref)=0;
 };
 
-class GameMenu : public PopBaseLayer{
+class GameMenu : public MenuBaseLayer{
 private:
     void loadFrame();
     GameMenuDelegate* _delegate;

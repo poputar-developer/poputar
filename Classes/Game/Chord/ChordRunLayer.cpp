@@ -37,17 +37,12 @@ bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInf
     chordConfig = new ChordConfig(visibleSize.width, visibleSize.height*proportion, musicInfo);
     gameConfig = chordConfig;
     bool result =  init(color,musicInfo);
-
-    //初始化当前小节
-//    currentBeat=0;
     //初始化第一小节的和弦
     this->getNewChords(currentBeat,true);
     //创建第一个节奏线
     this->getNewRhythm(true);
     
     //节拍音效
-    
-
     schedule(schedule_selector(ChordRunLayer::rhythmMove), chordConfig->rhythm_time, kRepeatForever, chordConfig->startTime);
     
     return result;
@@ -196,18 +191,21 @@ void ChordRunLayer::restart(int musicalIndex){
 
     currBeatChords.clear();
     waitBeatChords.clear();
-    
+    if(musicalIndex == 0){
+        musicalIndex = 1;
+    }
     float temp = (float)musicalIndex/(float)chordConfig->beat;
     int beatFlag = ceil(temp);
-    currentBeat = beatFlag+2;
+//    int beatFlag = int(temp+0.5);
+    currentBeat = beatFlag+1;
     //设置蓝牙标记
     nextBlueIndex = musicalIndex;
     
     log("restart %i",currentBeat);
 
-    this->getNewChords(beatFlag,false);
+    this->getNewChords(beatFlag-1,false);
     this->getNewRhythm(false);
-    this->getNewChords(beatFlag+1, true);
+    this->getNewChords(beatFlag, true);
     sendDataToBluetooth();
     
     schedule(schedule_selector(ChordRunLayer::rhythmMove), chordConfig->rhythm_time, kRepeatForever, chordConfig->rhythm_time);
@@ -247,6 +245,7 @@ void ChordRunLayer::stopMusic(){
     waitBeatChords.clear();
 
     nextBlueIndex = 0;
+    currentBeat=0;
     
     isFirst = true;
     isFirstCollision =true;
@@ -254,4 +253,21 @@ void ChordRunLayer::stopMusic(){
     delete chordConfig;
 }
 
+float ChordRunLayer::getMusicalTime(int musicalIndex){
+    int beat = chordConfig->musicInfo->getBeat();
+    float beatIndex_float = (float)musicalIndex /(float)beat;
+    int beatIndex = int(beatIndex_float+0.5);
+//    if(musicalIndex%chordConfig->musicInfo->getBeat()){
+//        beatIndex+=1;
+//    }
+    float afterValue = (beatIndex-1)*chordConfig->musicInfo->getBeat()*chordConfig->unitTime;
+    return afterValue;
+}
+
+string ChordRunLayer::getMusicalChord(int musicalIndex){
+    int beat = chordConfig->musicInfo->getBeat();
+    float beatIndex_float = (float)musicalIndex /(float)beat;
+    int beatIndex = int(beatIndex_float+0.5);
+    return StringUtils::format("第%d小节",beatIndex+1);
+}
 

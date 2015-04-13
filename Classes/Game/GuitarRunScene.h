@@ -22,29 +22,42 @@
 #include "MusicMenu.h"
 #include "GameMenu.h"
 #include "MusicMenu.h"
+#include "EndLayer.h"
+#include "GameLevelSingleton.h"
+
 USING_NS_CC;
 using namespace cocos2d::extension;
 
 
-class GuitarRun: public Layer,public GameMenuDelegate,public MusicMenuDelegate{
+class GuitarRun: public Layer,public GameMenuDelegate,public MusicMenuDelegate,public POPTSliderDelegate,public EndLayerDelegate{
   
 private:
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
+    //游戏信息
+    GameNodeInfo *gni;
     
     RunLayer *runLayer;
+    //暂停按钮
+    ui::Button* pauseBtn;
     //当前速度基数 用于加减速控制
     float speedBase;
     //是否已经暂停 用于暂停按钮控制
     bool isPause;
-    
+    //节奏菜单是否显示
     bool musicMenuDisplay;
     
     float time_now;
-    
+    //时间轴
     POPTSlider* slider;
+    //时间信息
+    Label* time;
+    //小节信息
+    Label* chordInfo;
+    //结束标志
+    bool musicIsOver;
     //组装界面
-    void initialise();
+    void initialise(GameNodeInfo *gameInfo);
     
     void loadTopFrame(MusicInfo* musicInfo,float height);
     
@@ -59,10 +72,13 @@ private:
     //音乐控制
     void musicControll(Ref* ref,MusicMenu* mm);
     //主菜单控制
-    void menuControll(Ref* ref);
+    void menuControll(Ref* ref,MusicMenu* mm);
     //移动节奏界面
-    void moveMusicMenu(bool moveIn,MusicMenu* mm);
+    void  moveMusicMenu(bool moveIn,MusicMenu* mm);
     
+    void pauseGame();
+ 
+    void resumeGame();
     
     //开始动画
     void startAnimation();
@@ -80,14 +96,23 @@ private:
     virtual void speedChangeCallback(float speedBase);
     virtual void metronomePlayCallback(bool isOn);
     virtual void musicalPlayCallback(bool isOn);
+    
+    //时间轴回调
+    virtual void sliderTouchEndCallback();
+    
+    //结束页面的回调
+    virtual void endRestartCallback();
+    virtual void endNextCallback();
 public:
-    static Scene *createScene(MusicInfo *musicInfo,GameInfo *gameInfo);
+    static Scene *createScene(GameNodeInfo *gni);
 
     CREATE_FUNC(GuitarRun);
 
     virtual void setBackground();
     
     virtual void goBack(Ref* sender);
+    
+    
 };
 
 

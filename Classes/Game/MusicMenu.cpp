@@ -86,7 +86,7 @@ void MusicMenu::loadFrame(){
     ui::Button *speedDownBtn = ui::Button::create("minus.png");
     float speedDownBtnWidth = speedDownBtn->getContentSize().width;
     speedDownBtn->setPosition(Vec2(rowWidth+speedDownBtnWidth/2+20,maxheightFlag+speedLabelHeight/2+20));
-    speedDownBtn->setScale(0.5);
+    speedDownBtn->setScale(0.8);
     this->addChild(speedDownBtn);
     
     rowWidth+=speedDownBtnWidth;
@@ -102,7 +102,7 @@ void MusicMenu::loadFrame(){
     ui::Button *speedUpBtn = ui::Button::create("plus.png");
     float speedUpBtnBtnWidth = speedUpBtn->getContentSize().width;
     speedUpBtn->setPosition(Vec2(rowWidth+speedUpBtnBtnWidth/2+20,maxheightFlag+speedLabelHeight/2+20));
-    speedUpBtn->setScale(0.5);
+    speedUpBtn->setScale(0.8);
     this->addChild(speedUpBtn);
 
     speedUpBtn->addClickEventListener(CC_CALLBACK_1(MusicMenu::speedChangeController, this,true,speedFlagLabel));

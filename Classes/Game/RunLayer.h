@@ -39,6 +39,11 @@ public:
     //从index重新开始
     virtual void restart(int musicalIndex){};
     
+    //根据传入音符计算时间
+    virtual float getMusicalTime(int musicalIndex){return 0.0f;};
+    //根据传入音符所在小节
+    virtual string getMusicalChord(int musicalIndex){return nullptr;};
+    
     
 };
 

@@ -42,5 +42,7 @@ public:
     virtual void endAnimationSetting();
     virtual void sendDataToBluetooth();
     virtual void restart(int musicalIndex);
+    virtual float getMusicalTime(int musicalIndex);
+    virtual string getMusicalChord(int musicalIndex);
 };
 #endif /* defined(__poputar__FingerRunLayer__) */

@@ -49,6 +49,10 @@ public:
     
     virtual void restart(int musicalIndex);
 
+    virtual float getMusicalTime(int musicalIndex);
+    
+    virtual string getMusicalChord(int musicalIndex);
+    
 };
 
 #endif /* defined(__Guitars__MainLayer__) */
