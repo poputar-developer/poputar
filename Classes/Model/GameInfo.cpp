@@ -25,9 +25,9 @@ void GameInfo::setMusic(string music){
     this->music = music;
 }
 
-void GameInfo::setChord(string chord){
-    this->chord = chord;
-}
+//void GameInfo::setChord(string chord){
+//    this->chord = chord;
+//}
 
 int GameInfo::getLevle(){
     return this->level;
@@ -45,6 +45,6 @@ string GameInfo::getMusic(){
     return this->music;
 }
 
-string GameInfo::getChord(){
-    return this->chord;
-}
+//string GameInfo::getChord(){
+//    return this->chord;
+//}

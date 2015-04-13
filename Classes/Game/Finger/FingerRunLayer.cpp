@@ -72,20 +72,22 @@ void FingerRunLayer::restart(int musicalIndex){
     currentMusical = musicalIndex;
     flag = musicalIndex-(fingerConfig->beat+1);
     
+    log("curr:%d   flag:%d",currentMusical,flag);
     this->loadFrame();
     this->startMusical(musicalIndex);
     schedule(schedule_selector(FingerRunLayer::musicalMove), fingerConfig->rhythm_time, kRepeatForever, fingerConfig->rhythm_time);
     scheduleUpdate();
 }
+
 void FingerRunLayer::startMusical(int musicalIndex){
     int count  = fingerConfig->beat+fingerConfig->leftUnit+1;
     for (int i=1; i<count; i++) {
         float x = i*fingerConfig->unitWidth;
         Musical *musicalSprite;
         int index = flag+ (i-1);
-        if(musicalIndex != 0 && index<musicals.size()){
+        if(musicalIndex != 0 && index>0 && index<=musicals.size()){
             
-            Value musical = musicals.at(index);
+            Value musical = musicals.at(index-1);
             musicalSprite = Musical::createMusical(fingerConfig, musical.asString(),unitHeight,x);
             musicalSprite->setTag(index);
         }else{
@@ -105,6 +107,7 @@ void FingerRunLayer::update(float at){
     
     ui::Scale9Sprite *flagRhythm = (ui::Scale9Sprite *)this->getChildByTag(8001);
     //用X轴和音符的X轴来进行判断
+    flag = flag <=0 ? 1 : flag;
     if(this->getChildByTag(flag)){
         Musical* e = (Musical*)this->getChildByTag(flag);
         float rCenterX = flagRhythm->getPositionX();
@@ -206,4 +209,12 @@ void FingerRunLayer::sendDataToBluetooth(){
         log("%s",musical.asString().c_str());
         MusicAnalysis::getInstance()->sendMusicChar(musical.asString());
     }
+}
+
+float FingerRunLayer::getMusicalTime(int musicalIndex){
+    return musicalIndex * fingerConfig->unitTime;;
+}
+
+string FingerRunLayer::getMusicalChord(int musicalIndex){
+    return "";
 }

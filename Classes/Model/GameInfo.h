@@ -28,13 +28,13 @@ public:
     void setNode(int node);
     void setType(string type);
     void setMusic(string music);
-    void setChord(string chord);
+//    void setChord(string chord);
     
     int getLevle();
     int getNode();
     string getType();
     string getMusic();
-    string getChord();
+//    string getChord();
     
 };
 

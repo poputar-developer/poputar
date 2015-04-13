@@ -14,11 +14,11 @@ FingerConfig::FingerConfig(float contentWidth, float contentHeight, MusicInfo *m
 
 
 void FingerConfig::initialise(MusicInfo *musicInfo){
-    
+    beat = 7;
     rhythm_time = unitTime;
     unitWidth = contentWidth/(beat+leftUnit);
     rhythm_distance = unitWidth *beat;
-    int musicalSize = musicInfo->getMusical().size();
+    int musicalSize = (int)musicInfo->getMusical().size();
     int beatCount = musicalSize/musicInfo->getBeat();
     if(musicalSize%musicInfo->getBeat()!=0){
         beatCount+=1;

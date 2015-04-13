@@ -39,7 +39,7 @@ void ChordConfig::initialise(MusicInfo *musicInfo){
         array4Y.push_back(Value(h));
     }
     
-    int chordSize = musicInfo->getChords().size()*beat;
+    int chordSize = (int)musicInfo->getChords().size()*beat;
     int beatCount = chordSize/musicInfo->getBeat();
     if(chordSize%musicInfo->getBeat()!=0){
         beatCount+=1;

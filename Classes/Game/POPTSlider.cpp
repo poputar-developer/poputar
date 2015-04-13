@@ -24,10 +24,10 @@ POPTSlider* POPTSlider::create(const char *bgFile, const char *progressFile, con
 
 void POPTSlider::onTouchEnded(Touch *pTouch, Event *pEvent)
 {
-    
     sliderEnded(Vec2::ZERO);
-    float value = this->getValue();
-    //拖动到的音符位置
-    int muscilIndex = (int)value/gameLayer->gameConfig->unitTime;
-    gameLayer->restart(muscilIndex);
+    _delegate->sliderTouchEndCallback();
+}
+
+void POPTSlider::setDelegate(POPTSliderDelegate *delegate){
+    _delegate = delegate;
 }

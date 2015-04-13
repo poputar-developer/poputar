@@ -6,13 +6,13 @@
 //
 //
 
-#include "PopBaseLayer.h"
+#include "MenuBaseLayer.h"
 
 
-PopBaseLayer::PopBaseLayer(){
+MenuBaseLayer::MenuBaseLayer(){
 }
 
-void PopBaseLayer::appear(){
+void MenuBaseLayer::appear(){
     //层弹出动画
 
     auto fadeIn = FadeIn::create(1);
@@ -20,11 +20,11 @@ void PopBaseLayer::appear(){
     this->runAction(fadeIn);
 }
 
-void PopBaseLayer::disappear(){
+void MenuBaseLayer::disappear(){
     auto fadeOut = FadeOut::create(1);
     this->runAction(fadeOut);
 }
 
-void PopBaseLayer::close(){
+void MenuBaseLayer::close(){
     disappear();
 }
