@@ -35,3 +35,11 @@ string POPTStringUtils::intToString(int value){
     ss>>text;
     return text;
 }
+
+int POPTStringUtils::stringToInt(string value){
+    stringstream ss;
+    ss<<value;
+    int i;
+     ss>>i;
+    return i;
+}

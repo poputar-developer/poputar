@@ -13,24 +13,12 @@ EndLayer* EndLayer::createEndLayer(){
     EndLayer *item = new EndLayer();
     if(item && item->initWithColor(Color4B(0, 0, 0, 120))){
         item->autorelease();
+        item->setPosition(0,0);
         item->loadFrame();
         return item;
     }
     CC_SAFE_DELETE(item);
     return nullptr;
-}
-
-bool EndLayer::initWithColor(const Color4B& color){
-    bool result =  LayerColor::initWithColor(color);
-    this->setPosition(0,0);
-    auto listener = EventListenerTouchOneByOne::create();
-    listener->setSwallowTouches(true);
-    
-    listener->onTouchBegan = CC_CALLBACK_2(EndLayer::onTouchBegan, this);
-    listener->onTouchMoved = CC_CALLBACK_2(EndLayer::onTouchMoved, this);
-    listener->onTouchEnded = CC_CALLBACK_2(EndLayer::onTouchEnded, this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-    return result;
 }
 
 void EndLayer::loadFrame(){
@@ -81,17 +69,4 @@ void EndLayer::nextController(cocos2d::Ref *ref){
 
 void EndLayer::setDelegate(EndLayerDelegate *delegate){
     _delegate = delegate;
-}
-
-bool EndLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event){
-    log("Touch Began");
-    return true;
-}
-
-void EndLayer::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event){
-    log("move");
-}
-
-void EndLayer::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event){
-    log("end");
 }

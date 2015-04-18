@@ -7,7 +7,7 @@
                          {
                          "node": 1,
                          "type":"F",
-                         "music": "xiaoxingxing"
+                         "music": "1_1"
                          },
                          {
                          "node": 2,
@@ -17,7 +17,7 @@
                          {
                          "node": 3,
                          "type":"F",
-                         "music": "xiaoxingxing"
+                         "music": "yangwawa"
                          }
                          ]
                },
@@ -27,22 +27,32 @@
                          {
                          "node": 1,
                          "type":"C",
-                         "music": "cunzai"
+                         "music": "chord_c"
                          },
                          {
                          "node": 2,
                          "type":"C",
-                         "music": "cunzai"
+                         "music": "chord_am"
                          },
                          {
                          "node": 3,
                          "type":"C",
-                         "music": "cunzai"
+                         "music": "chord_f"
                          }
                          ,
                          {
                          "node": 4,
                          "type":"C",
+                         "music": "chord_g"
+                         },
+                         {
+                         "node": 5,
+                         "type":"S",
+                         "music": "chord_change4two"
+                         },
+                         {
+                         "node": 6,
+                         "type":"S",
                          "music": "cunzai"
                          }
                          ]

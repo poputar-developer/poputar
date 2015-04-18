@@ -103,35 +103,6 @@ void FingerRunLayer::startMusical(int musicalIndex){
     }
 }
 
-void FingerRunLayer::update(float at){
-    
-    ui::Scale9Sprite *flagRhythm = (ui::Scale9Sprite *)this->getChildByTag(8001);
-    //用X轴和音符的X轴来进行判断
-    flag = flag <=0 ? 1 : flag;
-    if(this->getChildByTag(flag)){
-        Musical* e = (Musical*)this->getChildByTag(flag);
-        float rCenterX = flagRhythm->getPositionX();
-        float eX = e->getPositionX();
-        
-        if(!e->isCollision && rCenterX>=eX){
-            
-            ValueVector stringsInfo = e->getStringsInfo();
-            for (int i=0; i<stringsInfo.size(); i++) {
-                Sprite *r = (Sprite *)this->getChildByTag(8000+stringsInfo.at(i).asInt());
-                auto loading = AnimationCache::getInstance()->getAnimation("rhythm_blink");
-                auto animate = Animate::create(loading);
-                r->runAction(animate);
-            }
-            if(musicalPlay){
-               e->musicalVoice();
-            }
-            e->isCollision = true;
-            sendDataToBluetooth();
-            flag++;
-        }
-    }
-}
-
 void FingerRunLayer::loadFrame(){
 
     
@@ -155,6 +126,36 @@ void FingerRunLayer::loadFrame(){
         rhythms.pushBack(mRhythm);
         
         stringCount-=1;
+    }
+}
+
+
+void FingerRunLayer::update(float at){
+    
+    ui::Scale9Sprite *flagRhythm = (ui::Scale9Sprite *)this->getChildByTag(8001);
+    //用X轴和音符的X轴来进行判断
+    flag = flag <=0 ? 1 : flag;
+    if(this->getChildByTag(flag)){
+        Musical* e = (Musical*)this->getChildByTag(flag);
+        float rCenterX = flagRhythm->getPositionX();
+        float eX = e->getPositionX();
+        
+        if(!e->isCollision && rCenterX>=eX){
+            
+            ValueVector stringsInfo = e->getStringsInfo();
+            for (int i=0; i<stringsInfo.size(); i++) {
+                Sprite *r = (Sprite *)this->getChildByTag(8000+stringsInfo.at(i).asInt());
+                auto loading = AnimationCache::getInstance()->getAnimation("rhythm_blink");
+                auto animate = Animate::create(loading);
+                r->runAction(animate);
+            }
+            if(musicalPlay){
+                e->musicalVoice(capoValue);
+            }
+            e->isCollision = true;
+            sendDataToBluetooth();
+            flag++;
+        }
     }
 }
 
@@ -196,6 +197,61 @@ void FingerRunLayer::musicalMove(float at){
     
 }
 
+//int sectionFlag = 0;
+//
+//int musicalFlag = 0;
+//
+//float musicalCount = 0;
+//void FingerRunLayer::musicalMove(float at){
+//    
+//    Musical* musicalSprite;
+//    
+//    if(currentMusical==0){
+//        musicalSprite = Musical::createMusical(fingerConfig, "",unitHeight);
+//    }else{
+//
+//        vector<SectionInfo*> sections = fingerConfig->musicInfo->sections;
+//        if(sectionFlag>=sections.size()){
+//            return ;
+//        }
+//        
+//        SectionInfo* section = sections[sectionFlag];
+//        
+//        vector<MusicalInfo*> musicals = section->musicals;
+//        
+//        MusicalInfo* musical = musicals[musicalFlag];
+//        
+//        float musicalBeat = musical->beat;
+//        
+//        string stringInfo = musical->stringInfo;
+//        
+//        musicalSprite = Musical::createMusical(fingerConfig, stringInfo,unitHeight);
+//        
+//        musicalSprite->setTag(currentMusical);
+//        
+//        currentMusical +=1;
+//        
+//        musicalCount += musicalBeat;
+//        
+//        musicalFlag += 1;
+//        
+//        if(musicalCount ==1.0f){
+//            sectionFlag += 1;
+//            musicalFlag = 0;
+//            musicalCount= 0.0f;
+//        }
+//
+//    }
+//    
+//    ActionInterval *ai=musicalSprite->musicalMove(fingerConfig,0);
+//    Sequence *sequence = Sequence::create(ai,CallFunc::create([this,musicalSprite](){
+//        this->removeChild(musicalSprite);
+//    }),NULL);
+//    musicalSprite->runAction(sequence);
+//    this->addChild(musicalSprite,2);
+//    
+//}
+
 void FingerRunLayer::stopMusic(){
     currentMusical = 0;
     flag = 0;
@@ -207,7 +263,7 @@ void FingerRunLayer::sendDataToBluetooth(){
     if(flag<musicals.size()){
         Value musical = musicals.at(flag);
         log("%s",musical.asString().c_str());
-        MusicAnalysis::getInstance()->sendMusicChar(musical.asString());
+        musicAnalysis->sendMusicChar(musical.asString());
     }
 }
 

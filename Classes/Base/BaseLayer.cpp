@@ -15,14 +15,13 @@ bool BaseLayer::init(){
     }
     Size visibleSize = Director::getInstance()->getVisibleSize();
 
-    
     ui::Button *btn = ui::Button::create("back.png");
     btn->setAnchorPoint(Vec2::ZERO);
+//    btn->setScale(0.8);
     Rect rect = btn->getBoundingBox();
+//    Size btnSize = btn->getContentSize();
     btn->setPosition(Vec2(visibleSize.width-rect.size.width, visibleSize.height-rect.size.height));
-    
     btn->addClickEventListener(CC_CALLBACK_1(BaseLayer::goBack, this));
-    
     this->addChild(btn,999);
     
     this->setBackground();

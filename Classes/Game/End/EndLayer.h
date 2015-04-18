@@ -12,6 +12,7 @@
 #include <cocos-ext.h>
 #include <stdio.h>
 #include "MenuBaseLayer.h"
+#include "MaskBaseLayer.h"
 USING_NS_CC;
 
 class EndLayerDelegate{
@@ -20,19 +21,12 @@ public:
     virtual void endNextCallback()=0;
 };
 
-class EndLayer: public LayerColor{
+class EndLayer: public MaskBaseLayer{
 private:
     EndLayerDelegate* _delegate;
     void loadFrame();
 public:
     static EndLayer* createEndLayer();
-    
-    bool initWithColor(const Color4B& color);
-    
-    bool onTouchBegan(Touch* touch,Event* event);
-    void onTouchMoved(Touch* touch,Event* event);
-    void onTouchEnded(Touch* touch,Event* event);
-    
     void restartController(Ref* ref);
     void nextController(Ref* ref);
     

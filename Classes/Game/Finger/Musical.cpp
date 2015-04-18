@@ -97,15 +97,34 @@ void Musical::loadMusical(string content,float unitHeight){
             musical->setScale(0.5);
             musical->setPosition(this->getContentSize().width/2,y);
             
-            std::string text = POPTStringUtils::intToString(value);
-            auto label = Label::createWithTTF(text, "fonts/manhuati.ttf", 35);
+            std::string value_str = POPTStringUtils::intToString(value);
+            auto label = Label::createWithTTF(value_str, "fonts/manhuati.ttf", 35);
             label->setColor(Color3B(255, 255, 255));
             label->setPosition(Vec2(musical->getContentSize().width/2,musical->getContentSize().height/2-15));
             musical->addChild(label);
+        
+            if(key != 1){
+                while (1) {
+                    
+                    int valueFlag = 5;
+                    if(key == 3){
+                        valueFlag = 4;
+                    }
+                    
+                    if(value>=valueFlag){
+                        key-=1;
+                        value-=valueFlag;
+                    }else{
+                        break;
+                    }
+                }
+            }
+            
+            std::string key_voice_str= POPTStringUtils::intToString(key);
+            std::string value_voice_str= POPTStringUtils::intToString(value);
             
             
-            std::string key_str= POPTStringUtils::intToString(key);
-            std::string fileName = key_str+"_"+text+".mp3";
+            std::string fileName = key_voice_str+"_"+value_voice_str+".mp3";
 
             voiceFileName.push_back(Value(fileName));
 
@@ -114,6 +133,8 @@ void Musical::loadMusical(string content,float unitHeight){
             this->addChild(musical,2);
             
             stringsInfo.push_back(Value(key));
+            
+            
 
         }
     }
@@ -123,7 +144,7 @@ void Musical::loadMusical(string content,float unitHeight){
 ActionInterval* Musical::musicalMove(FingerConfig *common,float unitWidth){
     float time = common->rhythm_time;
     //从开始位置移动到节奏线位置所需时间
-    float moveTime = time * common->speedBase;
+    float moveTime = time * common->beat;
     float distance = common->rhythm_distance;
     
     float allTime = common->contentWidth/(distance/moveTime);
@@ -134,9 +155,9 @@ ActionInterval* Musical::musicalMove(FingerConfig *common,float unitWidth){
 }
 
 
-void Musical::musicalVoice(){
+void Musical::musicalVoice(float capoValue){
     for (int i=0 ; i<voiceFileName.size(); i++) {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(voiceFileName[i].asString().data(),false,1,0,1);
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(voiceFileName[i].asString().data(),false,capoValue,0,1);
     }
 }
 

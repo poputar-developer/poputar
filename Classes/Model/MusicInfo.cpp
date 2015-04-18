@@ -91,6 +91,26 @@ MusicInfo* MusicInfo::initWithJson(string uuid){
             string str = cString.GetString();
             music->vec_musical.push_back(Value(str));
         }
+    }else if(type=="Finger"){
+        const rapidjson::Value &cSections = doc["sections"];
+        for (rapidjson::SizeType s=0; s<cSections.Size(); s++) {
+            const rapidjson::Value &section = cSections[s];
+            const rapidjson::Value &cChord = section["chord"];
+            const rapidjson::Value &cMusicals = section["musicals"];
+            
+            SectionInfo* sectionVO = new SectionInfo();
+            sectionVO->chordInfo = cChord.GetString();
+            for (rapidjson::SizeType m=0; m<cMusicals.Size(); m++) {
+                const rapidjson::Value &musical = cMusicals[m];
+                const rapidjson::Value &beat = musical["beat"];
+                const rapidjson::Value &string = musical["string"];
+                MusicalInfo* musicalVO = new MusicalInfo();
+                musicalVO->beat = beat.GetDouble();
+                musicalVO->stringInfo = string.GetString();
+                sectionVO->musicals.push_back(musicalVO);
+            }
+            music->sections.push_back(sectionVO);
+        }
     }
 
     return music;

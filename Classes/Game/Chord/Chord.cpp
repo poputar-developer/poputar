@@ -12,20 +12,23 @@ Chord::~Chord(){
     this->cocos2d::Node::removeChild(lyric);
 }
 
+//图片大小固定为72像素
 bool Chord::initWithFile(string type,ChordConfig *chordConfig,int index){
     bool result;
     if (type == "") {
         result =  Sprite::init();
+        //默认空和弦大小为72*72 设计大小为36*36
+        this->setContentSize(Size(36,36));
     }else{
         this->type = type;
         this->getFileNameWidthType(type);
         result = Sprite::initWithFile(this->imageFilename);
-        this->setOpacity(150);
-        this->setScale(0.7);
-        float x = chordConfig->array4X.at(index).asFloat();
-        this->setPosition(Vec2(x,0));
         CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(this->voideFileName);
     }
+    this->setOpacity(150);
+    float x = chordConfig->array4X.at(index).asFloat();
+    this->setPosition(Vec2(x,0));
+
     return result;
 }
 
@@ -119,8 +122,11 @@ void Chord::collisionAction(ChordConfig *chordConfig){
     this->runAction(sq);
 }
 
-void Chord::chordVoice(){
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(this->voideFileName);
+void Chord::chordVoice(float capoValue){
+    if(this->voideFileName){
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(this->voideFileName,false,capoValue,0,1);
+
+    }
 }
 
 string Chord::getType(){

@@ -15,25 +15,16 @@
 #define CURR_NODE_KEY "node"
 
 #include <stdio.h>
+#include "Singleton.h"
 #include "cocostudio/CocoStudio.h"
 #include "GameLevelInfo.h"
 using namespace std;
 USING_NS_CC;
-class GameLevelSingleton{
-private:
-    vector<GameLevelInfo*> levels;
-    
-    GameLevelSingleton(){};
-    
-    static GameLevelSingleton* instance;
-    
-    void init();
-    
-    
+class GameLevelSingleton:public Singleton<GameLevelSingleton>{
 public:
-    static GameLevelSingleton* getInstance();
-    
-    vector<GameLevelInfo*> getLeves();
+    GameLevelSingleton(void);
+    ~GameLevelSingleton(void);
+    vector<GameLevelInfo*> levels;
 };
-
+#define gameLevelSingleton GameLevelSingleton::instance()
 #endif /* defined(__poputar__GameLevelSingleton__) */

@@ -39,7 +39,7 @@ public:
     //移动节奏线方法，第二个参数是用于倒计时创建的节奏线不是从屏幕最右侧建立，计算需要移动的记录时使用
     ActionInterval* musicalMove(FingerConfig *common,float unitWidth);
     
-    void musicalVoice();
+    void musicalVoice(float capoValue);
     
     string getContent();
     

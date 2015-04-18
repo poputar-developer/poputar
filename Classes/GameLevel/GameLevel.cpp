@@ -10,6 +10,8 @@
 #include "GameLevelMenuItem.h"
 #include "MusicInfo.h"
 #include "GuitarRunScene.h"
+#include "StartScene.h"
+#include "POPTGlobal.h"
 
 
 //#include "GameLevelMenuItem.h"
@@ -75,7 +77,7 @@ void GameLevel::loadFrame(){
     float columnSpace = 100.0f;
     //行高
     float columnHeight = 0.0f;
-    vector<GameLevelInfo*> levels = GameLevelSingleton::getInstance()->getLeves();
+    vector<GameLevelInfo*> levels = gameLevelSingleton->levels;
     
     //计算页面高度
     float innerHeight = columnSpace;
@@ -179,11 +181,28 @@ void GameLevel::loadFrame(){
     }
 }
 
-void GameLevel::toPlaySence(Ref* sender,GameNodeInfo* game){
+void GameLevel::toPlaySence(Ref* sender,GameNodeInfo* gni){
     
-    log("to level:%d  node:%d",game->getGameLevelInfo()->getLevel(),game->getNode());
-    Scene *guitarRunScene = GuitarRun::createScene(game);
-    Director::getInstance()->pushScene(guitarRunScene);
+    log("to level:%d  node:%d",gni->getGameLevelInfo()->getLevel(),gni->getNode());
+    poptGlobal->gni = gni;
+    string type = gni->getType();
+    
+    //加载音乐信息
+    auto musicInfo = MusicInfo::initWithJson(gni->getMusic());
+    gni->setMusicInfo(musicInfo);
+
+    
+    Scene* scene;
+    if(type=="C"){
+        scene = StartScene::createScene();
+    }else if(type == "F"){
+        scene = StartScene::createScene();
+    }else if(type == "S"){
+        scene = GuitarRun::createScene();
+    }
+    
+    auto transition = TransitionCrossFade::create(0.5f, scene);
+    Director::getInstance()->pushScene(transition);
 }
 
 

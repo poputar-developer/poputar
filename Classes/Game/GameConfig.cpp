@@ -19,6 +19,4 @@ GameConfig::GameConfig(float contentWidth, float contentHeight, MusicInfo *music
 
 GameConfig::~GameConfig(){
     this->musicInfo  = nullptr;
-//    this->contentWidth = nullptr;
-//    this->contentHeight = nullptr;
 }

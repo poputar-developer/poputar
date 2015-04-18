@@ -15,7 +15,7 @@ bool Lyric::init(){
 
 void Lyric::setLyircStr(string lyirc){
     removeAllChildren();
-    auto lyircLable = Label::createWithTTF(lyirc, "fonts/manhuati.ttf", 30);
+    auto lyircLable = Label::createWithTTF(lyirc, "fonts/manhuati.ttf", 15);
     float height = lyircLable->getContentSize().height;
     float width = lyircLable->getContentSize().width;
     Size contentSize = Size(width, height);
