@@ -22,6 +22,9 @@ MusicMenu* MusicMenu::createMusicMenu(){
 void MusicMenu::loadFrame(){
     speedBase = 1;
     
+    capoBase = 1.15f;
+    capoValue=3;
+    
     float maxWidthFlag = 0;
     float maxheightFlag = 0;
 
@@ -92,7 +95,7 @@ void MusicMenu::loadFrame(){
     rowWidth+=speedDownBtnWidth;
     
     
-    auto speedFlagLabel = Label::createWithTTF("X1.0", "fonts/yuanti.ttf", 15);
+    auto speedFlagLabel = Label::createWithTTF("1.0X", "fonts/yuanti.ttf", 15);
     float speedFlagLabelWidth = speedFlagLabel->getContentSize().width;
     speedFlagLabel->setPosition(rowWidth+speedFlagLabelWidth/2+20,maxheightFlag+speedLabelHeight/2+20);
     this->addChild(speedFlagLabel);
@@ -108,39 +111,98 @@ void MusicMenu::loadFrame(){
     speedUpBtn->addClickEventListener(CC_CALLBACK_1(MusicMenu::speedChangeController, this,true,speedFlagLabel));
     speedDownBtn->addClickEventListener(CC_CALLBACK_1(MusicMenu::speedChangeController, this,false,speedFlagLabel));
     
+    maxheightFlag +=speedLabelHeight+20;
+    //===================================品位置控制=======================================
+    
+    string capoStr = "变调夹：";
+    auto capoLabel = Label::createWithTTF(capoStr, "fonts/yuanti.ttf", 15);
+    float capoLabellWidth = capoLabel->getContentSize().width;
+    float capoLabelHeight = capoLabel->getContentSize().height;
+    capoLabel->setPosition(capoLabellWidth/2+20,maxheightFlag+capoLabelHeight/2+20);
+    this->addChild(capoLabel);
+    
+    rowWidth = capoLabellWidth;
+    
+    ui::Button *capoDownBtn = ui::Button::create("minus.png");
+    float capoDownBtnWidth = capoDownBtn->getContentSize().width;
+    capoDownBtn->setPosition(Vec2(rowWidth+capoDownBtnWidth/2+20,maxheightFlag+capoLabelHeight/2+20));
+    capoDownBtn->setScale(0.8);
+    this->addChild(capoDownBtn);
+    
+    rowWidth+=capoDownBtnWidth;
+    
+    
+    auto capoFlagLabel = Label::createWithTTF("3品", "fonts/yuanti.ttf", 15);
+    float capoFlagLabelWidth = speedFlagLabel->getContentSize().width;
+    capoFlagLabel->setPosition(rowWidth+capoFlagLabelWidth/2+20,maxheightFlag+capoLabelHeight/2+20);
+    this->addChild(capoFlagLabel);
+    
+    rowWidth+=speedFlagLabelWidth;
+    
+    ui::Button *capoUpBtn = ui::Button::create("plus.png");
+    float capoUpBtnBtnWidth = speedUpBtn->getContentSize().width;
+    capoUpBtn->setPosition(Vec2(rowWidth+capoUpBtnBtnWidth/2+20,maxheightFlag+capoLabelHeight/2+20));
+    capoUpBtn->setScale(0.8);
+    this->addChild(capoUpBtn);
+    
+    capoUpBtn->addClickEventListener(CC_CALLBACK_1(MusicMenu::capoChangeController, this,true,capoFlagLabel));
+    capoDownBtn->addClickEventListener(CC_CALLBACK_1(MusicMenu::capoChangeController, this,false,capoFlagLabel));
     
     rowWidth+=speedUpBtnBtnWidth;
     
+    
     maxWidthFlag = maxWidthFlag>rowWidth ? maxWidthFlag : rowWidth;
-    maxheightFlag+=speedLabelHeight+20;
+    maxheightFlag+=capoLabelHeight+20;
     
     this->setPreferredSize(Size(maxWidthFlag+40,maxheightFlag+20));
 }
 
-void MusicMenu::setDelegate(MusicMenuDelegate *delegate){
-    _delegate = delegate;
-}
+//void MusicMenu::setDelegate(MusicMenuDelegate *delegate){
+//    _delegate = delegate;
+//}
 
 void MusicMenu::speedChangeController(cocos2d::Ref *ref,bool isSpeedUp,Label* speedFlagLabel){
     
     if(isSpeedUp){
-        speedBase = speedBase>1.9 ? 2 : speedBase+0.1;
+        speedBase = speedBase>1.9 ? 2 : speedBase+0.1f;
     }else{
-        speedBase = speedBase<0.1 ? 0 : speedBase-0.1;
+        speedBase = speedBase<0.1 ? 0 : speedBase-0.1f;
     }
 
-    _delegate->speedChangeCallback(speedBase);
+//    _delegate->speedChangeCallback(speedBase);
+    Scheduler* s = Director::getInstance()->getScheduler();
+    s->setTimeScale(speedBase);
     
-    speedFlagLabel->setString("X"+StringUtils::format("%.1f",speedBase));
+    speedFlagLabel->setString(StringUtils::format("%.1f",speedBase)+"X");
     
+}
+
+void MusicMenu::capoChangeController(cocos2d::Ref *ref, bool isCapoUp, cocos2d::Label *capoFlagLabel){
+    if(isCapoUp){
+        capoBase = capoBase+0.05f>=1.85? 1.85:capoBase+0.05f;
+        capoValue = capoValue >=17?17:capoValue+1;
+    }else{
+        capoBase = capoBase-0.05f<=1 ? 1 : capoBase-0.05f;
+        capoValue = capoValue <=0 ?0 :capoValue-1;
+    }
+    
+    __Float *f = __Float::create(capoBase);
+    __NotificationCenter::getInstance()->postNotification(POPT_CAPO_VALUE,f);
+    
+    capoFlagLabel->setString(StringUtils::format("%d",(int)capoValue)+"品");
 }
 
 void MusicMenu::metronomePlayController(cocos2d::Ref *ref,Control::EventType type){
     ControlSwitch* pSwitch = (ControlSwitch*)ref;
-    _delegate->metronomePlayCallback(pSwitch->isOn());
+//    _delegate->metronomePlayCallback(pSwitch->isOn());
+
+    __Bool *b = __Bool::create(pSwitch->isOn());
+    __NotificationCenter::getInstance()->postNotification(POPT_METRONOME_VOICE, b);
 }
 
 void MusicMenu::musicalPlayController(cocos2d::Ref *ref,Control::EventType type){
     ControlSwitch* pSwitch = (ControlSwitch*)ref;
-    _delegate->musicalPlayCallback(pSwitch->isOn());
+//    _delegate->musicalPlayCallback(pSwitch->isOn());
+    __Bool *b = __Bool::create(pSwitch->isOn());
+    __NotificationCenter::getInstance()->postNotification(POPT_MUSIC_VOICE, b);
 }

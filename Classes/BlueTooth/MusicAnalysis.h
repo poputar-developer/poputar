@@ -10,18 +10,16 @@
 #define __poputar__ChordAnalysis__
 
 #include <stdio.h>
+#include "Singleton.h"
 USING_NS_CC;
 using namespace std;
 
-class MusicAnalysis{
-private:
-    MusicAnalysis(){};
-    static MusicAnalysis* ma;
-    
+class MusicAnalysis:public Singleton<MusicAnalysis>{
+
 public:
     
-    static MusicAnalysis* getInstance();
-    
+    MusicAnalysis(void);
+    ~MusicAnalysis(void);
     //和弦解析为音符字符串
     void sendChordStr(string chord);
     
@@ -29,5 +27,5 @@ public:
     void sendMusicChar(string musical);
     
 };
-
+#define musicAnalysis MusicAnalysis::instance()
 #endif /* defined(__poputar__ChordAnalysis__) */

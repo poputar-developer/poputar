@@ -17,11 +17,11 @@ public:
     //左侧份数（消失的空间）
     int leftUnit=1;
     //右侧份数（音符移动空间）
-    float beat =7;
+    float beat =8;
     //单元宽度
     float unitWidth;
     //音符移动时间的基数
-    float speedBase = 7;
+//    float speedBase = 8;
     //循环周期
     float rhythm_time;
     //和弦区域宽度

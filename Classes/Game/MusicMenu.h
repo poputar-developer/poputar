@@ -13,28 +13,21 @@
 #include <stdio.h>
 #include "extensions/GUI/CCControlExtension/CCControlSwitch.h"
 #include "extensions/GUI/CCControlExtension/CCControl.h"
+#include "POPTBaseDefine.h"
 USING_NS_CC;
 
 using namespace std;
 using namespace cocos2d::extension;
-class MusicMenuDelegate{
-public:
-    virtual void speedChangeCallback(float speedBase)=0;
-    virtual void metronomePlayCallback(bool isOn)=0;
-    virtual void musicalPlayCallback(bool isOn)=0;
-};
-
 class MusicMenu : public ui::Scale9Sprite{
 private:
     float speedBase;
-    MusicMenuDelegate* _delegate;
+    float capoBase;
+    int capoValue;
     void loadFrame();
 public:
     static MusicMenu* createMusicMenu();
-    
-    void setDelegate(MusicMenuDelegate * delegate);
-    
     void speedChangeController(Ref *ref,bool isSpeedUp,Label* speedFlagLabel);
+    void capoChangeController(Ref* ref,bool isCapoUp,Label* capoFlagLabel);
     void metronomePlayController(Ref *ref,Control::EventType type);
     void musicalPlayController(Ref *ref,Control::EventType type);
 };

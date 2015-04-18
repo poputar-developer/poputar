@@ -8,16 +8,16 @@
 
 #include "GameLevelSingleton.h"
 
-GameLevelSingleton * GameLevelSingleton::instance = NULL;
-GameLevelSingleton* GameLevelSingleton::getInstance(){
-    if(!instance){
-        instance = new GameLevelSingleton();
-        instance->init();
-    }
-    return instance;
-}
-
-void GameLevelSingleton::init(){
+//GameLevelSingleton * GameLevelSingleton::instance = NULL;
+//GameLevelSingleton* GameLevelSingleton::getInstance(){
+//    if(!instance){
+//        instance = new GameLevelSingleton();
+//        instance->init();
+//    }
+//    return instance;
+//}
+DECLARE_SINGLETON_MEMBER(GameLevelSingleton);
+GameLevelSingleton::GameLevelSingleton(void){
     rapidjson::Document doc;
     std::string jsonInfo =FileUtils::getInstance()->getStringFromFile("gamelevel_config.json");
     doc.Parse<0>(jsonInfo.c_str());
@@ -46,9 +46,6 @@ void GameLevelSingleton::init(){
             gni->setType(cType.GetString());
             gni->setMusic(cMusic.GetString());
             gni->setGameLevelInfo(gli);
-            //加载音乐信息
-            auto musicInfo = MusicInfo::initWithJson(cMusic.GetString());
-            gni->setMusicInfo(musicInfo);
             
             nodes.push_back(gni);
         }
@@ -58,6 +55,6 @@ void GameLevelSingleton::init(){
     }
 }
 
-vector<GameLevelInfo*> GameLevelSingleton::getLeves(){
-    return levels;
+GameLevelSingleton::~GameLevelSingleton(void){
+    levels.clear();
 }

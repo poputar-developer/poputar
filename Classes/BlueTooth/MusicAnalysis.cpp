@@ -11,14 +11,10 @@
 #include "POPTStringUtils.h"
 #include "PluginHelper.h"
 
-MusicAnalysis * MusicAnalysis::ma = NULL;
-
+DECLARE_SINGLETON_MEMBER(MusicAnalysis);
 map<string,string> chordInfo;
 
-MusicAnalysis* MusicAnalysis::getInstance(){
-    if (!ma) {
-        ma = new MusicAnalysis();
-    }
+MusicAnalysis::MusicAnalysis(void){
     
     //读取和弦对应关系文件
     rapidjson::Document doc;
@@ -46,12 +42,7 @@ MusicAnalysis* MusicAnalysis::getInstance(){
         chordInfo.insert(pair<string, string>(type,data));
     }
     
-    return ma;
 }
-
-
-
-
 
 void MusicAnalysis::sendChordStr(string chord){
     map<string,string>::iterator it;
@@ -115,6 +106,9 @@ void MusicAnalysis::sendMusicChar(string musical){
     
 }
 
+MusicAnalysis::~MusicAnalysis(void){
+    chordInfo.clear();
+}
 
 
 

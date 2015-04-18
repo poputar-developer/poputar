@@ -29,15 +29,12 @@ USING_NS_CC;
 using namespace cocos2d::extension;
 
 
-class GuitarRun: public Layer,public GameMenuDelegate,public MusicMenuDelegate,public POPTSliderDelegate,public EndLayerDelegate{
+class GuitarRun: public Layer,public GameMenuDelegate,public POPTSliderDelegate,public EndLayerDelegate{
   
 private:
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    //游戏信息
-    GameNodeInfo *gni;
     
-    RunLayer *runLayer;
     //暂停按钮
     ui::Button* pauseBtn;
     //当前速度基数 用于加减速控制
@@ -57,16 +54,16 @@ private:
     //结束标志
     bool musicIsOver;
     //组装界面
-    void initialise(GameNodeInfo *gameInfo);
+    void initialise();
     
     void loadTopFrame(MusicInfo* musicInfo,float height);
     
     void loadFootFrame(float height);
     
     //开始和弦弹奏
-    void startChordMusic(MusicInfo *musicInfo,float proportion);
+    RunLayer* startChordMusic(MusicInfo *musicInfo,float proportion);
     //开始指弹
-    void startFingerMusic(MusicInfo *musicInfo,float proportion);
+    RunLayer* startFingerMusic(MusicInfo *musicInfo,float proportion);
     //暂停控制
     void pauseControll(Ref* ref,bool flag);
     //音乐控制
@@ -92,11 +89,6 @@ private:
     virtual void restartCallback(Ref* ref);
     virtual void goBackCallback(Ref* ref);
     
-    //音乐控制
-    virtual void speedChangeCallback(float speedBase);
-    virtual void metronomePlayCallback(bool isOn);
-    virtual void musicalPlayCallback(bool isOn);
-    
     //时间轴回调
     virtual void sliderTouchEndCallback();
     
@@ -104,7 +96,7 @@ private:
     virtual void endRestartCallback();
     virtual void endNextCallback();
 public:
-    static Scene *createScene(GameNodeInfo *gni);
+    static Scene *createScene();
 
     CREATE_FUNC(GuitarRun);
 

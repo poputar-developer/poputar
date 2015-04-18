@@ -7,6 +7,7 @@
 //
 
 #include "RunLayer.h"
+#include "POPTBaseDefine.h"
 
 
 bool RunLayer::init(const cocos2d::Color4B &color,MusicInfo *musicInfo){
@@ -25,7 +26,36 @@ bool RunLayer::init(const cocos2d::Color4B &color,MusicInfo *musicInfo){
     
     musicalPlay = true;
     
+    capoValue = 1.15f;
+    
     scheduleUpdate();
 
+    __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::metronomeVoiceCallback), POPT_METRONOME_VOICE , NULL);
+    
+     __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::musicVoiceCallback), POPT_MUSIC_VOICE , NULL);
+    
+    __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::capoChangeCallback), POPT_CAPO_VALUE , NULL);
+    
+    
     return result;
+}
+void RunLayer::capoChangeCallback(cocos2d::Ref *ref){
+    __Float* f = (__Float*) ref;
+    capoValue = f->getValue();
+}
+
+void RunLayer::metronomeVoiceCallback(cocos2d::Ref *ref){
+    __Bool* b = (__Bool*)ref;
+    metronomePlay = b->getValue();
+}
+
+
+void RunLayer::musicVoiceCallback(cocos2d::Ref *ref){
+    __Bool* b = (__Bool*)ref;
+    musicalPlay = b->getValue();
+}
+
+RunLayer::~RunLayer(){
+    __NotificationCenter::getInstance()->removeObserver(this, POPT_METRONOME_VOICE);
+    __NotificationCenter::getInstance()->removeObserver(this, POPT_MUSIC_VOICE);
 }

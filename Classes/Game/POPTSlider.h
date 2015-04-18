@@ -28,7 +28,7 @@ public:
     //
     int musicalIndex;
     
-    RunLayer *gameLayer;
+//    RunLayer *gameLayer;
     
     static POPTSlider* create(const char* bgFile, const char* progressFile, const char* thumbFile);
      void setDelegate(POPTSliderDelegate* delegate);

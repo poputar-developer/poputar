@@ -14,7 +14,6 @@ FingerConfig::FingerConfig(float contentWidth, float contentHeight, MusicInfo *m
 
 
 void FingerConfig::initialise(MusicInfo *musicInfo){
-    beat = 7;
     rhythm_time = unitTime;
     unitWidth = contentWidth/(beat+leftUnit);
     rhythm_distance = unitWidth *beat;
@@ -23,5 +22,10 @@ void FingerConfig::initialise(MusicInfo *musicInfo){
     if(musicalSize%musicInfo->getBeat()!=0){
         beatCount+=1;
     }
-    musicTime = unitTime*beatCount*musicInfo->getBeat();
+    
+    //beatCount = (int)musicInfo->sections.size();
+    
+    //音乐总长度（音符间的时间 * 小节数 * 每小节音阶个数+开始的8个空音符）
+    musicTime = unitTime*beatCount*musicInfo->getBeat()+unitTime*musicInfo->getBeat();
+    
 }
