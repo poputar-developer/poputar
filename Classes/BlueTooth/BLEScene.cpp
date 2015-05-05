@@ -34,7 +34,8 @@ bool BLEScene::init(){
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     
-    auto sprite = Sprite::create("background.png");
+//    auto sprite = Sprite::create("./test/background.png");
+    auto sprite = Sprite::create("base/background.png");
     
     sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y ));
     
@@ -45,7 +46,7 @@ bool BLEScene::init(){
     schedule(schedule_selector(BLEScene::connectBle), 3.0f,kRepeatForever,0.1f);
     
     
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("BlePlist.plist");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ble/BlePlist.plist");
     auto animation = Animation::create();
     for (int i=1; i<3; i++) {
         std::string szName = StringUtils::format("ble/ble_loading_%d.png",i);
@@ -66,7 +67,7 @@ bool BLEScene::init(){
 
     
     string text = "正在连接吉他";
-    label = Label::createWithTTF(text, "fonts/manhuati.ttf",20);
+    label = Label::createWithTTF(text, "fonts/yuanti.ttf",20);
     label->setPosition(Vec2(visibleSize.width/2 ,70));
     this->addChild(label, 1);
     

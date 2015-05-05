@@ -8,7 +8,10 @@
 
 #include "ChordConfig.h"
 
-ChordConfig::ChordConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo):GameConfig(contentWidth,contentHeight,musicInfo){
+ChordConfig::ChordConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo):GameConfig(contentWidth,contentHeight){
+    this->musicInfo = musicInfo;
+    int bpm = musicInfo->getBpm();
+    unitTime = 60.0/bpm;
     initialise(musicInfo);
 };
 

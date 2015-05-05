@@ -34,7 +34,7 @@ bool SelectMusic::init(){
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    auto sprite = Sprite::create("background.png");
+    auto sprite = Sprite::create("base/background.png");
     
     sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y ));
     
@@ -42,16 +42,16 @@ bool SelectMusic::init(){
     
     
     float distance = 120;
-    auto logo = Sprite::create("main_logo.png");
+    auto logo = Sprite::create("main/main_logo.png");
 //    logo->setAnchorPoint(Vec2(0,0));
     logo->setPosition(Vec2(visibleSize.width/2, visibleSize.height-distance+50));
     
     this->addChild(logo,2);
-    auto sprite_sp = Sprite::create("bj_suspend.png");
+    auto sprite_sp = Sprite::create("main/bj_suspend.png");
     sprite_sp->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y ));
     this->addChild(sprite_sp,1);
     
-    ui::Button *rightbtn = ui::Button::create("right_btn.png");
+    ui::Button *rightbtn = ui::Button::create("main/right_btn.png");
     rightbtn->setAnchorPoint(Vec2::ZERO);
     Rect rect = rightbtn->getBoundingBox();
     rightbtn->setPosition(Vec2(visibleSize.width/2+20, visibleSize.height-distance));
@@ -64,7 +64,7 @@ bool SelectMusic::init(){
     
 
     
-    ui::Button *leftbtn = ui::Button::create("left_btn.png");
+    ui::Button *leftbtn = ui::Button::create("main/left_btn.png");
     leftbtn->setAnchorPoint(Vec2::ZERO);
     Rect rect4left = leftbtn->getBoundingBox();
     leftbtn->setPosition(Vec2(visibleSize.width/2-rect4left.size.width-20, visibleSize.height-distance));

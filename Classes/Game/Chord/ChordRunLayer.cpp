@@ -36,7 +36,7 @@ ChordRunLayer* ChordRunLayer::createChordRunLayer(MusicInfo *musicInfo,float pro
 bool ChordRunLayer::init4Chord(const cocos2d::Color4B &color,MusicInfo *musicInfo,float proportion){
     chordConfig = new ChordConfig(visibleSize.width, visibleSize.height*proportion, musicInfo);
     gameConfig = chordConfig;
-    bool result =  init(color,musicInfo);
+    bool result =  init(color);
     //初始化第一小节的和弦
     this->getNewChords(currentBeat,true);
     //创建第一个节奏线
@@ -75,7 +75,7 @@ void ChordRunLayer::update(float dt){
 //                    isFirstCollision = false;
 //                }
                 if(metronomePlay){
-                    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+                    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("audio/snare.caf",false,6,0,1);
                 }
                 
                 currCollision = e;
@@ -92,7 +92,7 @@ void ChordRunLayer::update(float dt){
 
 void ChordRunLayer::metronome(float dt){
     if(metronomePlay){
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("audio/snare.caf",false,6,0,1);
     }
 }
 

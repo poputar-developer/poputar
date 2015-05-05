@@ -10,7 +10,7 @@
 
 Rhythm *Rhythm::createRhythm(ChordConfig *common,int currentBeat){
     Rhythm *rhythm = new Rhythm();
-    if(rhythm && rhythm->initWithFile("rhythm.png",common,currentBeat)){
+    if(rhythm && rhythm->initWithFile("game/chord/rhythm.png",common,currentBeat)){
         rhythm->autorelease();
         return rhythm;
     }

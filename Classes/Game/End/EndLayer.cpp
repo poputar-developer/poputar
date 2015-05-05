@@ -24,7 +24,7 @@ EndLayer* EndLayer::createEndLayer(){
 void EndLayer::loadFrame(){
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    auto temp = Sprite::create("wujiaoxing.png");
+    auto temp = Sprite::create("game/end/wujiaoxing.png");
 
     int xxCount = 3;
     float xxSide = temp->getContentSize().width;
@@ -32,7 +32,7 @@ void EndLayer::loadFrame(){
     float startX = visibleSize.width/2-(xxCount/2) *(xxSide + xxSpace);
 
     for (int i=0; i<xxCount; i++) {
-        auto spriteXX = ui::Scale9Sprite::create("wujiaoxing.png");
+        auto spriteXX = ui::Scale9Sprite::create("game/end/wujiaoxing.png");
         spriteXX->setPreferredSize(Size(xxSide,xxSide));
         float x = startX+i*(xxSide+xxSpace);
         spriteXX->setPosition(Vec2(x,200));
@@ -45,13 +45,13 @@ void EndLayer::loadFrame(){
     this->addChild(label);
     
     //重新开始
-    ui::Button *restartBtn = ui::Button::create("restartBtnNormal.png","restartBtnSelect.png");
+    ui::Button *restartBtn = ui::Button::create("game/end/restartBtnNormal.png","game/end/restartBtnSelect.png");
     restartBtn->setPosition(Vec2(visibleSize.width/2-restartBtn->getContentSize().width/2-20,50));
     restartBtn->addClickEventListener(CC_CALLBACK_1(EndLayer::restartController, this));
     this->addChild(restartBtn);
     
     //继续游戏
-    ui::Button *goOnBtn = ui::Button::create("goonBtnNormal.png","goonBtnSelect.png");
+    ui::Button *goOnBtn = ui::Button::create("game/end/goonBtnNormal.png","game/end/goonBtnSelect.png");
     goOnBtn->setPosition(Vec2(visibleSize.width/2+restartBtn->getContentSize().width/2+20,50));
     goOnBtn->addClickEventListener(CC_CALLBACK_1(EndLayer::nextController, this));
     this->addChild(goOnBtn);

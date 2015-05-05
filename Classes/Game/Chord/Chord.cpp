@@ -22,8 +22,8 @@ bool Chord::initWithFile(string type,ChordConfig *chordConfig,int index){
     }else{
         this->type = type;
         this->getFileNameWidthType(type);
-        result = Sprite::initWithFile(this->imageFilename);
-        CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(this->voideFileName);
+        result = Sprite::initWithFile(this->imageFileName);
+        CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(this->audioFileName.data());
     }
     this->setOpacity(150);
     float x = chordConfig->array4X.at(index).asFloat();
@@ -52,40 +52,44 @@ Chord* Chord::createChord(ChordConfig *ChordConfig, int index, string type,strin
 
 
 void Chord::getFileNameWidthType(string type){
+    string imageFileName;
+    string audioFileName;
     if(type == "C"){
-        this->imageFilename = "C.png";
-        this->voideFileName = "C_clean.caf";
+        imageFileName = "C.png";
+        audioFileName = "C_clean.caf";
     }else if (type =="D"){
-        this->imageFilename = "D.png";
-        this->voideFileName = "D_clean.caf";
+        imageFileName = "D.png";
+        audioFileName = "D_clean.caf";
     }else if (type =="E"){
-        this->imageFilename = "E.png";
-        this->voideFileName = "E_clean.caf";
+        imageFileName = "E.png";
+        audioFileName = "E_clean.caf";
     }else if (type =="F"){
-        this->imageFilename = "F.png";
-        this->voideFileName = "F_clean.caf";
+        imageFileName = "F.png";
+        audioFileName = "F_clean.caf";
     }else if (type =="G"){
-        this->imageFilename = "G.png";
-        this->voideFileName = "G_clean.caf";
+        imageFileName = "G.png";
+        audioFileName = "G_clean.caf";
     }else if (type =="A"){
-        this->imageFilename = "A.png";
-        this->voideFileName = "A_clean.caf";
+        imageFileName = "A.png";
+        audioFileName = "A_clean.caf";
     }else if (type =="F"){
-        this->imageFilename = "B.png";
-        this->voideFileName = "B_clean.caf";
+        imageFileName = "B.png";
+        audioFileName = "B_clean.caf";
     }else if (type =="Am"){
-        this->imageFilename = "Am.png";
-        this->voideFileName = "Am_clean.caf";
+        imageFileName = "Am.png";
+        audioFileName = "Am_clean.caf";
     }else if (type =="Bm"){
-        this->imageFilename = "Bm.png";
-        this->voideFileName = "Bm_clean.caf";
+        imageFileName = "Bm.png";
+        audioFileName = "Bm_clean.caf";
     }else if (type =="Dm"){
-        this->imageFilename = "Dm.png";
-        this->voideFileName = "Dm_clean.caf";
+        imageFileName = "Dm.png";
+        audioFileName = "Dm_clean.caf";
     }else if (type =="Em"){
-        this->imageFilename = "Em.png";
-        this->voideFileName = "Em_clean.caf";
+        imageFileName = "Em.png";
+        audioFileName = "Em_clean.caf";
     }
+    this->imageFileName="game/chord/"+imageFileName;
+    this->audioFileName="audio/chord/"+audioFileName;
 }
 ActionInterval *Chord::moveToWait(ChordConfig *chordConfig){
     float y = chordConfig->array4Y.at(0).asFloat();
@@ -111,7 +115,7 @@ ActionInterval *Chord::moveOut(ChordConfig *chordConfig){
 
 void Chord::collisionAction(ChordConfig *chordConfig){
     
-    if (this->voideFileName ==NULL) {
+    if (this->audioFileName.empty()) {
         return;
     }
     ActionInterval *scale = ScaleBy::create(0.25, 2);
@@ -123,8 +127,8 @@ void Chord::collisionAction(ChordConfig *chordConfig){
 }
 
 void Chord::chordVoice(float capoValue){
-    if(this->voideFileName){
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(this->voideFileName,false,capoValue,0,1);
+    if(this->audioFileName.empty()){
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(this->audioFileName.data(),false,capoValue,0,1);
 
     }
 }

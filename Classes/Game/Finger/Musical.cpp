@@ -10,7 +10,7 @@
 #include "POPTStringUtils.h"
 Musical* Musical::createMusical(FingerConfig* fingerConfig, string content,float unitHeight){
     Musical *item = new Musical();
-    if(item && item->initWithFile("finger_rhythm.png")){
+    if(item && item->initWithFile("game/finger/finger_rhythm.png")){
         
         float unitHeight = fingerConfig->contentHeight/7;
         float musicalHeight = unitHeight*5;
@@ -30,7 +30,7 @@ Musical* Musical::createMusical(FingerConfig* fingerConfig, string content,float
 
 Musical* Musical::createMusical(FingerConfig* fingerConfig, string content,float unitHeight,float x){
     Musical *item = new Musical();
-    if(item && item->initWithFile("finger_rhythm.png")){
+    if(item && item->initWithFile("game/finger/finger_rhythm.png")){
         
         float unitHeight = fingerConfig->contentHeight/7;
         float musicalHeight = unitHeight*5;
@@ -93,7 +93,7 @@ void Musical::loadMusical(string content,float unitHeight){
         
             float y = strTemp*unitHeight;
             
-            auto musical = ui::Scale9Sprite::create("finger_popo.png");
+            auto musical = ui::Scale9Sprite::create("game/finger/finger_popo.png");
             musical->setScale(0.5);
             musical->setPosition(this->getContentSize().width/2,y);
             
@@ -126,9 +126,9 @@ void Musical::loadMusical(string content,float unitHeight){
             
             std::string fileName = key_voice_str+"_"+value_voice_str+".mp3";
 
-            voiceFileName.push_back(Value(fileName));
-
-            CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(fileName.data());
+            std::string path = "audio/finger/"+fileName;
+            voiceFileName.push_back(Value(path));
+            CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(path.data());
             
             this->addChild(musical,2);
             

@@ -10,7 +10,7 @@
 
 MusicMenu* MusicMenu::createMusicMenu(){
     MusicMenu *item = new MusicMenu();
-    if(item && item->initWithFile("menuLayerBg.png")){
+    if(item && item->initWithFile("game/base/menuLayerBg.png")){
         item->autorelease();
         item->loadFrame();
         return item;
@@ -38,10 +38,10 @@ void MusicMenu::loadFrame(){
     this->addChild(musicalLabel);
     
     auto musicalSwitch = ControlSwitch::create
-    (Sprite::create("switch-mask.png"),
-     Sprite::create("switch-on.png"),
-     Sprite::create("switch-off.png"),
-     Sprite::create("switch-thumb.png"),
+    (Sprite::create("game/musicMenu/switch-mask.png"),
+     Sprite::create("game/musicMenu/switch-on.png"),
+     Sprite::create("game/musicMenu/switch-off.png"),
+     Sprite::create("game/musicMenu/switch-thumb.png"),
      Label::createWithTTF("开", "fonts/manhuati.ttf", 15),
      Label::createWithTTF("关", "fonts/manhuati.ttf", 15));
     musicalSwitch->addTargetWithActionForControlEvents(this, cccontrol_selector(MusicMenu::musicalPlayController), Control::EventType::VALUE_CHANGED);
@@ -61,10 +61,10 @@ void MusicMenu::loadFrame(){
     this->addChild(metronomeLabel);
     
     auto metronomeSwitch = ControlSwitch::create
-    (Sprite::create("switch-mask.png"),
-     Sprite::create("switch-on.png"),
-     Sprite::create("switch-off.png"),
-     Sprite::create("switch-thumb.png"),
+    (Sprite::create("game/musicMenu/switch-mask.png"),
+     Sprite::create("game/musicMenu/switch-on.png"),
+     Sprite::create("game/musicMenu/switch-off.png"),
+     Sprite::create("game/musicMenu/switch-thumb.png"),
      Label::createWithTTF("开", "fonts/manhuati.ttf", 15),
      Label::createWithTTF("关", "fonts/manhuati.ttf", 15));
     metronomeSwitch->addTargetWithActionForControlEvents(this, cccontrol_selector(MusicMenu::metronomePlayController), Control::EventType::VALUE_CHANGED);
@@ -86,7 +86,7 @@ void MusicMenu::loadFrame(){
     
     rowWidth = speedLabellWidth;
     
-    ui::Button *speedDownBtn = ui::Button::create("minus.png");
+    ui::Button *speedDownBtn = ui::Button::create("game/musicMenu/minus.png");
     float speedDownBtnWidth = speedDownBtn->getContentSize().width;
     speedDownBtn->setPosition(Vec2(rowWidth+speedDownBtnWidth/2+20,maxheightFlag+speedLabelHeight/2+20));
     speedDownBtn->setScale(0.8);
@@ -102,7 +102,7 @@ void MusicMenu::loadFrame(){
     
     rowWidth+=speedFlagLabelWidth;
     
-    ui::Button *speedUpBtn = ui::Button::create("plus.png");
+    ui::Button *speedUpBtn = ui::Button::create("game/musicMenu/plus.png");
     float speedUpBtnBtnWidth = speedUpBtn->getContentSize().width;
     speedUpBtn->setPosition(Vec2(rowWidth+speedUpBtnBtnWidth/2+20,maxheightFlag+speedLabelHeight/2+20));
     speedUpBtn->setScale(0.8);
@@ -123,7 +123,7 @@ void MusicMenu::loadFrame(){
     
     rowWidth = capoLabellWidth;
     
-    ui::Button *capoDownBtn = ui::Button::create("minus.png");
+    ui::Button *capoDownBtn = ui::Button::create("game/musicMenu/minus.png");
     float capoDownBtnWidth = capoDownBtn->getContentSize().width;
     capoDownBtn->setPosition(Vec2(rowWidth+capoDownBtnWidth/2+20,maxheightFlag+capoLabelHeight/2+20));
     capoDownBtn->setScale(0.8);
@@ -139,7 +139,7 @@ void MusicMenu::loadFrame(){
     
     rowWidth+=speedFlagLabelWidth;
     
-    ui::Button *capoUpBtn = ui::Button::create("plus.png");
+    ui::Button *capoUpBtn = ui::Button::create("game/musicMenu/plus.png");
     float capoUpBtnBtnWidth = speedUpBtn->getContentSize().width;
     capoUpBtn->setPosition(Vec2(rowWidth+capoUpBtnBtnWidth/2+20,maxheightFlag+capoLabelHeight/2+20));
     capoUpBtn->setScale(0.8);

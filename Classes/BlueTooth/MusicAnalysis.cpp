@@ -18,7 +18,7 @@ MusicAnalysis::MusicAnalysis(void){
     
     //读取和弦对应关系文件
     rapidjson::Document doc;
-    std::string jsonInfo =FileUtils::getInstance()->getStringFromFile("chordInfo.json");
+    std::string jsonInfo =FileUtils::getInstance()->getStringFromFile("config/chordInfo.json");
     
     doc.Parse<0>(jsonInfo.c_str());
     
@@ -98,10 +98,9 @@ void MusicAnalysis::sendMusicChar(string musical){
     for (int i=0; i<17; i++) {
         temp += command[i];
     }
-    //command[2] = temp^0x7f;
-    //计算存在问题 ？？
-    command[2] = 0x62;
-    
+
+    command[2] = (temp^0x7f)+0x01;
+
     PluginHelper::sendDate(command);
     
 }

@@ -19,12 +19,12 @@ GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked, int
     ui::Scale9Sprite *startMeunNormal;
     ui::Scale9Sprite *startMeunSelect;
     if(isLocked){
-        startMeunNormal = ui::Scale9Sprite::create("Game_MenuItem_Lock .png");
-        startMeunSelect = ui::Scale9Sprite::create("Game_MenuItem_Lock .png");
+        startMeunNormal = ui::Scale9Sprite::create("level/Game_MenuItem_Lock.png");
+        startMeunSelect = ui::Scale9Sprite::create("level/Game_MenuItem_Lock.png");
        
     }else{
-        startMeunNormal = ui::Scale9Sprite::create("Game_MenuItem_Normal.png");
-        startMeunSelect = ui::Scale9Sprite::create("Game_MenuItem_Selected.png");
+        startMeunNormal = ui::Scale9Sprite::create("level/Game_MenuItem_Normal.png");
+        startMeunSelect = ui::Scale9Sprite::create("level/Game_MenuItem_Selected.png");
     }
     
     //按钮大小设置

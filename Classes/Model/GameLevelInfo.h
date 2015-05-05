@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include "MusicInfo.h"
+#include "MusicModel.h"
+#include "GameConfig.h"
 using namespace std;
 
 class GameNodeInfo;
@@ -33,6 +35,8 @@ private:
     string music;
     GameLevelInfo* gameLevelInfo;
     MusicInfo* musicInfo;
+    MusicModel* musicModel;
+    GameConfig* config;
     
 public:
     void setNode(int node);
@@ -40,12 +44,16 @@ public:
     void setMusic(string music);
     void setGameLevelInfo(GameLevelInfo* gli);
     void setMusicInfo(MusicInfo* mi);
+    void setMusicModel(MusicModel* mm);
+    void setConfig(GameConfig* config);
     
     int getNode();
     string getType();
     string getMusic();
     GameLevelInfo* getGameLevelInfo();
     MusicInfo* getMusicInfo();
+    MusicModel* getMusicModel();
+    GameConfig* getConfig();
 };
 
 #endif /* defined(__poputar__GameLevelInfo__) */

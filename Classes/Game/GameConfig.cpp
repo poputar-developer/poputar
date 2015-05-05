@@ -9,14 +9,10 @@
 #include "GameConfig.h"
 
 
-GameConfig::GameConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo){
+GameConfig::GameConfig(float contentWidth, float contentHeight){
     this->contentHeight = contentHeight;
     this->contentWidth = contentWidth;
-    this->musicInfo = musicInfo;
-    int bpm = musicInfo->getBpm();
-    unitTime = 60.0/bpm;
 }
 
 GameConfig::~GameConfig(){
-    this->musicInfo  = nullptr;
 }

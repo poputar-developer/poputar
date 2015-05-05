@@ -22,8 +22,8 @@ using namespace std;
 
 class Chord:public Sprite{
 private:
-    string imageFilename;
-    const char *voideFileName;
+    string imageFileName;
+    string audioFileName;
     string type;
 public:
     

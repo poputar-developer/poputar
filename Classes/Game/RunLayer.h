@@ -13,6 +13,7 @@
 //#include "Common.h"
 #include "POPTHelper.h"
 #include "MusicInfo.h"
+#include "MusicModel.h"
 #include "GameConfig.h"
 
 USING_NS_CC;
@@ -32,7 +33,7 @@ public:
     //公告属性
     GameConfig *gameConfig;
     //初始化
-    virtual bool init(const Color4B &color,MusicInfo *musicInfo);
+    virtual bool init(const Color4B &color);
     
     //发送蓝牙数据
     virtual void sendDataToBluetooth(){};
@@ -47,6 +48,8 @@ public:
     virtual float getMusicalTime(int musicalIndex){return 0.0f;};
     //根据传入音符所在小节
     virtual string getMusicalChord(int musicalIndex){return nullptr;};
+    
+    virtual void audition(bool isAudition){};
     
     void metronomeVoiceCallback(Ref* ref);
     void musicVoiceCallback(Ref* ref);

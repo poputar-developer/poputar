@@ -14,6 +14,7 @@
 USING_NS_CC;
 class FingerConfig : public GameConfig{
 public:
+    MusicInfo *musicInfo;
     //左侧份数（消失的空间）
     int leftUnit=1;
     //右侧份数（音符移动空间）

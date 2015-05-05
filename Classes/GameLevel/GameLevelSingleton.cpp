@@ -19,7 +19,7 @@
 DECLARE_SINGLETON_MEMBER(GameLevelSingleton);
 GameLevelSingleton::GameLevelSingleton(void){
     rapidjson::Document doc;
-    std::string jsonInfo =FileUtils::getInstance()->getStringFromFile("gamelevel_config.json");
+    std::string jsonInfo =FileUtils::getInstance()->getStringFromFile("config/gamelevel_config.json");
     doc.Parse<0>(jsonInfo.c_str());
     
     if(!doc.IsObject()){
