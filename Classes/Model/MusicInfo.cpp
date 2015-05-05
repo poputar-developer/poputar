@@ -10,7 +10,7 @@
 #include "cocostudio/CocoStudio.h"
 
 
-vector<string> bluetoothChord;
+
 MusicInfo* MusicInfo::initWithJson(string uuid){
     MusicInfo *music = new MusicInfo();
     
@@ -67,7 +67,7 @@ MusicInfo* MusicInfo::initWithJson(string uuid){
             string lyricContent = cLyric_c.GetString();
             beatVector.push_back(Value(chordType));
             lyricVector.push_back(Value(lyricContent));
-            bluetoothChord.push_back(chordType);
+             music->bluetoothChord.push_back(chordType);
             count++;
         }
         //如果最后有剩余和弦或歌词，则单独组装一个vector
@@ -92,25 +92,25 @@ MusicInfo* MusicInfo::initWithJson(string uuid){
             music->vec_musical.push_back(Value(str));
         }
     }else if(type=="Finger"){
-        const rapidjson::Value &cSections = doc["sections"];
-        for (rapidjson::SizeType s=0; s<cSections.Size(); s++) {
-            const rapidjson::Value &section = cSections[s];
-            const rapidjson::Value &cChord = section["chord"];
-            const rapidjson::Value &cMusicals = section["musicals"];
-            
-            SectionInfo* sectionVO = new SectionInfo();
-            sectionVO->chordInfo = cChord.GetString();
-            for (rapidjson::SizeType m=0; m<cMusicals.Size(); m++) {
-                const rapidjson::Value &musical = cMusicals[m];
-                const rapidjson::Value &beat = musical["beat"];
-                const rapidjson::Value &string = musical["string"];
-                MusicalInfo* musicalVO = new MusicalInfo();
-                musicalVO->beat = beat.GetDouble();
-                musicalVO->stringInfo = string.GetString();
-                sectionVO->musicals.push_back(musicalVO);
-            }
-            music->sections.push_back(sectionVO);
-        }
+//        const rapidjson::Value &cSections = doc["sections"];
+//        for (rapidjson::SizeType s=0; s<cSections.Size(); s++) {
+//            const rapidjson::Value &section = cSections[s];
+//            const rapidjson::Value &cChord = section["chord"];
+//            const rapidjson::Value &cMusicals = section["musicals"];
+//            
+//            SectionInfo* sectionVO = new SectionInfo();
+//            sectionVO->chordInfo = cChord.GetString();
+//            for (rapidjson::SizeType m=0; m<cMusicals.Size(); m++) {
+//                const rapidjson::Value &musical = cMusicals[m];
+//                const rapidjson::Value &beat = musical["beat"];
+//                const rapidjson::Value &string = musical["string"];
+//                MusicalInfo* musicalVO = new MusicalInfo();
+//                musicalVO->beat = beat.GetDouble();
+//                musicalVO->stringInfo = string.GetString();
+//                sectionVO->musicals.push_back(musicalVO);
+//            }
+//            music->sections.push_back(sectionVO);
+//        }
     }
 
     return music;

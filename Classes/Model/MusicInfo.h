@@ -16,9 +16,9 @@
 USING_NS_CC;
 using namespace std;
 
-class MusicalInfo;
-
-class SectionInfo;
+//class MusicalInfo;
+//
+//class SectionInfo;
 
 class MusicInfo{
 private:
@@ -33,9 +33,10 @@ private:
     ValueVector vec_musical;
     string title;
     string musicFile;
-    
+     vector<string> bluetoothChord;
     
 public:
+   
     static MusicInfo* initWithJson(string uuid);
     int getBeat();
     int getBpm();
@@ -43,24 +44,24 @@ public:
     ValueVector getLyircs();
     ValueVector getMusical();
     vector<string> getBluetoothChord();
-    vector<SectionInfo*> sections;
+//    vector<SectionInfo*> sections;
     
     string getTitle();
     string getMusicFile();
     
 };
 
-
-class SectionInfo{
-public:
-    string chordInfo;
-    vector<MusicalInfo*> musicals;
-};
-
-class MusicalInfo{
-public:
-    float beat;
-    string stringInfo;
-};
+//
+//class SectionInfo{
+//public:
+//    string chordInfo;
+//    vector<MusicalInfo*> musicals;
+//};
+//
+//class MusicalInfo{
+//public:
+//    float beat;
+//    string stringInfo;
+//};
 
 #endif /* defined(__Guitar__MusicInfo__) */

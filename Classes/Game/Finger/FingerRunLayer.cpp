@@ -36,7 +36,7 @@ bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musi
     fingerConfig = new FingerConfig(visibleSize.width, visibleSize.height*proportion, musicInfo);
     gameConfig = fingerConfig;
     
-    bool result =  init(color,musicInfo);
+    bool result =  init(color);
 
     musicals = fingerConfig->musicInfo->getMusical();
     
@@ -46,13 +46,6 @@ bool FingerRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicInfo *musi
     this->loadFrame();
     
     flag = 1;
-    
-    //节奏线碰撞时的动画效果
-    auto animation = Animation::create();
-    animation->addSpriteFrameWithFile("finger_rhythm_2.png");
-    animation->setDelayPerUnit(0.3f);
-    animation->setRestoreOriginalFrame(true);
-    AnimationCache::getInstance()->addAnimation(animation, "rhythm_blink");
     
     startMusical(0);
 
@@ -104,6 +97,13 @@ void FingerRunLayer::startMusical(int musicalIndex){
 }
 
 void FingerRunLayer::loadFrame(){
+    
+    //节奏线碰撞时的动画效果
+    auto animation = Animation::create();
+    animation->addSpriteFrameWithFile("game/finger/finger_rhythm_2.png");
+    animation->setDelayPerUnit(0.3f);
+    animation->setRestoreOriginalFrame(true);
+    AnimationCache::getInstance()->addAnimation(animation, "rhythm_blink");
 
     
     float unitHeight = fingerConfig->contentHeight/7;
@@ -112,13 +112,13 @@ void FingerRunLayer::loadFrame(){
         float stringHeight = unitHeight*stringCount;
         stringMap[i+1]=Value(stringHeight);
         
-        ui::Scale9Sprite *mString = ui::Scale9Sprite::create("finger_string.png");
+        ui::Scale9Sprite *mString = ui::Scale9Sprite::create("game/finger/finger_string.png");
         mString->setPreferredSize(Size(Vec2(fingerConfig->contentWidth, mString->getContentSize().height)));
         mString->setPosition(Vec2(fingerConfig->contentWidth/2,stringHeight));
         this->addChild(mString,1);
         
         
-        auto mRhythm = Sprite::create("finger_rhythm_1.png");
+        auto mRhythm = Sprite::create("game/finger/finger_rhythm_1.png");
         mRhythm->setPosition(Vec2(fingerConfig->contentWidth-fingerConfig->rhythm_distance, stringHeight));
         mRhythm->setAnchorPoint(Vec2(1,0.5));
         mRhythm->setTag(8000+i+1);
@@ -175,7 +175,7 @@ void FingerRunLayer::musicalMove(float at){
         musicalSprite = Musical::createMusical(fingerConfig, "",unitHeight);
     }else{
         if(metronomePlay){
-            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("snare.caf",false,6,0,1);
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("audio/snare.caf",false,6,0,1);
         }
         if(currentMusical-1<musicals.size()){
             Value musical = musicals.at(currentMusical-1);

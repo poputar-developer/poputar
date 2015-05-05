@@ -21,8 +21,6 @@ public:
     float contentWidth;
     //界面高度
     float contentHeight;
-    //音乐信息
-    MusicInfo *musicInfo;
     //单元时间 音符间隔时间
     float unitTime;
     //开始时间
@@ -30,9 +28,9 @@ public:
     //歌曲总时长
     float musicTime;
     //结尾增加的时间
-    float endTime=3;
+    float endTime=1;
     
-    GameConfig(float contentWidth,float contentHeight,MusicInfo *music);
+    GameConfig(float contentWidth,float contentHeight);
         
     static void Release();
 

@@ -39,13 +39,13 @@ void GameMenu::loadFrame(){
     
     float gameMenuHeight = 120;
     
-    ui::Scale9Sprite* bg = ui::Scale9Sprite::create("menuLayerBg.png");
+    ui::Scale9Sprite* bg = ui::Scale9Sprite::create("game/base/menuLayerBg.png");
     bg->setPosition(visibleSize.width/2,visibleSize.height/2);
     this->addChild(bg);
     float flag;
     
     //继续游戏
-    ui::Button *goOnBtn = ui::Button::create("goonBtnNormal.png","goonBtnSelect.png");
+    ui::Button *goOnBtn = ui::Button::create("game/gameMenu/goonBtnNormal.png","game/gameMenu/goonBtnSelect.png");
     float goonBtnWidth = goOnBtn->getContentSize().width;
     goOnBtn->setPosition(Vec2(goonBtnWidth/2+40,gameMenuHeight/2));
     goOnBtn->addClickEventListener(CC_CALLBACK_1(GameMenu::goOnController, this));
@@ -53,7 +53,7 @@ void GameMenu::loadFrame(){
     flag = goonBtnWidth+40;
     
     //重新开始
-    ui::Button *restartBtn = ui::Button::create("restartBtnNormal.png","restartBtnSelect.png");
+    ui::Button *restartBtn = ui::Button::create("game/gameMenu/restartBtnNormal.png","game/gameMenu/restartBtnSelect.png");
     float restartBtnWidth = restartBtn->getContentSize().width;
     restartBtn->setPosition(Vec2(flag+restartBtnWidth/2+20,gameMenuHeight/2));
     restartBtn->addClickEventListener(CC_CALLBACK_1(GameMenu::restartController, this));
@@ -61,7 +61,7 @@ void GameMenu::loadFrame(){
     flag += restartBtnWidth+20;
     
     //返回上级
-    ui::Button *gobackBtn = ui::Button::create("gobackBtnNormal.png","gobackBtnSelect.png");
+    ui::Button *gobackBtn = ui::Button::create("game/gameMenu/gobackBtnNormal.png","game/gameMenu/gobackBtnSelect.png");
     float gobackWidth = gobackBtn->getContentSize().width;
     gobackBtn->setPosition(Vec2(flag+gobackWidth/2+20,gameMenuHeight/2));
     gobackBtn->addClickEventListener(CC_CALLBACK_1(GameMenu::goBackController, this));

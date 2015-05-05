@@ -24,6 +24,7 @@
 #include "MusicMenu.h"
 #include "EndLayer.h"
 #include "GameLevelSingleton.h"
+#include "MusicModel.h"
 
 USING_NS_CC;
 using namespace cocos2d::extension;
@@ -56,7 +57,7 @@ private:
     //组装界面
     void initialise();
     
-    void loadTopFrame(MusicInfo* musicInfo,float height);
+    void loadTopFrame(string title,float height);
     
     void loadFootFrame(float height);
     
@@ -64,6 +65,11 @@ private:
     RunLayer* startChordMusic(MusicInfo *musicInfo,float proportion);
     //开始指弹
     RunLayer* startFingerMusic(MusicInfo *musicInfo,float proportion);
+    
+    
+    //开始弹奏页面
+    RunLayer* startFingerMusic(MusicModel *musicModel,float proportion);
+    
     //暂停控制
     void pauseControll(Ref* ref,bool flag);
     //音乐控制
@@ -91,6 +97,7 @@ private:
     
     //时间轴回调
     virtual void sliderTouchEndCallback();
+    virtual void sliderMoveEnd();
     
     //结束页面的回调
     virtual void endRestartCallback();

@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __poputar__MusicController__
-#define __poputar__MusicController__
+#ifndef __poputar__MusicMenu__
+#define __poputar__MusicMenu__
 
 #include <cocos-ext.h>
 #include <stdio.h>
@@ -32,4 +32,4 @@ public:
     void musicalPlayController(Ref *ref,Control::EventType type);
 };
 
-#endif /* defined(__poputar__MusicController__) */
+#endif /* defined(__poputar__MusicMenu__) */

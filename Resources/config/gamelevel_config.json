@@ -16,8 +16,8 @@
                          },
                          {
                          "node": 3,
-                         "type":"F",
-                         "music": "yangwawa"
+                         "type":"S",
+                         "music": "test_"
                          }
                          ]
                },

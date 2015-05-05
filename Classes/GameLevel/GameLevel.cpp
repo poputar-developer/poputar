@@ -12,7 +12,8 @@
 #include "GuitarRunScene.h"
 #include "StartScene.h"
 #include "POPTGlobal.h"
-
+#include "POPTStringUtils.h"
+#include "MusicModel.h"
 
 //#include "GameLevelMenuItem.h"
 
@@ -38,7 +39,7 @@ void GameLevel::loadFrame(){
     this->addChild(scrollView);
     
     
-    auto bg = Sprite::create("background.png");
+    auto bg = Sprite::create("base/background.png");
     bg->setScale(2);
     bg->setAnchorPoint(Vec2(0,0));
     bg->setPosition(Vec2(0, 0 ));
@@ -160,7 +161,7 @@ void GameLevel::loadFrame(){
         float bjMoreWidthSize = 50;
         float bjMoreHeightSize = 25;
         
-        auto *bj = ui::Scale9Sprite::create("bj_t_gamelevel.png");
+        auto *bj = ui::Scale9Sprite::create("level/bj_t_gamelevel.png");
         bj->setPreferredSize(Size(columnWidth+bjMoreWidthSize*2, columnHeight+bjMoreHeightSize*2+bjGameLevelFlag));
         bj->setPosition(startX-bjMoreWidthSize, menuY-bjMoreHeightSize);
         bj->setAnchorPoint(Vec2::ZERO);
@@ -188,9 +189,18 @@ void GameLevel::toPlaySence(Ref* sender,GameNodeInfo* gni){
     string type = gni->getType();
     
     //加载音乐信息
-    auto musicInfo = MusicInfo::initWithJson(gni->getMusic());
-    gni->setMusicInfo(musicInfo);
+    string musicFile = "music/stage/"+POPTStringUtils::intToString(gni->getGameLevelInfo()->getLevel())+"/"+gni->getMusic();
+    
+    
+    bool test= true;
+    if(test) {
+        auto musicModel = MusicModel::initWithFile(musicFile);
+        gni->setMusicModel(musicModel);
+    }else{
+        auto musicInfo = MusicInfo::initWithJson(musicFile);
+        gni->setMusicInfo(musicInfo);
 
+    }
     
     Scene* scene;
     if(type=="C"){

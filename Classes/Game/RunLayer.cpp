@@ -10,7 +10,7 @@
 #include "POPTBaseDefine.h"
 
 
-bool RunLayer::init(const cocos2d::Color4B &color,MusicInfo *musicInfo){
+bool RunLayer::init(const cocos2d::Color4B &color){
     bool result =  initWithColor(color);
 
     //==============设置内容页大小==============

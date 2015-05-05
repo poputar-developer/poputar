@@ -96,9 +96,7 @@ BOOL isConnected = false;
         
         //[NSThread sleepForTimeInterval:1];
         
-//        NSData * chordData = [NSData dataWithBytes:dataInfo length:17];
-//        [per4Guitar writeValue:chordData forCharacteristic:writedCharacteristic type:CBCharacteristicWriteWithResponse];
-//        
+//
 //        
 //        [NSThread sleepForTimeInterval:2];
 //        Byte byteData7[] = {0xff,0xd ,0x57 ,0x07 ,
@@ -111,9 +109,17 @@ BOOL isConnected = false;
 //
 //        [NSThread sleepForTimeInterval:2];
 //
-        Byte byteData4[] = {0xFF, 0x07, 0x6f, 0x03,0x08,0x00,0x00};
-        NSData * data4 = [NSData dataWithBytes:byteData4 length:7];
-        [per4Guitar writeValue:data4 forCharacteristic:writedCharacteristic type:CBCharacteristicWriteWithResponse];
+        
+        
+        
+        
+       // NSData * chordData = [NSData dataWithBytes:dataInfo length:17];
+       // [per4Guitar writeValue:chordData forCharacteristic:writedCharacteristic type:CBCharacteristicWriteWithResponse];
+
+        
+        Byte playDataArray[] = {0xFF, 0x07, 0x6f, 0x03,0x08,0x00,0x00};
+        NSData * playData = [NSData dataWithBytes:playDataArray length:7];
+        [per4Guitar writeValue:playData forCharacteristic:writedCharacteristic type:CBCharacteristicWriteWithResponse];
     }
 }
 

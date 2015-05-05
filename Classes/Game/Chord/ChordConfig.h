@@ -14,6 +14,7 @@
 USING_NS_CC;
 class ChordConfig : public GameConfig{
 public:
+    MusicInfo *musicInfo;
     //右侧多出的单元
     int leftUnit=1;
     //纵向单元数

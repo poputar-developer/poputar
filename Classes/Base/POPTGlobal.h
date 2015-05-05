@@ -24,6 +24,8 @@ public:
     //运行的游戏层信息
     RunLayer* runLayer;
     
+    GameConfig* config;
+    
 };
 #define poptGlobal POPTGlobal::instance()
 

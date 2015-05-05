@@ -38,7 +38,7 @@ void StartScene::loadFrame(){
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
     
-    ui::Button *replayBtn = ui::Button::create("startVideoBg.png");
+    ui::Button *replayBtn = ui::Button::create("game/start/startVideoBg.png");
     replayBtn->setAnchorPoint(Vec2::ZERO);
     float videoImageY = (visibleSize.height-replayBtn->getContentSize().height)/2;
     replayBtn->setPosition(Vec2(20,videoImageY));
@@ -57,7 +57,7 @@ void StartScene::loadFrame(){
     float y = visibleSize.height/2 - replayBtn->getContentSize().height/2;
     float x = visibleSize.width/2 + replayBtn->getContentSize().width/2 - 60;
     //跳过按钮
-    skipBtn = ui::Button::create("startSkipBtn.png");
+    skipBtn = ui::Button::create("game/start/startSkipBtn.png");
     skipBtn->setAnchorPoint(Vec2::ZERO);
     skipBtn->setPosition(Vec2(x+10,y));
     skipBtn->addClickEventListener(CC_CALLBACK_1(StartScene::skipController, this));
@@ -132,7 +132,7 @@ void StartScene::replayController(cocos2d::Ref *ref){
 //}
 
 void StartScene::videoPlayOverCallback(){
-    skipBtn->loadTextureNormal("startNextBtn.png");
+    skipBtn->loadTextureNormal("game/start/startNextBtn.png");
     removeChildByTag(1);
     isPlaying = false;
 }
@@ -140,7 +140,7 @@ void StartScene::videoPlayOverCallback(){
 void StartScene::setBackground(){
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    auto sprite = Sprite::create("startBg.png");
+    auto sprite = Sprite::create("game/start/startBg.png");
     sprite->setOpacity(200); //0-255
     sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y ));
     

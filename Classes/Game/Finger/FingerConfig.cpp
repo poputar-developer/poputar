@@ -8,7 +8,10 @@
 
 #include "FingerConfig.h"
 
-FingerConfig::FingerConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo):GameConfig(contentWidth,contentHeight,musicInfo){
+FingerConfig::FingerConfig(float contentWidth, float contentHeight, MusicInfo *musicInfo):GameConfig(contentWidth,contentHeight){
+    this->musicInfo = musicInfo;
+    int bpm = musicInfo->getBpm();
+    unitTime = 60.0/bpm;
     initialise(musicInfo);
 };
 

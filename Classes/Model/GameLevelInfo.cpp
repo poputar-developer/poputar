@@ -45,6 +45,14 @@ void GameNodeInfo::setMusicInfo(MusicInfo *mi){
     this->musicInfo = mi;
 }
 
+void GameNodeInfo::setMusicModel(MusicModel *mm){
+    this->musicModel = mm;
+}
+
+void GameNodeInfo::setConfig(GameConfig *config){
+    this->config = config;
+}
+
 int GameNodeInfo::getNode(){
     return node;
 }
@@ -63,4 +71,12 @@ GameLevelInfo* GameNodeInfo::getGameLevelInfo(){
 
 MusicInfo* GameNodeInfo::getMusicInfo(){
     return musicInfo;
+}
+
+MusicModel* GameNodeInfo::getMusicModel(){
+    return musicModel;
+}
+
+GameConfig* GameNodeInfo::getConfig(){
+    return config;
 }
