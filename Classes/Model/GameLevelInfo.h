@@ -31,27 +31,27 @@ public:
 class GameNodeInfo{
 private:
     int node;
-    string type;
+//    string type;
     string music;
     GameLevelInfo* gameLevelInfo;
-    MusicInfo* musicInfo;
+//    MusicInfo* musicInfo;
     MusicModel* musicModel;
     GameConfig* config;
     
 public:
     void setNode(int node);
-    void setType(string type);
+//    void setType(string type);
     void setMusic(string music);
     void setGameLevelInfo(GameLevelInfo* gli);
-    void setMusicInfo(MusicInfo* mi);
+//    void setMusicInfo(MusicInfo* mi);
     void setMusicModel(MusicModel* mm);
     void setConfig(GameConfig* config);
     
     int getNode();
-    string getType();
+//    string getType();
     string getMusic();
     GameLevelInfo* getGameLevelInfo();
-    MusicInfo* getMusicInfo();
+//    MusicInfo* getMusicInfo();
     MusicModel* getMusicModel();
     GameConfig* getConfig();
 };

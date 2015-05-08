@@ -66,11 +66,8 @@ void PlayChord::createBangingOut(string chordType, int startStr,int endStr){
         float y = startY>endY ? endY : startY;
         float rangeY = abs(startY-endY);
         this->setAnchorPoint(Vec2(0.5, 0));
-//        this->setPosition(Vec2(x,y-config->stringHeight/2));
-//        this->setPreferredSize(Size(10,rangeY+config->stringHeight));
-    
         this->setPosition(Vec2(x,y));
-        this->setPreferredSize(Size(10,rangeY));
+        this->setPreferredSize(Size(getContentSize().width,rangeY));
 
     
     //log("PlayChord -----------stringH:%f x:%f y:%f height:%f",config->stringHeight,x,y-config->stringHeight/2,rangeY+config->stringHeight);

@@ -7,11 +7,12 @@
 //
 
 #include "GuitarRunScene.h"
-#include "ChordRunLayer.h"
-#include "FingerRunLayer.h"
+//#include "ChordRunLayer.h"
+//#include "FingerRunLayer.h"
 #include "POPTGlobal.h"
 #include "PlayRunLayer.h"
 #include "POPTStringUtils.h"
+
 //界面总高度比例
 float visbleHeight;
 //游戏主画面占比
@@ -24,26 +25,15 @@ Scene *GuitarRun::createScene(){
     //音乐信息
   
     //初始化游戏界面
-    string type = poptGlobal->gni->getType();
+//    string type = poptGlobal->gni->getType();
     string title;
-    //C代表和弦界面 F代表指弹界面
-    RunLayer* runLayer;
-    if(type == "C"){
-        auto musicInfo = poptGlobal->gni->getMusicInfo();
-        gameProprotion = 0.8f;
-        runLayer = layer->startChordMusic(musicInfo,gameProprotion);
-        title= musicInfo->getTitle();
-    }else if(type=="F"){
-        auto musicInfo = poptGlobal->gni->getMusicInfo();
-        gameProprotion = 0.8f;
-        runLayer = layer->startFingerMusic(musicInfo,gameProprotion);
-        title= musicInfo->getTitle();
-    }else if(type == "S"){
-        gameProprotion = 0.8f;
-        auto musicModel = poptGlobal->gni->getMusicModel();
-        runLayer = layer->startFingerMusic(musicModel,gameProprotion);
-        title= musicModel->getTitle();
-    }
+    //C代表和弦界面 F代表指弹界面 S代表新界面
+
+    gameProprotion = 0.8f;
+    auto musicModel = poptGlobal->gni->getMusicModel();
+    auto runLayer = layer->startFingerMusic(musicModel,gameProprotion);
+    title= musicModel->getTitle();
+    
     runLayer->setName("runLayer");
     layer->addChild(runLayer,1);
     
@@ -75,16 +65,10 @@ void GuitarRun::initialise(){
         string scaleFileName ="audio/scale/"+POPTStringUtils::intToString(i)+".mp3";
         CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(scaleFileName.c_str());
     }
-   
-    
     isPause =false;
-    musicMenuDisplay=false;
-    speedBase = 1;
     musicIsOver=false;
     startAnimation();
-    
     time_now = 0.0f;
-    //schedule(schedule_selector(GuitarRun::moveSlider), 1, kRepeatForever, 3);
 }
 
 //加载头部组件
@@ -101,39 +85,12 @@ void GuitarRun::loadTopFrame(string title,float height){
     auto label = Label::createWithTTF(title, "fonts/yuanti.ttf", 15);
     label->setPosition( label->getContentSize().width,height-label->getContentSize().height);
     bg->addChild(label);
-    
-    //音乐控制界面
-    auto musicMenu = MusicMenu::createMusicMenu();
-//    musicMenu->setDelegate(this);
-    musicMenu->setAnchorPoint(Vec2(0,0));
-    musicMenu->setPosition(Vec2(visibleSize.width-musicMenu->getContentSize().width,visibleSize.height-height));
-    this->addChild(musicMenu,1);
-    
-    //音乐控制按钮
-    ui::Button *musicBtn = ui::Button::create("game/base/musicBtnNormal.png","game/base/musicBtnSelect.png");
-    musicBtn->setAnchorPoint(Vec2::ZERO);
-    musicBtn->setPosition(Vec2(visibleSize.width-musicMenu->getContentSize().width,height-musicBtn->getContentSize().height));
-    musicBtn->addClickEventListener(CC_CALLBACK_1(GuitarRun::musicControll, this,musicMenu));
-    bg->addChild(musicBtn);
-    
-    //增加监听 隐藏音乐控制界面
-    EventListenerTouchOneByOne *listener = EventListenerTouchOneByOne::create();
-    listener->onTouchBegan = [this,musicMenu](Touch *t ,Event *e){
-        //跳转到弹奏页面
-        if(!musicMenu->getBoundingBox().containsPoint(t->getLocation()) && musicMenuDisplay){
-            this->moveMusicMenu(!musicMenuDisplay, musicMenu);
-            musicMenuDisplay = !musicMenuDisplay;
-        }
-        
-        return false;
-    };
-    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, label);
-    
+ 
     //主菜单按钮
     ui::Button *menuBtn = ui::Button::create("game/base/menuBtnNormal.png","game/base/menuBtnSelect.png");
     menuBtn->setAnchorPoint(Vec2::ZERO);
-    menuBtn->setPosition(Vec2(visibleSize.width-musicMenu->getContentSize().width+musicBtn->getContentSize().width,height-menuBtn->getContentSize().height));
-    menuBtn->addClickEventListener(CC_CALLBACK_1(GuitarRun::menuControll, this,musicMenu));
+    menuBtn->setPosition(Vec2(visibleSize.width-menuBtn->getContentSize().width,height-menuBtn->getContentSize().height));
+    menuBtn->addClickEventListener(CC_CALLBACK_1(GuitarRun::menuControll, this,nullptr));
     bg->addChild(menuBtn);
 }
 
@@ -153,8 +110,6 @@ void GuitarRun::loadFootFrame(float height){
     slider->setMaximumValue(poptGlobal->runLayer->gameConfig->musicTime+poptGlobal->runLayer->gameConfig->endTime);
     slider->setPosition(Vec2(visibleSize.width/2,height/2));
     slider->addTargetWithActionForControlEvents(this, cccontrol_selector(GuitarRun::sliderChanged),Control::EventType::VALUE_CHANGED);
-    //游戏layer
-//    slider->gameLayer= runLayer;
     slider->setDelegate(this);
     
     bg->addChild(slider);
@@ -194,58 +149,26 @@ void GuitarRun::loadFootFrame(float height){
     
 }
 
-
-//节奏按钮方法
-void GuitarRun::musicControll(cocos2d::Ref *ref,MusicMenu* mm){
-    moveMusicMenu(!musicMenuDisplay, mm);
-    musicMenuDisplay = !musicMenuDisplay;
-}
-
 //主菜单按钮
 void GuitarRun::menuControll(cocos2d::Ref *ref,MusicMenu* mm){
-    if(musicMenuDisplay){
-        moveMusicMenu(!musicMenuDisplay, mm);
-        musicMenuDisplay = !musicMenuDisplay;
-    }
     //暂停游戏
     if(!isPause){
         pauseGame();
         pauseBtn->loadTextureNormal("game/base/play.png");
     }
-    //主菜单
-    auto mainMenu = GameMenu::createGameMenu();
-    mainMenu->setTag(2);
-    mainMenu->setDelegate(this);
-    this->addChild(mainMenu,5);
+    float nowTime = slider->getValue();
+    auto auditionLayer= AuditionLayer::createAuditionLayer(nowTime);
+    poptGlobal->runLayer->audition(true);
+    this->addChild(auditionLayer,5);
 }
-
-//移动节奏面板
-void GuitarRun::moveMusicMenu(bool moveIn,MusicMenu* mm){
-    float height = mm->getContentSize().height;
-    Spawn *spawn;
-    float time =0.5;
-    if(moveIn){
-        MoveBy *chordEndMove = MoveBy::create(time, Vec2(0,-height));
-        FadeIn *in = FadeIn::create(time);
-        spawn = Spawn::create(chordEndMove,in, NULL);
-    }else{
-        MoveBy *chordEndMove = MoveBy::create(time, Vec2(0,height));
-        FadeOut *out = FadeOut::create(time);
-        spawn = Spawn::create(chordEndMove,out, NULL);
-    }
-    mm->runAction(spawn);
-}
-
-
 
 //移动时间轴定时任务的方法
 void GuitarRun::moveSlider(float at){
-    
     time_now+=1;
     if(!slider->isSelected()){
         slider->setValue(time_now);
     }
-    
+
 }
 
 //游戏开始时的3秒动画
@@ -322,24 +245,18 @@ void GuitarRun::pauseControll(cocos2d::Ref *ref, bool flag){
 
 //暂停
 void GuitarRun::pauseGame(){
-    poptGlobal->runLayer->onExit();
+//    poptGlobal->runLayer->onExit();
+    
+    poptGlobal->runLayer->sectionPause();
+    slider->pause();
     this->getScheduler()->pauseTarget(this);
 }
 //继续
 void GuitarRun::resumeGame(){
-    poptGlobal->runLayer->onEnter();
+//    poptGlobal->runLayer->onEnter();
+    poptGlobal->runLayer->sectionResume();
+    slider->resume();
     this->getScheduler()->resumeTarget(this);
-}
-
-//开始和弦界面
-RunLayer* GuitarRun::startChordMusic(MusicInfo *musicInfo,float proportion){
-    auto runLayer = ChordRunLayer::createChordRunLayer(musicInfo,proportion);
-    return runLayer;
-}
-//开始指弹界面
-RunLayer* GuitarRun::startFingerMusic(MusicInfo *musicInfo,float proportion){
-    auto runLayer = FingerRunLayer::createFingerRunLayer(musicInfo,proportion);
-    return runLayer;
 }
 
 
@@ -373,40 +290,9 @@ void GuitarRun::goBack(cocos2d::Ref *sender){
         string scaleFileName ="audio/scale/"+POPTStringUtils::intToString(i)+".mp3";
         CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(scaleFileName.c_str());
     }
-    
-    //速度恢复正常
-    speedBase = 1;
-    Scheduler* s = Director::getInstance()->getScheduler();
-    s->setTimeScale(speedBase);
 
     poptGlobal->runLayer = nullptr;
     Director::getInstance()->popScene();
-}
-
-//主菜单-继续 代理方法
-void GuitarRun::goOnCallback(cocos2d::Ref *ref){
-    this->removeChildByTag(2);
-    resumeGame();
-    pauseBtn->loadTextureNormal("game/base/pause.png");
-}
-
-//主菜单-重新开始回调方法
-void GuitarRun::restartCallback(cocos2d::Ref *ref){
-    this->removeChildByTag(2);
-    poptGlobal->runLayer->restart(0);
-    time_now=0;
-    slider->setValue(time_now);
-    
-    resumeGame();
-    pauseBtn->loadTextureNormal("game/base/pause.png");
-}
-
-//主菜单-返回回调方法
-void GuitarRun::goBackCallback(cocos2d::Ref *sender){
-    this->removeChildByTag(2);
-    resumeGame();
-    pauseBtn->loadTextureNormal("game/base/pause.png");
-    goBack(sender);
 }
 
 //时间轴改变
@@ -427,76 +313,27 @@ void GuitarRun::sliderChanged(Ref *ref,Control::EventType controllEvent){
     string sec_str=sec>=10 ? StringUtils::format("%d",sec) : StringUtils::format("0%d",sec);
     string time_str = minute_str+":"+sec_str;
     time->setString(time_str);
-    
-//    if(!musicIsOver && slider->getMaximumValue() <= slider->getValue()){
-//        musicIsOver = true;
-//        log("关卡结束");
-//        unschedule(schedule_selector(GuitarRun::moveSlider));
-//        poptGlobal->runLayer->metronomePlay = false;
-//        poptGlobal->runLayer->musicalPlay=false;
-//        
-//        EndLayer* endLayer = EndLayer::createEndLayer();
-//        endLayer->setTag(4);
-//        endLayer->setDelegate(this);
-//        this->addChild(endLayer,99);
-//    }
 }
 
-
-void GuitarRun::sliderMoveEnd(){
-    musicIsOver = true;
-    poptGlobal->runLayer->metronomePlay = false;
-    poptGlobal->runLayer->musicalPlay=false;
-
-    EndLayer* endLayer = EndLayer::createEndLayer();
-    endLayer->setTag(4);
-    endLayer->setDelegate(this);
-    this->addChild(endLayer,99);
-}
-
-//松开时间轴的回调方法
-void GuitarRun::sliderTouchEndCallback(){
-    float value_float = slider->getValue();
-    int value_int = ceil(value_float);
-    
-    float musicalIndex_float = (float)value_int/poptGlobal->runLayer->gameConfig->unitTime;
-    int musicalIndex = int(musicalIndex_float+0.5);
-    
-    float musicalValue = poptGlobal->runLayer->getMusicalTime(musicalIndex);
-    time_now = musicalValue;
-    slider->setValue(time_now);
-    poptGlobal->runLayer->restart(musicalIndex);
-    //小节信息设置为空
-    chordInfo->setString("");
-}
-
-//结束层的重新开始
+//结束层的“重新开始”按钮
 void GuitarRun::endRestartCallback(){
     musicIsOver=false;
     this->removeChildByTag(4);
     poptGlobal->runLayer->stopMusic();
-//    poptGlobal->runLayer->restart(0);
-    speedBase = 1;
+
     time_now = 0.0f;
     slider->setValue(time_now);
     removeChildByName("runLayer");
     
-    string type = poptGlobal->gni->getType();
+//    string type = poptGlobal->gni->getType();
 
     RunLayer* runLayer;
-    if(type == "C"){
-        runLayer = startChordMusic(poptGlobal->gni->getMusicInfo(),gameProprotion);
-    }else if(type=="F"){
-        runLayer = startFingerMusic(poptGlobal->gni->getMusicInfo(),gameProprotion);
-    }else if(type=="S"){
-//        runLayer = startChordMusic(poptGlobal->gni->getMusicInfo(),gameProprotion);
-    }
+    auto musicModel = poptGlobal->gni->getMusicModel();
+    runLayer = startFingerMusic(musicModel,gameProprotion);
     runLayer->setName("runLayer");
     this->addChild(runLayer,1);
     
     poptGlobal->runLayer = runLayer;
-
-
     startAnimation();
 
     schedule(schedule_selector(GuitarRun::moveSlider), 1, kRepeatForever, 3);
@@ -537,4 +374,8 @@ void GuitarRun::endNextCallback(){
 
 }
 
+void GuitarRun::sliderMoveEnd(Ref* ref){
+    //时间轴结束
+    
+}
 

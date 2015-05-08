@@ -361,22 +361,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Game/RunLayer.cpp"
-            timestampString = "450980023.608503"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "RunLayer::capoChangeCallback(cocos2d::Ref *ref)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "../Classes/Game/Chord/ChordRunLayer.cpp"
             timestampString = "451028814.440365"
             startingColumnNumber = "9223372036854775807"
@@ -490,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Game/Play/Section.cpp"
-            timestampString = "452510078.604215"
+            timestampString = "452514640.402189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "Section::updateState(float relativePosX,int nType)"
             landmarkType = "5">
          </BreakpointContent>
@@ -505,13 +489,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Base/POPTSlider.cpp"
-            timestampString = "452341763.929884"
+            filePath = "../Classes/Game/Play/PlayRunLayer.cpp"
+            timestampString = "452527358.293221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "POPTSlider::sliderMove(float dt)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "PlayRunLayer::init4Finger(const cocos2d::Color4B &amp;&amp;color, MusicModel *musicModel,float proportion)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Game/Play/PlayRunLayer.cpp"
+            timestampString = "452602166.785196"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "PlayRunLayer::update(float at)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

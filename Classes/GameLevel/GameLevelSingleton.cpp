@@ -43,7 +43,7 @@ GameLevelSingleton::GameLevelSingleton(void){
             const rapidjson::Value &cType = node["type"];
             const rapidjson::Value &cMusic = node["music"];
             gni->setNode(cNode.GetInt());
-            gni->setType(cType.GetString());
+//            gni->setType(cType.GetString());
             gni->setMusic(cMusic.GetString());
             gni->setGameLevelInfo(gli);
             

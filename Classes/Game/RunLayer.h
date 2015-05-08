@@ -19,8 +19,6 @@
 USING_NS_CC;
 class RunLayer : public LayerColor{
 protected:
-    //画面大小
-    Size visibleSize = Director::getInstance()->getVisibleSize();
 public:
     ~RunLayer();
     
@@ -48,8 +46,14 @@ public:
     virtual float getMusicalTime(int musicalIndex){return 0.0f;};
     //根据传入音符所在小节
     virtual string getMusicalChord(int musicalIndex){return nullptr;};
-    
+    //是否试听
     virtual void audition(bool isAudition){};
+    //试听位置
+    virtual void auditionSilderPos(Ref* ref){};
+    
+    virtual void sectionPause(){};
+    
+    virtual void sectionResume(){};
     
     void metronomeVoiceCallback(Ref* ref);
     void musicVoiceCallback(Ref* ref);

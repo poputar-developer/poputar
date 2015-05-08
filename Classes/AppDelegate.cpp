@@ -52,7 +52,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto resourceSize = Size(480,320);
     
     std::vector<std::string> searchPaths;
-    
+//    if(screenSize.width>1136){
+//        designSize = Size(667,375);
+//        resourceSize = Size(1334,375);
+//        searchPaths.push_back("hd6");
+//    }else
     if(screenSize.width>960){
         designSize = Size(568,320);
         resourceSize = Size(1136,640);

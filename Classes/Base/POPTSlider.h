@@ -14,8 +14,8 @@
 USING_NS_CC;
 class POPTSliderDelegate{
 public:
-    virtual void sliderMoveEnd()=0;
-    virtual void sliderTouchEndCallback()=0;
+    virtual void sliderMoveEnd(Ref* ref)=0;
+    virtual void sliderTouchEndCallback(Ref* ref)=0;
 };
 
 using namespace cocos2d::extension;
@@ -24,7 +24,7 @@ private:
     POPTSliderDelegate* _delegate;
     bool drag;
     bool moving;
-    float moveTime=0.01f;
+    float moveTime=1.0f;
 protected:
     virtual void onTouchEnded(Touch *pTouch, Event *pEvent);
     virtual bool onTouchBegan(Touch* touch, Event* pEvent);

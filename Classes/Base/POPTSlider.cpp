@@ -34,7 +34,7 @@ void POPTSlider::sliderMove(float dt){
     float value = getValue()+moveTime;
     if(value >= getMaximumValue()){
         unschedule(schedule_selector(POPTSlider::sliderMove));
-        _delegate->sliderMoveEnd();
+        _delegate->sliderMoveEnd(this);
     }else{
         this->setValue(value);
     }
@@ -59,7 +59,7 @@ void POPTSlider::sliderPasue(bool flag){
 void POPTSlider::onTouchEnded(Touch *pTouch, Event *pEvent)
 {
     sliderEnded(Vec2::ZERO);
-    _delegate->sliderTouchEndCallback();
+    _delegate->sliderTouchEndCallback(this);
 }
 
 void POPTSlider::setDelegate(POPTSliderDelegate *delegate){
@@ -69,4 +69,6 @@ void POPTSlider::setDelegate(POPTSliderDelegate *delegate){
 bool POPTSlider::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *pEvent){
     return drag;
 }
+
+
 

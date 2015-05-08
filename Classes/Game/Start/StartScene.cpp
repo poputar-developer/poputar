@@ -46,7 +46,7 @@ void StartScene::loadFrame(){
     this->addChild(replayBtn,1);
     
     
-    string title = poptGlobal->gni->getMusicInfo()->getTitle()+"视频演示";
+    string title = poptGlobal->gni->getMusicModel()->getTitle()+"视频演示";
     auto label = Label::createWithTTF(title, "fonts/yuanti.ttf", 30);
     label->setColor(Color3B(155, 87, 223));
     label->setAnchorPoint(Vec2::ZERO);

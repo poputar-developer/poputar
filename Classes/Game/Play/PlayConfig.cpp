@@ -18,8 +18,6 @@ PlayConfig::PlayConfig(float contentWidth, float contentHeight, MusicModel *musi
     //小节循环周期 = 单位时间*小节拍数
     rhythmTime = unitTime*musicModel->getBeatFlag();
     
-    
-    
     //从右侧到撞击线的距离
     rhythmWidth= contentWidth- impactLine;
     //计算每秒移动距离

@@ -23,6 +23,8 @@ PlayRunLayer* PlayRunLayer::createPlayRunLayer(MusicModel *musicModel,float prop
 }
 
 bool PlayRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicModel *musicModel,float proportion){
+    //画面大小
+    Size visibleSize = Director::getInstance()->getVisibleSize();
     playConfig = new PlayConfig(visibleSize.width, visibleSize.height*proportion, musicModel);
     gameConfig = playConfig;
     poptGlobal->gni->setConfig(playConfig);
@@ -60,7 +62,7 @@ bool PlayRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicModel *music
     testSectionLayer->setPosition(Vec2(playConfig->contentWidth,0));
     for (int i=1; i<size+1; i++) {
         map<int,SectionInfo*> sections = playConfig->musicModel->getSections();
-        Section* section = Section::createSection(sections[i],i,SECTION_AUDITION);
+        Section* section = Section::createSection(sections[i],i,SECTION_FORMAL);
         testSectionLayer->addChild(section);
         sectionSprite.insert(i, section);
     }
@@ -115,6 +117,8 @@ void PlayRunLayer::startMusical(int musicalIndex){
 
 int currentSection=-1;
 int blueToothSection = -1;
+
+
 void PlayRunLayer::update(float at){
     //当前音乐层距离撞线的位置
     sectionNotice(PLAYTYPE);
@@ -178,7 +182,7 @@ void PlayRunLayer::audition(bool isAudition){
     this->isAudition = isAudition;
     //试听
     if(isAudition){
-        auditionControll(AUDITION_PLAY);
+        testSectionLayer->setPositionX(sectionLayer->getPositionX());
         sectionLayer->pause(); //暂停正式音符界面
     }else{
         auditionControll(AUDITION_STOP);
@@ -221,7 +225,6 @@ ActionInterval* PlayRunLayer::getMoveActionIterval(){
 void PlayRunLayer::auditionControll(int type){
     switch (type) {
         case AUDITION_PLAY:
-            testSectionLayer->setPositionX(sectionLayer->getPositionX());
             testSectionLayer->runAction(getMoveActionIterval()); //移动试听音符界面
             break;
         case AUDITION_STOP:
@@ -237,7 +240,6 @@ void PlayRunLayer::auditionControll(int type){
             break;
     }
 }
-
 
 void PlayRunLayer::stopMusic(){
     currentMusical = 0;
@@ -255,4 +257,38 @@ float PlayRunLayer::getMusicalTime(int musicalIndex){
 
 string PlayRunLayer::getMusicalChord(int musicalIndex){
     return "";
+}
+
+
+void PlayRunLayer::sectionPause(){
+    sectionLayer->pause();
+};
+
+void PlayRunLayer::sectionResume(){
+    sectionLayer->resume();
+};
+
+
+void PlayRunLayer::auditionSilderPos(Ref* ref){
+    testSectionLayer->stopAllActions();
+    //1.获得试听时间轴拖动的位置
+    auto value = (__Float*)ref;
+    
+    
+    float currentX = value->getValue() * playConfig->move4sec;
+    
+    float auditionX = playConfig->contentWidth-currentX;
+    
+    testSectionLayer->setPositionX(auditionX);
+    auditionControll(AUDITION_PLAY);
+//    auto beginMove = getMoveActionIterval();
+//    testSectionLayer->runAction(beginMove);
+    
+    log("test X:%f",auditionX);
+    //2.根据时间轴计算当前试听的拍数
+    //3.定位试听层到拍数所在位置
+    
+    
+    
+    
 }

@@ -245,8 +245,6 @@ void Section::updateState(float relativePosX,int nType){
                     string scaleFileName ="audio/scale/"+note4Str+".mp3";
                     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(scaleFileName.c_str(),false,upOrDown,0,1);
                 }
-                
-//                log("%d",(int)index);
             }
             tonicPlayKeyFlag = key;
         }

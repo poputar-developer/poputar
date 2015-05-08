@@ -57,6 +57,10 @@ private:
     //试听时小节信息
     Map<int,Section*> auditionSprite;
     
+    virtual void sectionPause();
+    
+    virtual void sectionResume();
+    
 public:
     bool init4Finger(const Color4B &&color,MusicModel *musicModel,float proportion);
     static PlayRunLayer *createPlayRunLayer(MusicModel *musicModel,float proportion);
@@ -69,6 +73,8 @@ public:
     virtual void audition(bool isAudition);
     
     void auditionControll(int type);
+    
+    virtual void auditionSilderPos(Ref* ref);
     
 };
 #endif /* defined(__poputar__PlayRunLayer__) */

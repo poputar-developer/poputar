@@ -6,8 +6,8 @@
                "nodes": [
                          {
                          "node": 1,
-                         "type":"F",
-                         "music": "1_1"
+                         "type":"S",
+                         "music": "test_"
                          },
                          {
                          "node": 2,

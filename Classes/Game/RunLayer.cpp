@@ -14,12 +14,14 @@ bool RunLayer::init(const cocos2d::Color4B &color){
     bool result =  initWithColor(color);
 
     //==============设置内容页大小==============
-    //    //设置大小
+    //画面大小
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    //设置大小
     this->setContentSize(Size(visibleSize.width, gameConfig->contentHeight));
-    //    //设置锚点
+    //设置锚点
     this->setAnchorPoint(CCPoint::ZERO);
     float sideHeight = (visibleSize.height-gameConfig->contentHeight)/2;
-    //    //设置位置
+    //设置位置
     this->setPosition(Point(0,sideHeight));
 
     metronomePlay=true;
@@ -29,16 +31,23 @@ bool RunLayer::init(const cocos2d::Color4B &color){
     capoValue = 1.15f;
     
     scheduleUpdate();
-
+    
+    //节拍器声音控制
     __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::metronomeVoiceCallback), POPT_METRONOME_VOICE , NULL);
     
+    //和弦声音控制
      __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::musicVoiceCallback), POPT_MUSIC_VOICE , NULL);
     
+    //音调控制  （品夹）
     __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::capoChangeCallback), POPT_CAPO_VALUE , NULL);
     
+    __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::auditionSilderPos), POPT_AUDITION_SILDER_POS , NULL);
     
     return result;
 }
+
+
+
 void RunLayer::capoChangeCallback(cocos2d::Ref *ref){
     __Float* f = (__Float*) ref;
     capoValue = f->getValue();
@@ -58,4 +67,6 @@ void RunLayer::musicVoiceCallback(cocos2d::Ref *ref){
 RunLayer::~RunLayer(){
     __NotificationCenter::getInstance()->removeObserver(this, POPT_METRONOME_VOICE);
     __NotificationCenter::getInstance()->removeObserver(this, POPT_MUSIC_VOICE);
+    __NotificationCenter::getInstance()->removeObserver(this, POPT_CAPO_VALUE);
+    __NotificationCenter::getInstance()->removeObserver(this, POPT_AUDITION_SILDER_POS);
 }

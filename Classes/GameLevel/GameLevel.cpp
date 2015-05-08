@@ -122,7 +122,7 @@ void GameLevel::loadFrame(){
         for (int n=0; n<nodes.size(); n++) {
             GameNodeInfo* gni = nodes[n];
             
-            string type =gni->getType();
+//            string type =gni->getType();
             string music = gni->getMusic();
             int node = gni->getNode();
             
@@ -186,30 +186,27 @@ void GameLevel::toPlaySence(Ref* sender,GameNodeInfo* gni){
     
     log("to level:%d  node:%d",gni->getGameLevelInfo()->getLevel(),gni->getNode());
     poptGlobal->gni = gni;
-    string type = gni->getType();
+//    string type = gni->getType();
     
     //加载音乐信息
     string musicFile = "music/stage/"+POPTStringUtils::intToString(gni->getGameLevelInfo()->getLevel())+"/"+gni->getMusic();
     
     
-    bool test= true;
-    if(test) {
-        auto musicModel = MusicModel::initWithFile(musicFile);
-        gni->setMusicModel(musicModel);
-    }else{
-        auto musicInfo = MusicInfo::initWithJson(musicFile);
-        gni->setMusicInfo(musicInfo);
-
-    }
+//    bool test= true;
+//    if(test) {
+//        auto musicModel = MusicModel::initWithFile(musicFile);
+//        gni->setMusicModel(musicModel);
+//    }else{
+//        auto musicInfo = MusicInfo::initWithJson(musicFile);
+//        gni->setMusicInfo(musicInfo);
+//
+//    }
     
-    Scene* scene;
-    if(type=="C"){
-        scene = StartScene::createScene();
-    }else if(type == "F"){
-        scene = StartScene::createScene();
-    }else if(type == "S"){
-        scene = GuitarRun::createScene();
-    }
+    auto musicModel = MusicModel::initWithFile(musicFile);
+    gni->setMusicModel(musicModel);
+    
+    Scene* scene = StartScene::createScene();
+    
     
     auto transition = TransitionCrossFade::create(0.5f, scene);
     Director::getInstance()->pushScene(transition);
