@@ -23,8 +23,6 @@ public:
     float contentHeight;
     //单元时间 音符间隔时间
     float unitTime;
-    //开始时间
-    float startTime=3;
     //歌曲总时长
     float musicTime;
     //结尾增加的时间

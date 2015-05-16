@@ -7,7 +7,9 @@
 //
 
 #include "POPTSlider.h"
-POPTSlider* POPTSlider::create(const char *bgFile, const char *progressFile, const char *thumbFile,bool drag){
+
+
+POPTSlider* POPTSlider::create(const char *bgFile, const char *progressFile, const char *thumbFile){
     
     Sprite *backgroundSprite      = Sprite::create(bgFile);
     
@@ -21,52 +23,17 @@ POPTSlider* POPTSlider::create(const char *bgFile, const char *progressFile, con
     POPTSlider *pRet = new (std::nothrow) POPTSlider();
     pRet->initWithSprites(backgroundSprite, progressSprite, thumbSprite);
     pRet->autorelease();
-    pRet->drag = drag;
-    pRet->loadTimeInfo();
     return pRet;
-}
-
-void POPTSlider::loadTimeInfo(){
-
-}
-
-void POPTSlider::sliderMove(float dt){
-    float value = getValue()+moveTime;
-    if(value >= getMaximumValue()){
-        unschedule(schedule_selector(POPTSlider::sliderMove));
-        _delegate->sliderMoveEnd();
-    }else{
-        this->setValue(value);
-    }
-}
-
-void POPTSlider::startSliderMove(bool flag){
-    if(!moving && flag){
-        moving = flag;
-        schedule(schedule_selector(POPTSlider::sliderMove),moveTime);
-    }
-}
-void POPTSlider::sliderPasue(bool flag){
-    if (moving) {
-        if (flag) {
-            this->pause();
-        }else{
-            this->resume();
-        }
-    }
 }
 
 void POPTSlider::onTouchEnded(Touch *pTouch, Event *pEvent)
 {
     sliderEnded(Vec2::ZERO);
-    _delegate->sliderTouchEndCallback();
+    _delegate->sliderTouchEndCallback(this);
 }
 
 void POPTSlider::setDelegate(POPTSliderDelegate *delegate){
     _delegate = delegate;
 }
 
-bool POPTSlider::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *pEvent){
-    return drag;
-}
 

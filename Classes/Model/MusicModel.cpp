@@ -60,18 +60,22 @@ MusicModel* MusicModel::initWithFile(string fileName){
             sectionInfo->s_index = sIndex.GetInt();
             //读取主音信息
             const rapidjson::Value &tonics = section["tonics"];
-            for (rapidjson::SizeType t =0; t<tonics.Size(); t++) {
-                TonicInfo *toincInfo = new TonicInfo();
-                const rapidjson::Value &tTonic = tonics[t];
-                const rapidjson::Value &index = tTonic["t_index"];
-                toincInfo->t_index = index.GetInt();
-                const rapidjson::Value &note = tTonic["note"];
-                const rapidjson::Value &length = tTonic["length"];
-                toincInfo->note = note.GetString();
-                toincInfo->length = length.GetDouble();
-                sectionInfo->tonics[index.GetInt()] = toincInfo;
-                
+            
+            if(!tonics.IsNull()){
+                for (rapidjson::SizeType t =0; t<tonics.Size(); t++) {
+                    TonicInfo *toincInfo = new TonicInfo();
+                    const rapidjson::Value &tTonic = tonics[t];
+                    const rapidjson::Value &index = tTonic["t_index"];
+                    toincInfo->t_index = index.GetInt();
+                    const rapidjson::Value &note = tTonic["note"];
+                    const rapidjson::Value &length = tTonic["length"];
+                    toincInfo->note = note.GetString();
+                    toincInfo->length = length.GetDouble();
+                    sectionInfo->tonics[index.GetInt()] = toincInfo;
+                    
+                }
             }
+            
             //读取和弦信息
             const rapidjson::Value &beats = section["beats"];
             for (rapidjson::SizeType b =0; b<beats.Size(); b++) {
@@ -81,10 +85,16 @@ MusicModel* MusicModel::initWithFile(string fileName){
                 const rapidjson::Value &length = bBeat["length"];
                 const rapidjson::Value &play = bBeat["play"];
                 const rapidjson::Value &stringInfo = bBeat["string"];
-                beatInfo->chordType = chord.GetString();
                 beatInfo->length = length.GetDouble();
-                beatInfo->play=play.GetString();
-                beatInfo->stringInfo= stringInfo.GetString();
+                if(!chord.IsNull()){
+                    beatInfo->chordType = chord.GetString();
+                }
+                if(!play.IsNull()){
+                    beatInfo->play=play.GetString();
+                }
+                if (!stringInfo.IsNull()) {
+                     beatInfo->stringInfo= stringInfo.GetString();
+                }
                 sectionInfo->beats.push_back(beatInfo);
             }
             music->sections[sIndex.GetInt()]=sectionInfo;

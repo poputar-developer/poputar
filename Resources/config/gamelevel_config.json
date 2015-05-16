@@ -2,17 +2,17 @@
     "levels": [
                {
                "level": 1,
-               
+               "title":"入门学习",
                "nodes": [
                          {
                          "node": 1,
-                         "type":"F",
-                         "music": "1_1"
+                         "type":"S",
+                         "music": "xiaoxingxing"
                          },
                          {
                          "node": 2,
                          "type":"F",
-                         "music": "xiaoxingxing"
+                         "music": "test_2"
                          },
                          {
                          "node": 3,
@@ -23,6 +23,7 @@
                },
                {
                "level": 2,
+               "title":"两指和弦",
                "nodes": [
                          {
                          "node": 1,

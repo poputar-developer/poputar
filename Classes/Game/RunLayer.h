@@ -19,17 +19,10 @@
 USING_NS_CC;
 class RunLayer : public LayerColor{
 protected:
-    //画面大小
-    Size visibleSize = Director::getInstance()->getVisibleSize();
 public:
     ~RunLayer();
     
-    //节拍是否播放
-    bool metronomePlay;
-    //音符/和弦 声音是否播放
-    bool musicalPlay;
-    //品位置
-    float capoValue;
+
     //公告属性
     GameConfig *gameConfig;
     //初始化
@@ -48,12 +41,17 @@ public:
     virtual float getMusicalTime(int musicalIndex){return 0.0f;};
     //根据传入音符所在小节
     virtual string getMusicalChord(int musicalIndex){return nullptr;};
-    
+    //是否试听
     virtual void audition(bool isAudition){};
+    //试听位置
+    virtual void auditionResume(Ref* ref){};
+    virtual void auditionPause(Ref* ref){};
     
-    void metronomeVoiceCallback(Ref* ref);
-    void musicVoiceCallback(Ref* ref);
-    void capoChangeCallback(Ref* ref);
+    virtual void sectionPause(){};
+    
+    virtual void sectionResume(){};
+    
+
 };
 
 #endif /* defined(__poputar__RunLayer__) */

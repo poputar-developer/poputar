@@ -19,6 +19,10 @@ public:
     static string intToString(int value);
     
     static int stringToInt(string value);
+    
+    static string toUpper(string str);
+    
+    static string toLower(string str);
 };
 
 #endif /* defined(__poputar__POPTStringUtils__) */

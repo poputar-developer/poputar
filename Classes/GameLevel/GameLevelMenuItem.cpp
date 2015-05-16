@@ -8,7 +8,7 @@
 
 #include "GameLevelMenuItem.h"
 #include "MusicInfo.h"
-#include "GuitarRunScene.h"
+#include "GameRunScene.h"
 
 //按钮大小
 float itemSide = 57.0f;

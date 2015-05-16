@@ -24,9 +24,10 @@ class PlayRunLayer : public RunLayer{
 
 
 private:
-    
     //配置信息
     PlayConfig *playConfig;
+    //组装和弦层
+    Layer* loadSectionLayer(bool isFormal);
     //组装画面
     void loadFrame();
     //初始化开始的音符
@@ -37,7 +38,6 @@ private:
     void sectionNotice(int type);
     //得到运动动作
     ActionInterval* getMoveActionIterval();
-    
     //新建音符时用于设置音符当前的tag
     int currentMusical;
     ValueMapIntKey stringMap;
@@ -49,13 +49,16 @@ private:
     ValueVector musicals;
     //节奏线集合
     Vector<Sprite *> rhythms;
-    
     Layer *sectionLayer;
     Layer *testSectionLayer;
     //播放时小节信息
     Map<int,Section*> sectionSprite;
     //试听时小节信息
     Map<int,Section*> auditionSprite;
+    
+    virtual void sectionPause();
+    
+    virtual void sectionResume();
     
 public:
     bool init4Finger(const Color4B &&color,MusicModel *musicModel,float proportion);
@@ -69,6 +72,12 @@ public:
     virtual void audition(bool isAudition);
     
     void auditionControll(int type);
+    
+    virtual void auditionResume(Ref* ref);
+    virtual void auditionPause(Ref* ref);
+
+    
+    virtual void onExit();
     
 };
 #endif /* defined(__poputar__PlayRunLayer__) */

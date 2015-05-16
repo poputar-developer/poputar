@@ -6,20 +6,19 @@
 //
 //
 
-#include "BLEScene.h"
-#include "PluginHelper.h"
-#include "SelectMusic.h"
+#include "POPTBaseDefine.h"
 
+using namespace cocostudio::timeline;
 
 int connectCount=0;
 
-Label *label;
+ui::Text *label;
 
 Scene* BLEScene::createScene(){
 
     auto scene = Scene::create();
     auto layer = BLEScene::create();
-//    Node *layer = CSLoader::createNode("MainScene.csb");
+//    Node *layer = CSLoader::createNode("BLEScene.csd");
     scene->addChild(layer);
     return scene;
 }
@@ -30,47 +29,14 @@ bool BLEScene::init(){
     {
         return false;
     }
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto rootNode = CSLoader::createNode("ble/BLEScene.csb");
     
+    addChild(rootNode);
     
-//    auto sprite = Sprite::create("./test/background.png");
-    auto sprite = Sprite::create("base/background.png");
-    
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y ));
-    
-    this->addChild(sprite, 0);
-    
-    
-    
+    label = (ui::Text*)rootNode->getChildByName("Text_1");
+     
     schedule(schedule_selector(BLEScene::connectBle), 3.0f,kRepeatForever,0.1f);
-    
-    
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ble/BlePlist.plist");
-    auto animation = Animation::create();
-    for (int i=1; i<3; i++) {
-        std::string szName = StringUtils::format("ble/ble_loading_%d.png",i);
-        animation->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(szName));
-    }
-    animation->setDelayPerUnit(3.0f/15.0f);
-    animation->setRestoreOriginalFrame(true);
-    AnimationCache::getInstance()->addAnimation(animation, "loading");
-    
-    auto loading = AnimationCache::getInstance()->getAnimation("loading");
-    auto animate = Animate::create(loading);
-    
-    auto repeatanimate = RepeatForever::create(animate);
-    auto animateSprite = Sprite::createWithSpriteFrameName("ble/ble_loading_1.png");
-    animateSprite->runAction(repeatanimate);
-    animateSprite->setPosition(Vec2(visibleSize.width/2,170));
-    this->addChild(animateSprite);
 
-    
-    string text = "正在连接吉他";
-    label = Label::createWithTTF(text, "fonts/yuanti.ttf",20);
-    label->setPosition(Vec2(visibleSize.width/2 ,70));
-    this->addChild(label, 1);
-    
     return true;
 }
 //连接蓝牙
@@ -79,23 +45,24 @@ void BLEScene::connectBle(float dt){
     log("connectCount:%i",connectCount);
     
     if(PluginHelper::isConnected()){
-        label->setString("蓝牙连接成功");
+        label->setString("连接吉他成功");
         unschedule(schedule_selector(BLEScene::connectBle));
-    }else if(connectCount >=5){
-        label->setString("蓝牙连接失败");
+    }else if(connectCount >=CONNECT_CONTENT){
+        label->setString("连接吉他失败");
          unschedule(schedule_selector(BLEScene::connectBle));
     }
     
-    if(!PluginHelper::isConnected() && connectCount<5){
+    if(!PluginHelper::isConnected() && connectCount<CONNECT_CONTENT){
         PluginHelper::scanBLEPeripherals();
     }else{
-        scheduleOnce(schedule_selector(BLEScene::nextSence), 1.0f);
+        scheduleOnce(schedule_selector(BLEScene::nextSence), 2.0f);
     }
 }
+
 //跳转到下一界面
 void BLEScene::nextSence(float dt){
-    Scene *selectScene = SelectMusic::createScene();
-    auto transition = TransitionCrossFade::create(0.5f, selectScene);
+    auto nextScene = GameLevel::createScene();
+    auto transition = TransitionCrossFade::create(0.5f, nextScene);
     Director::getInstance()->replaceScene(transition);
 }
 

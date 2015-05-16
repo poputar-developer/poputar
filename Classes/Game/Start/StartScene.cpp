@@ -7,7 +7,7 @@
 //
 
 #include "StartScene.h"
-#include "GuitarRunScene.h"
+#include "GameRunScene.h"
 #include "POPTGlobal.h"
 
 Scene* StartScene::createScene(){
@@ -33,9 +33,40 @@ StartScene* StartScene::createStartScene(){
 
 void StartScene::loadFrame(){
     
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    
+    
+    //设置一个视频背景
+    
+    //按背景大小、位置防止视频组件
+    videoPlayer = POPTVideoPlayer::create();
+    videoPlayer->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+    videoPlayer->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    videoPlayer->setContentSize(Size(visibleSize.width-60 , visibleSize.height-60));
+    this->addChild(videoPlayer,1);
+    videoPlayer->setFullScreenEnabled(true);
+    videoPlayer->setFileName("video/dahai.mp4");
+    videoPlayer->setTag(1);
+    videoPlayer->addEventListener(CC_CALLBACK_2(StartScene::videoEventCallback, this));
+    //设置视频控制按钮
+    auto pauseBtn = ui::Button::create("game/base/play.png");
+    pauseBtn->setPosition(Vec2(30,30));
+    pauseBtn->addClickEventListener(CC_CALLBACK_1(StartScene::videoPauseController, this));
+    this->addChild(pauseBtn,2);
+    
+    //设置跳过视频按钮
+    
+    
+    
+
+//    videoPlayer->play();
+    
+
+    return ;
+    
     isPlaying = false;
 
-    Size visibleSize = Director::getInstance()->getVisibleSize();
     
     
     ui::Button *replayBtn = ui::Button::create("game/start/startVideoBg.png");
@@ -46,7 +77,7 @@ void StartScene::loadFrame(){
     this->addChild(replayBtn,1);
     
     
-    string title = poptGlobal->gni->getMusicInfo()->getTitle()+"视频演示";
+    string title = poptGlobal->gni->getMusicModel()->getTitle()+"视频演示";
     auto label = Label::createWithTTF(title, "fonts/yuanti.ttf", 30);
     label->setColor(Color3B(155, 87, 223));
     label->setAnchorPoint(Vec2::ZERO);
@@ -63,15 +94,6 @@ void StartScene::loadFrame(){
     skipBtn->addClickEventListener(CC_CALLBACK_1(StartScene::skipController, this));
     this->addChild(skipBtn,1);
     
-//    //自测
-//    y+=skipBtn->getContentSize().height + 10;
-//    ui::Button *studyBtn = ui::Button::create("startStudyBtn.png");
-//    studyBtn->setAnchorPoint(Vec2::ZERO);
-//    studyBtn->setPosition(Vec2(x+10,y));
-//    studyBtn->addClickEventListener(CC_CALLBACK_1(StartScene::studyController, this));
-//    this->addChild(studyBtn,1);
-//    
-    
     string Tip = "小提示：弹奏过程中注意手指按弦姿势摆放正确，按弦的时候尽量靠近品丝就能省力很多（当然不要按在品丝上），不然碰到其他的弦会不出声音哦！";
     
     auto labelTip = Label::createWithTTF(Tip, "fonts/yuanti.ttf", 12);
@@ -80,6 +102,20 @@ void StartScene::loadFrame(){
     labelTip->setPosition(20,0);
     labelTip->setDimensions(400, 40);
     this->addChild(labelTip);
+}
+
+void StartScene::videoPauseController(cocos2d::Ref *ref){
+    if(!isPlaying){
+        videoPlayer->play();
+        isPlaying = !isPlaying;
+    }else{
+        if(videoPlayer->isPlaying()){
+            videoPlayer->pause();
+        }else{
+            videoPlayer->resume();
+        }
+    }
+
 }
 
 
@@ -132,19 +168,21 @@ void StartScene::replayController(cocos2d::Ref *ref){
 //}
 
 void StartScene::videoPlayOverCallback(){
-    skipBtn->loadTextureNormal("game/start/startNextBtn.png");
-    removeChildByTag(1);
+//    skipBtn->loadTextureNormal("game/start/startNextBtn.png");
+//    removeChildByTag(1);
+    auto la = LayerColor::create(Color4B(255,255,255,200));
+    this->addChild(la,9);
     isPlaying = false;
 }
 
 void StartScene::setBackground(){
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    auto sprite = Sprite::create("game/start/startBg.png");
-    sprite->setOpacity(200); //0-255
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y ));
-    
-    this->addChild(sprite, 0);
+//    Size visibleSize = Director::getInstance()->getVisibleSize();
+//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+//    auto sprite = Sprite::create("game/start/startBg.png");
+//    sprite->setOpacity(200); //0-255
+//    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y ));
+//    
+//    this->addChild(sprite, 0);
 }
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
