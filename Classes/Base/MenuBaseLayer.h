@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 USING_NS_CC;
-class MenuBaseLayer : public Layer{
+class MenuBaseLayer : public LayerColor{
 public:
     MenuBaseLayer();
     virtual ~MenuBaseLayer(){};

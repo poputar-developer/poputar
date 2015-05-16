@@ -31,8 +31,6 @@ private:
     float bpm; //速度
     map<int,MusicPlayInfo*> plays; //循环方式
     map<int,SectionInfo*> sections;//小节信息
-//    vector<MusicPlayInfo*> plays; //循环方式
-//    vector<SectionInfo*> sections; //小节信息
     
 public:
     static MusicModel* initWithFile(string fileName);

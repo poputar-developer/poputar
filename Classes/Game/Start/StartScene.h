@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "ui/CocosGUI.h"
 #include "POPTVideoPlayer.h"
-#include "GameLevel.h"
+#include "GameLevelScene.h"
 #include "ui/UIVideoPlayer.h"
 #include "BaseLayer.h"
 USING_NS_CC;
@@ -23,13 +23,15 @@ private:
     ui::Button *skipBtn;
     bool isPlaying;
     
-//    POPTVideoPlayer* videoPlayer;
+    POPTVideoPlayer* videoPlayer;
     
     void loadFrame();
     
     void skipController(Ref* ref);
     
     void replayController(Ref* ref);
+    
+    void videoPauseController(Ref* ref);
     
 //    void studyController(Ref* ref);
 public:

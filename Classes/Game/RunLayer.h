@@ -22,12 +22,7 @@ protected:
 public:
     ~RunLayer();
     
-    //节拍是否播放
-    bool metronomePlay;
-    //音符/和弦 声音是否播放
-    bool musicalPlay;
-    //品位置
-    float capoValue;
+
     //公告属性
     GameConfig *gameConfig;
     //初始化
@@ -49,15 +44,14 @@ public:
     //是否试听
     virtual void audition(bool isAudition){};
     //试听位置
-    virtual void auditionSilderPos(Ref* ref){};
+    virtual void auditionResume(Ref* ref){};
+    virtual void auditionPause(Ref* ref){};
     
     virtual void sectionPause(){};
     
     virtual void sectionResume(){};
     
-    void metronomeVoiceCallback(Ref* ref);
-    void musicVoiceCallback(Ref* ref);
-    void capoChangeCallback(Ref* ref);
+
 };
 
 #endif /* defined(__poputar__RunLayer__) */

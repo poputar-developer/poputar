@@ -23,50 +23,16 @@ bool RunLayer::init(const cocos2d::Color4B &color){
     float sideHeight = (visibleSize.height-gameConfig->contentHeight)/2;
     //设置位置
     this->setPosition(Point(0,sideHeight));
-
-    metronomePlay=true;
-    
-    musicalPlay = true;
-    
-    capoValue = 1.15f;
     
     scheduleUpdate();
     
-    //节拍器声音控制
-    __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::metronomeVoiceCallback), POPT_METRONOME_VOICE , NULL);
-    
-    //和弦声音控制
-     __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::musicVoiceCallback), POPT_MUSIC_VOICE , NULL);
-    
-    //音调控制  （品夹）
-    __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::capoChangeCallback), POPT_CAPO_VALUE , NULL);
-    
-    __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::auditionSilderPos), POPT_AUDITION_SILDER_POS , NULL);
+    __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::auditionResume), POPT_AUDITION_RESUME , NULL);
+    __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(RunLayer::auditionPause), POPT_AUDITION_PAUSE , NULL);
     
     return result;
 }
 
-
-
-void RunLayer::capoChangeCallback(cocos2d::Ref *ref){
-    __Float* f = (__Float*) ref;
-    capoValue = f->getValue();
-}
-
-void RunLayer::metronomeVoiceCallback(cocos2d::Ref *ref){
-    __Bool* b = (__Bool*)ref;
-    metronomePlay = b->getValue();
-}
-
-
-void RunLayer::musicVoiceCallback(cocos2d::Ref *ref){
-    __Bool* b = (__Bool*)ref;
-    musicalPlay = b->getValue();
-}
-
 RunLayer::~RunLayer(){
-    __NotificationCenter::getInstance()->removeObserver(this, POPT_METRONOME_VOICE);
-    __NotificationCenter::getInstance()->removeObserver(this, POPT_MUSIC_VOICE);
-    __NotificationCenter::getInstance()->removeObserver(this, POPT_CAPO_VALUE);
-    __NotificationCenter::getInstance()->removeObserver(this, POPT_AUDITION_SILDER_POS);
+    __NotificationCenter::getInstance()->removeObserver(this, POPT_AUDITION_RESUME);
+    __NotificationCenter::getInstance()->removeObserver(this, POPT_AUDITION_PAUSE);
 }

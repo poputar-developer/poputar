@@ -10,7 +10,6 @@
 #define __poputar__GameLevelInfo__
 
 #include <stdio.h>
-#include "MusicInfo.h"
 #include "MusicModel.h"
 #include "GameConfig.h"
 using namespace std;
@@ -20,21 +19,22 @@ class GameNodeInfo;
 class GameLevelInfo{
 private:
     int level;
+    string title;
     vector<GameNodeInfo*> nodes;
 public:
     void setLevel(int level);
+    void setTitle(string title);
     void setNodes(vector<GameNodeInfo*> node);
     int getLevel();
+    string getTitle();
     vector<GameNodeInfo*> getNodes();
 };
 
 class GameNodeInfo{
 private:
     int node;
-//    string type;
     string music;
     GameLevelInfo* gameLevelInfo;
-//    MusicInfo* musicInfo;
     MusicModel* musicModel;
     GameConfig* config;
     

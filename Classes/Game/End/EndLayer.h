@@ -19,9 +19,10 @@ class EndLayerDelegate{
 public:
     virtual void endRestartCallback()=0;
     virtual void endNextCallback()=0;
+    virtual void endBackCallback()=0;
 };
 
-class EndLayer: public MaskBaseLayer{
+class EndLayer: public LayerColor{
 private:
     EndLayerDelegate* _delegate;
     void loadFrame();
@@ -29,6 +30,7 @@ public:
     static EndLayer* createEndLayer();
     void restartController(Ref* ref);
     void nextController(Ref* ref);
+    void backController(Ref* ref);
     
     void setDelegate(EndLayerDelegate* delegate);
 };

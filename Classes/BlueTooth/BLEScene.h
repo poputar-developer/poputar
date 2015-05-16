@@ -9,15 +9,9 @@
 #ifndef __Guitars__BLEScene__
 #define __Guitars__BLEScene__
 
-#include <stdio.h>
-#include "cocos2d.h"
-#include "ui/CocosGUI.h"
-#include "cocostudio/CocoStudio.h"
-
-
 USING_NS_CC;
 using namespace std;
-using namespace cocostudio::timeline;
+
 
 class BLEScene : public Layer{
 private:

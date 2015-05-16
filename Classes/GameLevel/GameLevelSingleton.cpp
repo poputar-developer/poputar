@@ -33,7 +33,9 @@ GameLevelSingleton::GameLevelSingleton(void){
         gli->setLevel(l+1);
         
         const rapidjson::Value &str = cArray[l];
+        const rapidjson::Value &title = str["title"];
         const rapidjson::Value &cNodes = str["nodes"];
+        gli->setTitle(title.GetString());
         
         vector<GameNodeInfo*> nodes;
         for(int n=0; n<cNodes.Size();n++){

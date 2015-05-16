@@ -7,6 +7,7 @@
 //
 
 #include "POPTStringUtils.h"
+#include <algorithm>
 
 vector<string> POPTStringUtils::split(string str, string pattern){
     string::size_type pos;
@@ -42,4 +43,14 @@ int POPTStringUtils::stringToInt(string value){
     int i;
      ss>>i;
     return i;
+}
+
+string POPTStringUtils::toUpper(string str){
+    transform(str.begin(), str.end(), str.begin(), ::toupper);
+    return str;
+}
+
+string POPTStringUtils::toLower(string str){
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    return str;
 }

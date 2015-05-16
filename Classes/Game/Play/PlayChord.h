@@ -12,27 +12,23 @@
 #include <stdio.h>
 #include <cocos-ext.h>
 #include "MusicModel.h"
-#include "PlayConfig.h"
-
+#include "PlayInfo.h"
 USING_NS_CC;
 using namespace std;
-class PlayChord :public ui::Scale9Sprite{
+class PlayChord :public ui::Scale9Sprite,public PlayInfo{
 public:
-
-    PlayConfig* config;
     
     BeatInfo* beatInfo;
     
     float x;
     
+    static PlayChord* createPlayChord(BeatInfo* beatInfo,string lineFileName,string circleFileName,float x);
     
-    static PlayChord* createPlayChord(BeatInfo* beatInfo,string fileName,float x);
+    void loadFrame(string circleFileName);
     
-    void loadFrame();
     
-    float strToY(int str);
     
-    void createBangingOut(string chordType, int startStr,int endStr);
+    void createBangingOut(string chordType, int startStr,int endStr,int upOrDownFlag);
     
 };
 

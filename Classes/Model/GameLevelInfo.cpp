@@ -13,12 +13,20 @@ void GameLevelInfo::setLevel(int level){
     this->level = level;
 }
 
+void GameLevelInfo::setTitle(string title){
+    this->title = title;
+}
+
 void GameLevelInfo::setNodes(vector<GameNodeInfo *> nodes){
     this->nodes = nodes;
 }
 
 int GameLevelInfo::getLevel(){
     return level;
+}
+
+string GameLevelInfo::getTitle(){
+    return title;
 }
 
 vector<GameNodeInfo *> GameLevelInfo::getNodes(){

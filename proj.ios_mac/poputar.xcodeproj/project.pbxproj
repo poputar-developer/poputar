@@ -28,14 +28,12 @@
 		04400F651AEF23ED00596225 /* Section.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04400F621AEF23ED00596225 /* Section.cpp */; };
 		04778EFF1AC2567000260CFC /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE31AC2567000260CFC /* BaseLayer.cpp */; };
 		04778F001AC2567000260CFC /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE31AC2567000260CFC /* BaseLayer.cpp */; };
-		04778F031AC2567000260CFC /* GuitarRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GuitarRunScene.cpp */; };
-		04778F041AC2567000260CFC /* GuitarRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GuitarRunScene.cpp */; };
-		04778F071AC2567000260CFC /* GameLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EED1AC2567000260CFC /* GameLevel.cpp */; };
-		04778F081AC2567000260CFC /* GameLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EED1AC2567000260CFC /* GameLevel.cpp */; };
+		04778F031AC2567000260CFC /* GameRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GameRunScene.cpp */; };
+		04778F041AC2567000260CFC /* GameRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GameRunScene.cpp */; };
+		04778F071AC2567000260CFC /* GameLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EED1AC2567000260CFC /* GameLevelScene.cpp */; };
+		04778F081AC2567000260CFC /* GameLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EED1AC2567000260CFC /* GameLevelScene.cpp */; };
 		04778F091AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEF1AC2567000260CFC /* GameLevelMenuItem.cpp */; };
 		04778F0A1AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EEF1AC2567000260CFC /* GameLevelMenuItem.cpp */; };
-		04778F0D1AC2567000260CFC /* SelectMusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EF41AC2567000260CFC /* SelectMusic.cpp */; };
-		04778F0E1AC2567000260CFC /* SelectMusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EF41AC2567000260CFC /* SelectMusic.cpp */; };
 		04778F1D1AC2569F00260CFC /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778F1B1AC2569F00260CFC /* AppDelegate.cpp */; };
 		04778F1E1AC2569F00260CFC /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778F1B1AC2569F00260CFC /* AppDelegate.cpp */; };
 		04778F271AC2574900260CFC /* PluginHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04778F241AC2574900260CFC /* PluginHelper.mm */; };
@@ -51,21 +49,22 @@
 		048FE9751AEE86470008E835 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 048FE9731AEE86470008E835 /* fonts */; };
 		048FE97C1AEE86D10008E835 /* MusicModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 048FE97A1AEE86D10008E835 /* MusicModel.cpp */; };
 		048FE97D1AEE86D10008E835 /* MusicModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 048FE97A1AEE86D10008E835 /* MusicModel.cpp */; };
-		0499B2A11AD41129003AF4BC /* MusicMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B29F1AD41129003AF4BC /* MusicMenu.cpp */; };
-		0499B2A21AD41129003AF4BC /* MusicMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B29F1AD41129003AF4BC /* MusicMenu.cpp */; };
-		0499B2B41AD42C86003AF4BC /* GameMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B2B21AD42C86003AF4BC /* GameMenu.cpp */; };
-		0499B2B51AD42C86003AF4BC /* GameMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B2B21AD42C86003AF4BC /* GameMenu.cpp */; };
 		0499B2D51AD4D7AF003AF4BC /* MenuBaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B2D31AD4D7AF003AF4BC /* MenuBaseLayer.cpp */; };
 		0499B2D61AD4D7AF003AF4BC /* MenuBaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0499B2D31AD4D7AF003AF4BC /* MenuBaseLayer.cpp */; };
+		04C88D321B04E7F500E18F4A /* PlayInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C88D301B04E7F500E18F4A /* PlayInfo.cpp */; };
+		04C88D351B04E9E300E18F4A /* PlayString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C88D331B04E9E300E18F4A /* PlayString.cpp */; };
 		04CD4F301AC4F7AE00E59AE5 /* BLEScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F2E1AC4F7AE00E59AE5 /* BLEScene.cpp */; };
 		04CD4F341AC4FA4B00E59AE5 /* MusicAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F321AC4FA4B00E59AE5 /* MusicAnalysis.cpp */; };
 		04CD4F371AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F351AC504D600E59AE5 /* POPTStringUtils.cpp */; };
 		04CD4F381AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F351AC504D600E59AE5 /* POPTStringUtils.cpp */; };
 		04CD4F521AC6B1C600E59AE5 /* POPTHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CD4F501AC6B1C600E59AE5 /* POPTHelper.cpp */; };
+		04CDED7B1AFDB72200A772DB /* GameLevelCardHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CDED791AFDB72200A772DB /* GameLevelCardHandler.cpp */; };
+		04CDED7E1AFDBA5C00A772DB /* GameLevelCardReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CDED7C1AFDBA5C00A772DB /* GameLevelCardReader.cpp */; };
+		04CDED841B00DD5C00A772DB /* base in Resources */ = {isa = PBXBuildFile; fileRef = 04CDED831B00DD5C00A772DB /* base */; };
+		04CDED861B00DEA600A772DB /* pad in Resources */ = {isa = PBXBuildFile; fileRef = 04CDED851B00DEA600A772DB /* pad */; };
 		04EBF2241AC969680039EA92 /* RunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2221AC969680039EA92 /* RunLayer.cpp */; };
 		04EBF22A1ACA355C0039EA92 /* GameConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EBF2281ACA355C0039EA92 /* GameConfig.cpp */; };
 		04F0EEA41AEE08C300B8BBB7 /* hd in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA11AEE08C300B8BBB7 /* hd */; };
-		04F0EEA51AEE08C300B8BBB7 /* hd5 in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA21AEE08C300B8BBB7 /* hd5 */; };
 		04F0EEA61AEE08C300B8BBB7 /* sd in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA31AEE08C300B8BBB7 /* sd */; };
 		04F0EEAC1AEE08E900B8BBB7 /* config in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA71AEE08E900B8BBB7 /* config */; };
 		04F0EEAE1AEE08E900B8BBB7 /* music in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA91AEE08E900B8BBB7 /* music */; };
@@ -77,8 +76,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
-		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -179,14 +176,12 @@
 		04400F631AEF23ED00596225 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
 		04778EE31AC2567000260CFC /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLayer.cpp; sourceTree = "<group>"; };
 		04778EE41AC2567000260CFC /* BaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLayer.h; sourceTree = "<group>"; };
-		04778EE81AC2567000260CFC /* GuitarRunScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GuitarRunScene.cpp; sourceTree = "<group>"; };
-		04778EE91AC2567000260CFC /* GuitarRunScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuitarRunScene.h; sourceTree = "<group>"; };
-		04778EED1AC2567000260CFC /* GameLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevel.cpp; sourceTree = "<group>"; };
-		04778EEE1AC2567000260CFC /* GameLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevel.h; sourceTree = "<group>"; };
+		04778EE81AC2567000260CFC /* GameRunScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameRunScene.cpp; sourceTree = "<group>"; };
+		04778EE91AC2567000260CFC /* GameRunScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameRunScene.h; sourceTree = "<group>"; };
+		04778EED1AC2567000260CFC /* GameLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevelScene.cpp; sourceTree = "<group>"; };
+		04778EEE1AC2567000260CFC /* GameLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelScene.h; sourceTree = "<group>"; };
 		04778EEF1AC2567000260CFC /* GameLevelMenuItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevelMenuItem.cpp; sourceTree = "<group>"; };
 		04778EF01AC2567000260CFC /* GameLevelMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelMenuItem.h; sourceTree = "<group>"; };
-		04778EF41AC2567000260CFC /* SelectMusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectMusic.cpp; sourceTree = "<group>"; };
-		04778EF51AC2567000260CFC /* SelectMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMusic.h; sourceTree = "<group>"; };
 		04778F1B1AC2569F00260CFC /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		04778F1C1AC2569F00260CFC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04778F231AC2574900260CFC /* PluginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginHelper.h; sourceTree = "<group>"; };
@@ -201,12 +196,12 @@
 		048FE9731AEE86470008E835 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		048FE97A1AEE86D10008E835 /* MusicModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicModel.cpp; sourceTree = "<group>"; };
 		048FE97B1AEE86D10008E835 /* MusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
-		0499B29F1AD41129003AF4BC /* MusicMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicMenu.cpp; sourceTree = "<group>"; };
-		0499B2A01AD41129003AF4BC /* MusicMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicMenu.h; sourceTree = "<group>"; };
-		0499B2B21AD42C86003AF4BC /* GameMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMenu.cpp; sourceTree = "<group>"; };
-		0499B2B31AD42C86003AF4BC /* GameMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMenu.h; sourceTree = "<group>"; };
 		0499B2D31AD4D7AF003AF4BC /* MenuBaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBaseLayer.cpp; sourceTree = "<group>"; };
 		0499B2D41AD4D7AF003AF4BC /* MenuBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBaseLayer.h; sourceTree = "<group>"; };
+		04C88D301B04E7F500E18F4A /* PlayInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayInfo.cpp; sourceTree = "<group>"; };
+		04C88D311B04E7F500E18F4A /* PlayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayInfo.h; sourceTree = "<group>"; };
+		04C88D331B04E9E300E18F4A /* PlayString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayString.cpp; sourceTree = "<group>"; };
+		04C88D341B04E9E300E18F4A /* PlayString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayString.h; sourceTree = "<group>"; };
 		04CD4F2E1AC4F7AE00E59AE5 /* BLEScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BLEScene.cpp; sourceTree = "<group>"; };
 		04CD4F2F1AC4F7AE00E59AE5 /* BLEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEScene.h; sourceTree = "<group>"; };
 		04CD4F321AC4FA4B00E59AE5 /* MusicAnalysis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicAnalysis.cpp; sourceTree = "<group>"; };
@@ -215,12 +210,17 @@
 		04CD4F361AC504D600E59AE5 /* POPTStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTStringUtils.h; sourceTree = "<group>"; };
 		04CD4F501AC6B1C600E59AE5 /* POPTHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = POPTHelper.cpp; sourceTree = "<group>"; };
 		04CD4F511AC6B1C600E59AE5 /* POPTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTHelper.h; sourceTree = "<group>"; };
+		04CDED791AFDB72200A772DB /* GameLevelCardHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevelCardHandler.cpp; sourceTree = "<group>"; };
+		04CDED7A1AFDB72200A772DB /* GameLevelCardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelCardHandler.h; sourceTree = "<group>"; };
+		04CDED7C1AFDBA5C00A772DB /* GameLevelCardReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevelCardReader.cpp; sourceTree = "<group>"; };
+		04CDED7D1AFDBA5C00A772DB /* GameLevelCardReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelCardReader.h; sourceTree = "<group>"; };
+		04CDED831B00DD5C00A772DB /* base */ = {isa = PBXFileReference; lastKnownFileType = folder; path = base; sourceTree = "<group>"; };
+		04CDED851B00DEA600A772DB /* pad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = pad; sourceTree = "<group>"; };
 		04EBF2221AC969680039EA92 /* RunLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunLayer.cpp; sourceTree = "<group>"; };
 		04EBF2231AC969680039EA92 /* RunLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLayer.h; sourceTree = "<group>"; };
 		04EBF2281ACA355C0039EA92 /* GameConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig.cpp; sourceTree = "<group>"; };
 		04EBF2291ACA355C0039EA92 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		04F0EEA11AEE08C300B8BBB7 /* hd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hd; sourceTree = "<group>"; };
-		04F0EEA21AEE08C300B8BBB7 /* hd5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hd5; sourceTree = "<group>"; };
 		04F0EEA31AEE08C300B8BBB7 /* sd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sd; sourceTree = "<group>"; };
 		04F0EEA71AEE08E900B8BBB7 /* config */ = {isa = PBXFileReference; lastKnownFileType = folder; path = config; sourceTree = "<group>"; };
 		04F0EEA91AEE08E900B8BBB7 /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
@@ -234,7 +234,6 @@
 		1D6058910D05DD3D006BFB54 /* poputar iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "poputar iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -350,6 +349,10 @@
 				04400F631AEF23ED00596225 /* Section.h */,
 				043E4B621AF0BAB300A89B31 /* PlayChord.cpp */,
 				043E4B631AF0BAB300A89B31 /* PlayChord.h */,
+				04C88D301B04E7F500E18F4A /* PlayInfo.cpp */,
+				04C88D311B04E7F500E18F4A /* PlayInfo.h */,
+				04C88D331B04E9E300E18F4A /* PlayString.cpp */,
+				04C88D341B04E9E300E18F4A /* PlayString.h */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -384,14 +387,10 @@
 			children = (
 				040631871AF9F37F00D8231A /* AuditionLayer.cpp */,
 				040631881AF9F37F00D8231A /* AuditionLayer.h */,
-				0499B2B21AD42C86003AF4BC /* GameMenu.cpp */,
-				0499B2B31AD42C86003AF4BC /* GameMenu.h */,
-				0499B29F1AD41129003AF4BC /* MusicMenu.cpp */,
-				0499B2A01AD41129003AF4BC /* MusicMenu.h */,
 				04EBF2281ACA355C0039EA92 /* GameConfig.cpp */,
 				04EBF2291ACA355C0039EA92 /* GameConfig.h */,
-				04778EE81AC2567000260CFC /* GuitarRunScene.cpp */,
-				04778EE91AC2567000260CFC /* GuitarRunScene.h */,
+				04778EE81AC2567000260CFC /* GameRunScene.cpp */,
+				04778EE91AC2567000260CFC /* GameRunScene.h */,
 				04EBF2221AC969680039EA92 /* RunLayer.cpp */,
 				04EBF2231AC969680039EA92 /* RunLayer.h */,
 				04245F9B1ADD0F5300A1D92A /* Start */,
@@ -404,23 +403,18 @@
 		04778EEC1AC2567000260CFC /* GameLevel */ = {
 			isa = PBXGroup;
 			children = (
-				04778EED1AC2567000260CFC /* GameLevel.cpp */,
-				04778EEE1AC2567000260CFC /* GameLevel.h */,
+				04778EED1AC2567000260CFC /* GameLevelScene.cpp */,
+				04778EEE1AC2567000260CFC /* GameLevelScene.h */,
 				04778EEF1AC2567000260CFC /* GameLevelMenuItem.cpp */,
 				04778EF01AC2567000260CFC /* GameLevelMenuItem.h */,
 				04853E841ADABEE70023EE1D /* GameLevelSingleton.cpp */,
 				04853E851ADABEE70023EE1D /* GameLevelSingleton.h */,
+				04CDED791AFDB72200A772DB /* GameLevelCardHandler.cpp */,
+				04CDED7A1AFDB72200A772DB /* GameLevelCardHandler.h */,
+				04CDED7C1AFDBA5C00A772DB /* GameLevelCardReader.cpp */,
+				04CDED7D1AFDBA5C00A772DB /* GameLevelCardReader.h */,
 			);
 			path = GameLevel;
-			sourceTree = "<group>";
-		};
-		04778EF11AC2567000260CFC /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				04778EF41AC2567000260CFC /* SelectMusic.cpp */,
-				04778EF51AC2567000260CFC /* SelectMusic.h */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		04778EF61AC2567000260CFC /* Model */ = {
@@ -534,15 +528,15 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04CDED831B00DD5C00A772DB /* base */,
+				04CDED851B00DEA600A772DB /* pad */,
 				048FE9731AEE86470008E835 /* fonts */,
 				04F0EEB41AEE0E7400B8BBB7 /* audio */,
 				04F0EEA71AEE08E900B8BBB7 /* config */,
 				04F0EEA91AEE08E900B8BBB7 /* music */,
 				04F0EEAA1AEE08E900B8BBB7 /* video */,
 				04F0EEA11AEE08C300B8BBB7 /* hd */,
-				04F0EEA21AEE08C300B8BBB7 /* hd5 */,
 				04F0EEA31AEE08C300B8BBB7 /* sd */,
-				3EACC98E19EE6D4300EB3C5E /* res */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -553,7 +547,6 @@
 			children = (
 				04778F1B1AC2569F00260CFC /* AppDelegate.cpp */,
 				04778F1C1AC2569F00260CFC /* AppDelegate.h */,
-				04778EF11AC2567000260CFC /* Main */,
 				04CD4F2D1AC4F7AE00E59AE5 /* BlueTooth */,
 				04778EE21AC2567000260CFC /* Base */,
 				04778EE71AC2567000260CFC /* Game */,
@@ -727,12 +720,12 @@
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				048FE9741AEE86470008E835 /* fonts in Resources */,
-				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
+				04CDED861B00DEA600A772DB /* pad in Resources */,
 				04F0EEA61AEE08C300B8BBB7 /* sd in Resources */,
-				04F0EEA51AEE08C300B8BBB7 /* hd5 in Resources */,
 				04F0EEA41AEE08C300B8BBB7 /* hd in Resources */,
 				04F0EEAE1AEE08E900B8BBB7 /* music in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				04CDED841B00DD5C00A772DB /* base in Resources */,
 				04F0EEB51AEE0E7400B8BBB7 /* audio in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
@@ -747,7 +740,6 @@
 			files = (
 				048FE9751AEE86470008E835 /* fonts in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
-				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,30 +752,31 @@
 			files = (
 				04778F3B1AC25D6400260CFC /* BlueToothHelper.mm in Sources */,
 				04778F271AC2574900260CFC /* PluginHelper.mm in Sources */,
-				04778F071AC2567000260CFC /* GameLevel.cpp in Sources */,
+				04778F071AC2567000260CFC /* GameLevelScene.cpp in Sources */,
 				04245FA41ADD0F5300A1D92A /* StartScene.cpp in Sources */,
 				04CD4F371AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */,
+				04C88D321B04E7F500E18F4A /* PlayInfo.cpp in Sources */,
 				04F0EEB31AEE0CE300B8BBB7 /* POPTSlider.cpp in Sources */,
 				04CD4F301AC4F7AE00E59AE5 /* BLEScene.cpp in Sources */,
 				04245F921ADCE54500A1D92A /* POPTGlobal.cpp in Sources */,
 				04400F5E1AEE9B7500596225 /* PlayRunLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				04778F0D1AC2567000260CFC /* SelectMusic.cpp in Sources */,
-				0499B2A11AD41129003AF4BC /* MusicMenu.cpp in Sources */,
 				04400F641AEF23ED00596225 /* Section.cpp in Sources */,
 				040631891AF9F37F00D8231A /* AuditionLayer.cpp in Sources */,
 				04CD4F341AC4FA4B00E59AE5 /* MusicAnalysis.cpp in Sources */,
-				04778F031AC2567000260CFC /* GuitarRunScene.cpp in Sources */,
+				04778F031AC2567000260CFC /* GameRunScene.cpp in Sources */,
+				04CDED7B1AFDB72200A772DB /* GameLevelCardHandler.cpp in Sources */,
 				04EBF22A1ACA355C0039EA92 /* GameConfig.cpp in Sources */,
 				04245F8C1ADBEDFF00A1D92A /* MaskBaseLayer.cpp in Sources */,
 				04778EFF1AC2567000260CFC /* BaseLayer.cpp in Sources */,
 				048FE97C1AEE86D10008E835 /* MusicModel.cpp in Sources */,
 				04778F1D1AC2569F00260CFC /* AppDelegate.cpp in Sources */,
-				0499B2B41AD42C86003AF4BC /* GameMenu.cpp in Sources */,
+				04C88D351B04E9E300E18F4A /* PlayString.cpp in Sources */,
 				04400F5C1AEE9B7500596225 /* PlayConfig.cpp in Sources */,
 				04245F811ADBC78C00A1D92A /* POPTVideoPlayer.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				043E4B641AF0BAB300A89B31 /* PlayChord.cpp in Sources */,
+				04CDED7E1AFDBA5C00A772DB /* GameLevelCardReader.cpp in Sources */,
 				04853E861ADABEE70023EE1D /* GameLevelSingleton.cpp in Sources */,
 				04CD4F521AC6B1C600E59AE5 /* POPTHelper.cpp in Sources */,
 				04853E8A1ADAC0AC0023EE1D /* GameLevelInfo.cpp in Sources */,
@@ -802,24 +795,21 @@
 				04778F3C1AC25D6400260CFC /* BlueToothHelper.mm in Sources */,
 				04245F821ADBC78C00A1D92A /* POPTVideoPlayer.mm in Sources */,
 				04400F5D1AEE9B7500596225 /* PlayConfig.cpp in Sources */,
-				04778F041AC2567000260CFC /* GuitarRunScene.cpp in Sources */,
+				04778F041AC2567000260CFC /* GameRunScene.cpp in Sources */,
 				04245FA51ADD0F5300A1D92A /* StartScene.cpp in Sources */,
 				04778F001AC2567000260CFC /* BaseLayer.cpp in Sources */,
 				04778F1E1AC2569F00260CFC /* AppDelegate.cpp in Sources */,
 				04778F281AC2574900260CFC /* PluginHelper.mm in Sources */,
 				04778F0A1AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */,
-				0499B2B51AD42C86003AF4BC /* GameMenu.cpp in Sources */,
 				04245F8D1ADBEDFF00A1D92A /* MaskBaseLayer.cpp in Sources */,
-				04778F081AC2567000260CFC /* GameLevel.cpp in Sources */,
+				04778F081AC2567000260CFC /* GameLevelScene.cpp in Sources */,
 				04400F5F1AEE9B7500596225 /* PlayRunLayer.cpp in Sources */,
 				04400F651AEF23ED00596225 /* Section.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				04778F0E1AC2567000260CFC /* SelectMusic.cpp in Sources */,
 				04853E8B1ADAC0AC0023EE1D /* GameLevelInfo.cpp in Sources */,
 				04245FA11ADD0F5300A1D92A /* EndLayer.cpp in Sources */,
 				0499B2D61AD4D7AF003AF4BC /* MenuBaseLayer.cpp in Sources */,
 				048FE97D1AEE86D10008E835 /* MusicModel.cpp in Sources */,
-				0499B2A21AD41129003AF4BC /* MusicMenu.cpp in Sources */,
 				04853E871ADABEE70023EE1D /* GameLevelSingleton.cpp in Sources */,
 				04245F931ADCE54500A1D92A /* POPTGlobal.cpp in Sources */,
 				04CD4F381AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */,
@@ -847,7 +837,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yan Zhao (GCRSQS7WY4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yan Zhao (GCRSQS7WY4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -885,7 +875,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yan Zhao (GCRSQS7WY4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yan Zhao (GCRSQS7WY4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

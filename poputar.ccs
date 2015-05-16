@@ -1,0 +1,70 @@
+<Solution>
+  <PropertyGroup Name="poputar" Version="2.2.6.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="ble">
+          <Folder Name="BLEScene">
+            <PlistImageFolder Image="BlePlist.png" PListFile="BlePlist.plist" Name=".BlePlist_PList.Dir">
+              <PlistImageFile Name="ble_ble_loading_1.png" Key="ble/ble_loading_1.png" />
+              <PlistImageFile Name="ble_ble_loading_2.png" Key="ble/ble_loading_2.png" />
+            </PlistImageFolder>
+            <Image Name="BlePlist.png" />
+          </Folder>
+          <Project Name="BLELayer.csd" Type="Layer" />
+          <Project Name="BLEScene.csd" Type="Scene" />
+          <Project Name="ConnectLogo.csd" Type="Node" />
+        </Folder>
+        <Folder Name="gameLevel_hd">
+          <Project Name="GameLevelCard.csd" Type="Node" />
+          <Folder Name="GameLevelCard">
+            <Image Name="btn_bg.png" />
+            <Image Name="game_level_bg.png" />
+            <Image Name="gl_n1.png" />
+            <Image Name="gl_n2.png" />
+            <Image Name="gl_n3.png" />
+            <Image Name="gl_n4.png" />
+            <Image Name="gl_n5.png" />
+            <Image Name="gl_n6.png" />
+            <Image Name="gl_n7.png" />
+            <Image Name="gl_n8.png" />
+            <Image Name="gl_p1.png" />
+            <Image Name="gl_p2.png" />
+            <Image Name="gl_p3.png" />
+            <Image Name="gl_p4.png" />
+            <Image Name="gl_p5.png" />
+            <Image Name="gl_p6.png" />
+            <Image Name="gl_p7.png" />
+            <Image Name="gl_p8.png" />
+            <Image Name="background.png" />
+          </Folder>
+          <Project Name="GameLevelCardLayer.csd" Type="Layer" />
+          <Project Name="GameLevelCardScene.csd" Type="Scene" />
+        </Folder>
+        <Folder Name="game">
+          <Folder Name="base">
+            <Folder Name="Countdown">
+              <Image Name="1.png" />
+              <Image Name="2.png" />
+              <Image Name="3.png" />
+              <Image Name="Go.png" />
+            </Folder>
+            <Project Name="Countdown.csd" Type="Node" />
+          </Folder>
+          <Folder Name="end">
+            <Folder Name="EndLayer">
+              <Image Name="formalBtnBg.png" />
+              <Image Name="line.png" />
+              <Image Name="nextBtnBg.png" />
+              <Image Name="star.png" />
+              <Image Name="starBg.png" />
+            </Folder>
+            <Project Name="EndLayer.csd" Type="Layer" />
+            <Project Name="Scene.csd" Type="Scene" />
+            <Project Name="Star.csd" Type="Node" />
+          </Folder>
+        </Folder>
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
