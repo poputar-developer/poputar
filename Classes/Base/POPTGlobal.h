@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "Singleton.h"
 #include "GameLevelInfo.h"
-#include "RunLayer.h"
+#include "PlayRunLayer.h"
 USING_NS_CC;
 
 class POPTGlobal:public Singleton<POPTGlobal>{
@@ -22,9 +22,9 @@ public:
     //游戏关卡信息
     GameNodeInfo* gni;
     //运行的游戏层信息
-    RunLayer* runLayer;
-    
-    GameConfig* config;
+    PlayRunLayer* runLayer;
+    //游戏配置信息
+    PlayConfig* config;
     
 };
 #define poptGlobal POPTGlobal::instance()

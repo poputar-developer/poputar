@@ -10,8 +10,6 @@
 #define __poputar__PlayChord__
 
 #include <stdio.h>
-#include <cocos-ext.h>
-#include "MusicModel.h"
 #include "PlayInfo.h"
 USING_NS_CC;
 using namespace std;

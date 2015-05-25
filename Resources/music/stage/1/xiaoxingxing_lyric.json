@@ -1,0 +1,304 @@
+{
+    "lyricRun": [
+                 {
+                 "lr_content": "[p:1][s:1][t:1]@|@[p:1][s:2][t:3]"
+                 },
+                 {
+                 "lr_content": "[p:1][s:3][t:1]@|@[p:1][s:4][t:3]"
+                 },
+                 {
+                 "lr_content": "[p:1][s:5][t:1]@|@[p:1][s:6][t:3]"
+                 },
+                 {
+                 "lr_content": "[p:1][s:7][t:1]@|@[p:1][s:8][t:3]"
+                 },
+                 {
+                 "lr_content": "[p:2][s:1][t:1]@|@[p:2][s:2][t:3]"
+                 },
+                 {
+                 "lr_content": "[p:2][s:3][t:1]@|@[p:2][s:4][t:3]"
+                 }
+                 ],
+    "lyrics": [
+               {
+               "p_index": 1,
+               "lyricInfo": [
+                             {
+                             "s_index": 1,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "一"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "闪"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 1,
+                                        "lyric": "一"
+                                        },
+                                        {
+                                        "t_index": 4,
+                                        "lenght": 1,
+                                        "lyric": "闪"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 2,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "亮"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "晶"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 2,
+                                        "lyric": "晶"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 3,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "满"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "天"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 1,
+                                        "lyric": "都"
+                                        },
+                                        {
+                                        "t_index": 4,
+                                        "lenght": 1,
+                                        "lyric": "是"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 4,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "小"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "星"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 2,
+                                        "lyric": "星"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 5,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "挂"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "在"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 1,
+                                        "lyric": "天"
+                                        },
+                                        {
+                                        "t_index": 4,
+                                        "lenght": 1,
+                                        "lyric": "空"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 6,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "放"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "光"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 2,
+                                        "lyric": "明"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 7,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "好"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "像"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 1,
+                                        "lyric": "许"
+                                        },
+                                        {
+                                        "t_index": 4,
+                                        "lenght": 1,
+                                        "lyric": "多"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 8,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "小"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "眼"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 2,
+                                        "lyric": "睛"
+                                        }
+                                        ]
+                             }
+                             ]
+               },
+               {
+               "p_index": 2,
+               "lyricInfo": [
+                             {
+                             "s_index": 1,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "一"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "闪"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 1,
+                                        "lyric": "一"
+                                        },
+                                        {
+                                        "t_index": 4,
+                                        "lenght": 1,
+                                        "lyric": "闪"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 2,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "亮"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "晶"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 2,
+                                        "lyric": "晶"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 3,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "满"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "天"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 1,
+                                        "lyric": "都"
+                                        },
+                                        {
+                                        "t_index": 4,
+                                        "lenght": 1,
+                                        "lyric": "是"
+                                        }
+                                        ]
+                             },
+                             {
+                             "s_index": 4,
+                             "lyrics": [
+                                        {
+                                        "t_index": 1,
+                                        "lenght": 1,
+                                        "lyric": "小"
+                                        },
+                                        {
+                                        "t_index": 2,
+                                        "lenght": 1,
+                                        "lyric": "星"
+                                        },
+                                        {
+                                        "t_index": 3,
+                                        "lenght": 2,
+                                        "lyric": "星"
+                                        }
+                                        ]
+                             }
+                             ]
+               }
+               ]
+}

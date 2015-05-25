@@ -6,8 +6,8 @@
 //
 //
 
-#include "GameLevelCardReader.h"
-#include "GameLevelCardHandler.h"
+#include "POPTBaseDefine.h"
+
 USING_NS_CC;
 
 static GameLevelCardReader* _instance = nullptr;

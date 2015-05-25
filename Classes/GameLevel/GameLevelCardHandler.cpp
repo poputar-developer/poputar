@@ -6,8 +6,7 @@
 //
 //
 
-#include "GameLevelCardHandler.h"
-//#include "POPTBaseDefine.h"
+#include "POPTBaseDefine.h"
 
 
 USING_NS_CC;

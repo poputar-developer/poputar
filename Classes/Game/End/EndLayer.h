@@ -9,9 +9,7 @@
 #ifndef __poputar__EndLayer__
 #define __poputar__EndLayer__
 
-#include <cocos-ext.h>
 #include <stdio.h>
-#include "MenuBaseLayer.h"
 #include "MaskBaseLayer.h"
 USING_NS_CC;
 
@@ -22,7 +20,7 @@ public:
     virtual void endBackCallback()=0;
 };
 
-class EndLayer: public LayerColor{
+class EndLayer: public MaskBaseLayer{
 private:
     EndLayerDelegate* _delegate;
     void loadFrame();

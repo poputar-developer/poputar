@@ -10,13 +10,9 @@
 #define __poputar__StartLayer__
 
 #include <stdio.h>
-#include "ui/CocosGUI.h"
 #include "POPTVideoPlayer.h"
-#include "GameLevelScene.h"
-#include "ui/UIVideoPlayer.h"
-#include "BaseLayer.h"
 USING_NS_CC;
-class StartScene:public BaseLayer{
+class StartScene:public Layer{
     
 private:
     

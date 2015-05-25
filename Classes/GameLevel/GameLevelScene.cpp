@@ -6,18 +6,9 @@
 //
 //
 
-//#include "GameLevelScene.h"
-//#include "GameLevelMenuItem.h"
-//#include "MusicInfo.h"
-//#include "GameRunScene.h"
-//#include "StartScene.h"
-//#include "POPTGlobal.h"
-//#include "POPTStringUtils.h"
-//#include "MusicModel.h"
 
 #include "POPTBaseDefine.h"
-#include "GameLevelCardReader.h"
-#include "GameRunScene.h"
+
 
 
 Scene* GameLevel::createScene()

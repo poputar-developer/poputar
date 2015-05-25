@@ -6,9 +6,7 @@
 //
 //
 
-#include "StartScene.h"
-#include "GameRunScene.h"
-#include "POPTGlobal.h"
+#include "POPTBaseDefine.h"
 
 Scene* StartScene::createScene(){
     
@@ -78,7 +76,7 @@ void StartScene::loadFrame(){
     
     
     string title = poptGlobal->gni->getMusicModel()->getTitle()+"视频演示";
-    auto label = Label::createWithTTF(title, "fonts/yuanti.ttf", 30);
+    auto label = Label::createWithTTF(title, "fonts/STHeiti-Light.ttc", 30);
     label->setColor(Color3B(155, 87, 223));
     label->setAnchorPoint(Vec2::ZERO);
     label->setPosition(20,visibleSize.height - videoImageY);
@@ -96,7 +94,7 @@ void StartScene::loadFrame(){
     
     string Tip = "小提示：弹奏过程中注意手指按弦姿势摆放正确，按弦的时候尽量靠近品丝就能省力很多（当然不要按在品丝上），不然碰到其他的弦会不出声音哦！";
     
-    auto labelTip = Label::createWithTTF(Tip, "fonts/yuanti.ttf", 12);
+    auto labelTip = Label::createWithTTF(Tip, "fonts/STHeiti-Light.ttc", 12);
     labelTip->setColor(Color3B(155, 87, 223));
     labelTip->setAnchorPoint(Vec2::ZERO);
     labelTip->setPosition(20,0);

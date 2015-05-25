@@ -6,16 +6,8 @@
 //
 //
 
-#include "GameLevelSingleton.h"
+#include "POPTBaseDefine.h"
 
-//GameLevelSingleton * GameLevelSingleton::instance = NULL;
-//GameLevelSingleton* GameLevelSingleton::getInstance(){
-//    if(!instance){
-//        instance = new GameLevelSingleton();
-//        instance->init();
-//    }
-//    return instance;
-//}
 DECLARE_SINGLETON_MEMBER(GameLevelSingleton);
 GameLevelSingleton::GameLevelSingleton(void){
     rapidjson::Document doc;
@@ -27,7 +19,6 @@ GameLevelSingleton::GameLevelSingleton(void){
     }
     const rapidjson::Value &cArray = doc["levels"];
     
-    //计算页面高度
     for (int l=0; l<cArray.Size(); l++) {
         GameLevelInfo* gli = new GameLevelInfo();
         gli->setLevel(l+1);
@@ -42,10 +33,8 @@ GameLevelSingleton::GameLevelSingleton(void){
             GameNodeInfo* gni = new GameNodeInfo();
             const rapidjson::Value &node = cNodes[n];
             const rapidjson::Value &cNode = node["node"];
-            const rapidjson::Value &cType = node["type"];
             const rapidjson::Value &cMusic = node["music"];
             gni->setNode(cNode.GetInt());
-//            gni->setType(cType.GetString());
             gni->setMusic(cMusic.GetString());
             gni->setGameLevelInfo(gli);
             

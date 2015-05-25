@@ -11,26 +11,48 @@
 
 #include <stdio.h>
 #include "MusicModel.h"
-#include "GameConfig.h"
+//#include "GameConfig.h"
 USING_NS_CC;
 //播放类型
-#define PLAYTYPE 0 //正式播放
-#define BLUETOOTHTYPE 1 //蓝牙传输
+#define UPDATE_TYPE_CHORD 0 //正式播放
+#define UPDATE_TYPE_TONIC 1
+#define UPDATE_TYPE_BLUETOOTH 2 //蓝牙传输
 
 //试听控制
 #define AUDITION_PAUSE 0
 #define AUDITION_RESUME 1
 
 //小节类型
-#define SECTION_FORMAL 0
-#define SECTION_AUDITION 1
-#define SECTION_SHOW 2
-#define SECTION_NONE 3
+//展示和弦
+#define SECTION_FORMAL_CHORD 0
+//展示主音
+#define SECTION_FORMAL_TONIC 1
+//试听
+#define SECTION_AUDITION 2
+//展示（仅展示节奏线 正式的前置后置小节）
+#define SECTION_SHOW 3
+//空(试听的前置后置小节）
+#define SECTION_NONE 4
 
 
 
-class PlayConfig: public GameConfig{
+
+
+class PlayConfig{
 public:
+    
+    //界面宽度
+    float contentWidth;
+    //界面高度
+    float contentHeight;
+    //单元时间 音符间隔时间
+    float unitTime;
+    //歌曲总时长
+    float musicTime;
+    //结尾增加的时间
+    float endTime=1;
+    
+    
     //音乐信息
     MusicModel *musicModel;
     

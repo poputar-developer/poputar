@@ -11,21 +11,23 @@
 
 #include <stdio.h>
 #include <cocos-ext.h>
-#include "RunLayer.h"
 #include "PlayConfig.h"
-#include "SimpleAudioEngine.h"
 #include "Section.h"
+
 
 USING_NS_CC;
 using namespace std;
 
+class PlayRunLayerDelegate{
+public:
+    virtual void lyricCallback(int p,int s,int t)=0;
+};
 
-class PlayRunLayer : public RunLayer{
 
-
+class PlayRunLayer : public LayerColor,public SectionDelegate{
 private:
-    //配置信息
-    PlayConfig *playConfig;
+   
+    PlayRunLayerDelegate* _delegate;
     //组装和弦层
     Layer* loadSectionLayer(bool isFormal);
     //组装画面
@@ -56,13 +58,18 @@ private:
     //试听时小节信息
     Map<int,Section*> auditionSprite;
     
-    virtual void sectionPause();
-    
-    virtual void sectionResume();
     
 public:
+    ~PlayRunLayer();
+    
+    //配置信息
+    PlayConfig *gameConfig;
+    
     bool init4Finger(const Color4B &&color,MusicModel *musicModel,float proportion);
     static PlayRunLayer *createPlayRunLayer(MusicModel *musicModel,float proportion);
+    //初始化
+    virtual bool init(const Color4B &color);
+
     virtual void stopMusic();
     virtual void endAnimationSetting();
     virtual void sendDataToBluetooth();
@@ -71,13 +78,20 @@ public:
     virtual string getMusicalChord(int musicalIndex);
     virtual void audition(bool isAudition);
     
+    virtual void sectionPause();
+    
+    virtual void sectionResume();
+    
     void auditionControll(int type);
+    
     
     virtual void auditionResume(Ref* ref);
     virtual void auditionPause(Ref* ref);
-
+    
+    virtual void lyricCallbak(int p,int s,int t);
     
     virtual void onExit();
     
+    void setDelegate(PlayRunLayerDelegate *delegate);
 };
 #endif /* defined(__poputar__PlayRunLayer__) */

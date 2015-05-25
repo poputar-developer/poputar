@@ -66,7 +66,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         searchPaths.push_back("hd");
         designSize = Size(1334 ,750);
     }
-    searchPaths.push_back("base");
+    searchPaths.push_back("general");
 
     FileUtils::getInstance()->setSearchPaths(searchPaths);
     

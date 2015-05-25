@@ -6,12 +6,9 @@
 //
 //
 
-#include "GameLevelMenuItem.h"
-#include "MusicInfo.h"
-#include "GameRunScene.h"
+#include "POPTBaseDefine.h"
 
-//按钮大小
-float itemSide = 57.0f;
+
 
 GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked, int node,const ccMenuCallback& callback){
     GameLevelMenuItem *item = new GameLevelMenuItem();
@@ -28,8 +25,8 @@ GameLevelMenuItem *GameLevelMenuItem::createGameLevelMenuItem(bool isLocked, int
     }
     
     //按钮大小设置
-    startMeunNormal->setPreferredSize(Size(itemSide,itemSide));
-    startMeunSelect->setPreferredSize(Size(itemSide,itemSide));
+    startMeunNormal->setPreferredSize(Size(item->itemSide,item->itemSide));
+    startMeunSelect->setPreferredSize(Size(item->itemSide,item->itemSide));
     
     if(item && item->initWithNormalSprite(startMeunNormal, startMeunSelect, nullptr, callback)){
         

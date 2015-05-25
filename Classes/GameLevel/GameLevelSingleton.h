@@ -9,14 +9,13 @@
 #ifndef __poputar__GameLevelSingleton__
 #define __poputar__GameLevelSingleton__
 
-
+//大阶段标识
 #define CURR_LEVEL_KEY "level"
-
+//阶段内关卡标识
 #define CURR_NODE_KEY "node"
 
 #include <stdio.h>
 #include "Singleton.h"
-#include "cocostudio/CocoStudio.h"
 #include "GameLevelInfo.h"
 using namespace std;
 USING_NS_CC;

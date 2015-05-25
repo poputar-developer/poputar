@@ -10,7 +10,6 @@
 #define __poputar__GameLevelCardReader__
 
 #include "cocos2d.h"
-#include "cocostudio/CocosStudioExport.h"
 #include "cocostudio/WidgetReader/NodeReader/NodeReader.h"
 
 class GameLevelCardReader : public  cocostudio::NodeReader{

@@ -29,7 +29,12 @@
     </Item>
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
-        <ActiveDocument />
+        <OpenedDocuments>
+          <FilePathData Path="game/end/Star.csd" />
+          <FilePathData Path="game/end/Scene.csd" />
+          <FilePathData Path="game/end/EndLayer.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="game/end/EndLayer.csd" />
       </Value>
     </Item>
   </Properties>

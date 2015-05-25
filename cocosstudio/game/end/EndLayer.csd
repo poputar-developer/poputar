@@ -21,7 +21,7 @@
             <FileData Type="Normal" Path="game/end/EndLayer/line.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="line_3" ActionTag="-201019499" Tag="872" IconVisible="False" LeftMargin="292.0001" RightMargin="292.0000" TopMargin="274.5000" BottomMargin="474.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="line_3" ActionTag="-201019499" Tag="872" IconVisible="False" LeftMargin="292.0001" RightMargin="291.9999" TopMargin="274.5000" BottomMargin="474.5000" ctype="SpriteObjectData">
             <Size X="750.0000" Y="1.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="667.0001" Y="475.0000" />
@@ -32,7 +32,7 @@
             <FileData Type="Normal" Path="game/end/EndLayer/line.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="line_4" ActionTag="-1801608380" Tag="873" IconVisible="False" LeftMargin="292.0001" RightMargin="292.0000" TopMargin="474.5000" BottomMargin="274.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="line_4" ActionTag="-1801608380" Tag="873" IconVisible="False" LeftMargin="292.0001" RightMargin="291.9999" TopMargin="474.5000" BottomMargin="274.5000" ctype="SpriteObjectData">
             <Size X="750.0000" Y="1.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="667.0001" Y="275.0000" />
@@ -83,7 +83,7 @@
             <PreSize X="0.1687" Y="0.0853" />
             <TextColor A="255" R="255" G="197" B="3" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Normal" Path="game/end/EndLayer/nextBtnBg.png" Plist="" />
+            <PressedFileData Type="Normal" Path="game/end/EndLayer/formalBtnBg.png" Plist="" />
             <NormalFileData Type="Normal" Path="game/end/EndLayer/nextBtnBg.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
@@ -99,7 +99,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="tip" ActionTag="424664516" Tag="908" IconVisible="False" LeftMargin="622.0000" RightMargin="622.0000" TopMargin="408.0000" BottomMargin="308.0000" FontSize="40" LabelText="继续努力" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="tip" ActionTag="424664516" Tag="908" IconVisible="False" LeftMargin="587.0000" RightMargin="587.0000" TopMargin="402.5000" BottomMargin="302.5000" FontSize="40" LabelText="继续努力" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="160.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="667.0000" Y="325.0000" />

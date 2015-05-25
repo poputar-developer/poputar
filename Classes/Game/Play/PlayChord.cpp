@@ -6,16 +6,13 @@
 //
 //
 
-#include "PlayChord.h"
-#include "POPTStringUtils.h"
-#include "POPTGlobal.h"
+#include "POPTBaseDefine.h"
 
 
 PlayChord* PlayChord::createPlayChord(BeatInfo *beatInfo,string lineFileName,string circleFileName, float x){
     PlayChord *chord = new PlayChord();
     if(chord && chord->initWithFile(lineFileName)){
         
-        chord->config = (PlayConfig*)poptGlobal->gni->getConfig();
         chord->x = x;
         chord->beatInfo = beatInfo;
         

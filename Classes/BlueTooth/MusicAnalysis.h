@@ -3,7 +3,7 @@
 //  poputar
 //  音乐信息翻译为蓝牙所需信息
 //  Created by allen on 15-3-27.
-//
+//  
 //
 
 #ifndef __poputar__ChordAnalysis__

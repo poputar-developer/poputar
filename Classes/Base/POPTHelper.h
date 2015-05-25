@@ -16,6 +16,7 @@ class POPTHelper{
 public:
     //获得当前系统时间
     static long getCurrentTime();
+    //将int转换成时间格式字符串
     static string intToTime(int time_now);
     
 };

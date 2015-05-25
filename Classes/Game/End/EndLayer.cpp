@@ -6,7 +6,6 @@
 //
 //
 
-#include "EndLayer.h"
 #include "POPTBaseDefine.h"
 
 EndLayer* EndLayer::createEndLayer(){
@@ -22,43 +21,9 @@ EndLayer* EndLayer::createEndLayer(){
 }
 
 void EndLayer::loadFrame(){
-    
-//    Size visibleSize = Director::getInstance()->getVisibleSize();
-//    auto temp = Sprite::create("game/end/wujiaoxing.png");
-//
-//    int xxCount = 3;
-//    float xxSide = temp->getContentSize().width;
-//    float xxSpace = 10;
-//    float startX = visibleSize.width/2-(xxCount/2) *(xxSide + xxSpace);
-//
-//    for (int i=0; i<xxCount; i++) {
-//        auto spriteXX = ui::Scale9Sprite::create("game/end/wujiaoxing.png");
-//        spriteXX->setPreferredSize(Size(xxSide,xxSide));
-//        float x = startX+i*(xxSide+xxSpace);
-//        spriteXX->setPosition(Vec2(x,200));
-//        this->addChild(spriteXX);
-//    }
-//    
-//    std::string text ="弹的真棒";
-//    auto label = Label::createWithTTF(text, "fonts/yuanti.ttf", 30);
-//    label->setPosition(visibleSize.width/2,150);
-//    this->addChild(label);
-//    
-//    //重新开始
-//    ui::Button *restartBtn = ui::Button::create("game/end/restartBtnNormal.png","game/end/restartBtnSelect.png");
-//    restartBtn->setPosition(Vec2(visibleSize.width/2-restartBtn->getContentSize().width/2-20,50));
-//    restartBtn->addClickEventListener(CC_CALLBACK_1(EndLayer::restartController, this));
-//    this->addChild(restartBtn);
-//    
-//    //继续游戏
-//    ui::Button *goOnBtn = ui::Button::create("game/end/goonBtnNormal.png","game/end/goonBtnSelect.png");
-//    goOnBtn->setPosition(Vec2(visibleSize.width/2+restartBtn->getContentSize().width/2+20,50));
-//    goOnBtn->addClickEventListener(CC_CALLBACK_1(EndLayer::nextController, this));
-//    this->addChild(goOnBtn);
-    
 
     auto endLayer = CSLoader::createNode("game/end/EndLayer.csb");
-    addChild(endLayer);
+    addChild(endLayer,MASK_WIDGET_LAYER);
     
     for (int i=1; i<4; i++) {
         auto starAction = CSLoader::createTimeline("game/end/Star.csb");

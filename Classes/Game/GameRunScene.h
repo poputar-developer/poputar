@@ -10,28 +10,19 @@
 #define __Guitar__GameRunScene__
 
 #include <stdio.h>
-#include "cocos2d.h"
-//#include "BaseLayer.h"
-//#include "GameInfo.h"
-#include "POPTBaseDefine.h"
-#include "RunLayer.h"
-//#include <cocos-ext.h>
-//#include "extensions/GUI/CCControlExtension/CCControl.h"
 #include "EndLayer.h"
-#include "GameLevelSingleton.h"
-#include "MusicModel.h"
 #include "AuditionLayer.h"
-#include"cocostudio/CocoStudio.h"
-//#include "ui/CocosGUI.h"
+#include "cocostudio/CocoStudio.h"
+#include "PlayRunLayer.h"
 
 USING_NS_CC;
 using namespace cocostudio::timeline;
 using namespace cocos2d::extension;
 
-
-class GuitarRun: public Layer,public EndLayerDelegate,public AuditionLayerDelegate{
+class GuitarRun: public Layer,public EndLayerDelegate,public AuditionLayerDelegate,public PlayRunLayerDelegate{
   
 private:
+    
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     //头部高度
@@ -47,8 +38,18 @@ private:
     float time_now;
     //时间信息
     Label* time;
+    //歌词信息
+    
+    int currLyricflag = 3;
+    
+    bool lyricFlag;
+    
+    Label* lyric1;
+    Label* lyric2;
     //组装界面
-    void initialise();
+    void initVoice();
+    
+    void initParam();
     
     void loadGameFrame();
     
@@ -57,7 +58,7 @@ private:
     void loadFootFrame();
     
     //开始弹奏页面
-    RunLayer* startFingerMusic(MusicModel *musicModel,float proportion);
+    PlayRunLayer* startFingerMusic(MusicModel *musicModel,float proportion);
     //暂停控制
     void pauseControll(Ref* ref);
     //试听按钮功能
@@ -78,6 +79,9 @@ private:
     virtual void endBackCallback();
     
     virtual void auditionBackCallback(Ref *ref);
+    
+    virtual void lyricCallback(int p,int s,int t);
+    
 public:
     static Scene *createScene();
 
@@ -86,6 +90,9 @@ public:
     virtual void setBackground();
     
     virtual void goBack(Ref* sender);
+    
+    
+    void clearModel();
     
     
 };
