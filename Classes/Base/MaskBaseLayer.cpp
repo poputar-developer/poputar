@@ -10,27 +10,14 @@
 
 bool MaskBaseLayer::initWithColor(const Color4B& color){
     bool result =  LayerColor::initWithColor(color);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
     this->setPosition(0,0);
-    auto listener = EventListenerTouchOneByOne::create();
-    listener->setSwallowTouches(true);
-    
-    listener->onTouchBegan = CC_CALLBACK_2(MaskBaseLayer::onTouchBegan, this);
-    listener->onTouchMoved = CC_CALLBACK_2(MaskBaseLayer::onTouchMoved, this);
-    listener->onTouchEnded = CC_CALLBACK_2(MaskBaseLayer::onTouchEnded, this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    auto blackItem = MenuItem::create();
+    blackItem->setPosition(visibleSize.width/2,visibleSize.height/2);
+    blackItem->setContentSize(visibleSize);//设置大小为整个屏幕的大小
+    auto blackMenu = Menu::create(blackItem,NULL);
+    blackMenu->setPosition(Point::ZERO);
+    blackMenu->setAnchorPoint(Point::ZERO);
+    this->addChild(blackMenu,MASK_BASE_LAYER);
     return result;
-}
-
-
-bool MaskBaseLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event){
-    log("Touch Began");
-    return true;
-}
-
-void MaskBaseLayer::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event){
-    log("move");
-}
-
-void MaskBaseLayer::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event){
-    log("end");
 }

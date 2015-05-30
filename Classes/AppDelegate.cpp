@@ -1,7 +1,8 @@
 #include "AppDelegate.h"
-#include "BLEScene.h"
+#include "./BlueTooth/BLEScene.h"
 #include "PluginHelper.h"
 #include "GameLevelScene.h"
+
 //#include "SelectMusic.h"
 
 
@@ -66,7 +67,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         searchPaths.push_back("hd");
         designSize = Size(1334 ,750);
     }
-    searchPaths.push_back("base");
+    searchPaths.push_back("general");
 
     FileUtils::getInstance()->setSearchPaths(searchPaths);
     
@@ -96,7 +97,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 //    auto scene = BLEScene::createScene();
     auto scene = GameLevel::createScene();
-    
     director->runWithScene(scene);
 
     return true;

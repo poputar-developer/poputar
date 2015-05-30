@@ -10,8 +10,15 @@
 #define __poputar__MusicModel__
 
 #include <stdio.h>
+#include "LyricModel.h"
 
 USING_NS_CC;
+
+//音乐类型 -- 和弦
+#define MUSICMODEL_TYPE_CHORD "CHORD"
+//音乐类型 -- 主音
+#define MUSICMODEL_TYPE_TONIC "TONIC"
+
 using namespace std;
 
 class BeatInfo;
@@ -25,12 +32,14 @@ class SectionInfo;
 class MusicModel{
 private:
     string type; //音乐类型
+    string key;
     string title; //标题
     int beatRef;//以及分音符为一拍
     int beatFlag; //每小节拍数
     float bpm; //速度
     map<int,MusicPlayInfo*> plays; //循环方式
     map<int,SectionInfo*> sections;//小节信息
+    LyricModel * lyricModel; //歌词信息
     
 public:
     static MusicModel* initWithFile(string fileName);
@@ -39,8 +48,13 @@ public:
     int getBeatFlag();
     int getBeatRef();
     int getBpm();
+    string getKey();
     map<int,SectionInfo*> getSections();
     map<int,MusicPlayInfo*> getPlayInfo();
+    
+    LyricModel* getLyricModel();
+    
+    void unLoadMusicModel();
     
 };
 
@@ -52,7 +66,7 @@ public:
     int s_index; //索引
     map<int,TonicInfo*> tonics;//主音信息
 //    vector<TonicInfo*> tonics; //主音信息
-    vector<BeatInfo*>beats; //和弦信息
+    map<int,BeatInfo*>beats; //和弦信息
 };
 
 /*
@@ -60,6 +74,7 @@ public:
  */
 class BeatInfo{
 public:
+    int b_index; //索引
     string chordType; //和弦类型
     double length; //长度 与主音长度一致
     string play; //播放方式 为当前和弦扫弦的方式，同时拨当前和弦的某些弦，以“@|@”分割.例:拨1到6弦->1@|@2@|@3@|@4@|@5@|@6

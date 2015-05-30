@@ -10,8 +10,6 @@
 #define __poputar__GameLevelCardHandler__
 
 #include <stdio.h>
-#include "cocos2d.h"
-#include "cocostudio/CocoStudio.h"
 #include "cocostudio/WidgetCallBackHandlerProtocol.h"
 #include "GameRunScene.h"
 

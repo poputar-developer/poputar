@@ -9,25 +9,24 @@
 #ifndef __poputar__EndLayer__
 #define __poputar__EndLayer__
 
-#include <cocos-ext.h>
 #include <stdio.h>
-#include "MenuBaseLayer.h"
 #include "MaskBaseLayer.h"
 USING_NS_CC;
 
 class EndLayerDelegate{
 public:
     virtual void endRestartCallback()=0;
-    virtual void endNextCallback()=0;
-    virtual void endBackCallback()=0;
+    virtual void endNextCallback(bool isPassLevel)=0;
+    virtual void endBackCallback(bool isPassLevel)=0;
 };
 
-class EndLayer: public LayerColor{
+class EndLayer: public MaskBaseLayer{
 private:
     EndLayerDelegate* _delegate;
-    void loadFrame();
+    void loadFrame(bool gameResult);
+    bool isPassLevel;
 public:
-    static EndLayer* createEndLayer();
+    static EndLayer* createEndLayer(bool gameReslut,bool isPassLevel);
     void restartController(Ref* ref);
     void nextController(Ref* ref);
     void backController(Ref* ref);

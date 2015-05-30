@@ -6,14 +6,11 @@
 //
 //
 
-#include "PlayString.h"
-#include "POPTGlobal.h"
 #include "POPTBaseDefine.h"
 
 PlayString* PlayString::createPlayString(string strInfo,string cop,string circleFileName,float x){
     PlayString *chord = new PlayString();
     if(chord && chord->initWithFile(circleFileName)){
-        chord->config = (PlayConfig*)poptGlobal->gni->getConfig();
         chord->x = x;
         chord->loadFrame(strInfo,cop,circleFileName);
         chord->autorelease();
@@ -25,7 +22,7 @@ PlayString* PlayString::createPlayString(string strInfo,string cop,string circle
 
 void PlayString::loadFrame(string strInfo,string cop,string circleFileName){
     
-    auto *l = Label::createWithTTF(cop, "fonts/yuanti.ttf", 30);
+    auto *l = Label::createWithTTF(cop, "fonts/STHeiti-Light.ttc", 30);
     l->setColor(Color3B::BLACK);
     l->setPosition(this->getContentSize().width/2,this->getContentSize().height/2);
     this->addChild(l);

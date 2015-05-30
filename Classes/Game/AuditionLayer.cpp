@@ -6,9 +6,6 @@
 //
 //
 
-#include "AuditionLayer.h"
-#include "POPTSlider.h"
-#include "POPTGlobal.h"
 #include "POPTBaseDefine.h"
 
 AuditionLayer* AuditionLayer::createAuditionLayer(string title,float startTime,float allTime){
@@ -33,20 +30,11 @@ void AuditionLayer::loadFrame(){
     Size visibleSize = Director::getInstance()->getVisibleSize();
     this->setPosition(0,0);
     
-    auto blackItem = MenuItem::create();
-    blackItem->setPosition(visibleSize.width/2,visibleSize.height/2);
-    blackItem->setContentSize(visibleSize);//设置大小为整个屏幕的大小
-    
-    auto blackMenu = Menu::create(blackItem,NULL);
-    blackMenu->setPosition(Point::ZERO);
-    blackMenu->setAnchorPoint(Point::ZERO);
-    this->addChild(blackMenu,1);
-    
     string titleLabelStr = "正在试听："+title;
-    auto titleLabel = Label::createWithTTF(titleLabelStr, "fonts/yuanti.ttf", 36);
+    auto titleLabel = Label::createWithTTF(titleLabelStr, "fonts/STHeiti-Light.ttc", 36);
     titleLabel->setColor(Color3B::WHITE);
     titleLabel->setPosition(visibleSize.width/2, visibleSize.height/2+100);
-    this->addChild(titleLabel,2);
+    this->addChild(titleLabel,MASK_WIDGET_LAYER);
 
     //退出
     auto backBtn = ui::Button::create("game/base/auditionBackBtn.png");
@@ -58,7 +46,7 @@ void AuditionLayer::loadFrame(){
     backBtn->addClickEventListener([=](Ref* ref){
         _delegate->auditionBackCallback(ref);
     });
-    this->addChild(backBtn,2);
+    this->addChild(backBtn,MASK_WIDGET_LAYER);
     
     
     //时间轴
@@ -69,36 +57,36 @@ void AuditionLayer::loadFrame(){
     slider->setDelegate(this);
     slider->addTargetWithActionForControlEvents(this, cccontrol_selector(AuditionLayer::sliderChanged),Control::EventType::VALUE_CHANGED);
     slider->setValue(nowTime);
-    this->addChild(slider,2);
+    this->addChild(slider,MASK_WIDGET_LAYER);
     
     //暂停/开始
     pauseBtn = ui::Button::create("game/base/play.png");
     pauseBtn->setPosition(Vec2(visibleSize.width/2-slider->getContentSize().width/2-50,visibleSize.height/2));
     pauseBtn->addClickEventListener(CC_CALLBACK_1(AuditionLayer::pauseControll, this));
-    this->addChild(pauseBtn,2);
+    this->addChild(pauseBtn,MASK_WIDGET_LAYER);
     
     //重新开始
     auto restartBtn = ui::Button::create("game/base/restart.png");
     restartBtn->setPosition(Vec2(visibleSize.width/2+slider->getContentSize().width/2+50,visibleSize.height/2));
     restartBtn->addClickEventListener(CC_CALLBACK_1(AuditionLayer::restartControll, this));
-    this->addChild(restartBtn,2);
+    this->addChild(restartBtn,MASK_WIDGET_LAYER);
     
     
     int allTimeValue = ceil(allTime);
     string allTimeStr = POPTHelper::intToTime(allTimeValue);
-    auto allTimeLabel = Label::createWithTTF(allTimeStr, "fonts/yuanti.ttf", 24);
+    auto allTimeLabel = Label::createWithTTF(allTimeStr, "fonts/STHeiti-Light.ttc", 24);
     allTimeLabel->setAnchorPoint(Vec2(1,0.5));
     allTimeLabel->setColor(Color3B::WHITE);
     allTimeLabel->setPosition(visibleSize.width/2+slider->getContentSize().width/2,visibleSize.height/2-20);
-    this->addChild(allTimeLabel,2);
+    this->addChild(allTimeLabel,MASK_WIDGET_LAYER);
     
     int nowTimeValue = ceil(nowTime);
     string nowTimeStr = POPTHelper::intToTime(nowTimeValue);
-    nowTimeLabel = Label::createWithTTF(nowTimeStr, "fonts/yuanti.ttf", 24);
+    nowTimeLabel = Label::createWithTTF(nowTimeStr, "fonts/STHeiti-Light.ttc", 24);
     nowTimeLabel->setAnchorPoint(Vec2(0,1));
     nowTimeLabel->setColor(Color3B::WHITE);
     nowTimeLabel->setPosition(visibleSize.width/2-slider->getContentSize().width/2,visibleSize.height/2-20);
-    this->addChild(nowTimeLabel,2);
+    this->addChild(nowTimeLabel,MASK_WIDGET_LAYER);
 
     
 }

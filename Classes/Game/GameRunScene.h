@@ -10,28 +10,19 @@
 #define __Guitar__GameRunScene__
 
 #include <stdio.h>
-#include "cocos2d.h"
-//#include "BaseLayer.h"
-//#include "GameInfo.h"
-#include "POPTBaseDefine.h"
-#include "RunLayer.h"
-//#include <cocos-ext.h>
-//#include "extensions/GUI/CCControlExtension/CCControl.h"
 #include "EndLayer.h"
-#include "GameLevelSingleton.h"
-#include "MusicModel.h"
 #include "AuditionLayer.h"
-#include"cocostudio/CocoStudio.h"
-//#include "ui/CocosGUI.h"
-
+#include "cocostudio/CocoStudio.h"
+#include "PlayRunLayer.h"
+#include "Lyric.h"
 USING_NS_CC;
 using namespace cocostudio::timeline;
 using namespace cocos2d::extension;
 
-
-class GuitarRun: public Layer,public EndLayerDelegate,public AuditionLayerDelegate{
+class GuitarRun: public Layer,public EndLayerDelegate,public AuditionLayerDelegate,public PlayRunLayerDelegate{
   
 private:
+    
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     //头部高度
@@ -47,8 +38,22 @@ private:
     float time_now;
     //时间信息
     Label* time;
+    //歌词信息
+    
+    //当前歌词标识
+    int currLyricflag = 3;
+    //歌词标识（用来区分当前更新的时第几句歌词）
+    bool lyricFlag;
+    //歌词实例
+    Lyric* lyric1;
+    Lyric* lyric2;
+    
+    map<int,Lyric*> lyricMap;
+    
     //组装界面
-    void initialise();
+    void initVoice();
+    
+    void initParam();
     
     void loadGameFrame();
     
@@ -56,8 +61,10 @@ private:
     
     void loadFootFrame();
     
+    void loadLyric();
+    
     //开始弹奏页面
-    RunLayer* startFingerMusic(MusicModel *musicModel,float proportion);
+    PlayRunLayer* startFingerMusic(MusicModel *musicModel,float proportion);
     //暂停控制
     void pauseControll(Ref* ref);
     //试听按钮功能
@@ -71,13 +78,20 @@ private:
     void startAnimation();
     //时间轴移动
     void moveTime(float at);
+    //游戏结束
+    void gameEnd();
     
     //结束页面的回调
     virtual void endRestartCallback();
-    virtual void endNextCallback();
-    virtual void endBackCallback();
+    virtual void endNextCallback(bool isPassLevel);
+    virtual void endBackCallback(bool isPassLevel);
     
     virtual void auditionBackCallback(Ref *ref);
+    
+    virtual void lyricCallback(int p,int s,int t);
+    
+    void passLevel();
+    
 public:
     static Scene *createScene();
 
@@ -86,6 +100,9 @@ public:
     virtual void setBackground();
     
     virtual void goBack(Ref* sender);
+    
+    
+    void clearModel();
     
     
 };

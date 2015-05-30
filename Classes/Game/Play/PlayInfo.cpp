@@ -6,7 +6,7 @@
 //
 //
 
-#include "PlayInfo.h"
+#include "POPTBaseDefine.h"
 
 float PlayInfo::strToY(int str){
     
@@ -34,5 +34,5 @@ float PlayInfo::strToY(int str){
             break;
     }
     
-    return config->stringSideHeight+config->stringUnitHeight*(float)(yFlag-1);
+    return poptGlobal->gni->getConfig()->stringSideHeight+poptGlobal->gni->getConfig()->stringUnitHeight*(float)(yFlag-1);
 }

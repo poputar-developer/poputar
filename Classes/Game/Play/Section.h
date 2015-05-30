@@ -11,18 +11,28 @@
 
 #include <stdio.h>
 #include "PlayConfig.h"
-#include <cocos-ext.h>
 #include "PlayChord.h"
-#include "SimpleAudioEngine.h"
 
 
 USING_NS_CC;
 using namespace std;
 
+class SectionDelegate{
+public:
+    virtual void lyricCallbak(int p,int s,int t)=0;
+};
+
 class Section : public Sprite{
 public:
     
+    SectionDelegate* _delegate;
+    
     ~Section();
+    
+    int p_index;
+    
+    int s_index;
+    
     int sectionIndex;
     //和弦声音
     bool chordVoice;
@@ -40,7 +50,7 @@ public:
     //弹奏的和弦map 其中key为最小节拍的循环次数（从0开始）  例如： 一拍循环4次，其中第1次和第3次需要弹奏，则key为0，2
     Map<int,PlayChord*> playChords;
     
-    Map<int, __String*> playTonics;
+    map<int, TonicInfo*> playTonics;
     
     PlayConfig* playConfig;
     
@@ -56,9 +66,10 @@ public:
     /*
      创建小节  （配置信息、小节信息、y轴位置）
      */
-    static Section *createSection(SectionInfo* sectionInfo,int index,int type);
+    static Section *createSection(SectionInfo* sectionInfo,int index,int type,int p_index,int s_index);
     
     void loadRhythm();
+    
     void loadMusical(SectionInfo* sectionInfo);
     
     void createHeadChord(string chordType,Vec2 position, Size preferredSize);
@@ -69,7 +80,11 @@ public:
     
     void sendBlueTooth4Chord(PlayChord *chord);
     
-    void sendBlueTooth4Beat(PlayChord *chord);
+    void sendBlueTooth4ChordLift(PlayChord *chord);
+    
+    void sendBlueTooth4Tonic(string strInfo);
+    
+    void sendBlueTooth4tonicLift(string strInfo);
     
     //和弦声音控制
     void chordVoiceCallback(Ref* ref);
@@ -79,6 +94,8 @@ public:
     void toincVoiceCallBack(Ref* ref);
     //品夹控制 升降调
     void capoChangeCallback(Ref* ref);
+    
+    void setDelegate(SectionDelegate* delegate);
     
 };
 

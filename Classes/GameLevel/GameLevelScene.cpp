@@ -6,18 +6,9 @@
 //
 //
 
-//#include "GameLevelScene.h"
-//#include "GameLevelMenuItem.h"
-//#include "MusicInfo.h"
-//#include "GameRunScene.h"
-//#include "StartScene.h"
-//#include "POPTGlobal.h"
-//#include "POPTStringUtils.h"
-//#include "MusicModel.h"
 
 #include "POPTBaseDefine.h"
-#include "GameLevelCardReader.h"
-#include "GameRunScene.h"
+
 
 
 Scene* GameLevel::createScene()
@@ -41,8 +32,22 @@ bool GameLevel::init(){
     auto pageLayer = CSLoader::createNode("gameLevel/GameLevelCardLayer.csb");
     pageLayer->setContentSize(visibleSize);
     ui::Helper::doLayout(pageLayer);
-    PageView* pv = (PageView*)pageLayer->getChildByName("PageView");
+    pv = (PageView*)pageLayer->getChildByName("PageView");
     
+    
+    pageLayer->setPosition(Vec2::ZERO);
+    this->addChild(pageLayer);
+    
+    return true;
+}
+
+void GameLevel::onEnter(){
+    
+    Layer::onEnter();
+    
+    pv->removeAllPages();
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
     //得到当前关卡信息
     int curr_level = UserDefault::getInstance()->getIntegerForKey(CURR_LEVEL_KEY);
     int curr_node = UserDefault::getInstance()->getIntegerForKey(CURR_NODE_KEY);
@@ -52,11 +57,13 @@ bool GameLevel::init(){
     }
     
     if(curr_node == 0){
-        UserDefault::getInstance()->setIntegerForKey(CURR_NODE_KEY, 1);
-        curr_node = 1;
+        UserDefault::getInstance()->setIntegerForKey(CURR_NODE_KEY, 3);
+        
+        //test
+        curr_node = 3;
     }
     vector<GameLevelInfo*> levels = gameLevelSingleton->levels;
-
+    
     for (int i=0; i<levels.size(); i++) {
         auto layout = ui::Layout::create();
         Node* levelNode ;
@@ -73,10 +80,6 @@ bool GameLevel::init(){
     }
     //滚到到当前关卡
     pv->scrollToPage(curr_level-1);
-    pageLayer->setPosition(Vec2::ZERO);
-    this->addChild(pageLayer);
-    
-    return true;
 }
 
 Node* GameLevel::getLevelInfo(int levelIndex,int nodeIndex){

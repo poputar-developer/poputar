@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "PlayInfo.h"
+using namespace std;
 class PlayString:public Sprite,public PlayInfo{
 public:
     

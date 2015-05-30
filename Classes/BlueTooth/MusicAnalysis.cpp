@@ -5,11 +5,7 @@
 //  Created by allen on 15-3-27.
 //
 //
-
-#include "MusicAnalysis.h"
-#include "cocostudio/CocoStudio.h"
-#include "POPTStringUtils.h"
-#include "PluginHelper.h"
+#include "POPTBaseDefine.h"
 
 DECLARE_SINGLETON_MEMBER(MusicAnalysis);
 map<string,string> chordInfo;

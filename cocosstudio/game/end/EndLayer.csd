@@ -21,7 +21,7 @@
             <FileData Type="Normal" Path="game/end/EndLayer/line.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="line_3" ActionTag="-201019499" Tag="872" IconVisible="False" LeftMargin="292.0001" RightMargin="292.0000" TopMargin="274.5000" BottomMargin="474.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="line_3" ActionTag="-201019499" Tag="872" IconVisible="False" LeftMargin="292.0001" RightMargin="291.9999" TopMargin="274.5000" BottomMargin="474.5000" ctype="SpriteObjectData">
             <Size X="750.0000" Y="1.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="667.0001" Y="475.0000" />
@@ -32,7 +32,7 @@
             <FileData Type="Normal" Path="game/end/EndLayer/line.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="line_4" ActionTag="-1801608380" Tag="873" IconVisible="False" LeftMargin="292.0001" RightMargin="292.0000" TopMargin="474.5000" BottomMargin="274.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="line_4" ActionTag="-1801608380" Tag="873" IconVisible="False" LeftMargin="292.0001" RightMargin="291.9999" TopMargin="474.5000" BottomMargin="274.5000" ctype="SpriteObjectData">
             <Size X="750.0000" Y="1.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="667.0001" Y="275.0000" />
@@ -58,7 +58,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backBtn" ActionTag="744249608" Tag="905" IconVisible="False" LeftMargin="254.5000" RightMargin="854.5000" TopMargin="538.0000" BottomMargin="148.0000" TouchEnable="True" FontSize="30" ButtonText="回首页" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="195" Scale9Height="42" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backBtn" ActionTag="744249608" Tag="905" IconVisible="False" LeftMargin="254.5000" RightMargin="854.5000" TopMargin="538.0000" BottomMargin="148.0000" TouchEnable="True" FontSize="30" ButtonText="返回" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="195" Scale9Height="42" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="225.0000" Y="64.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="367.0000" Y="180.0000" />
@@ -83,7 +83,7 @@
             <PreSize X="0.1687" Y="0.0853" />
             <TextColor A="255" R="255" G="197" B="3" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Normal" Path="game/end/EndLayer/nextBtnBg.png" Plist="" />
+            <PressedFileData Type="Normal" Path="game/end/EndLayer/formalBtnBg.png" Plist="" />
             <NormalFileData Type="Normal" Path="game/end/EndLayer/nextBtnBg.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
@@ -99,7 +99,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="tip" ActionTag="424664516" Tag="908" IconVisible="False" LeftMargin="622.0000" RightMargin="622.0000" TopMargin="408.0000" BottomMargin="308.0000" FontSize="40" LabelText="继续努力" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="tip" ActionTag="424664516" Tag="908" IconVisible="False" LeftMargin="587.0000" RightMargin="587.0000" TopMargin="402.5000" BottomMargin="302.5000" FontSize="40" LabelText="继续努力" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="160.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="667.0000" Y="325.0000" />

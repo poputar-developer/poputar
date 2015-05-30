@@ -10,13 +10,12 @@
 
 
 MenuBaseLayer::MenuBaseLayer(){
+
 }
 
 void MenuBaseLayer::appear(){
     //层弹出动画
-
     auto fadeIn = FadeIn::create(1);
-
     this->runAction(fadeIn);
 }
 

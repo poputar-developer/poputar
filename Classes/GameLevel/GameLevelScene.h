@@ -11,17 +11,16 @@
 
 
 #include <stdio.h>
-#include <cocos-ext.h>
-#include "BaseLayer.h"
+//#include <cocos-ext.h>
 #include "GameLevelInfo.h"
-
+#include "ui/UIPageView.h"
 
 using namespace std;
 USING_NS_CC;
-USING_NS_CC_EXT;
+//USING_NS_CC_EXT;
 using namespace cocos2d::ui;
 
-class GameLevel : public BaseLayer{
+class GameLevel : public Layer{
 private:
     //进入游戏界面
     void toPlaySence(Ref* sender,GameNodeInfo* game);
@@ -31,6 +30,8 @@ private:
     Node* nextTwoLevel;
     Node* lastLevel;
     Node* lastTwoLevel;
+    
+    PageView* pv;
 public:
     
     static cocos2d::Scene* createScene();
@@ -38,6 +39,8 @@ public:
     CREATE_FUNC(GameLevel);
     
     virtual bool init();
+    
+    virtual void onEnter();
     
     Node* getLevelInfo(int levelIndex,int nodeIndex);
 

@@ -8,8 +8,10 @@
 
 #include "PlayConfig.h"
 
-PlayConfig::PlayConfig(float contentWidth, float contentHeight, MusicModel *musicModel):GameConfig::GameConfig(contentWidth,contentHeight){
-    
+PlayConfig::PlayConfig(float contentWidth, float contentHeight, MusicModel *musicModel){
+    this->contentHeight = contentHeight;
+    this->contentWidth = contentWidth;
+
     //循环周期
     this->musicModel = musicModel;
     int bpm = musicModel->getBpm();
@@ -27,7 +29,13 @@ PlayConfig::PlayConfig(float contentWidth, float contentHeight, MusicModel *musi
     //整个界面的时间
     contentWidthTime = contentWidth/move4sec;
     //和弦展示区域高度
-    chordHeight = contentHeight/8;
+    
+    if(musicModel->getType() ==MUSICMODEL_TYPE_CHORD){
+        chordHeight = contentHeight/8;
+    }else if(musicModel->getType() ==MUSICMODEL_TYPE_TONIC){
+        chordHeight = 0;
+    }
+    
     //弦的区域高度
     stringsHeight = contentHeight-chordHeight-stringSideHeight*2;
     //弦之间的距离
