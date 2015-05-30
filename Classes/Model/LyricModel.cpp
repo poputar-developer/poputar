@@ -96,7 +96,7 @@ LyricModel* LyricModel::initWithFile(string fileName){
         
         lr_index_flag=1;
         //一句歌词内容
-        string lr_content_flag;
+//        string lr_content_flag;
         
         const rapidjson::Value &mLyrics = doc["lyrics"];
         
@@ -120,17 +120,21 @@ LyricModel* LyricModel::initWithFile(string fileName){
                     const rapidjson::Value &tIndex = tLyricInfo["t_index"];
                     const rapidjson::Value &tLyric = tLyricInfo["lyric"];
                     const rapidjson::Value &tLenght = tLyricInfo["lenght"];
+                    tModel->p_index = pIndex.GetInt();
+                    tModel->s_index = sIndex.GetInt();
+                    tModel->t_index = tIndex.GetInt();
                     tModel->content = tLyric.GetString();
                     tModel->lenght = tLenght.GetDouble();
+                    
                     sModel->lyricTonicMap[tIndex.GetInt()] = tModel;
-                    int p_index = pIndex.GetInt();
-                    int s_index = sIndex.GetInt();
-                    int t_index = tIndex.GetInt();
+                    int p_index = tModel->t_index;
+                    int s_index = tModel->s_index;
+                    int t_index = tModel->t_index;
                     
                     lyricRunModel* lrm =  lyricRunMap.at(lr_index_flag);
                     int startPIndex = lrm->s_pIndex;
                     int startSIndex = lrm->s_sIndex;
-                    int startTIndex = lrm->s_tIndex;
+//                    int startTIndex = lrm->s_tIndex;
                     int endPIndex = lrm->e_pIndex;
                     int endSIndex = lrm->e_sIndex;
                     int endTIndex = lrm->e_tIndex;
@@ -139,54 +143,27 @@ LyricModel* LyricModel::initWithFile(string fileName){
                     
                     if(startPIndex == endPIndex){
                         if(startSIndex == endSIndex){
-                            if(startTIndex == endTIndex){
-                                lr_content_flag += tLyric.GetString();
-                            }else if(startTIndex<=t_index && endTIndex > t_index){
-                                lr_content_flag += tLyric.GetString();
-                            }else if(endTIndex == t_index){
+                            if(endTIndex == t_index){
                                 endFlag = true;
                             }
-                        }else if(s_index == startSIndex){
-                            if(t_index>=startTIndex){
-                               lr_content_flag += tLyric.GetString();
-                            }
-                        }else if(s_index > startSIndex && s_index<endSIndex){
-                            lr_content_flag += tLyric.GetString();
                         }else if(s_index == endSIndex){
-                            if(t_index<endTIndex){
-                                lr_content_flag += tLyric.GetString();
-                            }else if(t_index == endTIndex){
+                            if(t_index == endTIndex){
                                 endFlag = true;
                             }
                         }
-                    }else if(p_index == startPIndex){
-                        if(s_index == startSIndex){
-                            if(t_index>=startTIndex){
-                                lr_content_flag += tLyric.GetString();
-                            }
-                        }else{
-                            lr_content_flag += tLyric.GetString();
-                        }
-                    }else if(p_index>startPIndex || p_index<endTIndex){
-                        lr_content_flag += tLyric.GetString();
                     }else if(p_index == endTIndex){
                         if(s_index == endSIndex){
-                            if(t_index<endTIndex){
-                                lr_content_flag += tLyric.GetString();
-                            }else if(t_index == endTIndex){
+                            if(t_index == endTIndex){
                                 endFlag = true;
                             }
-                        }else{
-                            lr_content_flag += tLyric.GetString();
                         }
                     }
                     
+                    lrm->contentVec.push_back(tModel);
+                    
                     if(endFlag){
-                        lr_content_flag+=tLyric.GetString();
                         lyric->lyricContentMap[lr_index_flag] = lrm;
-                        lrm->content = lr_content_flag;
                         lr_index_flag+=1;
-                        lr_content_flag = "";
                     }
                     
                 }
@@ -203,14 +180,21 @@ LyricModel* LyricModel::initWithFile(string fileName){
 }
 
 
-map<int,LyricPlayModel*> LyricModel::getPlayMap(){
-    return lyricPlayMap;
-}
+//map<int,LyricPlayModel*> LyricModel::getPlayMap(){
+//    return lyricPlayMap;
+//}
 
 
 map<int,lyricRunModel*> LyricModel::getContentMap(){
     return lyricContentMap;
 }
+
+//LyricTonicModel* LyricModel::getTonicModel(int p, int s, int t){
+//    LyricPlayModel* playModel =  this->lyricPlayMap.at(p);
+//    LyricSectionModel*sectionModel =  playModel->lyricSectionMap.at(s);
+//    LyricTonicModel* tonicModel =  sectionModel->lyricTonicMap.at(t);
+//    return tonicModel;
+//}
 
 void LyricModel::unLoadLyric(){
     lyricPlayMap.clear();

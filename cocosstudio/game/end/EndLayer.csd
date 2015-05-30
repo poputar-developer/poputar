@@ -58,7 +58,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backBtn" ActionTag="744249608" Tag="905" IconVisible="False" LeftMargin="254.5000" RightMargin="854.5000" TopMargin="538.0000" BottomMargin="148.0000" TouchEnable="True" FontSize="30" ButtonText="回首页" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="195" Scale9Height="42" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backBtn" ActionTag="744249608" Tag="905" IconVisible="False" LeftMargin="254.5000" RightMargin="854.5000" TopMargin="538.0000" BottomMargin="148.0000" TouchEnable="True" FontSize="30" ButtonText="返回" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="195" Scale9Height="42" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="225.0000" Y="64.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="367.0000" Y="180.0000" />

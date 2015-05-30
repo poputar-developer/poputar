@@ -63,7 +63,29 @@
             <Project Name="Scene.csd" Type="Scene" />
             <Project Name="Star.csd" Type="Node" />
           </Folder>
+          <Folder Name="pass">
+            <Folder Name="PassLayer">
+              <Image Name="bg.png" />
+              <Image Name="btn.png" />
+              <Image Name="jiantou.png" />
+              <Image Name="pass.png" />
+              <Image Name="pick1.png" />
+              <Image Name="pick2.png" />
+              <Image Name="pick3.png" />
+              <Image Name="pick4.png" />
+              <Image Name="pick5.png" />
+              <Image Name="pick6.png" />
+              <Image Name="pick7.png" />
+              <Image Name="pick8.png" />
+              <Image Name="pick9.png" />
+              <Image Name="pick_line.png" />
+            </Folder>
+            <Project Name="PassLayer.csd" Type="Layer" />
+            <Project Name="PassScene.csd" Type="Scene" />
+            <Project Name="Pick.csd" Type="Node" />
+          </Folder>
         </Folder>
+        <File Name="STHeiti-Light.ttc" />
       </RootFolder>
     </Group>
   </SolutionFolder>

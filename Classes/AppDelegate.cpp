@@ -1,7 +1,8 @@
 #include "AppDelegate.h"
-#include "BLEScene.h"
+#include "./BlueTooth/BLEScene.h"
 #include "PluginHelper.h"
 #include "GameLevelScene.h"
+
 //#include "SelectMusic.h"
 
 
@@ -96,7 +97,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 //    auto scene = BLEScene::createScene();
     auto scene = GameLevel::createScene();
-    
     director->runWithScene(scene);
 
     return true;

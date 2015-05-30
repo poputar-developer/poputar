@@ -30,6 +30,8 @@ Scene *GuitarRun::createScene(){
     layer->loadTopFrame();
     //加载界面底部内容
     layer->loadFootFrame();
+    //加载歌词
+    layer->loadLyric();
     //开始动画
     layer->startAnimation();
     
@@ -42,6 +44,7 @@ Scene *GuitarRun::createScene(){
 
 //初始化
 void GuitarRun::initVoice(){
+    
     //节拍声音
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("game/base/snare.caf");
     for (int i=1; i<8; i++) {
@@ -117,30 +120,55 @@ void GuitarRun::loadFootFrame(){
     restartBtn->addClickEventListener(CC_CALLBACK_0(GuitarRun::endRestartCallback,this));
     this->addChild(restartBtn,LAYER_NUM_MAIN);
     
+}
+
+void GuitarRun::loadLyric(){
+    float height=footSideHeight;
     //歌词
-    string lyric1Text;
-    string lyric2Text;
+    float lyricSize = 35;
     MusicModel* mm = poptGlobal->gni->getMusicModel();
     map<int,lyricRunModel*> lyricContentMap = mm->getLyricModel()->getContentMap();
     
-    if(lyricContentMap.find(1) != lyricContentMap.end()){
-        lyricRunModel* lrm1 = lyricContentMap.at(1);
-        lyric1Text = lrm1->content;
+    for (int i=1; i<lyricContentMap.size()+1; i++) {
+        lyricRunModel* lrm = lyricContentMap.at(i);
+        auto lyric = Lyric::createLyric(lyricSize, lrm);
+        lyric ->setAnchorPoint(Vec2(0,0.5));
+        lyricMap[i] = lyric;
+        if(i%2 == 0){
+            lyric->setPosition(Vec2(visibleSize.width/3,height/5));
+        }else{
+            lyric->setPosition(Vec2(150,height/5*3));
+        }
+        lyric->setVisible(false);
+        this->addChild(lyric,LAYER_NUM_MAIN);
     }
-    if(lyricContentMap.find(2) != lyricContentMap.end()){
-        lyricRunModel* lrm2 = lyricContentMap.at(2);
-        lyric2Text = lrm2->content;
-    }
-
-    lyric1 = Label::createWithTTF(lyric1Text, "fonts/STHeiti-Light.ttc", 30);
-    lyric1->setAnchorPoint(Vec2(0,0.5));
-    lyric1->setPosition(Vec2(150,height/3*2));
-    this->addChild(lyric1,LAYER_NUM_MAIN);
+    lyric1 = lyricMap[1];
+    lyric2 = lyricMap[2];
+    lyric1->setVisible(true);
+    lyric2->setVisible(true);
     
-    lyric2 = Label::createWithTTF(lyric2Text, "fonts/STHeiti-Light.ttc", 30);
-    lyric2->setAnchorPoint(Vec2(0,0.5));
-    lyric2->setPosition(Vec2(visibleSize.width/3,height/3));
-    this->addChild(lyric2,LAYER_NUM_MAIN);
+
+    
+//    if(lyricContentMap.find(1) != lyricContentMap.end()){
+//        lyricRunModel* lrm1 = lyricContentMap.at(1);
+//        if(lyric1!=NULL){
+//            removeChild(lyric1);
+//        }
+//        lyric1 = Lyric::createLyric(lyricSize, lrm1);
+//        lyric1->setAnchorPoint(Vec2(0,0.5));
+//        lyric1->setPosition(Vec2(150,height/5*3));
+//        this->addChild(lyric1,LAYER_NUM_MAIN);
+//    }
+//    if(lyricContentMap.find(2) != lyricContentMap.end()){
+//        lyricRunModel* lrm2 = lyricContentMap.at(2);
+//        if(lyric2!=NULL){
+//            removeChild(lyric2);
+//        }
+//        lyric2 = Lyric::createLyric(lyricSize, lrm2);
+//        lyric2->setAnchorPoint(Vec2(0,0.5));
+//        lyric2->setPosition(Vec2(visibleSize.width/3,height/5));
+//        this->addChild(lyric2,LAYER_NUM_MAIN);
+//    }
 }
 
 //移动时间轴定时任务的方法
@@ -155,18 +183,27 @@ void GuitarRun::moveTime(float at){
     float allTime = poptGlobal->runLayer->gameConfig->musicTime+poptGlobal->runLayer->gameConfig->endTime;
     //歌曲结束
     if(time_now >= allTime){
-        //通知和弦关闭
-        __Bool* chordVoice = __Bool::create(false);
-        __NotificationCenter::getInstance()->postNotification(POPT_CHORD_VOICE,chordVoice);
-        //通知主音关闭
-        __Bool* toincVoice = __Bool::create(false);
-        __NotificationCenter::getInstance()->postNotification(POPT_TOINC_VOICE,toincVoice);
-        //通知节拍器关闭
-        __Bool* metronomeVoice = __Bool::create(false);
-        __NotificationCenter::getInstance()->postNotification(POPT_METRONOME_VOICE,metronomeVoice);
-        
+        gameEnd();
+    }
+}
 
-        
+void GuitarRun::gameEnd(){
+    //通知和弦关闭
+    __Bool* chordVoice = __Bool::create(false);
+    __NotificationCenter::getInstance()->postNotification(POPT_CHORD_VOICE,chordVoice);
+    //通知主音关闭
+    __Bool* toincVoice = __Bool::create(false);
+    __NotificationCenter::getInstance()->postNotification(POPT_TOINC_VOICE,toincVoice);
+    //通知节拍器关闭
+    __Bool* metronomeVoice = __Bool::create(false);
+    __NotificationCenter::getInstance()->postNotification(POPT_METRONOME_VOICE,metronomeVoice);
+    
+    //获得该关判定的结果
+    bool gameResult = true;
+    
+    bool isPassLevel = false;
+    
+    if(gameResult){
         //更新关卡信息
         //系统等级
         int curr_level = UserDefault::getInstance()->getIntegerForKey(CURR_LEVEL_KEY);
@@ -188,20 +225,20 @@ void GuitarRun::moveTime(float at){
                 //过关
                 UserDefault::getInstance()->setIntegerForKey(CURR_NODE_KEY, gameNode+1);
             }else if(gameLevel+1<=levels.size()){
+                isPassLevel = true;
                 //通过阶段
                 UserDefault::getInstance()->setIntegerForKey(CURR_LEVEL_KEY, gameLevel+1);
                 UserDefault::getInstance()->setIntegerForKey(CURR_NODE_KEY, 1);
             }
         }
-        
-        
-        log("关卡结束");
-        unschedule(schedule_selector(GuitarRun::moveTime));
-        EndLayer* endLayer = EndLayer::createEndLayer();
-        endLayer->setName("endLayer");
-        endLayer->setDelegate(this);
-        this->addChild(endLayer,99);
     }
+    
+    log("关卡结束");
+    unschedule(schedule_selector(GuitarRun::moveTime));
+    EndLayer* endLayer = EndLayer::createEndLayer(gameResult,isPassLevel);
+    endLayer->setName("endLayer");
+    endLayer->setDelegate(this);
+    this->addChild(endLayer,99);
 }
 
 void GuitarRun::auditionControll(cocos2d::Ref *ref){
@@ -209,7 +246,6 @@ void GuitarRun::auditionControll(cocos2d::Ref *ref){
     if(!isPause){
         pauseGame();
     }
-    
     auto musicModel = poptGlobal->gni->getMusicModel();
     float allTime = poptGlobal->runLayer->gameConfig->musicTime+poptGlobal->runLayer->gameConfig->endTime;
     auto auditionLayer= AuditionLayer::createAuditionLayer(musicModel->getTitle(),time_now,allTime);
@@ -237,6 +273,7 @@ void GuitarRun::startAnimation(){
          if(!evnt)
              return;
          string str = evnt->getEvent();
+        
          if(str == "End"){
              this->removeChild(layerColor);
              poptGlobal->runLayer->endAnimationSetting();
@@ -302,26 +339,16 @@ void GuitarRun::setBackground(){
     this->addChild(sprite, LAYER_NUM_BACKGROUND);
 }
 
-//返回关卡界面
-void GuitarRun::goBack(cocos2d::Ref *sender){
-    if(poptGlobal->runLayer){
-        poptGlobal->runLayer->stopMusic();
-    }
-    isPause =false;
-    
-    //去掉节拍声音
-    CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect("game/base/snare.caf");
-    poptGlobal->runLayer = nullptr;
-    Director::getInstance()->popScene();
-}
+
 
 
 //结束层的“重新开始”按钮
 void GuitarRun::endRestartCallback(){
     //重新初始化参数
     initParam();
+    loadLyric();
     unschedule(schedule_selector(GuitarRun::moveTime));
-    poptGlobal->runLayer->stopMusic();
+    poptGlobal->runLayer->onExit();
     time_now = 0.0f;
     removeChildByName("runLayer");
     PlayRunLayer* runLayer;
@@ -336,54 +363,79 @@ void GuitarRun::endRestartCallback(){
     this->removeChildByName("endLayer");
 }
 
-//结束层的继续
-void GuitarRun::endBackCallback(){
-    
-    clearModel();
-    
-    this->removeChildByTag(2);
-    resumeGame();
-    pauseBtn->loadTextureNormal("game/base/pause.png");
-    goBack(nullptr);
+
+
+//返回关卡界面
+void GuitarRun::goBack(cocos2d::Ref *sender){
+    isPause =false;
+    //去掉节拍声音
+    CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect("game/base/snare.caf");
+    poptGlobal->runLayer = nullptr;
+    Director::getInstance()->popScene();
 }
 
-void GuitarRun::endNextCallback(){
+
+
+void GuitarRun::endBackCallback(bool isPassLevel){
     
+//    resumeGame();
+//    pauseBtn->loadTextureNormal("game/base/pause.png");
+    this->removeAllChildren();
     clearModel();
+    if(isPassLevel){
+        passLevel();
+    }else{
+        goBack(nullptr);
+    }
+    
+    
+}
+
+void GuitarRun::endNextCallback(bool isPassLevel){
     
     this->removeAllChildren();
+    clearModel();
     
-    //得到下一关的node信息
-    //阶段
-    int  curr_level= poptGlobal->gni->getGameLevelInfo()->getLevel();
-    //小关
-    int curr_node = poptGlobal->gni->getNode();
+    if(isPassLevel){
+        passLevel();
+    }else{
+        //得到下一关的node信息
+        //阶段
+        int  curr_level= poptGlobal->gni->getGameLevelInfo()->getLevel();
+        //小关
+        int curr_node = poptGlobal->gni->getNode();
+        
+        vector<GameLevelInfo*> levels = gameLevelSingleton->levels;
+        GameLevelInfo* gli = levels[curr_level-1];
+        vector<GameNodeInfo*> nodes = gli->getNodes();
+        //currentNodeIndex = (curr_node-1)   下一关 curr_node-1 + 1
+        GameNodeInfo* gni = nodes[curr_node];
+        //加载音乐信息
+        string musicFile = "music/stage/"+POPTStringUtils::intToString(gni->getGameLevelInfo()->getLevel())+"/"+gni->getMusic();
+        auto musicModel = MusicModel::initWithFile(musicFile);
+        gni->setMusicModel(musicModel);
+        poptGlobal->gni = gni;
+        
+        //初始化参数
+        initParam();
+        //初始化游戏界面
+        loadGameFrame();
+        //加载界面顶部内容
+        loadTopFrame();
+        //加载界面底部内容
+        loadFootFrame();
+        //开始动画
+        startAnimation();
+        
+        this->removeChildByName("endLayer");
+    }
     
-    vector<GameLevelInfo*> levels = gameLevelSingleton->levels;
-    GameLevelInfo* gli = levels[curr_level-1];
-    vector<GameNodeInfo*> nodes = gli->getNodes();
-    //currentNodeIndex = (curr_node-1)   下一关 curr_node-1 + 1
-    GameNodeInfo* gni = nodes[curr_node];
-    //加载音乐信息
-    string musicFile = "music/stage/"+POPTStringUtils::intToString(gni->getGameLevelInfo()->getLevel())+"/"+gni->getMusic();
-    auto musicModel = MusicModel::initWithFile(musicFile);
-    gni->setMusicModel(musicModel);
-    poptGlobal->gni = gni;
-    
-    //初始化参数
-    initParam();
-    //初始化游戏界面
-    loadGameFrame();
-    //加载界面顶部内容
-    loadTopFrame();
-    //加载界面底部内容
-    loadFootFrame();
-    //开始动画
-    startAnimation();
-    
-    this->removeChildByName("endLayer");
 }
 
+void GuitarRun::passLevel(){
+    auto passSence = PassSence::createScene();
+    Director::getInstance()->replaceScene(passSence);
+}
 
 void GuitarRun::auditionBackCallback(cocos2d::Ref *ref){
     resumeGame();
@@ -391,24 +443,58 @@ void GuitarRun::auditionBackCallback(cocos2d::Ref *ref){
     this->removeChildByName("auditionLayer");
 }
 
-
-
 void GuitarRun::lyricCallback(int p, int s, int t){
+    
     MusicModel* mm = poptGlobal->gni->getMusicModel();
     map<int,lyricRunModel*> lyricContentMap = mm->getLyricModel()->getContentMap();
-    //切换歌词下一小节的歌词
+    
+    //下一小节的歌词
     if(lyricContentMap.find(currLyricflag) != lyricContentMap.end()){
         lyricRunModel* currlrm = lyricContentMap.at(currLyricflag-1);
-        lyricRunModel* nextlrm = lyricContentMap.at(currLyricflag);
+//        lyricRunModel* nextlrm = lyricContentMap.at(currLyricflag);
+        
+//        auto lyric = lyricMap[3];
+//        //lyric ->setAnchorPoint(Vec2(0,0.5));
+//        //lyric->setPosition(Vec2(150,100/5*3));
+//        this->addChild(lyric,LAYER_NUM_MAIN);
         if(p==currlrm->s_pIndex && s== currlrm->s_sIndex && t==currlrm->s_tIndex){
-            //更新下一小节歌词信息
             if(!lyricFlag){
-                lyric2->setString(nextlrm->content);
+                this->removeChild(lyric2);
+                lyric2 = lyricMap[currLyricflag];
+                lyric2->setVisible(true);
             }else{
-                lyric1->setString(nextlrm->content);
+                this->removeChild(lyric1);
+                lyric1 = lyricMap[currLyricflag];
+                lyric1->setVisible(true);
+                //lyric1->changeLyricText(nextlrm);
+                //this->addChild(lyric1,LAYER_NUM_MAIN);
             }
+        }
+    }
+    
+    //切换歌词
+    if (lyricContentMap.find(currLyricflag-1)!=lyricContentMap.end()) {
+        lyricRunModel* currlrm = lyricContentMap.at(currLyricflag-1);
+        if(p==currlrm->s_pIndex && s== currlrm->s_sIndex && t==currlrm->s_tIndex){
             lyricFlag = !lyricFlag;
             currLyricflag+=1;
+        }
+    }
+    
+    string key = POPTStringUtils::intToString(p)
+                +"@|@"+
+                POPTStringUtils::intToString(s)
+                +"@|@"+
+                POPTStringUtils::intToString(t);
+    
+    if(lyricFlag){
+        if(lyric1 != NULL){
+            lyric1->lyricChangeColor(key);
+        }
+        
+    }else{
+        if(lyric2 != NULL){
+            lyric2->lyricChangeColor(key);
         }
     }
 }

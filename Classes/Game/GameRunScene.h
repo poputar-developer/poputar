@@ -14,7 +14,7 @@
 #include "AuditionLayer.h"
 #include "cocostudio/CocoStudio.h"
 #include "PlayRunLayer.h"
-
+#include "Lyric.h"
 USING_NS_CC;
 using namespace cocostudio::timeline;
 using namespace cocos2d::extension;
@@ -40,12 +40,16 @@ private:
     Label* time;
     //歌词信息
     
+    //当前歌词标识
     int currLyricflag = 3;
-    
+    //歌词标识（用来区分当前更新的时第几句歌词）
     bool lyricFlag;
+    //歌词实例
+    Lyric* lyric1;
+    Lyric* lyric2;
     
-    Label* lyric1;
-    Label* lyric2;
+    map<int,Lyric*> lyricMap;
+    
     //组装界面
     void initVoice();
     
@@ -56,6 +60,8 @@ private:
     void loadTopFrame();
     
     void loadFootFrame();
+    
+    void loadLyric();
     
     //开始弹奏页面
     PlayRunLayer* startFingerMusic(MusicModel *musicModel,float proportion);
@@ -72,15 +78,19 @@ private:
     void startAnimation();
     //时间轴移动
     void moveTime(float at);
+    //游戏结束
+    void gameEnd();
     
     //结束页面的回调
     virtual void endRestartCallback();
-    virtual void endNextCallback();
-    virtual void endBackCallback();
+    virtual void endNextCallback(bool isPassLevel);
+    virtual void endBackCallback(bool isPassLevel);
     
     virtual void auditionBackCallback(Ref *ref);
     
     virtual void lyricCallback(int p,int s,int t);
+    
+    void passLevel();
     
 public:
     static Scene *createScene();

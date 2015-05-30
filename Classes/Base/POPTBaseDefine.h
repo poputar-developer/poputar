@@ -79,6 +79,8 @@
 #include "Section.h"
 #include "PlayChord.h"
 #include "PlayString.h"
+#include "Lyric.h"
+#include "PassSence.h"
 
 
 

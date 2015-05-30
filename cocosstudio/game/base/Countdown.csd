@@ -126,7 +126,7 @@
       <ObjectData Name="Node" Tag="846" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="CD3" ActionTag="-1428253143" Tag="849" VisibleForFrame="False" IconVisible="False" LeftMargin="-37.0000" RightMargin="-37.0000" TopMargin="-54.0000" BottomMargin="-54.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="CD3" ActionTag="-1428253143" Tag="849" IconVisible="False" LeftMargin="-37.0000" RightMargin="-37.0000" TopMargin="-54.0000" BottomMargin="-54.0000" ctype="SpriteObjectData">
             <Size X="74.0000" Y="108.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position />
@@ -137,7 +137,7 @@
             <FileData Type="Normal" Path="game/base/Countdown/3.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CD2" ActionTag="411243997" Tag="848" IconVisible="False" LeftMargin="-37.0000" RightMargin="-37.0000" TopMargin="-52.5000" BottomMargin="-52.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="CD2" ActionTag="411243997" Tag="848" VisibleForFrame="False" IconVisible="False" LeftMargin="-37.0000" RightMargin="-37.0000" TopMargin="-52.5000" BottomMargin="-52.5000" ctype="SpriteObjectData">
             <Size X="74.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position />

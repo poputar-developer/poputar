@@ -10,6 +10,7 @@
 
 
 bool PlayRunLayer::init(const cocos2d::Color4B &color){
+
     bool result =  initWithColor(color);
     
     //==============设置内容页大小==============
@@ -28,12 +29,23 @@ bool PlayRunLayer::init(const cocos2d::Color4B &color){
     __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(PlayRunLayer::auditionResume), POPT_AUDITION_RESUME , NULL);
     __NotificationCenter::getInstance()->addObserver(this, callfuncO_selector(PlayRunLayer::auditionPause), POPT_AUDITION_PAUSE , NULL);
     
+    //初始化伴奏信息
+    accPlaying = false;
+    
+    accFileName= "music/stage/"+POPTStringUtils::intToString(poptGlobal->gni->getGameLevelInfo()->getLevel())+"/"+poptGlobal->gni->getMusic()+".mp3";
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(accFileName.c_str());
+    
+    currentSection=-1;
+    blueToothSection = -1;
+    
     return result;
 }
 
 PlayRunLayer::~PlayRunLayer(){
     __NotificationCenter::getInstance()->removeObserver(this, POPT_AUDITION_RESUME);
     __NotificationCenter::getInstance()->removeObserver(this, POPT_AUDITION_PAUSE);
+    
+    delete gameConfig;
 }
 
 
@@ -55,17 +67,8 @@ bool PlayRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicModel *music
     gameConfig = new PlayConfig(visibleSize.width, height, musicModel);
     poptGlobal->gni->setConfig(gameConfig);
     bool result =  init(color);
-   
-    
-    //当前音符
-    currentMusical=0;
     //组装界面
     this->loadFrame();
-    
-    flag = 1;
-    
-    startMusical(0);
-
     //正式层
     sectionLayer = loadSectionLayer(true);
     this->addChild(sectionLayer,2);
@@ -95,9 +98,6 @@ bool PlayRunLayer::init4Finger(const cocos2d::Color4B &&color, MusicModel *music
             }
         }
     }
-    
-    sendDataToBluetooth();
-    currentMusical = 1;
     //开始移动正式音符界面
     auto beginMove = getMoveActionIterval();
     sectionLayer->runAction(beginMove);
@@ -183,14 +183,12 @@ Layer* PlayRunLayer::loadSectionLayer(bool isFormal){
 }
 
 void PlayRunLayer::loadFrame(){
-    
     //节奏线碰撞时的动画效果
     auto animation = Animation::create();
     animation->addSpriteFrameWithFile("game/play/hitline_blink.png");
     animation->setDelayPerUnit(0.3f);
     animation->setRestoreOriginalFrame(true);
     AnimationCache::getInstance()->addAnimation(animation, "hitline_blink");
-    
     
     //增加撞线
     auto mRhythm = ui::Scale9Sprite::create("game/play/hitline.png");
@@ -204,7 +202,6 @@ void PlayRunLayer::loadFrame(){
     if(gameConfig->musicModel->getType()==MUSICMODEL_TYPE_CHORD){
         auto chordBanner = Sprite::create("game/play/chordbanner.png");
         chordBanner->setPosition(Vec2(0,gameConfig->contentWidth-gameConfig->chordHeight));
-        //    chordBanner->setPreferredSize(Size(gameConfig->contentWidth,gameConfig->chordHeight));
         this->addChild(chordBanner);
     }
 
@@ -224,21 +221,8 @@ void PlayRunLayer::loadFrame(){
     }
 }
 
-
-
-void PlayRunLayer::restart(int musicalIndex){
-
-}
-
-void PlayRunLayer::startMusical(int musicalIndex){
-
-}
-
-int currentSection=-1;
-int blueToothSection = -1;
-
-
 void PlayRunLayer::update(float at){
+    
     //当前音乐层距离撞线的位置
     int playType;
     if(gameConfig->musicModel->getType()==MUSICMODEL_TYPE_CHORD){
@@ -249,6 +233,7 @@ void PlayRunLayer::update(float at){
     sectionNotice(playType);
     sectionNotice(UPDATE_TYPE_BLUETOOTH);
 }
+
 
 
 void PlayRunLayer::sectionNotice(int type){
@@ -279,12 +264,17 @@ void PlayRunLayer::sectionNotice(int type){
             if(section!=NULL){
                 bool result = section->updateState(relativePosX,type);
                 if(result){
-                    
                     //是否相撞
                     //auto loading = AnimationCache::getInstance()->getAnimation("hitline_blink");
                     //auto animate = Animate::create(loading);
                     //auto rhythm = this->getChildByTag(8001);
                     //rhythm->runAction(animate); //九宫格不能自动执行动画
+                }
+                
+                if(result && !accPlaying){
+                    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(accFileName.c_str(),false);
+                    accPlaying = true;
+
                 }
             }
         }else if(type==UPDATE_TYPE_BLUETOOTH){
@@ -303,31 +293,54 @@ void PlayRunLayer::sectionNotice(int type){
 
 void PlayRunLayer::endAnimationSetting(){
     //通知和弦发声
-    __Bool* chordVoice = __Bool::create(true);
+    __Bool* chordVoice = __Bool::create(false);
     __NotificationCenter::getInstance()->postNotification(POPT_CHORD_VOICE,chordVoice);
     //通知主音发声
-    __Bool* toincVoice = __Bool::create(true);
+    __Bool* toincVoice = __Bool::create(false);
     __NotificationCenter::getInstance()->postNotification(POPT_TOINC_VOICE,toincVoice);
     //通知节拍器发声
     __Bool* metronomeVoice = __Bool::create(true);
     __NotificationCenter::getInstance()->postNotification(POPT_METRONOME_VOICE,metronomeVoice);
-    
-//    sendDataToBluetooth();
-//    currentMusical = 1;
-//    //开始移动正式音符界面
-//    auto beginMove = getMoveActionIterval();
-//    sectionLayer->runAction(beginMove);
 }
 
 
 //试听功能
 void PlayRunLayer::audition(bool isAudition){
+    MusicModel* musicModel =  poptGlobal->gni->getMusicModel();
+
     this->isAudition = isAudition;
     //试听
     if(isAudition){
+        if(accPlaying){
+            CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+        }
+        
+        if(musicModel->getType() == MUSICMODEL_TYPE_CHORD){
+            //通知和弦发声
+            __Bool* chordVoice = __Bool::create(true);
+            __NotificationCenter::getInstance()->postNotification(POPT_CHORD_VOICE,chordVoice);
+        }else if(musicModel->getType() == MUSICMODEL_TYPE_TONIC){
+            //通知主音发声
+            __Bool* toincVoice = __Bool::create(true);
+            __NotificationCenter::getInstance()->postNotification(POPT_TOINC_VOICE,toincVoice);
+        }
         testSectionLayer->setPositionX(sectionLayer->getPositionX());
         sectionLayer->pause(); //暂停正式音符界面
     }else{
+        if(accPlaying){
+            CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+        }
+        
+        if(musicModel->getType() == MUSICMODEL_TYPE_CHORD){
+            //通知和弦发声
+            __Bool* chordVoice = __Bool::create(false);
+            __NotificationCenter::getInstance()->postNotification(POPT_CHORD_VOICE,chordVoice);
+        }else if(musicModel->getType() == MUSICMODEL_TYPE_TONIC){
+            //通知主音发声
+            __Bool* toincVoice = __Bool::create(false);
+            __NotificationCenter::getInstance()->postNotification(POPT_TOINC_VOICE,toincVoice);
+        }
+        
         auditionControll(AUDITION_PAUSE);
         sectionLayer->resume();  //恢复正式音符界面移动
     }
@@ -391,30 +404,17 @@ void PlayRunLayer::auditionControll(int type){
     }
 }
 
-void PlayRunLayer::stopMusic(){
-    currentMusical = 0;
-    flag = 0;
-    delete gameConfig;
-}
-
-void PlayRunLayer::sendDataToBluetooth(){
-    
-}
-
-float PlayRunLayer::getMusicalTime(int musicalIndex){
-    return musicalIndex * gameConfig->unitTime;;
-}
-
-string PlayRunLayer::getMusicalChord(int musicalIndex){
-    return "";
-}
-
-
 void PlayRunLayer::sectionPause(){
+    if(accPlaying){
+        CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    }
     sectionLayer->pause();
 };
 
 void PlayRunLayer::sectionResume(){
+    if(accPlaying){
+        CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    }
     sectionLayer->resume();
 };
 
@@ -453,28 +453,35 @@ void PlayRunLayer::setDelegate(PlayRunLayerDelegate *delegate){
 }
 
 void PlayRunLayer::onExit(){
+    
+    if(accPlaying){
+        CocosDenshion::SimpleAudioEngine::getInstance()->end();
+//        CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+        accPlaying = false;
+    }
+    
     //卸载音乐
-//    map<int,SectionInfo*> sections = gameConfig->musicModel->getSections();
-//    int size =  (int)sections.size();
-//    for (int i=1; i<size+1; i++) {
-//        SectionInfo* sectionInfo = sections[i];
-//        vector<BeatInfo*> beats = sectionInfo->beats;
-//        for (int b=0; b<beats.size(); b++) {
-//            BeatInfo* beatInfo =  beats[b];
-//            string type = beatInfo->chordType;
-//            string chordFileName = "audio/chord/"+type+"_clean.caf";
-//            CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(chordFileName.c_str());
-//        }
-//        map<int,TonicInfo*> tonics = sectionInfo->tonics;
-//        for (int t=1; t<tonics.size()+1; t++) {
-//            TonicInfo* toincInfo = tonics[t];
-//            string note4Str = toincInfo->note;
-//            if(!note4Str.empty() && note4Str !="0" ){
-//                string scaleFileName ="audio/scale/"+note4Str+".mp3";
-//                CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(scaleFileName.c_str());
-//            }
-//        }
-//    }
+    map<int,SectionInfo*> sections = gameConfig->musicModel->getSections();
+    int size =  (int)sections.size();
+    for (int i=1; i<size+1; i++) {
+        SectionInfo* sectionInfo = sections[i];
+        map<int,BeatInfo*> beats = sectionInfo->beats;
+        for (int b=0; b<beats.size(); b++) {
+            BeatInfo* beatInfo =  beats.at(b+1);
+            string type = beatInfo->chordType;
+            string chordFileName = "audio/chord/"+type+"_clean.caf";
+            CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(chordFileName.c_str());
+        }
+        map<int,TonicInfo*> tonics = sectionInfo->tonics;
+        for (int t=1; t<tonics.size()+1; t++) {
+            TonicInfo* toincInfo = tonics[t];
+            string note4Str = toincInfo->note;
+            if(!note4Str.empty() && note4Str !="0" ){
+                string scaleFileName ="audio/scale/"+note4Str+".mp3";
+                CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(scaleFileName.c_str());
+            }
+        }
+    }
     
     Layer::onExit();
 }

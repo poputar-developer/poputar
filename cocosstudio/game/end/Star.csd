@@ -87,7 +87,7 @@
             <FileData Type="Normal" Path="game/end/EndLayer/starBg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="star_2" ActionTag="-505328901" Tag="911" Alpha="0" IconVisible="False" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-31.0000" BottomMargin="-31.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="star_2" ActionTag="-505328901" Tag="911" Alpha="191" IconVisible="False" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-31.0000" BottomMargin="-31.0000" ctype="SpriteObjectData">
             <Size X="65.0000" Y="62.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position />

@@ -12,12 +12,12 @@
                          {
                          "node": 2,
                          "type":"F",
-                         "music": "test_1"
+                         "music": "test_2"
                          },
                          {
                          "node": 3,
                          "type":"S",
-                         "music": "test_2"
+                         "music": "test_1"
                          }
                          ]
                },

@@ -13,7 +13,7 @@
 #include <stdio.h>
 //#include <cocos-ext.h>
 #include "GameLevelInfo.h"
-
+#include "ui/UIPageView.h"
 
 using namespace std;
 USING_NS_CC;
@@ -30,6 +30,8 @@ private:
     Node* nextTwoLevel;
     Node* lastLevel;
     Node* lastTwoLevel;
+    
+    PageView* pv;
 public:
     
     static cocos2d::Scene* createScene();
@@ -37,6 +39,8 @@ public:
     CREATE_FUNC(GameLevel);
     
     virtual bool init();
+    
+    virtual void onEnter();
     
     Node* getLevelInfo(int levelIndex,int nodeIndex);
 
