@@ -10,8 +10,8 @@
 #define __poputar__GameLevelInfo__
 
 #include <stdio.h>
-#include "MusicModel.h"
-#include "PlayConfig.h"
+#include "./MusicModel.h"
+#include "../Game/Play/PlayConfig.h"
 using namespace std;
 
 class GameNodeInfo;

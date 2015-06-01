@@ -8,7 +8,6 @@
 
 #include "POPTSlider.h"
 
-
 POPTSlider* POPTSlider::create(const char *bgFile, const char *progressFile, const char *thumbFile){
     
     Sprite *backgroundSprite      = Sprite::create(bgFile);

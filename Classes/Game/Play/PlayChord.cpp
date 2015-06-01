@@ -6,7 +6,7 @@
 //
 //
 
-#include "POPTBaseDefine.h"
+#include "../../Base/POPTBaseDefine.h"
 
 
 PlayChord* PlayChord::createPlayChord(BeatInfo *beatInfo,string lineFileName,string circleFileName, float x){

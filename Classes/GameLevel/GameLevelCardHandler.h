@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include "cocostudio/WidgetCallBackHandlerProtocol.h"
-#include "GameRunScene.h"
 
 class GameLevelCardHandler:public cocos2d::Node,public cocostudio::WidgetCallBackHandlerProtocol{
 public:

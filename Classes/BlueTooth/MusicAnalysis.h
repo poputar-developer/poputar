@@ -10,7 +10,7 @@
 #define __poputar__ChordAnalysis__
 
 #include <stdio.h>
-#include "Singleton.h"
+#include "../Base/Singleton.h"
 USING_NS_CC;
 using namespace std;
 

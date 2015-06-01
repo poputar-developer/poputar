@@ -6,7 +6,7 @@
 //
 //
 
-#include "POPTBaseDefine.h"
+#include "../../Base/POPTBaseDefine.h"
 
 EndLayer* EndLayer::createEndLayer(bool gameResult,bool isPassLevel){
     EndLayer *item = new EndLayer();

@@ -15,8 +15,8 @@
 #define CURR_NODE_KEY "node"
 
 #include <stdio.h>
-#include "Singleton.h"
-#include "GameLevelInfo.h"
+#include "../Base/Singleton.h"
+#include "../Model/GameLevelInfo.h"
 using namespace std;
 USING_NS_CC;
 class GameLevelSingleton:public Singleton<GameLevelSingleton>{

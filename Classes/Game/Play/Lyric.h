@@ -10,7 +10,7 @@
 #define __poputar__Lyric__
 
 #include <stdio.h>
-#include "LyricModel.h"
+#include "../../Model/LyricModel.h"
 USING_NS_CC;
 using namespace std;
 

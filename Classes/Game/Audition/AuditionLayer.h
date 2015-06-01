@@ -10,11 +10,13 @@
 #define __poputar__AuditionLayer__
 
 #include <stdio.h>
-#include "POPTSlider.h"
-#include "MaskBaseLayer.h"
+#include "../../Base/POPTSlider.h"
+#include "../../Base/MaskBaseLayer.h"
 #include <cocos-ext.h>
 
 USING_NS_CC;
+USING_NS_CC_EXT;
+
 class AuditionLayerDelegate{
 public:
     virtual void auditionBackCallback(Ref* ref)=0;

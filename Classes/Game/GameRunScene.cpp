@@ -6,7 +6,7 @@
 //
 //
 
-#include "POPTBaseDefine.h"
+#include "../Base/POPTBaseDefine.h"
 
 //背景层
 #define LAYER_NUM_BACKGROUND 1
@@ -58,7 +58,7 @@ void GuitarRun::initParam() {
     isPause =false;
     time_now = 0.0f;
     lyricFlag = true;
-    currLyricflag = 3;
+    currLyricflag = 0;
 }
 
 void GuitarRun::loadGameFrame(){
@@ -77,7 +77,7 @@ void GuitarRun::loadTopFrame(){
     //返回按钮
     auto backBtn = ui::Button::create("game/base/back.png");
     backBtn->setPosition(Vec2(50, visibleSize.height-height/2));
-    backBtn->addClickEventListener(CC_CALLBACK_1(GuitarRun::goBack, this));
+    backBtn->addClickEventListener(CC_CALLBACK_1(GuitarRun::playingBack, this));
     this->addChild(backBtn,LAYER_NUM_MAIN);
     
     //设置歌曲名
@@ -117,7 +117,7 @@ void GuitarRun::loadFootFrame(){
     //重新开始按钮
     restartBtn = ui::Button::create("game/base/restart.png");
     restartBtn->setPosition(Vec2(visibleSize.width-50,height/2));
-    restartBtn->addClickEventListener(CC_CALLBACK_0(GuitarRun::endRestartCallback,this));
+    restartBtn->addClickEventListener(CC_CALLBACK_1(GuitarRun::playingRestart,this));
     this->addChild(restartBtn,LAYER_NUM_MAIN);
     
 }
@@ -144,31 +144,14 @@ void GuitarRun::loadLyric(){
     }
     lyric1 = lyricMap[1];
     lyric2 = lyricMap[2];
-    lyric1->setVisible(true);
-    lyric2->setVisible(true);
-    
+    if(lyric1!=NULL){
+        lyric1->setVisible(true);
 
-    
-//    if(lyricContentMap.find(1) != lyricContentMap.end()){
-//        lyricRunModel* lrm1 = lyricContentMap.at(1);
-//        if(lyric1!=NULL){
-//            removeChild(lyric1);
-//        }
-//        lyric1 = Lyric::createLyric(lyricSize, lrm1);
-//        lyric1->setAnchorPoint(Vec2(0,0.5));
-//        lyric1->setPosition(Vec2(150,height/5*3));
-//        this->addChild(lyric1,LAYER_NUM_MAIN);
-//    }
-//    if(lyricContentMap.find(2) != lyricContentMap.end()){
-//        lyricRunModel* lrm2 = lyricContentMap.at(2);
-//        if(lyric2!=NULL){
-//            removeChild(lyric2);
-//        }
-//        lyric2 = Lyric::createLyric(lyricSize, lrm2);
-//        lyric2->setAnchorPoint(Vec2(0,0.5));
-//        lyric2->setPosition(Vec2(visibleSize.width/3,height/5));
-//        this->addChild(lyric2,LAYER_NUM_MAIN);
-//    }
+    }
+    if(lyric2!=NULL){
+       lyric2->setVisible(true);
+    }
+    currLyricflag = 3;
 }
 
 //移动时间轴定时任务的方法
@@ -339,11 +322,19 @@ void GuitarRun::setBackground(){
     this->addChild(sprite, LAYER_NUM_BACKGROUND);
 }
 
+//返回关卡界面
+void GuitarRun::goBack(){
+    this->removeAllChildren();
+    clearModel();
+    
+    isPause =false;
+    //去掉节拍声音
+    CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect("game/base/snare.caf");
+    poptGlobal->runLayer = nullptr;
+    Director::getInstance()->popScene();
+}
 
-
-
-//结束层的“重新开始”按钮
-void GuitarRun::endRestartCallback(){
+void GuitarRun::restart(){
     //重新初始化参数
     initParam();
     loadLyric();
@@ -356,39 +347,35 @@ void GuitarRun::endRestartCallback(){
     runLayer = startFingerMusic(musicModel,visibleSize.height-topSideHeight-footSideHeight);
     runLayer->setName("runLayer");
     this->addChild(runLayer,LAYER_NUM_MAIN);
-
+    
     poptGlobal->runLayer = runLayer;
     startAnimation();
-
+    
     this->removeChildByName("endLayer");
 }
 
-
-
-//返回关卡界面
-void GuitarRun::goBack(cocos2d::Ref *sender){
-    isPause =false;
-    //去掉节拍声音
-    CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect("game/base/snare.caf");
-    poptGlobal->runLayer = nullptr;
-    Director::getInstance()->popScene();
+void GuitarRun::playingBack(cocos2d::Ref *sender){
+    //询问是否退出
+    goBack();
 }
 
+void GuitarRun::playingRestart(cocos2d::Ref *sender){
+    //询问是否重新开始
+    restart();
+}
 
+//结束层的“重新开始”按钮
+void GuitarRun::endRestartCallback(){
+    restart();
+}
 
 void GuitarRun::endBackCallback(bool isPassLevel){
-    
-//    resumeGame();
-//    pauseBtn->loadTextureNormal("game/base/pause.png");
-    this->removeAllChildren();
-    clearModel();
+
     if(isPassLevel){
         passLevel();
     }else{
-        goBack(nullptr);
+        goBack();
     }
-    
-    
 }
 
 void GuitarRun::endNextCallback(bool isPassLevel){
@@ -451,12 +438,6 @@ void GuitarRun::lyricCallback(int p, int s, int t){
     //下一小节的歌词
     if(lyricContentMap.find(currLyricflag) != lyricContentMap.end()){
         lyricRunModel* currlrm = lyricContentMap.at(currLyricflag-1);
-//        lyricRunModel* nextlrm = lyricContentMap.at(currLyricflag);
-        
-//        auto lyric = lyricMap[3];
-//        //lyric ->setAnchorPoint(Vec2(0,0.5));
-//        //lyric->setPosition(Vec2(150,100/5*3));
-//        this->addChild(lyric,LAYER_NUM_MAIN);
         if(p==currlrm->s_pIndex && s== currlrm->s_sIndex && t==currlrm->s_tIndex){
             if(!lyricFlag){
                 this->removeChild(lyric2);

@@ -7,7 +7,7 @@
 //
 
 
-#include "POPTBaseDefine.h"
+#include "../Base/POPTBaseDefine.h"
 
 
 
@@ -57,10 +57,8 @@ void GameLevel::onEnter(){
     }
     
     if(curr_node == 0){
-        UserDefault::getInstance()->setIntegerForKey(CURR_NODE_KEY, 3);
-        
-        //test
-        curr_node = 3;
+        UserDefault::getInstance()->setIntegerForKey(CURR_NODE_KEY, 1);
+        curr_node = 1;
     }
     vector<GameLevelInfo*> levels = gameLevelSingleton->levels;
     
