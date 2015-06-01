@@ -6,7 +6,7 @@
 //
 //
 
-#include "POPTBaseDefine.h"
+#include "../../Base/POPTBaseDefine.h"
 
 
 bool PlayRunLayer::init(const cocos2d::Color4B &color){
@@ -433,7 +433,7 @@ void PlayRunLayer::auditionResume(Ref* ref){
     float auditionX = -(beforSectionWidth-gameConfig->contentWidth)-currentX;
     testSectionLayer->setPositionX(auditionX);
     auditionControll(AUDITION_RESUME);
-    log("test X:%f",auditionX);
+//    log("test X:%f",auditionX);
 }
 
 

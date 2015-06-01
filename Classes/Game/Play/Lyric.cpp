@@ -5,9 +5,7 @@
 //  Created by allen on 15-5-29.
 //
 //
-
-#include "Lyric.h"
-#include "POPTBaseDefine.h"
+#include "../../Base/POPTBaseDefine.h"
 
 Lyric* Lyric::createLyric(float size,lyricRunModel* lrm){
     Lyric *lyric = new Lyric();
@@ -85,13 +83,11 @@ void LyricText::loadFrame(){
     clip->addChild(bg);
     clip->setInverted(true);
     clip->setAlphaThreshold(0);
-//    clip->setPosition(200, 200);
     this->addChild(clip,3);
     
     auto moveSprite = ui::Scale9Sprite::create("baise.png");
     moveSprite->setAnchorPoint(Vec2::ZERO);
     moveSprite->setPreferredSize(Size(size,size));
-//    moveSprite->setPosition(200, 200);
     this->addChild(moveSprite,2);
 
     moveNode = moveSprite;
@@ -99,10 +95,7 @@ void LyricText::loadFrame(){
     auto last = ui::Scale9Sprite::create("huangse.png");
     last->setAnchorPoint(Vec2::ZERO);
     last->setPreferredSize(Size(size,size));
-//    last->setPosition(200, 200);
     this->addChild(last,1);
-
-    log("text width:%f",        textLabel->getContentSize().width);
 }
 
 

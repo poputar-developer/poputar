@@ -1,9 +1,8 @@
 #include "AppDelegate.h"
-#include "./BlueTooth/BLEScene.h"
 #include "PluginHelper.h"
-#include "GameLevelScene.h"
 
-//#include "SelectMusic.h"
+#include "./BlueTooth/BLEScene.h"
+#include "./GameLevel/GameLevelScene.h"
 
 
 USING_NS_CC;
@@ -94,7 +93,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
     PluginHelper::init();
     //蓝牙连接场景
     
-
 //    auto scene = BLEScene::createScene();
     auto scene = GameLevel::createScene();
     director->runWithScene(scene);

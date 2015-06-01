@@ -5,7 +5,7 @@
 //  Created by allen on 15-3-27.
 //
 //
-#include "POPTBaseDefine.h"
+#include "../Base/POPTBaseDefine.h"
 
 DECLARE_SINGLETON_MEMBER(MusicAnalysis);
 map<string,string> chordInfo;

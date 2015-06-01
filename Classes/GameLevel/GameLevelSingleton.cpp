@@ -6,7 +6,7 @@
 //
 //
 
-#include "POPTBaseDefine.h"
+#include "../Base/POPTBaseDefine.h"
 
 DECLARE_SINGLETON_MEMBER(GameLevelSingleton);
 GameLevelSingleton::GameLevelSingleton(void){

@@ -10,7 +10,7 @@
 #define __poputar__EndLayer__
 
 #include <stdio.h>
-#include "MaskBaseLayer.h"
+#include "../../Base/MaskBaseLayer.h"
 USING_NS_CC;
 
 class EndLayerDelegate{

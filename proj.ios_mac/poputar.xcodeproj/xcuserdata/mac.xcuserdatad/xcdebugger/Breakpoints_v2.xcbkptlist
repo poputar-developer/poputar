@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameLevel/GameLevelScene.cpp"
-            timestampString = "454664437.737361"
+            timestampString = "454745754.785225"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "GameLevel::getLevelInfo(int levelIndex,int nodeIndex)"
             landmarkType = "5">
          </BreakpointContent>
@@ -634,12 +634,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Game/Play/Lyric.cpp"
-            timestampString = "454687539.500453"
+            timestampString = "454817486.58307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "Lyric::loadFrame(lyricRunModel *lrm)"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "Lyric::loadFrame()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -650,11 +650,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Game/GameRunScene.cpp"
-            timestampString = "454690244.43623"
+            timestampString = "454817486.58307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "GuitarRun::gameEnd()"
             landmarkType = "5">
          </BreakpointContent>

@@ -10,7 +10,7 @@
 #define __poputar__MusicModel__
 
 #include <stdio.h>
-#include "LyricModel.h"
+#include "./LyricModel.h"
 
 USING_NS_CC;
 

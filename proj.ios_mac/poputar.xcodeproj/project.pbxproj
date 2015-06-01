@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040631891AF9F37F00D8231A /* AuditionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040631871AF9F37F00D8231A /* AuditionLayer.cpp */; };
 		04245F7E1ADBBFC000A1D92A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04245F7D1ADBBFC000A1D92A /* MediaPlayer.framework */; };
 		04245F811ADBC78C00A1D92A /* POPTVideoPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04245F7F1ADBC78C00A1D92A /* POPTVideoPlayer.mm */; };
 		04245F821ADBC78C00A1D92A /* POPTVideoPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04245F7F1ADBC78C00A1D92A /* POPTVideoPlayer.mm */; };
@@ -27,6 +26,7 @@
 		04400F5F1AEE9B7500596225 /* PlayRunLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04400F581AEE9B7500596225 /* PlayRunLayer.cpp */; };
 		04400F641AEF23ED00596225 /* Section.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04400F621AEF23ED00596225 /* Section.cpp */; };
 		04400F651AEF23ED00596225 /* Section.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04400F621AEF23ED00596225 /* Section.cpp */; };
+		0458BC581B1BF0C300A66F12 /* AuditionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0458BC561B1BF0C300A66F12 /* AuditionLayer.cpp */; };
 		04778F031AC2567000260CFC /* GameRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GameRunScene.cpp */; };
 		04778F041AC2567000260CFC /* GameRunScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EE81AC2567000260CFC /* GameRunScene.cpp */; };
 		04778F071AC2567000260CFC /* GameLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04778EED1AC2567000260CFC /* GameLevelScene.cpp */; };
@@ -148,8 +148,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		040631871AF9F37F00D8231A /* AuditionLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AuditionLayer.cpp; sourceTree = "<group>"; };
-		040631881AF9F37F00D8231A /* AuditionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionLayer.h; sourceTree = "<group>"; };
 		04245F7B1ADBBF7700A1D92A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
 		04245F7D1ADBBFC000A1D92A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		04245F7F1ADBC78C00A1D92A /* POPTVideoPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPTVideoPlayer.mm; sourceTree = "<group>"; };
@@ -173,6 +171,8 @@
 		04400F591AEE9B7500596225 /* PlayRunLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayRunLayer.h; sourceTree = "<group>"; };
 		04400F621AEF23ED00596225 /* Section.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Section.cpp; sourceTree = "<group>"; };
 		04400F631AEF23ED00596225 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		0458BC561B1BF0C300A66F12 /* AuditionLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AuditionLayer.cpp; sourceTree = "<group>"; };
+		0458BC571B1BF0C300A66F12 /* AuditionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionLayer.h; sourceTree = "<group>"; };
 		04778EE81AC2567000260CFC /* GameRunScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameRunScene.cpp; sourceTree = "<group>"; };
 		04778EE91AC2567000260CFC /* GameRunScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameRunScene.h; sourceTree = "<group>"; };
 		04778EED1AC2567000260CFC /* GameLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevelScene.cpp; sourceTree = "<group>"; };
@@ -357,6 +357,15 @@
 			path = Play;
 			sourceTree = "<group>";
 		};
+		0458BC551B1BF0C300A66F12 /* Audition */ = {
+			isa = PBXGroup;
+			children = (
+				0458BC561B1BF0C300A66F12 /* AuditionLayer.cpp */,
+				0458BC571B1BF0C300A66F12 /* AuditionLayer.h */,
+			);
+			path = Audition;
+			sourceTree = "<group>";
+		};
 		04778EE21AC2567000260CFC /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,10 +392,9 @@
 		04778EE71AC2567000260CFC /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				040631871AF9F37F00D8231A /* AuditionLayer.cpp */,
-				040631881AF9F37F00D8231A /* AuditionLayer.h */,
 				04778EE81AC2567000260CFC /* GameRunScene.cpp */,
 				04778EE91AC2567000260CFC /* GameRunScene.h */,
+				0458BC551B1BF0C300A66F12 /* Audition */,
 				04245F981ADD0F5300A1D92A /* End */,
 				04400F551AEE9B7500596225 /* Play */,
 				04245F9B1ADD0F5300A1D92A /* Start */,
@@ -760,6 +768,7 @@
 				04778F271AC2574900260CFC /* PluginHelper.mm in Sources */,
 				04778F071AC2567000260CFC /* GameLevelScene.cpp in Sources */,
 				04245FA41ADD0F5300A1D92A /* StartScene.cpp in Sources */,
+				0458BC581B1BF0C300A66F12 /* AuditionLayer.cpp in Sources */,
 				04CD4F371AC504D600E59AE5 /* POPTStringUtils.cpp in Sources */,
 				049968481B11B23D00B3CABA /* PlayInfo.cpp in Sources */,
 				04F0EEB31AEE0CE300B8BBB7 /* POPTSlider.cpp in Sources */,
@@ -770,7 +779,6 @@
 				04400F5E1AEE9B7500596225 /* PlayRunLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				04400F641AEF23ED00596225 /* Section.cpp in Sources */,
-				040631891AF9F37F00D8231A /* AuditionLayer.cpp in Sources */,
 				0499683F1B0C774B00B3CABA /* POPTTonic2StrSingleton.cpp in Sources */,
 				04CD4F341AC4FA4B00E59AE5 /* MusicAnalysis.cpp in Sources */,
 				04778F031AC2567000260CFC /* GameRunScene.cpp in Sources */,

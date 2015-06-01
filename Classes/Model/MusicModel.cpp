@@ -5,8 +5,8 @@
 //  Created by allen on 15-4-27.
 //
 //
-#include "MusicModel.h"
-#include "POPTBaseDefine.h"
+
+#include "../Base/POPTBaseDefine.h"
 
 MusicModel* MusicModel::initWithFile(string fileName){
     MusicModel *music = new MusicModel();

@@ -11,8 +11,8 @@
 
 #include <stdio.h>
 #include "Singleton.h"
-#include "GameLevelInfo.h"
-#include "PlayRunLayer.h"
+#include "../Model/GameLevelInfo.h"
+#include "../Game/Play/PlayRunLayer.h"
 USING_NS_CC;
 
 class POPTGlobal:public Singleton<POPTGlobal>{

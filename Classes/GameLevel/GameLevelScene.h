@@ -11,8 +11,7 @@
 
 
 #include <stdio.h>
-//#include <cocos-ext.h>
-#include "GameLevelInfo.h"
+#include "../Model/GameLevelInfo.h"
 #include "ui/UIPageView.h"
 
 using namespace std;

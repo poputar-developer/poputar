@@ -6,7 +6,7 @@
 //
 //
 
-#include "POPTBaseDefine.h"
+#include "../../Base/POPTBaseDefine.h"
 #include <stdlib.h>
 //和弦播放控制标识
 int chordPlayKeyFlag=-1;
@@ -364,7 +364,7 @@ bool Section::updateState(float relativePosX,int nType){
                 
                 string note4Str = tonic->note;
                 if(!note4Str.empty() && note4Str != "" && note4Str !="0" ){
-                    log("p:%i   s:%i   t:%i",p_index,s_index,key/minFlag+1);
+//                    log("p:%i   s:%i   t:%i",p_index,s_index,key/minFlag+1);
                     //通知代理歌词信息
                     _delegate->lyricCallbak(p_index, s_index, key/minFlag+1);
                     

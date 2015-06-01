@@ -10,7 +10,7 @@
 #define __poputar__Slider__
 #include "extensions/GUI/CCControlExtension/CCControlSlider.h"
 #include <stdio.h>
-//#include "RunLayer.h"
+
 USING_NS_CC;
 //时间轴代理类
 class POPTSliderDelegate{

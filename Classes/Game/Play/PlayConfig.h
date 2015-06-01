@@ -10,8 +10,9 @@
 #define __poputar__PlayConfig__
 
 #include <stdio.h>
-#include "MusicModel.h"
-//#include "GameConfig.h"
+#include "../../Model/MusicModel.h"
+
+
 USING_NS_CC;
 //播放类型
 #define UPDATE_TYPE_CHORD 0 //正式播放
@@ -33,9 +34,6 @@ USING_NS_CC;
 #define SECTION_SHOW 3
 //空(试听的前置后置小节）
 #define SECTION_NONE 4
-
-
-
 
 
 class PlayConfig{

@@ -6,7 +6,7 @@
 //
 //
 
-#include "POPTBaseDefine.h"
+#include "../../Base/POPTBaseDefine.h"
 
 PlayString* PlayString::createPlayString(string strInfo,string cop,string circleFileName,float x){
     PlayString *chord = new PlayString();
