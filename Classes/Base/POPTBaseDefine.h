@@ -87,9 +87,7 @@
 #include "../Game/Pass/PassSence.h"
 
 
-
 #include <cocos-ext.h>
-#include "extensions/GUI/CCControlExtension/CCControl.h"
 #include "cocostudio/WidgetCallBackHandlerProtocol.h"
 #include "cocostudio/CocosStudioExport.h"
 #include "cocostudio/CocoStudio.h"

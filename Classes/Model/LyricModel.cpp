@@ -6,7 +6,7 @@
 //
 //
 
-#include "POPTBaseDefine.h"
+#include "../Base/POPTBaseDefine.h"
 
 
 LyricModel* LyricModel::initWithFile(string fileName){

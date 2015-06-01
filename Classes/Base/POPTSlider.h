@@ -8,10 +8,10 @@
 
 #ifndef __poputar__Slider__
 #define __poputar__Slider__
-#include "extensions/GUI/CCControlExtension/CCControlSlider.h"
+#include <cocos-ext.h>
 #include <stdio.h>
-
 USING_NS_CC;
+USING_NS_CC_EXT;
 //时间轴代理类
 class POPTSliderDelegate{
 public:
@@ -19,7 +19,6 @@ public:
     virtual void sliderTouchEndCallback(Ref* ref)=0;
 };
 
-using namespace cocos2d::extension;
 class POPTSlider:public ControlSlider{
 private:
     //时间轴代理类
