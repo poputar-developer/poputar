@@ -33,6 +33,7 @@ bool GameSetting::init() {
     {
         return false;
     }
+    this->initWithColor(Color4B(0,0,0,200));
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
@@ -123,7 +124,8 @@ bool GameSetting::init() {
 //===============================================按钮响应事件============================================
 
 void GameSetting::closeBtnClick(cocos2d::Ref *ref){
-    Director::getInstance()->popScene();
+    //Director::getInstance()->popScene();
+    this->getParent()->removeChild(this);
 }
 
 //蓝牙设备按钮 响应事件处理方法
