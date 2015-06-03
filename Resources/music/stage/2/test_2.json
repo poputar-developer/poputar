@@ -1,0 +1,371 @@
+{
+    "type": "CHORD",
+    "key":"C",
+    "title": "test222",
+    "bpm": 60,
+    "beatFlag": "4:4",
+    "plays": [
+              {
+              "p_index": 1,
+              "range": "1:4"
+              },{
+              "p_index": 2,
+              "range": "1:4"
+              }
+              ],
+    "sections": [
+                 {
+                 "s_index": 1,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "0+",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "3",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "5",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "5",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 5,
+                            "note": "5",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 6,
+                            "note": "3",
+                            "length": 0.5
+                            }
+                            ],
+                 "beats": [
+                           {
+                           "b_index":1,
+                           "chord": "C",
+                           "length": 1,
+                           "play": "6@|@5@|@4@|@3@|@2@|@1",
+                           "string": "1:0@|@2:1"
+                           },
+                           {
+                           "b_index":2,
+                           "chord": "C",
+                           "length": 0.5,
+                           "play": "4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":3,
+                           "chord": "C",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":4,
+                           "chord": "C",
+                           "length": 0.5,
+                           "play": "",
+                           "string": ""
+                           },
+                           {
+                           "b_index":5,
+                           "chord": "C",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":6,
+                           "chord": "C",
+                           "length": 0.25,
+                           "play": "4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":7,
+                           "chord": "C",
+                           "length": 0.25,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":8,
+                           "chord": "C",
+                           "length": 0.25,
+                           "play": "4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":9,
+                           "chord": "C",
+                           "length": 0.25,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           }
+                           ]
+                 },
+                 {
+                 "s_index": 2,
+                 "beats": [
+                           {
+                           "b_index":1,
+                           "chord": "Am",
+                           "length": 1,
+                           "play": "6@|@5@|@4@|@3@|@2@|@1",
+                           "string": "1:0@|@2:1"
+                           },
+                           {
+                           "b_index":2,
+                           "chord": "Am",
+                           "length": 0.5,
+                           "play": "4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":3,
+                           "chord": "Am",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":4,
+                           "chord": "Am",
+                           "length": 0.5,
+                           "play": "",
+                           "string": ""
+                           },
+                           {
+                           "b_index":5,
+                           "chord": "Am",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":6,
+                           "chord": "Am",
+                           "length": 0.5,
+                           "play": "4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":7,
+                           "chord": "Am",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           }
+                           ],
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "6",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "6",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "7",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "6",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 5,
+                            "note": "6",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 6,
+                            "note": "6",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 7,
+                            "note": "5",
+                            "length": 0.5
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 3,
+                 "beats": [
+                           {
+                           "b_index":1,
+                           "chord": "F",
+                           "length": 1,
+                           "play": "6@|@5@|@4@|@3@|@2@|@1",
+                           "string": "1:0@|@2:1"
+                           },
+                           {
+                           "b_index":2,
+                           "chord": "F",
+                           "length": 0.5,
+                           "play": "4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":3,
+                           "chord": "F",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":4,
+                           "chord": "F",
+                           "length": 0.5,
+                           "play": "",
+                           "string": ""
+                           },
+                           {
+                           "b_index":5,
+                           "chord": "F",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":6,
+                           "chord": "F",
+                           "length": 0.5,
+                           "play": "4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":7,
+                           "chord": "F",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           }
+                           ],
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "1+",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "1+",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "1+",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "6",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 5,
+                            "note": "1+",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 6,
+                            "note": "6",
+                            "length": 0.5
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 4,
+                 "beats": [
+                           {
+                           "b_index":1,
+                           "chord": "G",
+                           "length": 1,
+                           "play": "6@|@5@|@4@|@3@|@2@|@1",
+                           "string": "1:0@|@2:1"
+                           },
+                           {
+                           "b_index":2,
+                           "chord": "G",
+                           "length": 0.5,
+                           "play":"4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":3,
+                           "chord": "G",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":4,
+                           "chord": "G",
+                           "length": 0.5,
+                           "play": "",
+                           "string": ""
+                           },
+                           {
+                           "b_index":5,
+                           "chord": "G",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           },
+                           {
+                           "b_index":6,
+                           "chord": "G",
+                           "length": 0.5,
+                           "play": "4@|@3@|@2@|@1",
+                           "string": ""
+                           },
+                           {
+                           "b_index":7,
+                           "chord": "G",
+                           "length": 0.5,
+                           "play": "1@|@2@|@3@|@4",
+                           "string": ""
+                           }
+                           ],
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "5",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "0",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "0",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "0",
+                            "length": 1
+                            }
+                            ]
+                 }
+                 ]
+}

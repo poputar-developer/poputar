@@ -364,9 +364,8 @@ bool Section::updateState(float relativePosX,int nType){
                 
                 string note4Str = tonic->note;
                 if(!note4Str.empty() && note4Str != "" && note4Str !="0" ){
-//                    log("p:%i   s:%i   t:%i",p_index,s_index,key/minFlag+1);
                     //通知代理歌词信息
-                    _delegate->lyricCallbak(p_index, s_index, key/minFlag+1);
+                    _delegate->lyricCallbak(p_index, s_index, tonic->t_index);
                     
                     string scaleFileName ="audio/scale/"+note4Str+".mp3";
                     if (toincVoice) {

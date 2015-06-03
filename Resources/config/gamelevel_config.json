@@ -11,8 +11,8 @@
                          },
                          {
                          "node": 2,
-                         "type":"F",
-                         "music": "test_2"
+                         "type":"S",
+                         "music": "huanlesong"
                          },
                          {
                          "node": 3,
@@ -28,12 +28,12 @@
                          {
                          "node": 1,
                          "type":"C",
-                         "music": "chord_c"
+                         "music": "test_2"
                          },
                          {
                          "node": 2,
                          "type":"C",
-                         "music": "chord_am"
+                         "music": "test_1"
                          },
                          {
                          "node": 3,

@@ -1,0 +1,410 @@
+{
+    "lyricRun": [
+        {
+            "lr_content": "[p:1][s:1][t:1]@|@[p:1][s:2][t:4]"
+        },
+        {
+            "lr_content": "[p:1][s:3][t:1]@|@[p:1][s:4][t:3]"
+        },
+        {
+            "lr_content": "[p:1][s:5][t:1]@|@[p:1][s:6][t:4]"
+        },
+        {
+            "lr_content": "[p:1][s:7][t:1]@|@[p:1][s:8][t:3]"
+        },
+        {
+            "lr_content": "[p:1][s:9][t:1]@|@[p:1][s:10][t:5]"
+        },
+        {
+            "lr_content": "[p:1][s:11][t:1]@|@[p:1][s:12][t:3]"
+        },
+        {
+            "lr_content": "[p:1][s:13][t:1]@|@[p:1][s:14][t:5]"
+        },
+        {
+            "lr_content": "[p:1][s:15][t:1]@|@[p:1][s:16][t:3]"
+        }
+    ],
+    "lyrics": [
+        {
+            "p_index": 1,
+            "lyricInfo": [
+                {
+                    "s_index": 1,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "欢"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "乐"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "女"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "神"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 2,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "圣"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "洁"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "美"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "丽"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 3,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "灿"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "烂"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "阳"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "光"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 4,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "照"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "大"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 2,
+                            "lyric": "地"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 5,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "我"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "们"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "心"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "中"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 6,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "充"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "满"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "热"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "情"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 7,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "来"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "到"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "你"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "的"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 8,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "圣"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "殿"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 2,
+                            "lyric": "里"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 9,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "你"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "的"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "力"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "量"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 10,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "能"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "使"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "人"
+                        },
+                        {
+                            "t_index": 5,
+                            "lenght": 1,
+                            "lyric": "们"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 11,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "消"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "除"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "一"
+                        },
+                        {
+                            "t_index": 5,
+                            "lenght": 1,
+                            "lyric": "切"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 12,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 2,
+                            "lyric": "分"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 2,
+                            "lyric": "歧"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 13,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "在"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "你"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "光"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "辉"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 14,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "照"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "耀"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "下"
+                        },
+                        {
+                            "t_index": 5,
+                            "lenght": 1,
+                            "lyric": "面"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 15,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "一"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "切"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 1,
+                            "lyric": "人"
+                        },
+                        {
+                            "t_index": 4,
+                            "lenght": 1,
+                            "lyric": "类"
+                        }
+                    ]
+                },
+                {
+                    "s_index": 16,
+                    "lyrics": [
+                        {
+                            "t_index": 1,
+                            "lenght": 1,
+                            "lyric": "成"
+                        },
+                        {
+                            "t_index": 2,
+                            "lenght": 1,
+                            "lyric": "兄"
+                        },
+                        {
+                            "t_index": 3,
+                            "lenght": 2,
+                            "lyric": "弟"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

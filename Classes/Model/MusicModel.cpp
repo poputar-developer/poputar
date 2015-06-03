@@ -79,6 +79,9 @@ MusicModel* MusicModel::initWithFile(string fileName){
         
         //读取和弦信息
         const rapidjson::Value &beats = section["beats"];
+        if(beats.IsObject()){
+            
+        
         for (rapidjson::SizeType b =0; b<beats.Size(); b++) {
             BeatInfo *beatInfo = new BeatInfo();
             const rapidjson::Value &bBeat = beats[b];
@@ -99,6 +102,7 @@ MusicModel* MusicModel::initWithFile(string fileName){
             }
             sectionInfo->beats[index.GetInt()] = beatInfo;
 //            sectionInfo->beats.push_back(beatInfo);
+        }
         }
         music->sections[sIndex.GetInt()]=sectionInfo;
     }

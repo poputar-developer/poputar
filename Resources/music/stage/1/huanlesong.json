@@ -1,0 +1,420 @@
+{
+    "type": "TONIC",
+    "key": "C",
+    "title": "欢乐颂",
+    "bpm": 90,
+    "beatFlag": "4:4",
+    "plays": [
+              {
+              "p_index": 1,
+              "range": "1:16"
+              }
+              ],
+    "sections": [
+                 {
+                 "s_index": 1,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "4",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "5",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 2,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "5",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "4",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "2",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 3,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "3",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 4,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "2",
+                            "length": 2
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 5,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "4",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "5",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 6,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "5",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "4",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "2",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 7,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "3",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 8,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "2",
+                            "length": 1.5
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "1",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "0",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 9,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "1",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 10,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "3",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "4",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 5,
+                            "note": "1",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 11,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "3",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "4",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 5,
+                            "note": "2",
+                            "length": 2
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 12,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "5-",
+                            "length": 2
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 13,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "3",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "4",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "5",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 14,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "5",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "4",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "3",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "4",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 5,
+                            "note": "2",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 15,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "2",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "3",
+                            "length": 1
+                            }
+                            ]
+                 },
+                 {
+                 "s_index": 16,
+                 "tonics": [
+                            {
+                            "t_index": 1,
+                            "note": "2",
+                            "length": 1.5
+                            },
+                            {
+                            "t_index": 2,
+                            "note": "1",
+                            "length": 0.5
+                            },
+                            {
+                            "t_index": 3,
+                            "note": "1",
+                            "length": 1
+                            },
+                            {
+                            "t_index": 4,
+                            "note": "0",
+                            "length": 1
+                            }
+                            ]
+                 }
+                 ]
+}
