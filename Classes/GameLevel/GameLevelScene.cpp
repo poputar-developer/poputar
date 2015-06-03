@@ -51,8 +51,8 @@ void GameLevel::musicLibBtnController(cocos2d::Ref *ref){
 }
 
 void GameLevel::settingBtnController(cocos2d::Ref *ref){
-    auto settingSecene = GameSetting::createScene();
-    Director::getInstance()->pushScene(settingSecene);
+    auto settinglayer = GameSetting::create();
+    this->addChild(settinglayer,2);
 }
 
 void GameLevel::onEnter(){
