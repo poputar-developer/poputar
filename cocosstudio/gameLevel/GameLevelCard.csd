@@ -29,9 +29,9 @@
                 <PrePosition X="0.1769" Y="0.5694" />
                 <PreSize />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_n1.png" Plist="" />
-                <PressedFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p1.png" Plist="" />
-                <NormalFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p1.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_n1.png" Plist="" />
+                <PressedFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p1.png" Plist="" />
+                <NormalFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p1.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
@@ -44,9 +44,9 @@
                 <PrePosition X="0.3923" Y="0.5694" />
                 <PreSize />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_n2.png" Plist="" />
-                <PressedFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p2.png" Plist="" />
-                <NormalFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p2.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_n2.png" Plist="" />
+                <PressedFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p2.png" Plist="" />
+                <NormalFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p2.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
@@ -59,9 +59,9 @@
                 <PrePosition X="0.6077" Y="0.5694" />
                 <PreSize />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_n3.png" Plist="" />
-                <PressedFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p3.png" Plist="" />
-                <NormalFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p3.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_n3.png" Plist="" />
+                <PressedFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p3.png" Plist="" />
+                <NormalFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p3.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
@@ -74,9 +74,9 @@
                 <PrePosition X="0.8231" Y="0.5694" />
                 <PreSize />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_n4.png" Plist="" />
-                <PressedFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p4.png" Plist="" />
-                <NormalFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p4.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_n4.png" Plist="" />
+                <PressedFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p4.png" Plist="" />
+                <NormalFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p4.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
@@ -89,9 +89,9 @@
                 <PrePosition X="0.1769" Y="0.2847" />
                 <PreSize />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_n5.png" Plist="" />
-                <PressedFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p5.png" Plist="" />
-                <NormalFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p5.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_n5.png" Plist="" />
+                <PressedFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p5.png" Plist="" />
+                <NormalFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p5.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
@@ -104,9 +104,9 @@
                 <PrePosition X="0.3923" Y="0.2847" />
                 <PreSize />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_n6.png" Plist="" />
-                <PressedFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p6.png" Plist="" />
-                <NormalFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p6.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_n6.png" Plist="" />
+                <PressedFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p6.png" Plist="" />
+                <NormalFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p6.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
@@ -119,9 +119,9 @@
                 <PrePosition X="0.6077" Y="0.2847" />
                 <PreSize />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_n7.png" Plist="" />
-                <PressedFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p7.png" Plist="" />
-                <NormalFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p7.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_n7.png" Plist="" />
+                <PressedFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p7.png" Plist="" />
+                <NormalFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p7.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
@@ -134,9 +134,9 @@
                 <PrePosition X="0.8231" Y="0.2847" />
                 <PreSize />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_n8.png" Plist="" />
-                <PressedFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p8.png" Plist="" />
-                <NormalFileData Type="Normal" Path="gameLevel_hd/GameLevelCard/gl_p8.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_n8.png" Plist="" />
+                <PressedFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p8.png" Plist="" />
+                <NormalFileData Type="Normal" Path="gameLevel/GameLevelCard/gl_p8.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
@@ -147,7 +147,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
-            <FileData Type="Normal" Path="gameLevel_hd/GameLevelCard/game_level_bg.png" Plist="" />
+            <FileData Type="Normal" Path="gameLevel/GameLevelCard/game_level_bg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>

@@ -33,12 +33,26 @@ bool GameLevel::init(){
     pageLayer->setContentSize(visibleSize);
     ui::Helper::doLayout(pageLayer);
     pv = (PageView*)pageLayer->getChildByName("PageView");
-    
-    
     pageLayer->setPosition(Vec2::ZERO);
     this->addChild(pageLayer);
     
+    auto musicLibBtn = (ui::Button*)pageLayer->getChildByName("musicLibBtn");
+    musicLibBtn->addClickEventListener(CC_CALLBACK_1(GameLevel::musicLibBtnController, this));
+    
+    auto settingBtn = (ui::Button*)pageLayer->getChildByName("settingBtn");
+    settingBtn->addClickEventListener(CC_CALLBACK_1(GameLevel::settingBtnController, this));
+    
     return true;
+}
+
+void GameLevel::musicLibBtnController(cocos2d::Ref *ref){
+    auto musicLibScene = MusicLibScene::createScene();
+    Director::getInstance()->pushScene(musicLibScene);
+}
+
+void GameLevel::settingBtnController(cocos2d::Ref *ref){
+    auto settingSecene = GameSetting::createScene();
+    Director::getInstance()->pushScene(settingSecene);
 }
 
 void GameLevel::onEnter(){

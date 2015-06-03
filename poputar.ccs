@@ -15,32 +15,6 @@
           <Project Name="BLEScene.csd" Type="Scene" />
           <Project Name="ConnectLogo.csd" Type="Node" />
         </Folder>
-        <Folder Name="gameLevel_hd">
-          <Project Name="GameLevelCard.csd" Type="Node" />
-          <Folder Name="GameLevelCard">
-            <Image Name="btn_bg.png" />
-            <Image Name="game_level_bg.png" />
-            <Image Name="gl_n1.png" />
-            <Image Name="gl_n2.png" />
-            <Image Name="gl_n3.png" />
-            <Image Name="gl_n4.png" />
-            <Image Name="gl_n5.png" />
-            <Image Name="gl_n6.png" />
-            <Image Name="gl_n7.png" />
-            <Image Name="gl_n8.png" />
-            <Image Name="gl_p1.png" />
-            <Image Name="gl_p2.png" />
-            <Image Name="gl_p3.png" />
-            <Image Name="gl_p4.png" />
-            <Image Name="gl_p5.png" />
-            <Image Name="gl_p6.png" />
-            <Image Name="gl_p7.png" />
-            <Image Name="gl_p8.png" />
-            <Image Name="background.png" />
-          </Folder>
-          <Project Name="GameLevelCardLayer.csd" Type="Layer" />
-          <Project Name="GameLevelCardScene.csd" Type="Scene" />
-        </Folder>
         <Folder Name="game">
           <Folder Name="base">
             <Folder Name="Countdown">
@@ -86,6 +60,46 @@
           </Folder>
         </Folder>
         <File Name="STHeiti-Light.ttc" />
+        <Folder Name="musicLib">
+          <Folder Name="MusicLib">
+            <Image Name="banner_line.png" />
+            <Image Name="bg.png" />
+            <Image Name="cut_line.png" />
+            <Image Name="selected_flag.png" />
+            <Image Name="slider.png" />
+            <Image Name="slider_bg.png" />
+            <Image Name="star.png" />
+            <Image Name="back.png" />
+            <Image Name="black.png" />
+          </Folder>
+          <Project Name="MusicLibScene.csd" Type="Scene" />
+        </Folder>
+        <Folder Name="gameLevel">
+          <Folder Name="GameLevelCard">
+            <Image Name="background.png" />
+            <Image Name="btn_bg.png" />
+            <Image Name="game_level_bg.png" />
+            <Image Name="gl_n1.png" />
+            <Image Name="gl_n2.png" />
+            <Image Name="gl_n3.png" />
+            <Image Name="gl_n4.png" />
+            <Image Name="gl_n5.png" />
+            <Image Name="gl_n6.png" />
+            <Image Name="gl_n7.png" />
+            <Image Name="gl_n8.png" />
+            <Image Name="gl_p1.png" />
+            <Image Name="gl_p2.png" />
+            <Image Name="gl_p3.png" />
+            <Image Name="gl_p4.png" />
+            <Image Name="gl_p5.png" />
+            <Image Name="gl_p6.png" />
+            <Image Name="gl_p7.png" />
+            <Image Name="gl_p8.png" />
+          </Folder>
+          <Project Name="GameLevelCard.csd" Type="Node" />
+          <Project Name="GameLevelCardLayer.csd" Type="Layer" />
+          <Project Name="GameLevelCardScene.csd" Type="Scene" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

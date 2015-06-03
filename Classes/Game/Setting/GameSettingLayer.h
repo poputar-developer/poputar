@@ -54,6 +54,9 @@ public:
     //连接蓝牙
     bool connectBlooth();
     
+    //关闭调试也
+    void closeBtnClick(Ref* ref);
+    
     // implement the "static create()" method manually
     CREATE_FUNC(GameSetting);
 };

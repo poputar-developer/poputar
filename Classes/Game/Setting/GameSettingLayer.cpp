@@ -109,6 +109,7 @@ bool GameSetting::init() {
     //关闭按钮
     auto closeBtn = Button::create("game/setting/close.png");
     closeBtn->setPosition(Vec2(visibleSize.width - 74, visibleSize.height - 58));
+    closeBtn->addClickEventListener(CC_CALLBACK_1(GameSetting::closeBtnClick, this));
     this->addChild(closeBtn, 2);
     
     //if (UserDefault::getInstance()->getStringForKey("isBgMusic") != "N") {
@@ -120,6 +121,10 @@ bool GameSetting::init() {
 }
 
 //===============================================按钮响应事件============================================
+
+void GameSetting::closeBtnClick(cocos2d::Ref *ref){
+    Director::getInstance()->popScene();
+}
 
 //蓝牙设备按钮 响应事件处理方法
 void GameSetting::bluetoolthBtnClick(Ref* pSender) {

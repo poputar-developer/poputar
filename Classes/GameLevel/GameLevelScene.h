@@ -31,6 +31,10 @@ private:
     Node* lastTwoLevel;
     
     PageView* pv;
+    
+    void musicLibBtnController(Ref* ref);
+    
+    void settingBtnController(Ref* ref);
 public:
     
     static cocos2d::Scene* createScene();

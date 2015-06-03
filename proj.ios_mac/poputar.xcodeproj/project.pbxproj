@@ -63,12 +63,13 @@
 		04CDED7E1AFDBA5C00A772DB /* GameLevelCardReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CDED7C1AFDBA5C00A772DB /* GameLevelCardReader.cpp */; };
 		04CDED861B00DEA600A772DB /* pad in Resources */ = {isa = PBXBuildFile; fileRef = 04CDED851B00DEA600A772DB /* pad */; };
 		04F0EEA41AEE08C300B8BBB7 /* hd in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA11AEE08C300B8BBB7 /* hd */; };
-		04F0EEA61AEE08C300B8BBB7 /* sd in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA31AEE08C300B8BBB7 /* sd */; };
 		04F0EEAC1AEE08E900B8BBB7 /* config in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA71AEE08E900B8BBB7 /* config */; };
 		04F0EEAE1AEE08E900B8BBB7 /* music in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEA91AEE08E900B8BBB7 /* music */; };
 		04F0EEAF1AEE08E900B8BBB7 /* video in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEAA1AEE08E900B8BBB7 /* video */; };
 		04F0EEB31AEE0CE300B8BBB7 /* POPTSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F0EEB11AEE0CE300B8BBB7 /* POPTSlider.cpp */; };
 		04F0EEB51AEE0E7400B8BBB7 /* audio in Resources */ = {isa = PBXBuildFile; fileRef = 04F0EEB41AEE0E7400B8BBB7 /* audio */; };
+		04FE964C1B1E078C00C72812 /* GameSettingLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FE964A1B1E078C00C72812 /* GameSettingLayer.cpp */; };
+		04FE96501B1ED69C00C72812 /* MusicLibScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FE964E1B1ED69C00C72812 /* MusicLibScene.cpp */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -219,13 +220,16 @@
 		04CDED7D1AFDBA5C00A772DB /* GameLevelCardReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelCardReader.h; sourceTree = "<group>"; };
 		04CDED851B00DEA600A772DB /* pad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = pad; sourceTree = "<group>"; };
 		04F0EEA11AEE08C300B8BBB7 /* hd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hd; sourceTree = "<group>"; };
-		04F0EEA31AEE08C300B8BBB7 /* sd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sd; sourceTree = "<group>"; };
 		04F0EEA71AEE08E900B8BBB7 /* config */ = {isa = PBXFileReference; lastKnownFileType = folder; path = config; sourceTree = "<group>"; };
 		04F0EEA91AEE08E900B8BBB7 /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
 		04F0EEAA1AEE08E900B8BBB7 /* video */ = {isa = PBXFileReference; lastKnownFileType = folder; path = video; sourceTree = "<group>"; };
 		04F0EEB11AEE0CE300B8BBB7 /* POPTSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = POPTSlider.cpp; sourceTree = "<group>"; };
 		04F0EEB21AEE0CE300B8BBB7 /* POPTSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTSlider.h; sourceTree = "<group>"; };
 		04F0EEB41AEE0E7400B8BBB7 /* audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = audio; sourceTree = "<group>"; };
+		04FE964A1B1E078C00C72812 /* GameSettingLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSettingLayer.cpp; sourceTree = "<group>"; };
+		04FE964B1B1E078C00C72812 /* GameSettingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingLayer.h; sourceTree = "<group>"; };
+		04FE964E1B1ED69C00C72812 /* MusicLibScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicLibScene.cpp; sourceTree = "<group>"; };
+		04FE964F1B1ED69C00C72812 /* MusicLibScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicLibScene.h; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -465,6 +469,25 @@
 			path = BlueTooth;
 			sourceTree = "<group>";
 		};
+		04FE96491B1E078C00C72812 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				04FE964A1B1E078C00C72812 /* GameSettingLayer.cpp */,
+				04FE964B1B1E078C00C72812 /* GameSettingLayer.h */,
+			);
+			name = Setting;
+			path = Game/Setting;
+			sourceTree = "<group>";
+		};
+		04FE964D1B1ED67100C72812 /* MusicLib */ = {
+			isa = PBXGroup;
+			children = (
+				04FE964E1B1ED69C00C72812 /* MusicLibScene.cpp */,
+				04FE964F1B1ED69C00C72812 /* MusicLibScene.h */,
+			);
+			path = MusicLib;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,7 +573,6 @@
 				04F0EEA91AEE08E900B8BBB7 /* music */,
 				04F0EEAA1AEE08E900B8BBB7 /* video */,
 				04F0EEA11AEE08C300B8BBB7 /* hd */,
-				04F0EEA31AEE08C300B8BBB7 /* sd */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -561,6 +583,8 @@
 			children = (
 				04778F1B1AC2569F00260CFC /* AppDelegate.cpp */,
 				04778F1C1AC2569F00260CFC /* AppDelegate.h */,
+				04FE96491B1E078C00C72812 /* Setting */,
+				04FE964D1B1ED67100C72812 /* MusicLib */,
 				04CD4F2D1AC4F7AE00E59AE5 /* BlueTooth */,
 				04778EE21AC2567000260CFC /* Base */,
 				04778EE71AC2567000260CFC /* Game */,
@@ -735,7 +759,6 @@
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				048FE9741AEE86470008E835 /* fonts in Resources */,
 				04CDED861B00DEA600A772DB /* pad in Resources */,
-				04F0EEA61AEE08C300B8BBB7 /* sd in Resources */,
 				04F0EEA41AEE08C300B8BBB7 /* hd in Resources */,
 				04F0EEAE1AEE08E900B8BBB7 /* music in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
@@ -778,6 +801,7 @@
 				047CA4411B195E8A0055A36B /* PassSence.cpp in Sources */,
 				04400F5E1AEE9B7500596225 /* PlayRunLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				04FE964C1B1E078C00C72812 /* GameSettingLayer.cpp in Sources */,
 				04400F641AEF23ED00596225 /* Section.cpp in Sources */,
 				0499683F1B0C774B00B3CABA /* POPTTonic2StrSingleton.cpp in Sources */,
 				04CD4F341AC4FA4B00E59AE5 /* MusicAnalysis.cpp in Sources */,
@@ -795,6 +819,7 @@
 				04CDED7E1AFDBA5C00A772DB /* GameLevelCardReader.cpp in Sources */,
 				04853E861ADABEE70023EE1D /* GameLevelSingleton.cpp in Sources */,
 				04CD4F521AC6B1C600E59AE5 /* POPTHelper.cpp in Sources */,
+				04FE96501B1ED69C00C72812 /* MusicLibScene.cpp in Sources */,
 				04853E8A1ADAC0AC0023EE1D /* GameLevelInfo.cpp in Sources */,
 				04245FA01ADD0F5300A1D92A /* EndLayer.cpp in Sources */,
 				04778F091AC2567000260CFC /* GameLevelMenuItem.cpp in Sources */,

@@ -14,7 +14,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="1.0000" Y="1.0000" />
-            <FileData Type="Normal" Path="gameLevel_hd/GameLevelCardLayer.csd" Plist="" />
+            <FileData Type="Normal" Path="gameLevel/GameLevelCardLayer.csd" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
