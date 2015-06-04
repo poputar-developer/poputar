@@ -12,11 +12,12 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "SimpleAudioEngine.h"
+#include "MaskBaseLayer.h"
 
 USING_NS_CC;
 using namespace ui;
 
-class GameSetting : public cocos2d::Layer {
+class GameSetting : public MaskBaseLayer {
     
 private:
     Button* startTuningBtn;
